@@ -1,0 +1,5 @@
+78be3ca320ad802bded3d8490c3d1141
+module.exports = {
+      testUri:
+        "../../../src/components/Dice/assets/3.png"
+    };
