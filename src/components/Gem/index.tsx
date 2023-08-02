@@ -1,7 +1,5 @@
 import React from 'react'
-import {Image, View} from 'react-native'
-import {Gesture, GestureDetector} from 'react-native-gesture-handler'
-import {runOnJS} from 'react-native-reanimated'
+import {Image, Pressable, View} from 'react-native'
 import {ScaledSheet, ms} from 'react-native-size-matters'
 import {ICONS} from './images'
 
@@ -22,13 +20,11 @@ const Gem: React.FC<GemProps> = ({playerNumber, onPress}) => {
   }
 
   return (
-    <GestureDetector
-      gesture={Gesture.Tap().onTouchesUp(() => runOnJS(onPress))}
-      testID="gesture-handler">
+    <Pressable onPress={onPress} testID="gem-container">
       <View style={container}>
         <Image style={gems} source={source()} testID="gem-image" />
       </View>
-    </GestureDetector>
+    </Pressable>
   )
 }
 

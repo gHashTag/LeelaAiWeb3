@@ -1,18 +1,7 @@
 import React from 'react'
 import {render, fireEvent} from '@testing-library/react-native'
-
-import {runOnJS} from 'react-native-reanimated'
-
 import {Gem} from '../'
-import {ICONS} from './images' // Import the ICONS array from ./images
-
-// Mock the runOnJS function
-jest.mock('react-native-reanimated', () => {
-  return {
-    ...jest.requireActual('react-native-reanimated'),
-    runOnJS: jest.fn(fn => fn()),
-  }
-})
+import {ICONS} from './images'
 
 describe('Gem Component', () => {
   test('should render the correct image based on playerNumber prop', () => {
@@ -30,8 +19,8 @@ describe('Gem Component', () => {
   test('should call the onPress function when pressed', () => {
     const onPressMock = jest.fn()
     const {getByTestId} = render(<Gem playerNumber={5} onPress={onPressMock} />)
-    const gestureHandler = getByTestId('gesture-handler')
-    fireEvent(gestureHandler, 'onGestureEvent')
-    expect(runOnJS).toHaveBeenCalledWith(onPressMock)
+    const gemContainer = getByTestId('gem-container')
+    fireEvent.press(gemContainer)
+    expect(onPressMock).toHaveBeenCalled()
   })
 })
