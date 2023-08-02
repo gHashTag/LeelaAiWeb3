@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   extends: ['@react-native', 'plugin:prettier/recommended'],
   env: {
+    node: true,
     'jest/globals': true,
   },
   rules: {
