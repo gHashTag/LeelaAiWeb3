@@ -23,9 +23,10 @@ const Gem: React.FC<GemProps> = ({playerNumber, onPress}) => {
 
   return (
     <GestureDetector
-      gesture={Gesture.Tap().onTouchesUp(() => runOnJS(onPress))}>
+      gesture={Gesture.Tap().onTouchesUp(() => runOnJS(onPress))}
+      testID="gesture-handler">
       <View style={container}>
-        <Image style={gems} source={source()} />
+        <Image style={gems} source={source()} testID="gem-image" />
       </View>
     </GestureDetector>
   )
