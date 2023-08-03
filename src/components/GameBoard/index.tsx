@@ -2,13 +2,17 @@ import React, {useMemo} from 'react'
 import {Image, StyleSheet, View, useColorScheme} from 'react-native'
 import {ms, mvs, s} from 'react-native-size-matters'
 
-import {Text} from '../'
 import {H, W} from '../../constants'
 import {Gem} from '../Gem'
 import {ICONS} from './images'
 
+interface PlayerPlan {
+  playerNumber: number
+  position: number
+}
+
 interface GameBoardProps {
-  players: number
+  players: PlayerPlan[]
 }
 
 const marginTop = H - W > 350 ? 20 : 0
@@ -60,19 +64,7 @@ const GameBoard: React.FC<GameBoardProps> = ({players}) => {
             <View style={styles.row} key={i}>
               {a.map((b, index) => (
                 <View key={index} style={styles.box}>
-                  <View style={styles.numberStyle} key={index}>
-                    <Gem
-                      key={b.toString()}
-                      plan={b}
-                      offlinePlans={players}
-                      index={index}
-                    />
-                    <Text
-                      key={index}
-                      h={'h11'}
-                      title={b !== 68 ? b.toString() : ' '}
-                    />
-                  </View>
+                  <Gem planNumber={b} />
                 </View>
               ))}
             </View>
@@ -115,9 +107,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'absolute',
-    top: mvs(26, 1.6) - imageTopMargin,
+    top: mvs(33, 1.6) - imageTopMargin,
   },
-  numberStyle: {bottom: 3},
 })
 
 export {GameBoard}

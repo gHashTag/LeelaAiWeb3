@@ -1,19 +1,15 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef} from 'react'
 import {Animated, Easing, Pressable, StyleSheet} from 'react-native'
 import {vs} from 'react-native-size-matters'
 
 export interface DiceProps {
-  count: number
-  players: number
-  disabled: boolean
-  canGo: boolean
-  isReported: boolean
-  updateStep: (index?: number) => void
-  random: () => void
+  disabled?: boolean
+  rollDice: () => void
+  lastRoll: number
+  size?: 'small' | 'medium' | 'large'
 }
 
 const getImage = (number: number) => {
-  // Замените путь на действительное расположение ресурсов
   switch (number) {
     case 1:
       return require('./assets/1.png')
@@ -31,57 +27,58 @@ const getImage = (number: number) => {
 }
 
 const Dice = ({
-  count,
-  players,
-  disabled,
-  canGo,
-  isReported,
-  updateStep,
-  random,
-}: DiceProps) => {
-  const [canRoll, setCanRoll] = useState<boolean>(true)
+  disabled = false,
+  rollDice,
+  lastRoll,
+  size = 'medium',
+}: DiceProps & {lastRoll: number}) => {
   const spinValue = useRef(new Animated.Value(0)).current
-
-  const handleSpin = (value: number) => {
-    const duration = (value / 2) * 500
-    spinValue.setValue(0)
-    Animated.timing(spinValue, {
-      toValue: value,
-      duration: duration,
-      easing: Easing.linear,
-      useNativeDriver: true,
-    }).start(() => {
-      disabled ? updateStep() : updateStep(players - 1)
-      setTimeout(() => setCanRoll(true), 200)
-    })
-  }
-
-  const isOpacity = (!canGo && disabled) || (disabled && !isReported)
 
   const spin = spinValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
   })
 
-  const rollDice = (): void => {
-    if (isOpacity) {
+  const animateDice = (): void => {
+    if (disabled) {
       return
     }
-    setCanRoll(false)
-    random()
-    handleSpin(count)
+
+    spinValue.setValue(0)
+    Animated.timing(spinValue, {
+      toValue: 10,
+      duration: 2000,
+      easing: Easing.cubic,
+      useNativeDriver: true,
+    }).start(() => {
+      rollDice()
+    })
+  }
+
+  const getSize = () => {
+    switch (size) {
+      case 'small':
+        return vs(50)
+      case 'large':
+        return vs(120)
+      case 'medium':
+      default:
+        return vs(80)
+    }
   }
 
   return (
     <Pressable
-      onPress={() => {
-        canRoll && rollDice()
-      }}
-      style={[styles.diceContainer, isOpacity && styles.opacityCube]}
+      onPress={animateDice}
+      style={styles.diceContainer}
       testID="dice-component">
       <Animated.Image
-        style={[styles.image, {transform: [{rotate: spin}]}]}
-        source={getImage(count)}
+        style={[
+          styles.image,
+          {transform: [{rotate: spin}], height: getSize(), width: getSize()},
+        ]}
+        source={getImage(lastRoll)}
+        testID="dice-image"
       />
     </Pressable>
   )
@@ -96,9 +93,6 @@ const styles = StyleSheet.create({
   image: {
     height: vs(65),
     width: vs(65),
-  },
-  opacityCube: {
-    opacity: 0.4,
   },
 })
 

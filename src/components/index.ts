@@ -3,7 +3,7 @@
 // export * from './Input'
 // export * from './VerticalLine'
 // export * from './Space'
-// export * from './GameBoard'
+export * from './GameBoard'
 // export * from './Background'
 export * from './Dice'
 // export * from './Tab'

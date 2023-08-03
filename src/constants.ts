@@ -8,6 +8,24 @@ import Rate from 'react-native-rate'
 import i18next from './i18n'
 import {ButtonsModalT, HandleCommentAiParamsT, MessageAIT} from './types'
 
+export const primary = '#50E3C2'
+export const secondary = '#ff06f4'
+export const gray = '#808080'
+export const white = '#ffffff'
+export const black = '#1c1c1c'
+export const dimGray = '#707070'
+export const lightGray = '#D1CDCD'
+export const classicRose = '#FDBEEA'
+export const mustard = '#F3DE50'
+export const fuchsia = '#FF06F4'
+export const trueBlue = '#007ACD'
+export const paleBlue = '#BEFCE5'
+export const brightTurquoise = '#1EE4EC'
+export const red = '#FC2847'
+export const orange = '#FFB700'
+export const blackOpacity = 'rgba(0, 0, 0, 0.8)'
+export const grayBlackOpacity = 'rgba(139, 139, 139, 0.1)'
+
 export const navRef = createNavigationContainerRef<any>()
 
 export const navigate = (name: string, params?: any) => {
@@ -174,24 +192,6 @@ export const goBack = () => {
 }
 //@ts-ignore
 export const goHome = navigation => () => navigation.popToTop()()
-
-export const primary = '#50E3C2'
-export const secondary = '#ff06f4'
-export const gray = '#949494'
-export const white = '#ffffff'
-export const black = '#1c1c1c'
-export const dimGray = '#707070'
-export const lightGray = '#D1CDCD'
-export const classicRose = '#FDBEEA'
-export const mustard = '#F3DE50'
-export const fuchsia = '#FF06F4'
-export const trueBlue = '#007ACD'
-export const paleBlue = '#BEFCE5'
-export const brightTurquoise = '#1EE4EC'
-export const red = '#FC2847'
-export const orange = '#FFB700'
-export const blackOpacity = 'rgba(0, 0, 0, 0.8)'
-export const grayBlackOpacity = 'rgba(139, 139, 139, 0.1)'
 
 export const revenuecat = 'BeIMIIfptWXlouosYudFEWQDkwDvJUzv'
 

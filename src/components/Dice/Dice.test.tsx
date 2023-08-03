@@ -16,13 +16,9 @@ describe('Dice Component', () => {
   let mockProps: DiceProps
   beforeEach(() => {
     mockProps = {
-      count: 1,
-      players: 2,
+      lastRoll: 1,
       disabled: false,
-      canGo: true,
-      isReported: false,
-      updateStep: jest.fn(),
-      random: jest.fn(),
+      rollDice: jest.fn(),
     }
     jest.useFakeTimers()
   })
@@ -36,7 +32,7 @@ describe('Dice Component', () => {
     expect(getByTestId('dice-component')).toBeDefined()
   })
 
-  it('calls the random function and updateStep on press when not disabled', () => {
+  it('calls the rollDice function on press when not disabled', () => {
     const {getByTestId} = render(<Dice {...mockProps} />)
 
     act(() => {
@@ -44,11 +40,10 @@ describe('Dice Component', () => {
       jest.runAllTimers()
     })
 
-    expect(mockProps.random).toHaveBeenCalledTimes(1)
-    expect(mockProps.updateStep).toHaveBeenCalledTimes(1)
+    expect(mockProps.rollDice).toHaveBeenCalledTimes(1)
   })
 
-  it('does not call the random function and updateStep on press when disabled', () => {
+  it('does not call the rollDice function on press when disabled', () => {
     mockProps.disabled = true
     const {getByTestId} = render(<Dice {...mockProps} />)
 
@@ -57,7 +52,24 @@ describe('Dice Component', () => {
       jest.runAllTimers()
     })
 
-    expect(mockProps.random).not.toHaveBeenCalled()
-    expect(mockProps.updateStep).not.toHaveBeenCalled()
+    expect(mockProps.rollDice).not.toHaveBeenCalled()
+  })
+
+  it('updates dice image when rollDice function is called', () => {
+    const {getByTestId, rerender} = render(<Dice {...mockProps} />)
+
+    act(() => {
+      fireEvent.press(getByTestId('dice-component'))
+      jest.runAllTimers()
+    })
+
+    // Mock a new dice roll value
+    const newDiceRoll = 2
+    rerender(<Dice {...mockProps} lastRoll={newDiceRoll} />)
+
+    const diceImage = getByTestId('dice-image') // Assuming you have testID on Animated.Image
+    expect(diceImage.props.source).toEqual(
+      require(`./assets/${newDiceRoll}.png`),
+    )
   })
 })
