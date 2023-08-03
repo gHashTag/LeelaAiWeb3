@@ -34,16 +34,33 @@ function App(): JSX.Element {
     backgroundColor: !isDarkMode ? Colors.darker : Colors.white,
   }
 
-  const players = [{101: 8}, {102: 72}, {106: 34}]
-  console.warn('lastRoll', lastRoll)
+  const players = [
+    {
+      id: 2,
+      plan: 72,
+      uri: 106,
+    },
+    {
+      id: 4,
+      plan: 34,
+      uri: 'https://bafkreiftrmfmimlvo26xaxfvt2ypnjjaavq5mgnkjljs6mczfekii4cmtq.ipfs.nftstorage.link/',
+    },
+  ]
+
   return (
     <GestureHandlerRootView>
       <SafeAreaView style={backgroundStyle}>
         <Text h={'h2'} title={'Test Title'} />
         <Dice rollDice={rollDice} lastRoll={lastRoll} size="medium" />
-        <Gem planNumber={1} />
-        <Gem planNumber={101} />
-        {/* <GameBoard players={players} /> */}
+        {players.map(gem => (
+          <Gem
+            key={gem.id}
+            planNumber={gem.plan}
+            player={{id: gem.id, uri: gem.uri}}
+          />
+        ))}
+
+        <GameBoard players={players} />
         <Space height={50} />
       </SafeAreaView>
     </GestureHandlerRootView>

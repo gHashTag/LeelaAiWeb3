@@ -6,13 +6,14 @@ import {H, W} from '../../constants'
 import {Gem} from '../Gem'
 import {ICONS} from './images'
 
-interface PlayerPlan {
-  playerNumber: number
-  position: number
+interface Player {
+  id: number
+  plan: number
+  uri: string | number
 }
 
 interface GameBoardProps {
-  players: PlayerPlan[]
+  players: Player[]
 }
 
 const marginTop = H - W > 350 ? 20 : 0
@@ -29,6 +30,14 @@ const curImageWidth = imageWidth >= maxImageWidth ? maxImageWidth : imageWidth
 
 const GameBoard: React.FC<GameBoardProps> = ({players}) => {
   const scheme = useColorScheme()
+
+  const playerPositions = useMemo(() => {
+    const positions: {[key: number]: {id: number; uri: string | number}} = {}
+    players.forEach(player => {
+      positions[player.plan] = {id: player.id, uri: player.uri}
+    })
+    return positions
+  }, [players])
 
   const imgObj = useMemo(() => {
     const image = ICONS.find(x => {
@@ -56,7 +65,8 @@ const GameBoard: React.FC<GameBoardProps> = ({players}) => {
 
   return (
     <View
-      style={[styles.imageContainer, {width: curImageHeight * imgObj.aspect}]}>
+      style={[styles.imageContainer, {width: curImageHeight * imgObj.aspect}]}
+      testID="gem-container">
       <Image source={imgObj.image} style={styles.bgImage} resizeMode="cover" />
       <View style={styles.gameBoardContainer}>
         <View style={styles.container}>
@@ -64,7 +74,7 @@ const GameBoard: React.FC<GameBoardProps> = ({players}) => {
             <View style={styles.row} key={i}>
               {a.map((b, index) => (
                 <View key={index} style={styles.box}>
-                  <Gem planNumber={b} />
+                  <Gem planNumber={b} player={playerPositions[b]} />
                 </View>
               ))}
             </View>
