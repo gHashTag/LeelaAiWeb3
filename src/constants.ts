@@ -1,4 +1,3 @@
-//@ts-expect-error
 import {LEELA_ID, OPEN_AI_KEY} from '@env'
 import {createNavigationContainerRef} from '@react-navigation/native'
 import * as Sentry from '@sentry/react-native'
@@ -99,14 +98,15 @@ export const handleCommentAi = async ({
     systemMessage,
     planText,
   })
-  //   if (curItem && aiComment) {
-  //     await PostStore.createComment({
-  //       text: aiComment,
-  //       postId: curItem.id,
-  //       postOwner: curItem.ownerId,
-  //       ownerId: LEELA_ID,
-  //     })
-  //   }
+  console.log('LEELA_ID', LEELA_ID)
+  if (curItem && aiComment) {
+    // await PostStore.createComment({
+    //   text: aiComment,
+    //   postId: curItem.id,
+    //   postOwner: curItem.ownerId,
+    //   ownerId: LEELA_ID,
+    // })
+  }
 }
 
 export function OpenNetworkModal() {

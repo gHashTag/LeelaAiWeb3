@@ -1,6 +1,8 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true
+    "types": ["jest"],
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"]
   }
 }
