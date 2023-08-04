@@ -4,19 +4,40 @@ import {Platform, ScrollView, StyleSheet} from 'react-native'
 import RNFetchBlob from 'rn-fetch-blob'
 import {ms, s} from 'react-native-size-matters'
 import Markdown from 'react-native-markdown-display'
-import {gray} from '../../constants'
+import {readFileAssets} from 'react-native-fs'
+import {gray, getSystemLanguage} from '../../constants'
 import {Space} from '../Space'
 
-const MarkdownView = () => {
+const MarkdownView = ({fileName = '1-birth'}) => {
   const [markdown, setMarkdown] = useState('')
+  const systemLanguage = getSystemLanguage()
 
   useEffect(() => {
-    const pathToFile = RNFetchBlob.fs.dirs.MainBundleDir + '/1-birth.md'
+    const assetPath = `locales/${systemLanguage}/${fileName}-${systemLanguage}.md`
 
-    RNFetchBlob.fs.readFile(pathToFile, 'utf8').then(data => {
-      setMarkdown(data)
-    })
-  }, [])
+    if (Platform.OS === 'android') {
+      // Для Android используем readFileAssets из react-native-fs
+      readFileAssets(assetPath, 'utf8')
+        .then(data => {
+          setMarkdown(data)
+        })
+        .catch(error => {
+          console.error('Ошибка при чтении ресурса:', error)
+        })
+    } else if (Platform.OS === 'ios') {
+      const pathToFile =
+        RNFetchBlob.fs.dirs.MainBundleDir + `/${fileName}-${systemLanguage}.md`
+
+      RNFetchBlob.fs
+        .readFile(pathToFile, 'utf8')
+        .then(data => {
+          setMarkdown(data)
+        })
+        .catch(error => {
+          console.error('Ошибка при чтении ресурса:', error)
+        })
+    }
+  }, [fileName, systemLanguage])
 
   return (
     <ScrollView

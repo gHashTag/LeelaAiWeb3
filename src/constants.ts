@@ -3,7 +3,7 @@ import {LEELA_ID, OPEN_AI_KEY} from '@env'
 import {createNavigationContainerRef} from '@react-navigation/native'
 import * as Sentry from '@sentry/react-native'
 import axios from 'axios'
-import {Alert, Dimensions, Linking, Platform} from 'react-native'
+import {Alert, Dimensions, Linking, Platform, NativeModules} from 'react-native'
 import Rate from 'react-native-rate'
 import i18next from './i18n'
 import {ButtonsModalT, HandleCommentAiParamsT, MessageAIT} from './types'
@@ -199,3 +199,15 @@ export const defUrl =
   'https://leelachakra.com/resource/LeelaChakra/Mantra/mantra.json'
 
 export const ENTITLEMENT_ID = 'Pro'
+
+export const getSystemLanguage = () => {
+  let languageCode = 'en' // Default to English
+
+  if (Platform.OS === 'android') {
+    languageCode = NativeModules.I18nManager.localeIdentifier
+  } else if (Platform.OS === 'ios') {
+    languageCode = NativeModules.SettingsManager.settings.AppleLocale
+  }
+
+  return languageCode.slice(0, 2).toLowerCase()
+}
