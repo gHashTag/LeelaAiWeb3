@@ -4,6 +4,7 @@
 // export * from './VerticalLine'
 // export * from './Space'
 export * from './GameBoard'
+export * from './MarkdownView'
 // export * from './Background'
 export * from './Dice'
 // export * from './Tab'

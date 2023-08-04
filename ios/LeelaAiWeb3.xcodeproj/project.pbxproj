@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		001667DA30544BD390AF2466 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7E573B2A4504AB094CE4510 /* Montserrat-Medium.ttf */; };
 		00E356F31AD99517003FC87E /* LeelaAiWeb3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LeelaAiWeb3Tests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-LeelaAiWeb3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-LeelaAiWeb3.a */; };
 		0CA3C2B3EFAB4F3E9265CD16 /* TheDolbak-Brush.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025E520BDAE0418CA23EDDA3 /* TheDolbak-Brush.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -19,10 +18,91 @@
 		37169412D2944C38BA882982 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C535A605C8974C77A0855D70 /* Montserrat-Bold.ttf */; };
 		3AA73773AAA44D38BBB20663 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED5B895499404E809609C44B /* Montserrat-LightItalic.ttf */; };
 		3F83076131544B1E9126CE7F /* NeutraText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FC4F8D48C11405BBA170477 /* NeutraText-Bold.otf */; };
+		4CA41C6AD4A7150F4013BE39 /* libPods-LeelaAiWeb3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A83EB4D9E2850E2B8E2E6F /* libPods-LeelaAiWeb3.a */; };
 		4D6BEB5D68C14A9EA5901F17 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D378BB22FF4599A2A8A7D0 /* Montserrat-ExtraBold.ttf */; };
 		533C73BDDFDA49EF825FB79D /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C76BFEC3041E4DB1AD7E87A4 /* Montserrat-ExtraBoldItalic.ttf */; };
 		6F1DE3819FB049C6938C3964 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8786D7C08D704784B1618029 /* Montserrat-Light.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */; };
+		7395E53A2A7D062A00808D7D /* 23-heavenlyplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4E82A7D062A00808D7D /* 23-heavenlyplan.md */; };
+		7395E53B2A7D062A00808D7D /* 5-physicalplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4E92A7D062A00808D7D /* 5-physicalplan.md */; };
+		7395E53C2A7D062A00808D7D /* 25-goodcompany.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4EA2A7D062A00808D7D /* 25-goodcompany.md */; };
+		7395E53D2A7D062A00808D7D /* 26-sadness.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4EB2A7D062A00808D7D /* 26-sadness.md */; };
+		7395E53E2A7D062A00808D7D /* 42-planagni.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4EC2A7D062A00808D7D /* 42-planagni.md */; };
+		7395E53F2A7D062A00808D7D /* 2-maya.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4ED2A7D062A00808D7D /* 2-maya.md */; };
+		7395E5402A7D062A00808D7D /* 45-correctknowledge.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4EE2A7D062A00808D7D /* 45-correctknowledge.md */; };
+		7395E5412A7D062A00808D7D /* 31-planofholiness.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4EF2A7D062A00808D7D /* 31-planofholiness.md */; };
+		7395E5422A7D062A00808D7D /* 4-avarice.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F02A7D062A00808D7D /* 4-avarice.md */; };
+		7395E5432A7D062A00808D7D /* 59-planeofreality.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F12A7D062A00808D7D /* 59-planeofreality.md */; };
+		7395E5442A7D062A00808D7D /* 9-sensualplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F22A7D062A00808D7D /* 9-sensualplan.md */; };
+		7395E5452A7D062A00808D7D /* 7-vanity.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F32A7D062A00808D7D /* 7-vanity.md */; };
+		7395E5462A7D062A00808D7D /* 24-badcompany.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F42A7D062A00808D7D /* 24-badcompany.md */; };
+		7395E5472A7D062A00808D7D /* 32-balanceplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F52A7D062A00808D7D /* 32-balanceplan.md */; };
+		7395E5482A7D062A00808D7D /* 36-clarityofmind.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F62A7D062A00808D7D /* 36-clarityofmind.md */; };
+		7395E5492A7D062A00808D7D /* 39-apanaloka.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F72A7D062A00808D7D /* 39-apanaloka.md */; };
+		7395E54A2A7D062A00808D7D /* 21-redemption.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F82A7D062A00808D7D /* 21-redemption.md */; };
+		7395E54B2A7D062A00808D7D /* 64-phenomenalplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4F92A7D062A00808D7D /* 64-phenomenalplan.md */; };
+		7395E54C2A7D062A00808D7D /* 65-interiorspaceplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4FA2A7D062A00808D7D /* 65-interiorspaceplan.md */; };
+		7395E54D2A7D062A00808D7D /* 15-fantasyplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4FB2A7D062A00808D7D /* 15-fantasyplan.md */; };
+		7395E54E2A7D062A00808D7D /* 35-purgatory.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4FC2A7D062A00808D7D /* 35-purgatory.md */; };
+		7395E54F2A7D062A00808D7D /* 22-plandharmas.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4FD2A7D062A00808D7D /* 22-plandharmas.md */; };
+		7395E5502A7D062A00808D7D /* 57-plangas.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4FE2A7D062A00808D7D /* 57-plangas.md */; };
+		7395E5512A7D062A00808D7D /* 53-fluidplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E4FF2A7D062A00808D7D /* 53-fluidplan.md */; };
+		7395E5522A7D062A00808D7D /* 18-planofjoy.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5002A7D062A00808D7D /* 18-planofjoy.md */; };
+		7395E5532A7D062A00808D7D /* 19-plankarma.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5012A7D062A00808D7D /* 19-plankarma.md */; };
+		7395E5542A7D062A00808D7D /* 47-neutralityplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5022A7D062A00808D7D /* 47-neutralityplan.md */; };
+		7395E5552A7D062A00808D7D /* 68-cosmicconsciousness.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5032A7D062A00808D7D /* 68-cosmicconsciousness.md */; };
+		7395E5562A7D062A00808D7D /* 33-aramat.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5042A7D062A00808D7D /* 33-aramat.md */; };
+		7395E5572A7D062A00808D7D /* 14-astral.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5052A7D062A00808D7D /* 14-astral.md */; };
+		7395E5582A7D062A00808D7D /* 30-goodtrends.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5062A7D062A00808D7D /* 30-goodtrends.md */; };
+		7395E5592A7D062A00808D7D /* 3-anger.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5072A7D062A00808D7D /* 3-anger.md */; };
+		7395E55A2A7D062A00808D7D /* 69-planoftheabsolute.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5082A7D062A00808D7D /* 69-planoftheabsolute.md */; };
+		7395E55B2A7D062A00808D7D /* 49-lunarplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5092A7D062A00808D7D /* 49-lunarplan.md */; };
+		7395E55C2A7D062A00808D7D /* 54-planofspiritualityanddevotion.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E50A2A7D062A00808D7D /* 54-planofspiritualityanddevotion.md */; };
+		7395E55D2A7D062A00808D7D /* 52-planviolence.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E50B2A7D062A00808D7D /* 52-planviolence.md */; };
+		7395E55E2A7D062A00808D7D /* 48-sunnyplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E50C2A7D062A00808D7D /* 48-sunnyplan.md */; };
+		7395E55F2A7D062A00808D7D /* 40-vyanaloka.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E50D2A7D062A00808D7D /* 40-vyanaloka.md */; };
+		7395E5602A7D062A00808D7D /* 37-jnana.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E50E2A7D062A00808D7D /* 37-jnana.md */; };
+		7395E5612A7D062A00808D7D /* 12-envy.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E50F2A7D062A00808D7D /* 12-envy.md */; };
+		7395E5622A7D062A00808D7D /* 61-negativeintelligence.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5102A7D062A00808D7D /* 61-negativeintelligence.md */; };
+		7395E5632A7D062A00808D7D /* 17-compassion.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5112A7D062A00808D7D /* 17-compassion.md */; };
+		7395E5642A7D062A00808D7D /* 34-tasteplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5122A7D062A00808D7D /* 34-tasteplan.md */; };
+		7395E5652A7D062A00808D7D /* 11-entertainment.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5132A7D062A00808D7D /* 11-entertainment.md */; };
+		7395E5662A7D062A00808D7D /* 27-selflessservice.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5142A7D062A00808D7D /* 27-selflessservice.md */; };
+		7395E5672A7D062A00808D7D /* 60-positiveintelligence.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5152A7D062A00808D7D /* 60-positiveintelligence.md */; };
+		7395E5682A7D062A00808D7D /* 67-planofcosmicgood.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5162A7D062A00808D7D /* 67-planofcosmicgood.md */; };
+		7395E5692A7D062A00808D7D /* 62-happiness.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5172A7D062A00808D7D /* 62-happiness.md */; };
+		7395E56A2A7D062A00808D7D /* 16-jealousy.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5182A7D062A00808D7D /* 16-jealousy.md */; };
+		7395E56B2A7D062A00808D7D /* 72-tamogun.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5192A7D062A00808D7D /* 72-tamogun.md */; };
+		7395E56C2A7D062A00808D7D /* 41-humanplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E51A2A7D062A00808D7D /* 41-humanplan.md */; };
+		7395E56D2A7D062A00808D7D /* 44-ignorance.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E51B2A7D062A00808D7D /* 44-ignorance.md */; };
+		7395E56E2A7D062A00808D7D /* 56-planinitialvibrations.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E51C2A7D062A00808D7D /* 56-planinitialvibrations.md */; };
+		7395E56F2A7D062A00808D7D /* 28-truereligiosity.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E51D2A7D062A00808D7D /* 28-truereligiosity.md */; };
+		7395E5702A7D062A00808D7D /* 51-earth.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E51E2A7D062A00808D7D /* 51-earth.md */; };
+		7395E5712A7D062A00808D7D /* 20-charity.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E51F2A7D062A00808D7D /* 20-charity.md */; };
+		7395E5722A7D062A00808D7D /* 6-delusion.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5202A7D062A00808D7D /* 6-delusion.md */; };
+		7395E5732A7D062A00808D7D /* 1-birth.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5212A7D062A00808D7D /* 1-birth.md */; };
+		7395E5742A7D062A00808D7D /* 50-planofasceticism.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5222A7D062A00808D7D /* 50-planofasceticism.md */; };
+		7395E5752A7D062A00808D7D /* 58-radianceplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5232A7D062A00808D7D /* 58-radianceplan.md */; };
+		7395E5762A7D062A00808D7D /* 43-birthofman.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5242A7D062A00808D7D /* 43-birthofman.md */; };
+		7395E5772A7D062A00808D7D /* 38-pranaloka.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5252A7D062A00808D7D /* 38-pranaloka.md */; };
+		7395E5782A7D062A00808D7D /* 71-rajogun.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5262A7D062A00808D7D /* 71-rajogun.md */; };
+		7395E5792A7D062A00808D7D /* 10-cleansing.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5272A7D062A00808D7D /* 10-cleansing.md */; };
+		7395E57A2A7D062A00808D7D /* 29-lackofreligiosity.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5282A7D062A00808D7D /* 29-lackofreligiosity.md */; };
+		7395E57B2A7D062A00808D7D /* 66-blissplan.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5292A7D062A00808D7D /* 66-blissplan.md */; };
+		7395E57C2A7D062A00808D7D /* 55-selfishness.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E52A2A7D062A00808D7D /* 55-selfishness.md */; };
+		7395E57D2A7D062A00808D7D /* 46-distinction.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E52B2A7D062A00808D7D /* 46-distinction.md */; };
+		7395E57E2A7D062A00808D7D /* 8-greed.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E52C2A7D062A00808D7D /* 8-greed.md */; };
+		7395E57F2A7D062A00808D7D /* 13-nullity.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E52D2A7D062A00808D7D /* 13-nullity.md */; };
+		7395E5802A7D062A00808D7D /* 70-sattvaguna.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E52E2A7D062A00808D7D /* 70-sattvaguna.md */; };
+		7395E5812A7D062A00808D7D /* 63-tamas.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E52F2A7D062A00808D7D /* 63-tamas.md */; };
+		7395E5822A7D062A00808D7D /* intro.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5302A7D062A00808D7D /* intro.md */; };
+		7395E5832A7D062A00808D7D /* 0-chortdescription.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5322A7D062A00808D7D /* 0-chortdescription.md */; };
+		7395E5842A7D062A00808D7D /* 4-chakras.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5332A7D062A00808D7D /* 4-chakras.md */; };
+		7395E5852A7D062A00808D7D /* 1-introduction.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5342A7D062A00808D7D /* 1-introduction.md */; };
+		7395E5862A7D062A00808D7D /* 3-numerologygames.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5352A7D062A00808D7D /* 3-numerologygames.md */; };
+		7395E5872A7D062A00808D7D /* 5-notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5362A7D062A00808D7D /* 5-notes.md */; };
+		7395E5882A7D062A00808D7D /* 2-meaningofthegame.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5372A7D062A00808D7D /* 2-meaningofthegame.md */; };
+		7395E5892A7D062A00808D7D /* policy.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5382A7D062A00808D7D /* policy.md */; };
+		7395E58A2A7D062A00808D7D /* eula.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395E5392A7D062A00808D7D /* eula.md */; };
 		76DD4BF227BD43D3833F75BC /* NeutraText-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D43ACD26639D4817BD42D25D /* NeutraText-BookItalic.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9AE074469F254450822F6AB3 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C432B2B156F4D69B6C1D1D4 /* Montserrat-ExtraLightItalic.ttf */; };
@@ -35,6 +115,7 @@
 		B0FC989D7A7D4D91BD78DEC4 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 129617635C054DB59C1A2568 /* Montserrat-SemiBold.ttf */; };
 		B2A59FDF3C754B938AA5847E /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B10DC58F59D04DA2B3850547 /* Montserrat-SemiBoldItalic.ttf */; };
 		D2642EEF4D3941349A9D99DF /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52329FD175B144C08BFE0B71 /* Montserrat-MediumItalic.ttf */; };
+		D6542A97ADE7592369A2361C /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F825E5E48B910ED15E4479 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */; };
 		D70F77DB645047968D013065 /* NeutraText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BFC4E77668D9487182E57C78 /* NeutraText-BoldItalic.otf */; };
 		DE1266BDB2E94D4EA2D73330 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEB754CF9337436B969ED9D5 /* Montserrat-Thin.ttf */; };
 		E15CC040864C46749FBA4176 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5688338970E4E3594E01C47 /* Montserrat-ThinItalic.ttf */; };
@@ -58,48 +139,129 @@
 		00E356EE1AD99517003FC87E /* LeelaAiWeb3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeelaAiWeb3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* LeelaAiWeb3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeelaAiWeb3Tests.m; sourceTree = "<group>"; };
-		025E520BDAE0418CA23EDDA3 /* TheDolbak-Brush.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TheDolbak-Brush.ttf"; path = "../assets/fonts/TheDolbak-Brush.ttf"; sourceTree = "<group>"; };
-		07DB4262FF0D4C4A85782042 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-BoldItalic.ttf"; path = "../assets/fonts/Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
-		0C432B2B156F4D69B6C1D1D4 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLightItalic.ttf"; path = "../assets/fonts/Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		129617635C054DB59C1A2568 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		025E520BDAE0418CA23EDDA3 /* TheDolbak-Brush.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "TheDolbak-Brush.ttf"; path = "../assets/fonts/TheDolbak-Brush.ttf"; sourceTree = "<group>"; };
+		07DB4262FF0D4C4A85782042 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-BoldItalic.ttf"; path = "../assets/fonts/Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		0C432B2B156F4D69B6C1D1D4 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLightItalic.ttf"; path = "../assets/fonts/Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		129617635C054DB59C1A2568 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* LeelaAiWeb3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeelaAiWeb3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = LeelaAiWeb3/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = LeelaAiWeb3/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = LeelaAiWeb3/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LeelaAiWeb3/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = LeelaAiWeb3/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-LeelaAiWeb3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3.debug.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3.debug.xcconfig"; sourceTree = "<group>"; };
-		47B4D81E2DE24EDDB82B6E39 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Italic.ttf"; path = "../assets/fonts/Montserrat-Italic.ttf"; sourceTree = "<group>"; };
-		4CE0213D89144BFCB2C32813 /* IBM-Logo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBM-Logo.ttf"; path = "../assets/fonts/IBM-Logo.ttf"; sourceTree = "<group>"; };
-		52329FD175B144C08BFE0B71 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-MediumItalic.ttf"; path = "../assets/fonts/Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-LeelaAiWeb3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3.release.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3.release.xcconfig"; sourceTree = "<group>"; };
-		58EC839D2F6F4D46B883E857 /* OxygenMono-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OxygenMono-Regular.otf"; path = "../assets/fonts/OxygenMono-Regular.otf"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-LeelaAiWeb3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeelaAiWeb3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F637F45B7624CC8AD74A73F /* etna-free-font.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "etna-free-font.otf"; path = "../assets/fonts/etna-free-font.otf"; sourceTree = "<group>"; };
-		66A3FA817E5B4F84A55A56F3 /* NeutraText-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Book.otf"; path = "../assets/fonts/NeutraText-Book.otf"; sourceTree = "<group>"; };
-		6FC4F8D48C11405BBA170477 /* NeutraText-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Bold.otf"; path = "../assets/fonts/NeutraText-Bold.otf"; sourceTree = "<group>"; };
-		79EEEE74F2AA45D8B4BE91C3 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		3B5C5936E778F45A036A3B71 /* Pods-LeelaAiWeb3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3.debug.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3.debug.xcconfig"; sourceTree = "<group>"; };
+		47B4D81E2DE24EDDB82B6E39 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Italic.ttf"; path = "../assets/fonts/Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		4CE0213D89144BFCB2C32813 /* IBM-Logo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBM-Logo.ttf"; path = "../assets/fonts/IBM-Logo.ttf"; sourceTree = "<group>"; };
+		52329FD175B144C08BFE0B71 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-MediumItalic.ttf"; path = "../assets/fonts/Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		58EC839D2F6F4D46B883E857 /* OxygenMono-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OxygenMono-Regular.otf"; path = "../assets/fonts/OxygenMono-Regular.otf"; sourceTree = "<group>"; };
+		5F637F45B7624CC8AD74A73F /* etna-free-font.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "etna-free-font.otf"; path = "../assets/fonts/etna-free-font.otf"; sourceTree = "<group>"; };
+		63A83EB4D9E2850E2B8E2E6F /* libPods-LeelaAiWeb3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeelaAiWeb3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6652CEFE350599AE4D02DE65 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		66A3FA817E5B4F84A55A56F3 /* NeutraText-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Book.otf"; path = "../assets/fonts/NeutraText-Book.otf"; sourceTree = "<group>"; };
+		6FC4F8D48C11405BBA170477 /* NeutraText-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Bold.otf"; path = "../assets/fonts/NeutraText-Bold.otf"; sourceTree = "<group>"; };
+		7395E4E82A7D062A00808D7D /* 23-heavenlyplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "23-heavenlyplan.md"; sourceTree = "<group>"; };
+		7395E4E92A7D062A00808D7D /* 5-physicalplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "5-physicalplan.md"; sourceTree = "<group>"; };
+		7395E4EA2A7D062A00808D7D /* 25-goodcompany.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "25-goodcompany.md"; sourceTree = "<group>"; };
+		7395E4EB2A7D062A00808D7D /* 26-sadness.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "26-sadness.md"; sourceTree = "<group>"; };
+		7395E4EC2A7D062A00808D7D /* 42-planagni.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "42-planagni.md"; sourceTree = "<group>"; };
+		7395E4ED2A7D062A00808D7D /* 2-maya.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "2-maya.md"; sourceTree = "<group>"; };
+		7395E4EE2A7D062A00808D7D /* 45-correctknowledge.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "45-correctknowledge.md"; sourceTree = "<group>"; };
+		7395E4EF2A7D062A00808D7D /* 31-planofholiness.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "31-planofholiness.md"; sourceTree = "<group>"; };
+		7395E4F02A7D062A00808D7D /* 4-avarice.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "4-avarice.md"; sourceTree = "<group>"; };
+		7395E4F12A7D062A00808D7D /* 59-planeofreality.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "59-planeofreality.md"; sourceTree = "<group>"; };
+		7395E4F22A7D062A00808D7D /* 9-sensualplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "9-sensualplan.md"; sourceTree = "<group>"; };
+		7395E4F32A7D062A00808D7D /* 7-vanity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "7-vanity.md"; sourceTree = "<group>"; };
+		7395E4F42A7D062A00808D7D /* 24-badcompany.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "24-badcompany.md"; sourceTree = "<group>"; };
+		7395E4F52A7D062A00808D7D /* 32-balanceplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "32-balanceplan.md"; sourceTree = "<group>"; };
+		7395E4F62A7D062A00808D7D /* 36-clarityofmind.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "36-clarityofmind.md"; sourceTree = "<group>"; };
+		7395E4F72A7D062A00808D7D /* 39-apanaloka.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "39-apanaloka.md"; sourceTree = "<group>"; };
+		7395E4F82A7D062A00808D7D /* 21-redemption.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "21-redemption.md"; sourceTree = "<group>"; };
+		7395E4F92A7D062A00808D7D /* 64-phenomenalplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "64-phenomenalplan.md"; sourceTree = "<group>"; };
+		7395E4FA2A7D062A00808D7D /* 65-interiorspaceplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "65-interiorspaceplan.md"; sourceTree = "<group>"; };
+		7395E4FB2A7D062A00808D7D /* 15-fantasyplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "15-fantasyplan.md"; sourceTree = "<group>"; };
+		7395E4FC2A7D062A00808D7D /* 35-purgatory.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "35-purgatory.md"; sourceTree = "<group>"; };
+		7395E4FD2A7D062A00808D7D /* 22-plandharmas.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "22-plandharmas.md"; sourceTree = "<group>"; };
+		7395E4FE2A7D062A00808D7D /* 57-plangas.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "57-plangas.md"; sourceTree = "<group>"; };
+		7395E4FF2A7D062A00808D7D /* 53-fluidplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "53-fluidplan.md"; sourceTree = "<group>"; };
+		7395E5002A7D062A00808D7D /* 18-planofjoy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "18-planofjoy.md"; sourceTree = "<group>"; };
+		7395E5012A7D062A00808D7D /* 19-plankarma.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "19-plankarma.md"; sourceTree = "<group>"; };
+		7395E5022A7D062A00808D7D /* 47-neutralityplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "47-neutralityplan.md"; sourceTree = "<group>"; };
+		7395E5032A7D062A00808D7D /* 68-cosmicconsciousness.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "68-cosmicconsciousness.md"; sourceTree = "<group>"; };
+		7395E5042A7D062A00808D7D /* 33-aramat.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "33-aramat.md"; sourceTree = "<group>"; };
+		7395E5052A7D062A00808D7D /* 14-astral.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "14-astral.md"; sourceTree = "<group>"; };
+		7395E5062A7D062A00808D7D /* 30-goodtrends.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "30-goodtrends.md"; sourceTree = "<group>"; };
+		7395E5072A7D062A00808D7D /* 3-anger.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "3-anger.md"; sourceTree = "<group>"; };
+		7395E5082A7D062A00808D7D /* 69-planoftheabsolute.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "69-planoftheabsolute.md"; sourceTree = "<group>"; };
+		7395E5092A7D062A00808D7D /* 49-lunarplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "49-lunarplan.md"; sourceTree = "<group>"; };
+		7395E50A2A7D062A00808D7D /* 54-planofspiritualityanddevotion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "54-planofspiritualityanddevotion.md"; sourceTree = "<group>"; };
+		7395E50B2A7D062A00808D7D /* 52-planviolence.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "52-planviolence.md"; sourceTree = "<group>"; };
+		7395E50C2A7D062A00808D7D /* 48-sunnyplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "48-sunnyplan.md"; sourceTree = "<group>"; };
+		7395E50D2A7D062A00808D7D /* 40-vyanaloka.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "40-vyanaloka.md"; sourceTree = "<group>"; };
+		7395E50E2A7D062A00808D7D /* 37-jnana.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "37-jnana.md"; sourceTree = "<group>"; };
+		7395E50F2A7D062A00808D7D /* 12-envy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "12-envy.md"; sourceTree = "<group>"; };
+		7395E5102A7D062A00808D7D /* 61-negativeintelligence.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "61-negativeintelligence.md"; sourceTree = "<group>"; };
+		7395E5112A7D062A00808D7D /* 17-compassion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "17-compassion.md"; sourceTree = "<group>"; };
+		7395E5122A7D062A00808D7D /* 34-tasteplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "34-tasteplan.md"; sourceTree = "<group>"; };
+		7395E5132A7D062A00808D7D /* 11-entertainment.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "11-entertainment.md"; sourceTree = "<group>"; };
+		7395E5142A7D062A00808D7D /* 27-selflessservice.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "27-selflessservice.md"; sourceTree = "<group>"; };
+		7395E5152A7D062A00808D7D /* 60-positiveintelligence.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "60-positiveintelligence.md"; sourceTree = "<group>"; };
+		7395E5162A7D062A00808D7D /* 67-planofcosmicgood.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "67-planofcosmicgood.md"; sourceTree = "<group>"; };
+		7395E5172A7D062A00808D7D /* 62-happiness.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "62-happiness.md"; sourceTree = "<group>"; };
+		7395E5182A7D062A00808D7D /* 16-jealousy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "16-jealousy.md"; sourceTree = "<group>"; };
+		7395E5192A7D062A00808D7D /* 72-tamogun.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "72-tamogun.md"; sourceTree = "<group>"; };
+		7395E51A2A7D062A00808D7D /* 41-humanplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "41-humanplan.md"; sourceTree = "<group>"; };
+		7395E51B2A7D062A00808D7D /* 44-ignorance.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "44-ignorance.md"; sourceTree = "<group>"; };
+		7395E51C2A7D062A00808D7D /* 56-planinitialvibrations.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "56-planinitialvibrations.md"; sourceTree = "<group>"; };
+		7395E51D2A7D062A00808D7D /* 28-truereligiosity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "28-truereligiosity.md"; sourceTree = "<group>"; };
+		7395E51E2A7D062A00808D7D /* 51-earth.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "51-earth.md"; sourceTree = "<group>"; };
+		7395E51F2A7D062A00808D7D /* 20-charity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "20-charity.md"; sourceTree = "<group>"; };
+		7395E5202A7D062A00808D7D /* 6-delusion.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "6-delusion.md"; sourceTree = "<group>"; };
+		7395E5212A7D062A00808D7D /* 1-birth.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "1-birth.md"; sourceTree = "<group>"; };
+		7395E5222A7D062A00808D7D /* 50-planofasceticism.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "50-planofasceticism.md"; sourceTree = "<group>"; };
+		7395E5232A7D062A00808D7D /* 58-radianceplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "58-radianceplan.md"; sourceTree = "<group>"; };
+		7395E5242A7D062A00808D7D /* 43-birthofman.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "43-birthofman.md"; sourceTree = "<group>"; };
+		7395E5252A7D062A00808D7D /* 38-pranaloka.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "38-pranaloka.md"; sourceTree = "<group>"; };
+		7395E5262A7D062A00808D7D /* 71-rajogun.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "71-rajogun.md"; sourceTree = "<group>"; };
+		7395E5272A7D062A00808D7D /* 10-cleansing.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "10-cleansing.md"; sourceTree = "<group>"; };
+		7395E5282A7D062A00808D7D /* 29-lackofreligiosity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "29-lackofreligiosity.md"; sourceTree = "<group>"; };
+		7395E5292A7D062A00808D7D /* 66-blissplan.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "66-blissplan.md"; sourceTree = "<group>"; };
+		7395E52A2A7D062A00808D7D /* 55-selfishness.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "55-selfishness.md"; sourceTree = "<group>"; };
+		7395E52B2A7D062A00808D7D /* 46-distinction.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "46-distinction.md"; sourceTree = "<group>"; };
+		7395E52C2A7D062A00808D7D /* 8-greed.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "8-greed.md"; sourceTree = "<group>"; };
+		7395E52D2A7D062A00808D7D /* 13-nullity.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "13-nullity.md"; sourceTree = "<group>"; };
+		7395E52E2A7D062A00808D7D /* 70-sattvaguna.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "70-sattvaguna.md"; sourceTree = "<group>"; };
+		7395E52F2A7D062A00808D7D /* 63-tamas.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "63-tamas.md"; sourceTree = "<group>"; };
+		7395E5302A7D062A00808D7D /* intro.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = intro.md; sourceTree = "<group>"; };
+		7395E5322A7D062A00808D7D /* 0-chortdescription.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "0-chortdescription.md"; sourceTree = "<group>"; };
+		7395E5332A7D062A00808D7D /* 4-chakras.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "4-chakras.md"; sourceTree = "<group>"; };
+		7395E5342A7D062A00808D7D /* 1-introduction.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "1-introduction.md"; sourceTree = "<group>"; };
+		7395E5352A7D062A00808D7D /* 3-numerologygames.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "3-numerologygames.md"; sourceTree = "<group>"; };
+		7395E5362A7D062A00808D7D /* 5-notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "5-notes.md"; sourceTree = "<group>"; };
+		7395E5372A7D062A00808D7D /* 2-meaningofthegame.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "2-meaningofthegame.md"; sourceTree = "<group>"; };
+		7395E5382A7D062A00808D7D /* policy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = policy.md; sourceTree = "<group>"; };
+		7395E5392A7D062A00808D7D /* eula.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = eula.md; sourceTree = "<group>"; };
+		79EEEE74F2AA45D8B4BE91C3 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = LeelaAiWeb3/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8786D7C08D704784B1618029 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig"; sourceTree = "<group>"; };
-		89D378BB22FF4599A2A8A7D0 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBold.ttf"; path = "../assets/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
-		99936B7442B2412CB0A03DB4 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Black.ttf"; path = "../assets/fonts/Montserrat-Black.ttf"; sourceTree = "<group>"; };
-		ADA39D38F9F14EEDA30E596A /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../assets/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
-		B10DC58F59D04DA2B3850547 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBoldItalic.ttf"; path = "../assets/fonts/Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		B97E17742C5F4D4AA3B69126 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-BlackItalic.ttf"; path = "../assets/fonts/Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
-		BFC4E77668D9487182E57C78 /* NeutraText-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-BoldItalic.otf"; path = "../assets/fonts/NeutraText-BoldItalic.otf"; sourceTree = "<group>"; };
-		C535A605C8974C77A0855D70 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		C76BFEC3041E4DB1AD7E87A4 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBoldItalic.ttf"; path = "../assets/fonts/Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		CB7DCC23E4B4406580630C54 /* 3270Narrow.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = 3270Narrow.ttf; path = ../assets/fonts/3270Narrow.ttf; sourceTree = "<group>"; };
-		D43ACD26639D4817BD42D25D /* NeutraText-BookItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-BookItalic.otf"; path = "../assets/fonts/NeutraText-BookItalic.otf"; sourceTree = "<group>"; };
-		E5688338970E4E3594E01C47 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ThinItalic.ttf"; path = "../assets/fonts/Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		825AD6B44E6CFFA245F6C366 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8786D7C08D704784B1618029 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		89D378BB22FF4599A2A8A7D0 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBold.ttf"; path = "../assets/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		99936B7442B2412CB0A03DB4 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Black.ttf"; path = "../assets/fonts/Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		ADA39D38F9F14EEDA30E596A /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../assets/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B10DC58F59D04DA2B3850547 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBoldItalic.ttf"; path = "../assets/fonts/Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		B4FB55C8DFDF8C5F754D7EC6 /* Pods-LeelaAiWeb3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3.release.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3.release.xcconfig"; sourceTree = "<group>"; };
+		B97E17742C5F4D4AA3B69126 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-BlackItalic.ttf"; path = "../assets/fonts/Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		BFC4E77668D9487182E57C78 /* NeutraText-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-BoldItalic.otf"; path = "../assets/fonts/NeutraText-BoldItalic.otf"; sourceTree = "<group>"; };
+		C535A605C8974C77A0855D70 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		C76BFEC3041E4DB1AD7E87A4 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBoldItalic.ttf"; path = "../assets/fonts/Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		CB7DCC23E4B4406580630C54 /* 3270Narrow.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = 3270Narrow.ttf; path = ../assets/fonts/3270Narrow.ttf; sourceTree = "<group>"; };
+		D43ACD26639D4817BD42D25D /* NeutraText-BookItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-BookItalic.otf"; path = "../assets/fonts/NeutraText-BookItalic.otf"; sourceTree = "<group>"; };
+		E5688338970E4E3594E01C47 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ThinItalic.ttf"; path = "../assets/fonts/Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		ED5B895499404E809609C44B /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-LightItalic.ttf"; path = "../assets/fonts/Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
-		F7E573B2A4504AB094CE4510 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		FEB754CF9337436B969ED9D5 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		FF2163DC186C45C698830027 /* KLMN_Flash_Pix.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = KLMN_Flash_Pix.ttf; path = ../assets/fonts/KLMN_Flash_Pix.ttf; sourceTree = "<group>"; };
+		ED5B895499404E809609C44B /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-LightItalic.ttf"; path = "../assets/fonts/Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		F7E573B2A4504AB094CE4510 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		F8F825E5E48B910ED15E4479 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB754CF9337436B969ED9D5 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		FF2163DC186C45C698830027 /* KLMN_Flash_Pix.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = KLMN_Flash_Pix.ttf; path = ../assets/fonts/KLMN_Flash_Pix.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +269,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a in Frameworks */,
+				D6542A97ADE7592369A2361C /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-LeelaAiWeb3.a in Frameworks */,
+				4CA41C6AD4A7150F4013BE39 /* libPods-LeelaAiWeb3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +310,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				7395E4E62A7D062A00808D7D /* docs */,
 			);
 			name = LeelaAiWeb3;
 			sourceTree = "<group>";
@@ -156,10 +319,115 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-LeelaAiWeb3.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */,
+				63A83EB4D9E2850E2B8E2E6F /* libPods-LeelaAiWeb3.a */,
+				F8F825E5E48B910ED15E4479 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7395E4E62A7D062A00808D7D /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				7395E4E72A7D062A00808D7D /* plans */,
+				7395E5302A7D062A00808D7D /* intro.md */,
+				7395E5312A7D062A00808D7D /* rules */,
+				7395E5382A7D062A00808D7D /* policy.md */,
+				7395E5392A7D062A00808D7D /* eula.md */,
+			);
+			name = docs;
+			path = ../assets/docs;
+			sourceTree = "<group>";
+		};
+		7395E4E72A7D062A00808D7D /* plans */ = {
+			isa = PBXGroup;
+			children = (
+				7395E4E82A7D062A00808D7D /* 23-heavenlyplan.md */,
+				7395E4E92A7D062A00808D7D /* 5-physicalplan.md */,
+				7395E4EA2A7D062A00808D7D /* 25-goodcompany.md */,
+				7395E4EB2A7D062A00808D7D /* 26-sadness.md */,
+				7395E4EC2A7D062A00808D7D /* 42-planagni.md */,
+				7395E4ED2A7D062A00808D7D /* 2-maya.md */,
+				7395E4EE2A7D062A00808D7D /* 45-correctknowledge.md */,
+				7395E4EF2A7D062A00808D7D /* 31-planofholiness.md */,
+				7395E4F02A7D062A00808D7D /* 4-avarice.md */,
+				7395E4F12A7D062A00808D7D /* 59-planeofreality.md */,
+				7395E4F22A7D062A00808D7D /* 9-sensualplan.md */,
+				7395E4F32A7D062A00808D7D /* 7-vanity.md */,
+				7395E4F42A7D062A00808D7D /* 24-badcompany.md */,
+				7395E4F52A7D062A00808D7D /* 32-balanceplan.md */,
+				7395E4F62A7D062A00808D7D /* 36-clarityofmind.md */,
+				7395E4F72A7D062A00808D7D /* 39-apanaloka.md */,
+				7395E4F82A7D062A00808D7D /* 21-redemption.md */,
+				7395E4F92A7D062A00808D7D /* 64-phenomenalplan.md */,
+				7395E4FA2A7D062A00808D7D /* 65-interiorspaceplan.md */,
+				7395E4FB2A7D062A00808D7D /* 15-fantasyplan.md */,
+				7395E4FC2A7D062A00808D7D /* 35-purgatory.md */,
+				7395E4FD2A7D062A00808D7D /* 22-plandharmas.md */,
+				7395E4FE2A7D062A00808D7D /* 57-plangas.md */,
+				7395E4FF2A7D062A00808D7D /* 53-fluidplan.md */,
+				7395E5002A7D062A00808D7D /* 18-planofjoy.md */,
+				7395E5012A7D062A00808D7D /* 19-plankarma.md */,
+				7395E5022A7D062A00808D7D /* 47-neutralityplan.md */,
+				7395E5032A7D062A00808D7D /* 68-cosmicconsciousness.md */,
+				7395E5042A7D062A00808D7D /* 33-aramat.md */,
+				7395E5052A7D062A00808D7D /* 14-astral.md */,
+				7395E5062A7D062A00808D7D /* 30-goodtrends.md */,
+				7395E5072A7D062A00808D7D /* 3-anger.md */,
+				7395E5082A7D062A00808D7D /* 69-planoftheabsolute.md */,
+				7395E5092A7D062A00808D7D /* 49-lunarplan.md */,
+				7395E50A2A7D062A00808D7D /* 54-planofspiritualityanddevotion.md */,
+				7395E50B2A7D062A00808D7D /* 52-planviolence.md */,
+				7395E50C2A7D062A00808D7D /* 48-sunnyplan.md */,
+				7395E50D2A7D062A00808D7D /* 40-vyanaloka.md */,
+				7395E50E2A7D062A00808D7D /* 37-jnana.md */,
+				7395E50F2A7D062A00808D7D /* 12-envy.md */,
+				7395E5102A7D062A00808D7D /* 61-negativeintelligence.md */,
+				7395E5112A7D062A00808D7D /* 17-compassion.md */,
+				7395E5122A7D062A00808D7D /* 34-tasteplan.md */,
+				7395E5132A7D062A00808D7D /* 11-entertainment.md */,
+				7395E5142A7D062A00808D7D /* 27-selflessservice.md */,
+				7395E5152A7D062A00808D7D /* 60-positiveintelligence.md */,
+				7395E5162A7D062A00808D7D /* 67-planofcosmicgood.md */,
+				7395E5172A7D062A00808D7D /* 62-happiness.md */,
+				7395E5182A7D062A00808D7D /* 16-jealousy.md */,
+				7395E5192A7D062A00808D7D /* 72-tamogun.md */,
+				7395E51A2A7D062A00808D7D /* 41-humanplan.md */,
+				7395E51B2A7D062A00808D7D /* 44-ignorance.md */,
+				7395E51C2A7D062A00808D7D /* 56-planinitialvibrations.md */,
+				7395E51D2A7D062A00808D7D /* 28-truereligiosity.md */,
+				7395E51E2A7D062A00808D7D /* 51-earth.md */,
+				7395E51F2A7D062A00808D7D /* 20-charity.md */,
+				7395E5202A7D062A00808D7D /* 6-delusion.md */,
+				7395E5212A7D062A00808D7D /* 1-birth.md */,
+				7395E5222A7D062A00808D7D /* 50-planofasceticism.md */,
+				7395E5232A7D062A00808D7D /* 58-radianceplan.md */,
+				7395E5242A7D062A00808D7D /* 43-birthofman.md */,
+				7395E5252A7D062A00808D7D /* 38-pranaloka.md */,
+				7395E5262A7D062A00808D7D /* 71-rajogun.md */,
+				7395E5272A7D062A00808D7D /* 10-cleansing.md */,
+				7395E5282A7D062A00808D7D /* 29-lackofreligiosity.md */,
+				7395E5292A7D062A00808D7D /* 66-blissplan.md */,
+				7395E52A2A7D062A00808D7D /* 55-selfishness.md */,
+				7395E52B2A7D062A00808D7D /* 46-distinction.md */,
+				7395E52C2A7D062A00808D7D /* 8-greed.md */,
+				7395E52D2A7D062A00808D7D /* 13-nullity.md */,
+				7395E52E2A7D062A00808D7D /* 70-sattvaguna.md */,
+				7395E52F2A7D062A00808D7D /* 63-tamas.md */,
+			);
+			path = plans;
+			sourceTree = "<group>";
+		};
+		7395E5312A7D062A00808D7D /* rules */ = {
+			isa = PBXGroup;
+			children = (
+				7395E5322A7D062A00808D7D /* 0-chortdescription.md */,
+				7395E5332A7D062A00808D7D /* 4-chakras.md */,
+				7395E5342A7D062A00808D7D /* 1-introduction.md */,
+				7395E5352A7D062A00808D7D /* 3-numerologygames.md */,
+				7395E5362A7D062A00808D7D /* 5-notes.md */,
+				7395E5372A7D062A00808D7D /* 2-meaningofthegame.md */,
+			);
+			path = rules;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -197,10 +465,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-LeelaAiWeb3.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-LeelaAiWeb3.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig */,
+				3B5C5936E778F45A036A3B71 /* Pods-LeelaAiWeb3.debug.xcconfig */,
+				B4FB55C8DFDF8C5F754D7EC6 /* Pods-LeelaAiWeb3.release.xcconfig */,
+				6652CEFE350599AE4D02DE65 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */,
+				825AD6B44E6CFFA245F6C366 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -238,7 +506,6 @@
 				025E520BDAE0418CA23EDDA3 /* TheDolbak-Brush.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,12 +515,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "LeelaAiWeb3Tests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				18B96548BC390AB0F0FEA5DB /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				1022B40CAB751F2D38BC0C7A /* [CP] Embed Pods Frameworks */,
+				0E0A3B024E6B6EDCA95F488F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,14 +536,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "LeelaAiWeb3" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				709B9BFEA83F92602EEDB9E4 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				2AE6CB4E9AA1B42DBB96BA54 /* [CP] Embed Pods Frameworks */,
+				74E86F3F0F03EA9F9D24C760 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,36 +602,117 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7395E53D2A7D062A00808D7D /* 26-sadness.md in Resources */,
+				7395E55F2A7D062A00808D7D /* 40-vyanaloka.md in Resources */,
+				7395E5442A7D062A00808D7D /* 9-sensualplan.md in Resources */,
+				7395E5402A7D062A00808D7D /* 45-correctknowledge.md in Resources */,
+				7395E55C2A7D062A00808D7D /* 54-planofspiritualityanddevotion.md in Resources */,
+				7395E55E2A7D062A00808D7D /* 48-sunnyplan.md in Resources */,
+				7395E56A2A7D062A00808D7D /* 16-jealousy.md in Resources */,
+				7395E5582A7D062A00808D7D /* 30-goodtrends.md in Resources */,
+				7395E5732A7D062A00808D7D /* 1-birth.md in Resources */,
+				7395E55D2A7D062A00808D7D /* 52-planviolence.md in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				7395E5542A7D062A00808D7D /* 47-neutralityplan.md in Resources */,
+				7395E5422A7D062A00808D7D /* 4-avarice.md in Resources */,
+				7395E56C2A7D062A00808D7D /* 41-humanplan.md in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3F83076131544B1E9126CE7F /* NeutraText-Bold.otf in Resources */,
+				7395E5642A7D062A00808D7D /* 34-tasteplan.md in Resources */,
 				D70F77DB645047968D013065 /* NeutraText-BoldItalic.otf in Resources */,
 				300236FC6E3E42A7A16EB202 /* NeutraText-Book.otf in Resources */,
+				7395E5482A7D062A00808D7D /* 36-clarityofmind.md in Resources */,
 				76DD4BF227BD43D3833F75BC /* NeutraText-BookItalic.otf in Resources */,
+				7395E5572A7D062A00808D7D /* 14-astral.md in Resources */,
 				FFD80FD960B7476A810D92D2 /* OxygenMono-Regular.otf in Resources */,
+				7395E5682A7D062A00808D7D /* 67-planofcosmicgood.md in Resources */,
+				7395E54B2A7D062A00808D7D /* 64-phenomenalplan.md in Resources */,
 				B0F51607D5694B179CA14F83 /* etna-free-font.otf in Resources */,
 				FA2D7FD14E6B4399A1359DF5 /* 3270Narrow.ttf in Resources */,
+				7395E5772A7D062A00808D7D /* 38-pranaloka.md in Resources */,
+				7395E57E2A7D062A00808D7D /* 8-greed.md in Resources */,
 				AAE19CA8134C431AB9A4464C /* IBM-Logo.ttf in Resources */,
+				7395E5782A7D062A00808D7D /* 71-rajogun.md in Resources */,
+				7395E53E2A7D062A00808D7D /* 42-planagni.md in Resources */,
 				9FA1A245E1604533B6EB070A /* KLMN_Flash_Pix.ttf in Resources */,
+				7395E5612A7D062A00808D7D /* 12-envy.md in Resources */,
+				7395E5852A7D062A00808D7D /* 1-introduction.md in Resources */,
 				9CEEFC0AD8864D1EA7FC92A4 /* Montserrat-Black.ttf in Resources */,
 				E22F9311D19D49A2833B5B0A /* Montserrat-BlackItalic.ttf in Resources */,
+				7395E5692A7D062A00808D7D /* 62-happiness.md in Resources */,
+				7395E54D2A7D062A00808D7D /* 15-fantasyplan.md in Resources */,
 				37169412D2944C38BA882982 /* Montserrat-Bold.ttf in Resources */,
+				7395E5712A7D062A00808D7D /* 20-charity.md in Resources */,
+				7395E5472A7D062A00808D7D /* 32-balanceplan.md in Resources */,
+				7395E5792A7D062A00808D7D /* 10-cleansing.md in Resources */,
 				AC69179B133847F0A29F38C3 /* Montserrat-BoldItalic.ttf in Resources */,
+				7395E5632A7D062A00808D7D /* 17-compassion.md in Resources */,
 				4D6BEB5D68C14A9EA5901F17 /* Montserrat-ExtraBold.ttf in Resources */,
 				533C73BDDFDA49EF825FB79D /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				7395E5812A7D062A00808D7D /* 63-tamas.md in Resources */,
+				7395E58A2A7D062A00808D7D /* eula.md in Resources */,
+				7395E5462A7D062A00808D7D /* 24-badcompany.md in Resources */,
+				7395E54C2A7D062A00808D7D /* 65-interiorspaceplan.md in Resources */,
+				7395E57B2A7D062A00808D7D /* 66-blissplan.md in Resources */,
+				7395E5532A7D062A00808D7D /* 19-plankarma.md in Resources */,
+				7395E5742A7D062A00808D7D /* 50-planofasceticism.md in Resources */,
+				7395E5802A7D062A00808D7D /* 70-sattvaguna.md in Resources */,
+				7395E5722A7D062A00808D7D /* 6-delusion.md in Resources */,
+				7395E5432A7D062A00808D7D /* 59-planeofreality.md in Resources */,
+				7395E53C2A7D062A00808D7D /* 25-goodcompany.md in Resources */,
+				7395E5522A7D062A00808D7D /* 18-planofjoy.md in Resources */,
+				7395E56B2A7D062A00808D7D /* 72-tamogun.md in Resources */,
+				7395E5662A7D062A00808D7D /* 27-selflessservice.md in Resources */,
+				7395E5502A7D062A00808D7D /* 57-plangas.md in Resources */,
+				7395E57F2A7D062A00808D7D /* 13-nullity.md in Resources */,
+				7395E5762A7D062A00808D7D /* 43-birthofman.md in Resources */,
+				7395E5702A7D062A00808D7D /* 51-earth.md in Resources */,
+				7395E5412A7D062A00808D7D /* 31-planofholiness.md in Resources */,
+				7395E57A2A7D062A00808D7D /* 29-lackofreligiosity.md in Resources */,
 				AB891917DA574E49BC72F47F /* Montserrat-ExtraLight.ttf in Resources */,
 				9AE074469F254450822F6AB3 /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				7395E5602A7D062A00808D7D /* 37-jnana.md in Resources */,
 				18FBA8D77B70478CB983D458 /* Montserrat-Italic.ttf in Resources */,
 				6F1DE3819FB049C6938C3964 /* Montserrat-Light.ttf in Resources */,
+				7395E56E2A7D062A00808D7D /* 56-planinitialvibrations.md in Resources */,
+				7395E5622A7D062A00808D7D /* 61-negativeintelligence.md in Resources */,
 				3AA73773AAA44D38BBB20663 /* Montserrat-LightItalic.ttf in Resources */,
+				7395E5652A7D062A00808D7D /* 11-entertainment.md in Resources */,
 				001667DA30544BD390AF2466 /* Montserrat-Medium.ttf in Resources */,
+				7395E56D2A7D062A00808D7D /* 44-ignorance.md in Resources */,
+				7395E5672A7D062A00808D7D /* 60-positiveintelligence.md in Resources */,
 				D2642EEF4D3941349A9D99DF /* Montserrat-MediumItalic.ttf in Resources */,
+				7395E53A2A7D062A00808D7D /* 23-heavenlyplan.md in Resources */,
+				7395E5872A7D062A00808D7D /* 5-notes.md in Resources */,
 				E59C4B0024934E50AF289891 /* Montserrat-Regular.ttf in Resources */,
+				7395E53B2A7D062A00808D7D /* 5-physicalplan.md in Resources */,
 				B0FC989D7A7D4D91BD78DEC4 /* Montserrat-SemiBold.ttf in Resources */,
+				7395E5592A7D062A00808D7D /* 3-anger.md in Resources */,
+				7395E54A2A7D062A00808D7D /* 21-redemption.md in Resources */,
+				7395E5512A7D062A00808D7D /* 53-fluidplan.md in Resources */,
+				7395E5832A7D062A00808D7D /* 0-chortdescription.md in Resources */,
+				7395E5882A7D062A00808D7D /* 2-meaningofthegame.md in Resources */,
+				7395E5562A7D062A00808D7D /* 33-aramat.md in Resources */,
+				7395E5822A7D062A00808D7D /* intro.md in Resources */,
+				7395E53F2A7D062A00808D7D /* 2-maya.md in Resources */,
+				7395E55B2A7D062A00808D7D /* 49-lunarplan.md in Resources */,
+				7395E54E2A7D062A00808D7D /* 35-purgatory.md in Resources */,
+				7395E5892A7D062A00808D7D /* policy.md in Resources */,
+				7395E57D2A7D062A00808D7D /* 46-distinction.md in Resources */,
 				B2A59FDF3C754B938AA5847E /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				7395E5842A7D062A00808D7D /* 4-chakras.md in Resources */,
+				7395E5492A7D062A00808D7D /* 39-apanaloka.md in Resources */,
 				DE1266BDB2E94D4EA2D73330 /* Montserrat-Thin.ttf in Resources */,
+				7395E55A2A7D062A00808D7D /* 69-planoftheabsolute.md in Resources */,
+				7395E54F2A7D062A00808D7D /* 22-plandharmas.md in Resources */,
+				7395E5552A7D062A00808D7D /* 68-cosmicconsciousness.md in Resources */,
+				7395E5452A7D062A00808D7D /* 7-vanity.md in Resources */,
+				7395E5862A7D062A00808D7D /* 3-numerologygames.md in Resources */,
 				E15CC040864C46749FBA4176 /* Montserrat-ThinItalic.ttf in Resources */,
 				0CA3C2B3EFAB4F3E9265CD16 /* TheDolbak-Brush.ttf in Resources */,
+				7395E57C2A7D062A00808D7D /* 55-selfishness.md in Resources */,
+				7395E56F2A7D062A00808D7D /* 28-truereligiosity.md in Resources */,
+				7395E5752A7D062A00808D7D /* 58-radianceplan.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,24 +735,41 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		0E0A3B024E6B6EDCA95F488F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		1022B40CAB751F2D38BC0C7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18B96548BC390AB0F0FEA5DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,7 +791,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		2AE6CB4E9AA1B42DBB96BA54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		709B9BFEA83F92602EEDB9E4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -448,24 +830,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+		74E86F3F0F03EA9F9D24C760 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -480,23 +845,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3/Pods-LeelaAiWeb3-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -551,7 +899,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */;
+			baseConfigurationReference = 6652CEFE350599AE4D02DE65 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -578,7 +926,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig */;
+			baseConfigurationReference = 825AD6B44E6CFFA245F6C366 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -602,7 +950,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-LeelaAiWeb3.debug.xcconfig */;
+			baseConfigurationReference = 3B5C5936E778F45A036A3B71 /* Pods-LeelaAiWeb3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -629,7 +977,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-LeelaAiWeb3.release.xcconfig */;
+			baseConfigurationReference = B4FB55C8DFDF8C5F754D7EC6 /* Pods-LeelaAiWeb3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
