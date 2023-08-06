@@ -61,8 +61,8 @@ function App(): JSX.Element {
   return (
     <GestureHandlerRootView>
       <SafeAreaView style={backgroundStyle}>
-        <Button title={'Регистрация'} onPress={() => console.log('click')} />
-        {/* <Text h={'h2'} title={'Test Title'} /> */}
+        <Button title={t('buy')} onPress={() => console.log('click')} />
+        <Text h={'h2'} title={t('takeStep')} />
         {/* <MarkdownView /> */}
         {/* <GameBoard players={plansPlayers} />
         <Space height={50} />
