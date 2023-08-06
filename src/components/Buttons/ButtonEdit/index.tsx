@@ -1,9 +1,9 @@
 import React from 'react'
 
-import {Image, StyleProp, StyleSheet, ViewStyle} from 'react-native'
-import {vs} from 'react-native-size-matters'
+import { Image, StyleProp, StyleSheet, ViewStyle } from 'react-native'
+import { vs } from 'react-native-size-matters'
 
-import {Pressable} from '../../Pressable'
+import { Pressable } from '../../Pressable'
 
 const styles = StyleSheet.create({
   img: {
@@ -17,7 +17,7 @@ interface ButtonEditT {
   viewStyle?: StyleProp<ViewStyle>
 }
 
-const ButtonEdit = ({onPress, viewStyle}: ButtonEditT) => {
+const ButtonEdit = ({ onPress, viewStyle }: ButtonEditT) => {
   return (
     <Pressable onPress={onPress} style={viewStyle}>
       <Image style={styles.img} source={require('./edit.png')} />
@@ -25,4 +25,4 @@ const ButtonEdit = ({onPress, viewStyle}: ButtonEditT) => {
   )
 }
 
-export {ButtonEdit}
+export { ButtonEdit }

@@ -1,5 +1,6 @@
-import {useTheme} from '@react-navigation/native'
-import React, {memo} from 'react'
+import { useTheme } from '@react-navigation/native'
+import { gray } from 'cons'
+import React, { memo } from 'react'
 import {
   Platform,
   Text as RNText,
@@ -9,18 +10,18 @@ import {
   TextStyle,
   useColorScheme,
 } from 'react-native'
-import {ms, s} from 'react-native-size-matters'
+import { ms, s } from 'react-native-size-matters'
 
 export const textStyles = StyleSheet.create({
   h0: {
     fontFamily: Platform.OS === 'ios' ? 'Etna' : 'etna-free-font',
-    textShadowOffset: {width: 1, height: 1},
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
     fontSize: Platform.OS === 'ios' ? ms(95, 0.5) : ms(95, 0.3),
   },
   h1: {
     fontFamily: Platform.OS === 'ios' ? 'Etna' : 'etna-free-font',
-    textShadowOffset: {width: 1, height: 1},
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
     fontSize: Platform.OS === 'ios' ? ms(35, 0.3) : ms(35, 0.6),
   },
@@ -30,7 +31,7 @@ export const textStyles = StyleSheet.create({
   },
   h3: {
     fontFamily: 'Montserrat',
-    textShadowOffset: {width: 1, height: 1},
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
     fontSize: Platform.OS === 'ios' ? ms(18, 0.6) : ms(18, 0.6),
   },
@@ -104,9 +105,9 @@ export interface TxtT extends TextProps {
 }
 
 export const Text = memo<TxtT>(
-  ({h, colors, title, oneColor, textStyle, ...textProps}) => {
+  ({ h, colors, title, oneColor = gray, textStyle, ...textProps }) => {
     const {
-      colors: {primary, text},
+      colors: { primary, text },
     } = useTheme()
     const scheme = useColorScheme()
     const isDark = scheme === 'dark'
@@ -124,8 +125,8 @@ export const Text = memo<TxtT>(
 
     const hStyle = h
       ? [
-          {...textStyles[h], color: curColor},
-          hasShadow && {textShadowColor: primary},
+          { ...textStyles[h], color: curColor },
+          hasShadow && { textShadowColor: primary },
         ]
       : undefined
 

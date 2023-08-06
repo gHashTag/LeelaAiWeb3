@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Image, Pressable } from 'react-native'
 import { ScaledSheet, ms } from 'react-native-size-matters'
 import { ICONS } from './images'
-import { gray } from '../../constants'
+import { gray } from '../../cons'
 import { Text } from '../Text'
 
 interface GemProps {
@@ -48,12 +48,12 @@ const styles = ScaledSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 2
+    zIndex: 2,
   },
   gems: {
     width: ms(42, 0.5),
     height: ms(42, 0.5),
-    borderRadius: ms(42, 0.5) / 2
+    borderRadius: ms(42, 0.5) / 2,
   },
   circle: {
     width: ms(44),
@@ -61,8 +61,8 @@ const styles = ScaledSheet.create({
     borderRadius: ms(44) / 2,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent'
-  }
+    backgroundColor: 'transparent',
+  },
 })
 
 export { Gem }

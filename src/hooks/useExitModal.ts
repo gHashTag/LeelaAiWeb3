@@ -1,7 +1,7 @@
 import { useFocusEffect } from '@react-navigation/native'
 import { BackHandler } from 'react-native'
 
-import { OpenExitModal } from '../constants'
+import { OpenExitModal } from '../cons'
 
 export const useExitModal = () => {
   useFocusEffect(() => {
@@ -10,7 +10,7 @@ export const useExitModal = () => {
       function () {
         OpenExitModal()
         return true
-      }
+      },
     )
     return () => backHandler.remove()
   })

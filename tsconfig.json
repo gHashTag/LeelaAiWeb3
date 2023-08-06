@@ -3,12 +3,12 @@
   "compilerOptions": {
     "types": ["jest"],
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["node_modules/@types"],
+    // "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"],
       "components/*": ["./src/components/*"],
-      "constants/*": ["./src/constants/*"],
+      "cons/*": ["./src/cons/*"],
       "screens/*": ["./src/screens/*"],
       "locales/*": ["./src/locales/*"],
       "hooks/*": ["./src/hooks/*"],

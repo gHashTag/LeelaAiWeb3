@@ -3,18 +3,18 @@ import React, { memo } from 'react'
 import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
 
 import { Text } from '../../'
-import { secondary } from '../../../constants'
+import { secondary } from 'cons'
 import { Pressable } from '../../Pressable'
 
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   h: {
     textDecorationLine: 'underline',
-    color: secondary
-  }
+    color: secondary,
+  },
 })
 
 interface ButtonLinkT {
@@ -33,7 +33,7 @@ const ButtonLink = memo<ButtonLinkT>(
         <Text h={'h5'} title={title} textStyle={[h, textStyle]} />
       </Pressable>
     )
-  }
+  },
 )
 
 export { ButtonLink }

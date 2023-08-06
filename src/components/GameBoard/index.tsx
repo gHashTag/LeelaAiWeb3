@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { Image, StyleSheet, View, useColorScheme } from 'react-native'
 import { ms, mvs, s } from 'react-native-size-matters'
 
-import { H, W } from '../../constants'
+import { H, W } from '../../cons'
 import { Gem } from '../Gem'
 import { ICONS } from './images'
 
@@ -61,7 +61,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
     [36, 35, 34, 33, 32, 31, 30, 29, 28],
     [19, 20, 21, 22, 23, 24, 25, 26, 27],
     [18, 17, 16, 15, 14, 13, 12, 11, 10],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9],
   ]
 
   return (
@@ -89,20 +89,20 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: imageTopMargin
+    marginTop: imageTopMargin,
   },
   imageContainer: {
     height: curImageHeight,
     alignSelf: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   gameBoardContainer: {
     width: curImageWidth,
     height: curImageHeight,
-    marginTop
+    marginTop,
   },
   box: {
     width: s(31),
@@ -113,14 +113,14 @@ const styles = StyleSheet.create({
     marginHorizontal: s(1),
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: s(31) / 2
+    borderRadius: s(31) / 2,
   },
   bgImage: {
     width: '100%',
     height: '100%',
     position: 'absolute',
-    top: mvs(33, 1.6) - imageTopMargin
-  }
+    top: mvs(33, 1.6) - imageTopMargin,
+  },
 })
 
 export { GameBoard }

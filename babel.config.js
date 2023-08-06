@@ -30,7 +30,7 @@ module.exports = {
         ],
         alias: {
           components: './src/components',
-          constants: './src/constants',
+          cons: './src/cons',
           screens: './src/screens',
           types: './src/types',
           hooks: './src/hooks',

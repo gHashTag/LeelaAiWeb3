@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { Text } from '../../'
-import { dimGray, gray } from '../../../constants'
+import { dimGray, gray } from 'cons'
 import { Pressable } from '../../Pressable'
 import { Space } from '../../Space'
 
@@ -31,7 +31,7 @@ export function ButtonVectorIcon({
   viewStyle,
   count,
   ionicons,
-  onPressIn
+  onPressIn,
 }: ButtonVectorIconI) {
   const scheme = useColorScheme()
   const colorTheme = scheme === 'dark' ? dimGray : gray

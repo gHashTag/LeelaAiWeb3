@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import NetInfo from '@react-native-community/netinfo'
 
-import { OpenNetworkModal } from '../constants'
+import { OpenNetworkModal } from '../cons'
 
 export const useNetwork = () => {
   useEffect(() => {

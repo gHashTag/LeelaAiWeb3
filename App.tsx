@@ -9,6 +9,7 @@ import React from 'react'
 import { SafeAreaView, useColorScheme } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { useTranslation } from 'react-i18next'
 import {
   // GameBoard,
   // Dice,
@@ -16,8 +17,7 @@ import {
   Text,
   //Space,
   // MarkdownView,
-  // ShadowsControl,
-  // Buttons,
+  Button,
 } from 'components'
 
 // import useLeelaGame from './src/hooks/useLeelaGame'
@@ -37,6 +37,8 @@ import {
 // }
 
 function App(): JSX.Element {
+  const { t } = useTranslation()
+
   const isDarkMode = useColorScheme() === 'dark'
   // const {player, rollHistory, planHistory, rollDice, lastRoll} = useLeelaGame()
   const backgroundStyle = {
@@ -59,12 +61,8 @@ function App(): JSX.Element {
   return (
     <GestureHandlerRootView>
       <SafeAreaView style={backgroundStyle}>
-        {/* <Buttons
-          title={t('actions.confirm')}
-          onPress={() => console.log('click')}
-        /> */}
-        <Text h={'h2'} title={'Test Title'} />
-        {/* <ShadowsControl /> */}
+        <Button title={'Регистрация'} onPress={() => console.log('click')} />
+        {/* <Text h={'h2'} title={'Test Title'} /> */}
         {/* <MarkdownView /> */}
         {/* <GameBoard players={plansPlayers} />
         <Space height={50} />
