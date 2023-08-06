@@ -1,11 +1,17 @@
-import {LEELA_ID, OPEN_AI_KEY} from '@env'
-import {createNavigationContainerRef} from '@react-navigation/native'
+import { LEELA_ID, OPEN_AI_KEY } from '@env'
+import { createNavigationContainerRef } from '@react-navigation/native'
 import * as Sentry from '@sentry/react-native'
 import axios from 'axios'
-import {Alert, Dimensions, Linking, Platform, NativeModules} from 'react-native'
+import {
+  Alert,
+  Dimensions,
+  Linking,
+  Platform,
+  NativeModules
+} from 'react-native'
 import Rate from 'react-native-rate'
-import i18next from './i18n'
-import {ButtonsModalT, HandleCommentAiParamsT, MessageAIT} from './types'
+import i18next from '../i18n'
+import { ButtonsModalT, HandleCommentAiParamsT, MessageAIT } from '../types'
 
 export const primary = '#50E3C2'
 export const secondary = '#ff06f4'
@@ -36,7 +42,7 @@ export const navigate = (name: string, params?: any) => {
 export const generateComment = async ({
   message,
   systemMessage,
-  planText,
+  planText
 }: MessageAIT): Promise<string> => {
   try {
     const response = await axios.post(
@@ -46,26 +52,26 @@ export const generateComment = async ({
         messages: [
           {
             role: 'system',
-            content: systemMessage,
+            content: systemMessage
           },
           {
             role: 'user',
-            content: message,
+            content: message
           },
           {
             role: 'assistant',
-            content: planText,
-          },
+            content: planText
+          }
         ],
         max_tokens: 1000,
-        temperature: 0.5,
+        temperature: 0.5
       },
       {
         headers: {
           Authorization: `Bearer ${OPEN_AI_KEY}`,
-          'Content-Type': 'application/json',
-        },
-      },
+          'Content-Type': 'application/json'
+        }
+      }
     )
 
     return response?.data?.choices[0]?.message?.content ?? ''
@@ -82,7 +88,7 @@ export const onLeaveFeedback = (onAction: (success: any) => void) => {
     OtherAndroidURL:
       'https://play.google.com/store/apps/details?id=com.leelagame',
     preferInApp: true,
-    openAppStoreIfInAppFails: true,
+    openAppStoreIfInAppFails: true
   }
   Rate.rate(options, onAction)
 }
@@ -91,12 +97,12 @@ export const handleCommentAi = async ({
   curItem,
   systemMessage,
   message,
-  planText = ' ',
+  planText = ' '
 }: HandleCommentAiParamsT): Promise<void> => {
   const aiComment: string = await generateComment({
     message,
     systemMessage,
-    planText,
+    planText
   })
   console.log('LEELA_ID', LEELA_ID)
   if (curItem && aiComment) {
@@ -132,21 +138,21 @@ interface VideoModalT {
   poster: string
 }
 
-export function OpenVideoModal({uri, poster}: VideoModalT) {
+export function OpenVideoModal({ uri, poster }: VideoModalT) {
   if (navRef.isReady()) {
-    navRef.navigate('VIDEO_SCREEN', {uri, poster})
+    navRef.navigate('VIDEO_SCREEN', { uri, poster })
   }
 }
 
 export function OpenPlanReportModal(plan: number) {
   if (navRef.isReady()) {
-    navRef.navigate('PLAN_REPORT_MODAL', {plan})
+    navRef.navigate('PLAN_REPORT_MODAL', { plan })
   }
 }
 
 export function OpenActionsModal(modalButtons: ButtonsModalT[]) {
   if (navRef.isReady()) {
-    navRef.navigate('REPLY_MODAL', {buttons: modalButtons})
+    navRef.navigate('REPLY_MODAL', { buttons: modalButtons })
   }
 }
 
@@ -154,18 +160,20 @@ export const banAlert = () => {
   Alert.alert(
     i18next.t('online-part.youBanned'),
     i18next.t('online-part.banText'),
-    [{text: 'OK', onPress: () => navigate('HELLO')}],
+    [{ text: 'OK', onPress: () => navigate('HELLO') }]
   )
 }
 export const accountHasBanAlert = () => {
-  Alert.alert(i18next.t('online-part.accountBanned'), undefined, [{text: 'OK'}])
+  Alert.alert(i18next.t('online-part.accountBanned'), undefined, [
+    { text: 'OK' }
+  ])
 }
 
 export const captureException = (error: any, target: string) => {
   if (!error) {
     console.log(
       '%c captureException called with messing or incorrect arguments',
-      'background: #555; color: yellow',
+      'background: #555; color: yellow'
     )
     return
   }
@@ -191,7 +199,7 @@ export const goBack = () => {
   }
 }
 //@ts-ignore
-export const goHome = navigation => () => navigation.popToTop()()
+export const goHome = (navigation) => () => navigation.popToTop()()
 
 export const revenuecat = 'BeIMIIfptWXlouosYudFEWQDkwDvJUzv'
 
