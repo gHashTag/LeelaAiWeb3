@@ -35,6 +35,7 @@ module.exports = {
           types: './src/types',
           hooks: './src/hooks',
           locales: './src/locales',
+          helpers: './src/helpers',
         },
       },
     ],

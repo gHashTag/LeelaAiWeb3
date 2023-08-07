@@ -1,6 +1,6 @@
-import React, {useRef} from 'react'
-import {Animated, Easing, Pressable, StyleSheet} from 'react-native'
-import {vs} from 'react-native-size-matters'
+import React, { useRef } from 'react'
+import { Animated, Easing, Pressable, StyleSheet } from 'react-native'
+import { vs } from 'react-native-size-matters'
 
 export interface DiceProps {
   disabled?: boolean
@@ -31,7 +31,7 @@ const Dice = ({
   rollDice,
   lastRoll,
   size = 'medium',
-}: DiceProps & {lastRoll: number}) => {
+}: DiceProps & { lastRoll: number }) => {
   const spinValue = useRef(new Animated.Value(0)).current
 
   const spin = spinValue.interpolate({
@@ -71,11 +71,16 @@ const Dice = ({
     <Pressable
       onPress={animateDice}
       style={styles.diceContainer}
-      testID="dice-component">
+      testID="dice-component"
+    >
       <Animated.Image
         style={[
           styles.image,
-          {transform: [{rotate: spin}], height: getSize(), width: getSize()},
+          {
+            transform: [{ rotate: spin }],
+            height: getSize(),
+            width: getSize(),
+          },
         ]}
         source={getImage(lastRoll)}
         testID="dice-image"
@@ -96,4 +101,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export {Dice}
+export { Dice }

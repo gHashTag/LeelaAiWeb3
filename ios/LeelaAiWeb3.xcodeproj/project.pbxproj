@@ -1581,6 +1581,8 @@
 		E59C4B0024934E50AF289891 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79EEEE74F2AA45D8B4BE91C3 /* Montserrat-Regular.ttf */; };
 		FA2D7FD14E6B4399A1359DF5 /* 3270Narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB7DCC23E4B4406580630C54 /* 3270Narrow.ttf */; };
 		FFD80FD960B7476A810D92D2 /* OxygenMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58EC839D2F6F4D46B883E857 /* OxygenMono-Regular.otf */; };
+		8DE9AE2A1D4243E8A945B8F8 /* mont_extralightdemo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95AB504778B04FA1A47F3C71 /* mont_extralightdemo.ttf */; };
+		3E582F8936E048858EE13F9C /* mont_heavydemo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F92E492DABCE474CBFF78BE0 /* mont_heavydemo.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3178,6 +3180,8 @@
 		F8F825E5E48B910ED15E4479 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB754CF9337436B969ED9D5 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 		FF2163DC186C45C698830027 /* KLMN_Flash_Pix.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = KLMN_Flash_Pix.ttf; path = ../assets/fonts/KLMN_Flash_Pix.ttf; sourceTree = "<group>"; };
+		95AB504778B04FA1A47F3C71 /* mont_extralightdemo.ttf */ = {isa = PBXFileReference; name = "mont_extralightdemo.ttf"; path = "../assets/fonts/mont_extralightdemo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F92E492DABCE474CBFF78BE0 /* mont_heavydemo.ttf */ = {isa = PBXFileReference; name = "mont_heavydemo.ttf"; path = "../assets/fonts/mont_heavydemo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5014,6 +5018,8 @@
 				FEB754CF9337436B969ED9D5 /* Montserrat-Thin.ttf */,
 				E5688338970E4E3594E01C47 /* Montserrat-ThinItalic.ttf */,
 				025E520BDAE0418CA23EDDA3 /* TheDolbak-Brush.ttf */,
+				95AB504778B04FA1A47F3C71 /* mont_extralightdemo.ttf */,
+				F92E492DABCE474CBFF78BE0 /* mont_heavydemo.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -6681,6 +6687,8 @@
 				7395F1C12A7D1F1B00808D7D /* 54-planofspiritualityanddevotion-ja.md in Resources */,
 				7395F5652A7D1F1C00808D7D /* 14-astral-es.md in Resources */,
 				7395F4372A7D1F1C00808D7D /* 67-planofcosmicgood-de.md in Resources */,
+				8DE9AE2A1D4243E8A945B8F8 /* mont_extralightdemo.ttf in Resources */,
+				3E582F8936E048858EE13F9C /* mont_heavydemo.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

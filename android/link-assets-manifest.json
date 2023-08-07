@@ -112,6 +112,14 @@
     {
       "path": "assets/fonts/etna-free-font.otf",
       "sha1": "ccf64d153d3026a24d5a89c2f9d2334ef0f24537"
+    },
+    {
+      "path": "assets/fonts/mont_extralightdemo.ttf",
+      "sha1": "eb229164a155d47949a1b34c75b4b12a5a4c3ff0"
+    },
+    {
+      "path": "assets/fonts/mont_heavydemo.ttf",
+      "sha1": "ebc0e83e2818faec9ca717715dd4ade3dce09ea8"
     }
   ]
 }

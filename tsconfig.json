@@ -12,7 +12,8 @@
       "screens/*": ["./src/screens/*"],
       "locales/*": ["./src/locales/*"],
       "hooks/*": ["./src/hooks/*"],
-      "types/*": ["./src/types/*"]
+      "types/*": ["./src/types/*"],
+      "helpers/*": ["src/helpers/*"]
     }
   }
 }

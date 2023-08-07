@@ -206,3 +206,8 @@ export interface ButtonsModalT {
   key: string
   color?: string
 }
+
+export interface getTimeT {
+  lastTime: number
+  type?: '' | '-short'
+}
