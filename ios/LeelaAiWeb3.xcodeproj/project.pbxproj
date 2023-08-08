@@ -17,11 +17,31 @@
 		300236FC6E3E42A7A16EB202 /* NeutraText-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66A3FA817E5B4F84A55A56F3 /* NeutraText-Book.otf */; };
 		37169412D2944C38BA882982 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C535A605C8974C77A0855D70 /* Montserrat-Bold.ttf */; };
 		3AA73773AAA44D38BBB20663 /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED5B895499404E809609C44B /* Montserrat-LightItalic.ttf */; };
+		3E582F8936E048858EE13F9C /* mont_heavydemo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F92E492DABCE474CBFF78BE0 /* mont_heavydemo.ttf */; };
 		3F83076131544B1E9126CE7F /* NeutraText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FC4F8D48C11405BBA170477 /* NeutraText-Bold.otf */; };
 		4CA41C6AD4A7150F4013BE39 /* libPods-LeelaAiWeb3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A83EB4D9E2850E2B8E2E6F /* libPods-LeelaAiWeb3.a */; };
 		4D6BEB5D68C14A9EA5901F17 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D378BB22FF4599A2A8A7D0 /* Montserrat-ExtraBold.ttf */; };
 		533C73BDDFDA49EF825FB79D /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C76BFEC3041E4DB1AD7E87A4 /* Montserrat-ExtraBoldItalic.ttf */; };
 		6F1DE3819FB049C6938C3964 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8786D7C08D704784B1618029 /* Montserrat-Light.ttf */; };
+		737E45862A820AB300822B1C /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45732A820AB300822B1C /* Fontisto.ttf */; };
+		737E45872A820AB300822B1C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45742A820AB300822B1C /* Octicons.ttf */; };
+		737E45882A820AB300822B1C /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45752A820AB300822B1C /* Feather.ttf */; };
+		737E45892A820AB300822B1C /* FontAwesome6_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45762A820AB300822B1C /* FontAwesome6_Regular.ttf */; };
+		737E458A2A820AB300822B1C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45772A820AB300822B1C /* Entypo.ttf */; };
+		737E458B2A820AB300822B1C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45782A820AB300822B1C /* FontAwesome5_Brands.ttf */; };
+		737E458C2A820AB300822B1C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45792A820AB300822B1C /* MaterialCommunityIcons.ttf */; };
+		737E458D2A820AB300822B1C /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E457A2A820AB300822B1C /* AntDesign.ttf */; };
+		737E458E2A820AB300822B1C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E457B2A820AB300822B1C /* Foundation.ttf */; };
+		737E458F2A820AB300822B1C /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E457C2A820AB300822B1C /* Ionicons.ttf */; };
+		737E45902A820AB300822B1C /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E457D2A820AB300822B1C /* FontAwesome5_Solid.ttf */; };
+		737E45912A820AB300822B1C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E457E2A820AB300822B1C /* FontAwesome5_Regular.ttf */; };
+		737E45922A820AB300822B1C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E457F2A820AB300822B1C /* FontAwesome.ttf */; };
+		737E45932A820AB300822B1C /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45802A820AB300822B1C /* Zocial.ttf */; };
+		737E45942A820AB300822B1C /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45812A820AB300822B1C /* EvilIcons.ttf */; };
+		737E45952A820AB300822B1C /* FontAwesome6_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45822A820AB300822B1C /* FontAwesome6_Solid.ttf */; };
+		737E45962A820AB300822B1C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45832A820AB300822B1C /* SimpleLineIcons.ttf */; };
+		737E45972A820AB300822B1C /* FontAwesome6_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45842A820AB300822B1C /* FontAwesome6_Brands.ttf */; };
+		737E45982A820AB300822B1C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45852A820AB300822B1C /* MaterialIcons.ttf */; };
 		7395F0BA2A7D1F1B00808D7D /* 23-heavenlyplan-ur.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395EAA52A7D1F1A00808D7D /* 23-heavenlyplan-ur.md */; };
 		7395F0BB2A7D1F1B00808D7D /* 35-purgatory-ur.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395EAA62A7D1F1A00808D7D /* 35-purgatory-ur.md */; };
 		7395F0BC2A7D1F1B00808D7D /* policy-ur.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395EAA72A7D1F1A00808D7D /* policy-ur.md */; };
@@ -1563,6 +1583,7 @@
 		7395F6BC2A7D1F1C00808D7D /* 54-planofspiritualityanddevotion-tr.md in Resources */ = {isa = PBXBuildFile; fileRef = 7395F0B92A7D1F1A00808D7D /* 54-planofspiritualityanddevotion-tr.md */; };
 		76DD4BF227BD43D3833F75BC /* NeutraText-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D43ACD26639D4817BD42D25D /* NeutraText-BookItalic.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8DE9AE2A1D4243E8A945B8F8 /* mont_extralightdemo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95AB504778B04FA1A47F3C71 /* mont_extralightdemo.ttf */; };
 		9AE074469F254450822F6AB3 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C432B2B156F4D69B6C1D1D4 /* Montserrat-ExtraLightItalic.ttf */; };
 		9CEEFC0AD8864D1EA7FC92A4 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99936B7442B2412CB0A03DB4 /* Montserrat-Black.ttf */; };
 		9FA1A245E1604533B6EB070A /* KLMN_Flash_Pix.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF2163DC186C45C698830027 /* KLMN_Flash_Pix.ttf */; };
@@ -1581,8 +1602,6 @@
 		E59C4B0024934E50AF289891 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79EEEE74F2AA45D8B4BE91C3 /* Montserrat-Regular.ttf */; };
 		FA2D7FD14E6B4399A1359DF5 /* 3270Narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB7DCC23E4B4406580630C54 /* 3270Narrow.ttf */; };
 		FFD80FD960B7476A810D92D2 /* OxygenMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58EC839D2F6F4D46B883E857 /* OxygenMono-Regular.otf */; };
-		8DE9AE2A1D4243E8A945B8F8 /* mont_extralightdemo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95AB504778B04FA1A47F3C71 /* mont_extralightdemo.ttf */; };
-		3E582F8936E048858EE13F9C /* mont_heavydemo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F92E492DABCE474CBFF78BE0 /* mont_heavydemo.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1619,6 +1638,25 @@
 		6652CEFE350599AE4D02DE65 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		66A3FA817E5B4F84A55A56F3 /* NeutraText-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Book.otf"; path = "../assets/fonts/NeutraText-Book.otf"; sourceTree = "<group>"; };
 		6FC4F8D48C11405BBA170477 /* NeutraText-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Bold.otf"; path = "../assets/fonts/NeutraText-Bold.otf"; sourceTree = "<group>"; };
+		737E45732A820AB300822B1C /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		737E45742A820AB300822B1C /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		737E45752A820AB300822B1C /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		737E45762A820AB300822B1C /* FontAwesome6_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Regular.ttf; sourceTree = "<group>"; };
+		737E45772A820AB300822B1C /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		737E45782A820AB300822B1C /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		737E45792A820AB300822B1C /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		737E457A2A820AB300822B1C /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		737E457B2A820AB300822B1C /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		737E457C2A820AB300822B1C /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		737E457D2A820AB300822B1C /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		737E457E2A820AB300822B1C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		737E457F2A820AB300822B1C /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		737E45802A820AB300822B1C /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		737E45812A820AB300822B1C /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		737E45822A820AB300822B1C /* FontAwesome6_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Solid.ttf; sourceTree = "<group>"; };
+		737E45832A820AB300822B1C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		737E45842A820AB300822B1C /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
+		737E45852A820AB300822B1C /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		7395EAA52A7D1F1A00808D7D /* 23-heavenlyplan-ur.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "23-heavenlyplan-ur.md"; sourceTree = "<group>"; };
 		7395EAA62A7D1F1A00808D7D /* 35-purgatory-ur.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "35-purgatory-ur.md"; sourceTree = "<group>"; };
 		7395EAA72A7D1F1A00808D7D /* policy-ur.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "policy-ur.md"; sourceTree = "<group>"; };
@@ -3163,6 +3201,7 @@
 		825AD6B44E6CFFA245F6C366 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8786D7C08D704784B1618029 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		89D378BB22FF4599A2A8A7D0 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBold.ttf"; path = "../assets/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		95AB504778B04FA1A47F3C71 /* mont_extralightdemo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = mont_extralightdemo.ttf; path = ../assets/fonts/mont_extralightdemo.ttf; sourceTree = "<group>"; };
 		99936B7442B2412CB0A03DB4 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Black.ttf"; path = "../assets/fonts/Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		ADA39D38F9F14EEDA30E596A /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../assets/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		B10DC58F59D04DA2B3850547 /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBoldItalic.ttf"; path = "../assets/fonts/Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -3178,10 +3217,9 @@
 		ED5B895499404E809609C44B /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-LightItalic.ttf"; path = "../assets/fonts/Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
 		F7E573B2A4504AB094CE4510 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F8F825E5E48B910ED15E4479 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92E492DABCE474CBFF78BE0 /* mont_heavydemo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = mont_heavydemo.ttf; path = ../assets/fonts/mont_heavydemo.ttf; sourceTree = "<group>"; };
 		FEB754CF9337436B969ED9D5 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../assets/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
 		FF2163DC186C45C698830027 /* KLMN_Flash_Pix.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = KLMN_Flash_Pix.ttf; path = ../assets/fonts/KLMN_Flash_Pix.ttf; sourceTree = "<group>"; };
-		95AB504778B04FA1A47F3C71 /* mont_extralightdemo.ttf */ = {isa = PBXFileReference; name = "mont_extralightdemo.ttf"; path = "../assets/fonts/mont_extralightdemo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F92E492DABCE474CBFF78BE0 /* mont_heavydemo.ttf */ = {isa = PBXFileReference; name = "mont_heavydemo.ttf"; path = "../assets/fonts/mont_heavydemo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3224,6 +3262,7 @@
 		13B07FAE1A68108700A75B9A /* LeelaAiWeb3 */ = {
 			isa = PBXGroup;
 			children = (
+				737E45722A820AB300822B1C /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -3243,6 +3282,33 @@
 				F8F825E5E48B910ED15E4479 /* libPods-LeelaAiWeb3-LeelaAiWeb3Tests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		737E45722A820AB300822B1C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				737E45732A820AB300822B1C /* Fontisto.ttf */,
+				737E45742A820AB300822B1C /* Octicons.ttf */,
+				737E45752A820AB300822B1C /* Feather.ttf */,
+				737E45762A820AB300822B1C /* FontAwesome6_Regular.ttf */,
+				737E45772A820AB300822B1C /* Entypo.ttf */,
+				737E45782A820AB300822B1C /* FontAwesome5_Brands.ttf */,
+				737E45792A820AB300822B1C /* MaterialCommunityIcons.ttf */,
+				737E457A2A820AB300822B1C /* AntDesign.ttf */,
+				737E457B2A820AB300822B1C /* Foundation.ttf */,
+				737E457C2A820AB300822B1C /* Ionicons.ttf */,
+				737E457D2A820AB300822B1C /* FontAwesome5_Solid.ttf */,
+				737E457E2A820AB300822B1C /* FontAwesome5_Regular.ttf */,
+				737E457F2A820AB300822B1C /* FontAwesome.ttf */,
+				737E45802A820AB300822B1C /* Zocial.ttf */,
+				737E45812A820AB300822B1C /* EvilIcons.ttf */,
+				737E45822A820AB300822B1C /* FontAwesome6_Solid.ttf */,
+				737E45832A820AB300822B1C /* SimpleLineIcons.ttf */,
+				737E45842A820AB300822B1C /* FontAwesome6_Brands.ttf */,
+				737E45852A820AB300822B1C /* MaterialIcons.ttf */,
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 		7395EAA32A7D1F1A00808D7D /* locales */ = {
@@ -5258,6 +5324,7 @@
 				7395F47E2A7D1F1C00808D7D /* 10-cleansing-de.md in Resources */,
 				7395F6432A7D1F1C00808D7D /* 45-correctknowledge-ta.md in Resources */,
 				7395F47A2A7D1F1C00808D7D /* 31-planofholiness-de.md in Resources */,
+				737E458F2A820AB300822B1C /* Ionicons.ttf in Resources */,
 				7395F1612A7D1F1B00808D7D /* 3-anger-mr.md in Resources */,
 				7395F2252A7D1F1B00808D7D /* 20-charity-te.md in Resources */,
 				7395F6822A7D1F1C00808D7D /* 19-plankarma-tr.md in Resources */,
@@ -5286,6 +5353,7 @@
 				7395F3582A7D1F1B00808D7D /* 23-heavenlyplan-pa.md in Resources */,
 				7395F3FA2A7D1F1C00808D7D /* 11-entertainment-hi.md in Resources */,
 				7395F4CD2A7D1F1C00808D7D /* 17-compassion-ko.md in Resources */,
+				737E45952A820AB300822B1C /* FontAwesome6_Solid.ttf in Resources */,
 				7395F4D62A7D1F1C00808D7D /* 35-purgatory-ko.md in Resources */,
 				7395F6852A7D1F1C00808D7D /* 8-greed-tr.md in Resources */,
 				7395F4D52A7D1F1C00808D7D /* policy-ko.md in Resources */,
@@ -5446,6 +5514,7 @@
 				7395F3D82A7D1F1C00808D7D /* 5-notes-bn.md in Resources */,
 				7395F2A52A7D1F1B00808D7D /* 66-blissplan-pt.md in Resources */,
 				7395F2552A7D1F1B00808D7D /* 60-positiveintelligence-ru.md in Resources */,
+				737E458C2A820AB300822B1C /* MaterialCommunityIcons.ttf in Resources */,
 				7395F6972A7D1F1C00808D7D /* 25-goodcompany-tr.md in Resources */,
 				7395F1202A7D1F1B00808D7D /* 5-notes-vi.md in Resources */,
 				7395F6842A7D1F1C00808D7D /* 42-planagni-tr.md in Resources */,
@@ -5528,6 +5597,7 @@
 				7395F28E2A7D1F1B00808D7D /* 33-aramat-ru.md in Resources */,
 				7395F4252A7D1F1C00808D7D /* 66-blissplan-hi.md in Resources */,
 				7395F0DD2A7D1F1B00808D7D /* 4-avarice-ur.md in Resources */,
+				737E45932A820AB300822B1C /* Zocial.ttf in Resources */,
 				7395F3772A7D1F1B00808D7D /* 38-pranaloka-pa.md in Resources */,
 				7395F1842A7D1F1B00808D7D /* 31-planofholiness-mr.md in Resources */,
 				7395F50F2A7D1F1C00808D7D /* 68-cosmicconsciousness-fr.md in Resources */,
@@ -5535,6 +5605,7 @@
 				7395F5F72A7D1F1C00808D7D /* eula-jv.md in Resources */,
 				7395F3AE2A7D1F1B00808D7D /* 4-avarice-bn.md in Resources */,
 				7395F38D2A7D1F1B00808D7D /* 44-ignorance-pa.md in Resources */,
+				737E45922A820AB300822B1C /* FontAwesome.ttf in Resources */,
 				7395F4C82A7D1F1C00808D7D /* 1-birth-ko.md in Resources */,
 				7395F17A2A7D1F1B00808D7D /* 28-truereligiosity-mr.md in Resources */,
 				7395F5382A7D1F1C00808D7D /* 2-meaningofthegame-es.md in Resources */,
@@ -5659,6 +5730,7 @@
 				7395F2BA2A7D1F1B00808D7D /* 16-jealousy-pt.md in Resources */,
 				7395F3A32A7D1F1B00808D7D /* eula-bn.md in Resources */,
 				7395F3692A7D1F1B00808D7D /* 0-chortdescription-pa.md in Resources */,
+				737E458A2A820AB300822B1C /* Entypo.ttf in Resources */,
 				7395F2C32A7D1F1B00808D7D /* 37-jnana-pt.md in Resources */,
 				9FA1A245E1604533B6EB070A /* KLMN_Flash_Pix.ttf in Resources */,
 				7395F2A12A7D1F1B00808D7D /* 69-planoftheabsolute-pt.md in Resources */,
@@ -5685,6 +5757,7 @@
 				7395F3B92A7D1F1B00808D7D /* 25-goodcompany-bn.md in Resources */,
 				7395F1322A7D1F1B00808D7D /* 6-delusion-vi.md in Resources */,
 				7395F5852A7D1F1C00808D7D /* 62-happiness-en.md in Resources */,
+				737E45962A820AB300822B1C /* SimpleLineIcons.ttf in Resources */,
 				7395F3A52A7D1F1B00808D7D /* 19-plankarma-bn.md in Resources */,
 				7395F3052A7D1F1B00808D7D /* 32-balanceplan-zh.md in Resources */,
 				7395F3DD2A7D1F1C00808D7D /* 54-planofspiritualityanddevotion-bn.md in Resources */,
@@ -5744,12 +5817,14 @@
 				7395F6322A7D1F1C00808D7D /* 57-plangas-ta.md in Resources */,
 				7395F43D2A7D1F1C00808D7D /* 46-distinction-de.md in Resources */,
 				7395F13D2A7D1F1B00808D7D /* 36-clarityofmind-vi.md in Resources */,
+				737E45892A820AB300822B1C /* FontAwesome6_Regular.ttf in Resources */,
 				7395F1FD2A7D1F1B00808D7D /* 72-tamogun-ja.md in Resources */,
 				7395F1102A7D1F1B00808D7D /* 3-anger-vi.md in Resources */,
 				7395F1132A7D1F1B00808D7D /* 66-blissplan-vi.md in Resources */,
 				7395F62F2A7D1F1C00808D7D /* 48-sunnyplan-ta.md in Resources */,
 				7395F2852A7D1F1B00808D7D /* 48-sunnyplan-ru.md in Resources */,
 				7395F54E2A7D1F1C00808D7D /* 25-goodcompany-es.md in Resources */,
+				737E45912A820AB300822B1C /* FontAwesome5_Regular.ttf in Resources */,
 				7395F65D2A7D1F1C00808D7D /* 44-ignorance-ta.md in Resources */,
 				7395F2562A7D1F1B00808D7D /* 41-humanplan-ru.md in Resources */,
 				7395F3FD2A7D1F1C00808D7D /* 61-negativeintelligence-hi.md in Resources */,
@@ -5844,6 +5919,7 @@
 				7395F3F12A7D1F1C00808D7D /* policy-hi.md in Resources */,
 				7395F6B12A7D1F1C00808D7D /* 29-lackofreligiosity-tr.md in Resources */,
 				7395F3F22A7D1F1C00808D7D /* 23-heavenlyplan-hi.md in Resources */,
+				737E458B2A820AB300822B1C /* FontAwesome5_Brands.ttf in Resources */,
 				7395F2F32A7D1F1B00808D7D /* 7-vanity-zh.md in Resources */,
 				7395F3BF2A7D1F1B00808D7D /* 34-tasteplan-bn.md in Resources */,
 				7395F3E62A7D1F1C00808D7D /* 7-vanity-hi.md in Resources */,
@@ -5898,6 +5974,7 @@
 				7395F5802A7D1F1C00808D7D /* 59-planeofreality-en.md in Resources */,
 				7395F63A2A7D1F1C00808D7D /* 59-planeofreality-ta.md in Resources */,
 				7395F4B02A7D1F1C00808D7D /* 37-jnana-ko.md in Resources */,
+				737E45882A820AB300822B1C /* Feather.ttf in Resources */,
 				533C73BDDFDA49EF825FB79D /* Montserrat-ExtraBoldItalic.ttf in Resources */,
 				7395F1D82A7D1F1B00808D7D /* 41-humanplan-ja.md in Resources */,
 				7395F1492A7D1F1B00808D7D /* 8-greed-vi.md in Resources */,
@@ -5994,6 +6071,7 @@
 				7395F5B12A7D1F1C00808D7D /* 6-delusion-en.md in Resources */,
 				AB891917DA574E49BC72F47F /* Montserrat-ExtraLight.ttf in Resources */,
 				7395F4172A7D1F1C00808D7D /* 31-planofholiness-hi.md in Resources */,
+				737E458E2A820AB300822B1C /* Foundation.ttf in Resources */,
 				7395F0EC2A7D1F1B00808D7D /* 53-fluidplan-ur.md in Resources */,
 				7395F2C02A7D1F1B00808D7D /* 64-phenomenalplan-pt.md in Resources */,
 				7395F2442A7D1F1B00808D7D /* 65-interiorspaceplan-te.md in Resources */,
@@ -6218,6 +6296,7 @@
 				7395F5D72A7D1F1C00808D7D /* 15-fantasyplan-jv.md in Resources */,
 				7395F2B92A7D1F1B00808D7D /* 22-plandharmas-pt.md in Resources */,
 				7395F1FF2A7D1F1B00808D7D /* 61-negativeintelligence-te.md in Resources */,
+				737E45982A820AB300822B1C /* MaterialIcons.ttf in Resources */,
 				7395F5012A7D1F1C00808D7D /* 10-cleansing-fr.md in Resources */,
 				7395F30F2A7D1F1B00808D7D /* 71-rajogun-zh.md in Resources */,
 				7395F2EF2A7D1F1B00808D7D /* 1-introduction-pt.md in Resources */,
@@ -6389,6 +6468,7 @@
 				7395F6302A7D1F1C00808D7D /* 72-tamogun-ta.md in Resources */,
 				7395F2662A7D1F1B00808D7D /* 20-charity-ru.md in Resources */,
 				7395F4762A7D1F1C00808D7D /* 65-interiorspaceplan-de.md in Resources */,
+				737E45942A820AB300822B1C /* EvilIcons.ttf in Resources */,
 				7395F1342A7D1F1B00808D7D /* 34-tasteplan-vi.md in Resources */,
 				7395F6492A7D1F1C00808D7D /* 5-physicalplan-ta.md in Resources */,
 				7395F5A72A7D1F1C00808D7D /* 43-birthofman-en.md in Resources */,
@@ -6493,6 +6573,7 @@
 				7395F6082A7D1F1C00808D7D /* 11-entertainment-jv.md in Resources */,
 				E59C4B0024934E50AF289891 /* Montserrat-Regular.ttf in Resources */,
 				7395F34A2A7D1F1B00808D7D /* 46-distinction-pa.md in Resources */,
+				737E45872A820AB300822B1C /* Octicons.ttf in Resources */,
 				7395F4DC2A7D1F1C00808D7D /* 70-sattvaguna-fr.md in Resources */,
 				7395F22B2A7D1F1B00808D7D /* 45-correctknowledge-te.md in Resources */,
 				7395F6B02A7D1F1C00808D7D /* 14-astral-tr.md in Resources */,
@@ -6516,6 +6597,7 @@
 				7395F21C2A7D1F1B00808D7D /* 2-maya-te.md in Resources */,
 				7395F28A2A7D1F1B00808D7D /* 26-sadness-ru.md in Resources */,
 				7395F52B2A7D1F1C00808D7D /* 35-purgatory-es.md in Resources */,
+				737E45862A820AB300822B1C /* Fontisto.ttf in Resources */,
 				7395F0D92A7D1F1B00808D7D /* 32-balanceplan-ur.md in Resources */,
 				7395F1F22A7D1F1B00808D7D /* 11-entertainment-ja.md in Resources */,
 				7395F5322A7D1F1C00808D7D /* 70-sattvaguna-es.md in Resources */,
@@ -6572,6 +6654,7 @@
 				7395F2B12A7D1F1B00808D7D /* 15-fantasyplan-pt.md in Resources */,
 				7395F60F2A7D1F1C00808D7D /* policy-jv.md in Resources */,
 				7395F1C82A7D1F1B00808D7D /* 38-pranaloka-ja.md in Resources */,
+				737E45902A820AB300822B1C /* FontAwesome5_Solid.ttf in Resources */,
 				7395F1D72A7D1F1B00808D7D /* 13-nullity-ja.md in Resources */,
 				7395F6682A7D1F1C00808D7D /* 68-cosmicconsciousness-ta.md in Resources */,
 				7395F19E2A7D1F1B00808D7D /* 17-compassion-mr.md in Resources */,
@@ -6607,6 +6690,7 @@
 				DE1266BDB2E94D4EA2D73330 /* Montserrat-Thin.ttf in Resources */,
 				7395F4892A7D1F1C00808D7D /* 9-sensualplan-ko.md in Resources */,
 				7395F1C52A7D1F1B00808D7D /* 9-sensualplan-ja.md in Resources */,
+				737E458D2A820AB300822B1C /* AntDesign.ttf in Resources */,
 				7395F3872A7D1F1B00808D7D /* 43-birthofman-pa.md in Resources */,
 				7395F2142A7D1F1B00808D7D /* 12-envy-te.md in Resources */,
 				7395F4A62A7D1F1C00808D7D /* 28-truereligiosity-ko.md in Resources */,
@@ -6644,6 +6728,7 @@
 				7395F3BB2A7D1F1B00808D7D /* 31-planofholiness-bn.md in Resources */,
 				7395F13F2A7D1F1B00808D7D /* 33-aramat-vi.md in Resources */,
 				7395F4CB2A7D1F1C00808D7D /* 12-envy-ko.md in Resources */,
+				737E45972A820AB300822B1C /* FontAwesome6_Brands.ttf in Resources */,
 				7395F4DA2A7D1F1C00808D7D /* 50-planofasceticism-fr.md in Resources */,
 				7395F5F62A7D1F1C00808D7D /* 2-meaningofthegame-jv.md in Resources */,
 				7395F3072A7D1F1B00808D7D /* 11-entertainment-zh.md in Resources */,
@@ -6931,6 +7016,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5EM4M85VSQ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LeelaAiWeb3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -6958,6 +7044,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5EM4M85VSQ;
 				INFOPLIST_FILE = LeelaAiWeb3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

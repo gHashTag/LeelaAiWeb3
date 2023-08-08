@@ -1,0 +1,15 @@
+diff --git a/node_modules/react-native-neomorph-shadows/src/types.js b/node_modules/react-native-neomorph-shadows/src/types.js
+index a2098cc..4b2bd35 100644
+--- a/node_modules/react-native-neomorph-shadows/src/types.js
++++ b/node_modules/react-native-neomorph-shadows/src/types.js
+@@ -20,8 +20,8 @@ export const InnerShadowType = {
+   children: node,
+   style: shape({
+     ...ViewPropTypes.style,
+-    width: number.isRequired,
+-    height: number.isRequired,
++    width: number,
++    height: number,
+   }),
+ };
+ 

@@ -13,7 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Text } from 'components'
 import { orange, primary } from 'cons'
 
-interface PlanAvatarI {
+interface AvatarI {
   plan: number
   size: 'xLarge' | 'large' | 'medium' | 'small'
   avaUrl?: string
@@ -22,7 +22,7 @@ interface PlanAvatarI {
   onPress?: () => void
 }
 
-const PlanAvatar = memo<PlanAvatarI>(
+const Avatar = memo<AvatarI>(
   ({ size = 'medium', plan, avaUrl, aditionalStyle, isAccept, onPress }) => {
     const {
       colors: { background },
@@ -94,4 +94,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export { PlanAvatar }
+export { Avatar }

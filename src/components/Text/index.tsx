@@ -29,6 +29,7 @@ export const textStyles = StyleSheet.create({
   h2: {
     fontSize: Platform.OS === 'ios' ? s(20) : s(20),
     fontFamily: 'mont',
+    fontWeight: 'bold',
   },
   h3: {
     fontFamily: 'mont',
@@ -124,12 +125,7 @@ export const Text = memo<TxtT>(
     const noShadowFonts = ['h7', 'h1', 'h10', 'h12', 'h4']
     const hasShadow = h ? !noShadowFonts.includes(h) : false
 
-    const hStyle = h
-      ? [
-          { ...textStyles[h], color: curColor },
-          hasShadow && { textShadowColor: primary },
-        ]
-      : undefined
+    const hStyle = h ? [{ ...textStyles[h], color: curColor }] : undefined
 
     const mergedStyles = StyleSheet.flatten([hStyle, textStyle])
 

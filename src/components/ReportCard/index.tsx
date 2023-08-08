@@ -2,8 +2,8 @@
 import React from 'react'
 import { StyleSheet, View, Pressable } from 'react-native'
 import { ms, s, vs } from 'react-native-size-matters'
-import { ButtonVectorIcon, PlanAvatar, Space, Text } from 'components'
-import { brightTurquoise, fuchsia, lightGray, orange } from 'cons'
+import { ButtonVectorIcon, Avatar, Space, Text, ShadowView } from 'components'
+import { W, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
 
 import { PostT } from 'types'
 
@@ -54,71 +54,53 @@ const ReportCard: React.FC<ReportCardProps> = ({
     return <>{/* ... (rest of the component remains the same) ... */}</>
   }
 
-  const {
-    container,
-    img,
-    btnsContainer,
-    smallBtn,
-    mediumBtn,
-    textStyle,
-    headerS,
-    headerInfo,
-    headerName,
-    lightText,
-    flex1,
-    avaContainer,
-    nonDetailLinkButton,
-    nonDetailCommentButton,
-    nonDetailAdminMenuButton,
-    withoutBottomBorder,
-  } = styles
-
   return (
-    <Pressable onPress={onPress} style={container}>
-      <View style={headerS}>
-        <View style={avaContainer}>
-          <PlanAvatar
-            avaUrl={avaUrl}
-            onPress={handleProfile}
-            size={'medium'}
-            plan={post.plan as number}
-            isAccept={post.accept}
-            aditionalStyle={img}
-          />
-        </View>
-        <View style={headerInfo}>
-          {/* name, create date/email */}
-          <Space height={vs(2)} />
-          <View style={headerName}>
-            <Text numberOfLines={1} h={'h6'} title={fullName} />
-            <Text h={'h6'} textStyle={lightText} title={` · ${date}`} />
-            <View style={flex1} />
-            {/* <Pressable onPress={handleTranslate}>
-              <Text title={flag} style={styles.flagEmoji} />
-            </Pressable> */}
+    // @ts-ignore
+    <ShadowView viewStyle={styles.card}>
+      <Pressable onPress={onPress} style={styles.container}>
+        <View style={styles.headerS}>
+          <View style={styles.headerInfo}>
+            {/* name, create date/email */}
+
+            <View style={styles.headerName}>
+              <View style={styles.userInfoContainer}>
+                <Text numberOfLines={1} h={'h2'} title={fullName} />
+                <Space height={vs(8)} />
+                <Text h={'h3'} textStyle={styles.lightText} title={`${date}`} />
+              </View>
+              <Avatar
+                avaUrl={avaUrl}
+                onPress={handleProfile}
+                size={'medium'}
+                plan={post.plan as number}
+                isAccept={post.accept}
+                aditionalStyle={styles.img}
+              />
+            </View>
+
+            <Space height={vs(5)} />
+            <Text
+              h={'h5'}
+              textStyle={styles.lightText}
+              title={post.text || ' '}
+              numberOfLines={8}
+            />
+            {!post.accept && (
+              <>
+                <Space height={vs(5)} />
+                <Text oneColor={orange} h={'h6'} title={'online-part.review'} />
+              </>
+            )}
+            {/* Preview Buttons */}
           </View>
-          <Space height={vs(5)} />
-          {/* <HashtagFormat
-            textStyle={textStyle}
-            numberOfLines={8}
-            h={'h5'}
-            title={post.text || ' '}
-          /> */}
-          {!post.accept && (
-            <>
-              <Space height={vs(5)} />
-              <Text oneColor={orange} h={'h6'} title={'online-part.review'} />
-            </>
-          )}
-          {/* Preview Buttons */}
-          <View style={btnsContainer}>
+          <View style={styles.btnsContainer}>
             {isAdmin && (
               <>
                 <ButtonVectorIcon
                   onPress={handleAdminMenu}
-                  viewStyle={[smallBtn, nonDetailAdminMenuButton]}
+                  viewStyle={[styles.smallBtn, styles.nonDetailAdminMenuButton]}
                   ionicons
-                  name="md-ellipsis-vertical-circle"
+                  name="ellipsis-vertical-circle"
                   size={iconSize + s(3)}
                 />
                 <Space height={vs(12)} />
@@ -127,7 +109,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
             <ButtonVectorIcon
               onPress={handleComment}
               count={commCount}
-              viewStyle={[smallBtn, nonDetailCommentButton]}
+              viewStyle={[styles.smallBtn, styles.nonDetailCommentButton]}
               ionicons
               name="chatbubble-outline"
               size={iconSize}
@@ -138,43 +120,44 @@ const ReportCard: React.FC<ReportCardProps> = ({
               color={heartColor}
               ionicons
               iconSize={iconSize + s(1.5)}
-              viewStyle={smallBtn}
+              viewStyle={styles.smallBtn}
               name={heart}
               size={iconSize}
             />
             <ButtonVectorIcon
-              viewStyle={[smallBtn, nonDetailLinkButton]}
-              name="md-link-outline"
+              viewStyle={[styles.smallBtn, styles.nonDetailLinkButton]}
+              name="link-outline"
               ionicons
               iconSize={iconSize + s(4)}
               onPress={handleShareLink}
             />
           </View>
         </View>
-      </View>
-    </Pressable>
+      </Pressable>
+    </ShadowView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft: s(12),
-    paddingRight: s(12),
-    borderBottomColor: brightTurquoise,
-    borderBottomWidth: vs(0.4),
+    flex: 1,
+    paddingLeft: s(15),
+    paddingRight: s(15),
     paddingVertical: s(6),
+    height: vs(200),
+  },
+  card: {
+    width: W - 40,
+    height: vs(180),
   },
   img: {
-    marginRight: s(12),
+    top: 9,
     marginBottom: s(12),
-    alignSelf: 'flex-start',
   },
   btnsContainer: {
+    top: 5,
     flexDirection: 'row',
-    padding: s(4),
-    paddingBottom: vs(12),
-    paddingTop: vs(17),
-    flex: 1,
+    padding: s(8),
   },
   mediumBtn: {
     flex: 1,
@@ -192,18 +175,17 @@ const styles = StyleSheet.create({
     lineHeight: s(21),
   },
   headerS: {
-    flexDirection: 'row',
+    flex: 1,
   },
   headerInfo: {
     flexDirection: 'column',
     flex: 1,
   },
   headerName: {
+    justifyContent: 'space-between',
     flexDirection: 'row',
-    flexWrap: 'wrap',
   },
   lightText: {
-    color: lightGray,
     textAlign: 'left',
   },
   flex1: {
@@ -213,8 +195,8 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'center',
   },
-  avaContainer: {
-    height: '100%',
+  userInfoContainer: {
+    top: 15,
   },
   nonDetailCommentButton: {
     justifyContent: 'flex-start',

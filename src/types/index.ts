@@ -146,16 +146,22 @@ export interface MessageAIT {
   message: string
   planText: string
 }
-export interface PostT extends FormPostT {
-  id: string
-  comments?: string[]
-  createTime?: number
-  email?: string
-  liked?: string[]
-  language?: string
-  accept?: boolean
-  flagEmoji?: string
+// types.ts
+export interface PostT {
+  id: number
+  text: string
+  createTime: number
+  liked: string[]
+  comments: {
+    id: string
+    text: string
+    createTime: number
+  }[]
+  plan: number
+  accept: boolean
   ownerId: string
+  systemMessage: string
+  planText: string
 }
 
 export interface FormCommentT {

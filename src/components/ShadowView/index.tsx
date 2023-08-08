@@ -2,8 +2,8 @@ import React, { memo } from 'react'
 import { useTheme } from '@react-navigation/native'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 import { Shadow } from 'react-native-neomorph-shadows'
-import { lightGray, white } from 'cons'
-import { ViewStyle } from 'react-native'
+import { W, lightGray, white } from 'cons'
+import { View, ViewProps, ViewStyle } from 'react-native'
 
 type FlexStyleProperties =
   | 'flex'
@@ -27,30 +27,35 @@ interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
   shadowRadius?: number
   borderRadius?: number
   backgroundColor?: string
-  width: number
-  height: number
+  width?: number
+  height?: number
 }
 
 interface ShadowViewProps {
   children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
+  viewStyle?: ViewProps
 }
 
-const ShadowView: React.FC<ShadowViewProps> = ({ children, shadowStyle }) => {
-  const { shadow } = styles
+const ShadowView: React.FC<ShadowViewProps> = ({
+  children,
+  viewStyle,
+  shadowStyle,
+}) => {
   const { dark } = useTheme()
 
   return (
     <Shadow
       // @ts-ignore
+
       draw
       style={{
         // @ts-ignore
-        ...shadow,
+        ...styles.shadow,
         ...shadowStyle,
       }}
     >
-      {children}
+      <View style={[viewStyle]}>{children}</View>
     </Shadow>
   )
 }
@@ -61,8 +66,8 @@ const styles = ScaledSheet.create({
     shadowOffset: { width: 3, height: 3 },
     shadowRadius: 6,
     shadowColor: lightGray,
-    borderRadius: 25,
     shadowOpacity: 1,
+    borderRadius: 25,
     backgroundColor: white,
     alignItems: 'center',
   },
