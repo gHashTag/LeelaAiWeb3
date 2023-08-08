@@ -55,7 +55,7 @@ const ShadowView: React.FC<ShadowViewProps> = ({
         ...shadowStyle,
       }}
     >
-      <View style={[viewStyle]}>{children}</View>
+      <View style={viewStyle}>{children}</View>
     </Shadow>
   )
 }

@@ -1,5 +1,5 @@
-import {useFocusEffect} from '@react-navigation/native'
-import {BackHandler} from 'react-native'
+import { useFocusEffect } from '@react-navigation/native'
+import { BackHandler } from 'react-native'
 
 export const useNoBackHandler = () => {
   useFocusEffect(() => {

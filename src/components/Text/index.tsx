@@ -12,6 +12,21 @@ import {
 } from 'react-native'
 import { ms, s } from 'react-native-size-matters'
 
+export type hT =
+  | 'h0'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'h7'
+  | 'h8'
+  | 'h9'
+  | 'h10'
+  | 'h11'
+  | 'h12'
+
 export const textStyles = StyleSheet.create({
   h0: {
     fontFamily: Platform.OS === 'ios' ? 'Etna' : 'etna-free-font',
@@ -83,33 +98,27 @@ export interface Icolors {
   light: string
 }
 
-export type hT =
-  | 'h0'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'h7'
-  | 'h8'
-  | 'h9'
-  | 'h10'
-  | 'h11'
-  | 'h12'
-
 export interface TxtT extends TextProps {
   title: string
   h?: hT
   colors?: Icolors
   oneColor?: string
+  numberOfLines?: number
   textStyle?: StyleProp<TextStyle>
 }
 
 export const Text = memo<TxtT>(
-  ({ h, colors, title, oneColor = gray, textStyle, ...textProps }) => {
+  ({
+    h,
+    colors,
+    title,
+    oneColor = gray,
+    numberOfLines,
+    textStyle,
+    ...textProps
+  }) => {
     const {
-      colors: { primary, text },
+      colors: { text },
     } = useTheme()
     const scheme = useColorScheme()
     const isDark = scheme === 'dark'
@@ -121,16 +130,23 @@ export const Text = memo<TxtT>(
         : colors.dark
       : text
 
-    // если добавлен шрифт и у к нему не нужна тень
-    const noShadowFonts = ['h7', 'h1', 'h10', 'h12', 'h4']
-    const hasShadow = h ? !noShadowFonts.includes(h) : false
-
-    const hStyle = h ? [{ ...textStyles[h], color: curColor }] : undefined
+    let hStyle
+    if (h && textStyles[h]) {
+      hStyle = { ...textStyles[h], color: curColor }
+    } else {
+      hStyle = undefined
+    }
 
     const mergedStyles = StyleSheet.flatten([hStyle, textStyle])
 
     return (
-      <RNText style={mergedStyles} {...textProps} testID="text-component">
+      <RNText
+        style={mergedStyles}
+        {...textProps}
+        testID="text-component"
+        ellipsizeMode="tail"
+        numberOfLines={numberOfLines}
+      >
         {title}
       </RNText>
     )

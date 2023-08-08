@@ -1,6 +1,6 @@
 import i18next from 'i18next'
-import {isoCountry} from 'iso-country'
-import {initReactI18next} from 'react-i18next'
+import { isoCountry } from 'iso-country'
+import { initReactI18next } from 'react-i18next'
 import * as RNLocalize from 'react-native-localize'
 
 import ar from './locales/ar/translation.json'
@@ -96,7 +96,7 @@ i18next.use(initReactI18next).init(
     },
     // keySeparator: false,
   },
-  err => {
+  (err) => {
     if (err) {
       __DEV__ && console.error('Error initializing i18next:', err)
     }

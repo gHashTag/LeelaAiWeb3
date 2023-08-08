@@ -1,13 +1,13 @@
-import {useEffect, useMemo, useState} from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
-import {Image} from 'react-native'
+import { Image } from 'react-native'
 
 export const useImageAspect = (image: string | any, isAsset?: boolean) => {
   const [aspect, setAspect] = useState(1)
 
   const imgObj = useMemo(() => {
     if (image && isAsset) {
-      const {width, height} = Image.resolveAssetSource(image)
+      const { width, height } = Image.resolveAssetSource(image)
       const assetAspect = width / height
       return assetAspect
     } else {

@@ -6,8 +6,9 @@ export * from './Space'
 export * from './GameBoard'
 export * from './MarkdownView'
 export * from './ShadowView'
+export * from './NeomorphCircle'
 export * from './NeomorphView'
-
+export * from './CommentBubble'
 // export * from './Background'
 export * from './Dice'
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import {render} from '@testing-library/react-native'
-import {GameBoard} from '../'
+import { render } from '@testing-library/react-native'
+import { GameBoard } from '../'
 
 const players = [
   {
@@ -16,13 +16,13 @@ const players = [
 ]
 
 test('should render the correct number of Gem components based on the players prop', () => {
-  const {getAllByTestId} = render(<GameBoard players={players} />)
+  const { getAllByTestId } = render(<GameBoard players={players} />)
   const gemComponents = getAllByTestId('gem-container')
   expect(gemComponents.length).toEqual(18) // Check the number of Gem components based on the provided players
 })
 
 test('should render empty Gem component on plan without player', () => {
-  const {getByTestId} = render(<GameBoard players={players} />)
+  const { getByTestId } = render(<GameBoard players={players} />)
   const emptyGem = getByTestId('empty-gem')
   expect(emptyGem).toBeTruthy() // Check if the empty Gem component is rendered on a plan without a player
 })

@@ -6,37 +6,54 @@
  */
 
 import React, { useEffect } from 'react'
-import { SafeAreaView, useColorScheme } from 'react-native'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  useColorScheme,
+} from 'react-native'
+import {
+  GestureHandlerRootView,
+  ScrollView,
+} from 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
 import Orientation from 'react-native-orientation-locker'
 import { useTranslation } from 'react-i18next'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
+import { black, dimGray, lightGray, navRef, red, secondary, white } from 'cons'
 import {
-  W,
-  black,
-  brightTurquoise,
-  dimGray,
-  fuchsia,
-  lightGray,
-  navRef,
-  red,
-  secondary,
-  white,
-} from 'cons'
-import {
-  // GameBoard,
   Dice,
-  // Gem,
   Text,
   Space,
-  MarkdownView,
+  //MarkdownView,
   Button,
-  Avatar,
+  //Avatar,
   ReportCard,
+  GameBoard,
+  Gem,
+  CommentBubble,
 } from 'components'
 
 import useLeelaGame from 'hooks/useLeelaGame'
+import {
+  MockedCommentData,
+  avaUrl,
+  commCount,
+  date,
+  fullName,
+  handleAdminMenu,
+  handleComment,
+  handleLike,
+  handlePressWand,
+  handleProfile,
+  handleShareLink,
+  handleTranslate,
+  isAdmin,
+  isLiked,
+  likeCount,
+  plansPlayers,
+  post,
+} from 'cons/mockdata'
 
 const DarkTheme = {
   dark: true,
@@ -62,59 +79,6 @@ const LightTheme = {
   },
 }
 
-const diceProps = {
-  count: 6,
-  players: 4,
-  disabled: false,
-  canGo: true,
-  isReported: false,
-  updateStep: () => {
-    // Implement the logic for updating steps here
-  },
-  random: () => {
-    // Implement the logic for rolling the dice randomly here
-  },
-}
-
-const post = {
-  id: 1,
-  text: 'This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text.',
-  createTime: 1669990226,
-  liked: ['user1', 'user2'],
-  comments: [
-    {
-      id: 'comment1',
-      text: 'This is the first comment.',
-      createTime: 1669990227,
-    },
-    {
-      id: 'comment2',
-      text: 'This is the second comment.',
-      createTime: 1669990228,
-    },
-  ],
-  plan: 3,
-  accept: true,
-  ownerId: 'user123', // Добавьте значение для ownerId
-  systemMessage: 'Some system message', // Добавьте значение для systemMessage
-  planText: 'Plan text', // Добавьте значение для planText
-}
-
-// const plansPlayers = [
-//   {
-//     id: 2,
-//     plan: 72,
-//     uri: 106,
-//   },
-//   {
-//     id: 4,
-//     plan: 34,
-//     uri: 'https://bafkreiftrmfmimlvo26xaxfvt2ypnjjaavq5mgnkjljs6mczfekii4cmtq.ipfs.nftstorage.link/',
-//   },
-// ]
-const avaUrl =
-  'https://bafkreiftrmfmimlvo26xaxfvt2ypnjjaavq5mgnkjljs6mczfekii4cmtq.ipfs.nftstorage.link/'
-
 function App(): JSX.Element {
   // Themes
   const isDark = useColorScheme() === 'dark'
@@ -134,79 +98,47 @@ function App(): JSX.Element {
     Orientation.lockToPortrait()
   }, [isDark])
 
-  const { player, rollHistory, planHistory, rollDice, lastRoll } =
-    useLeelaGame()
+  const { rollDice, lastRoll } = useLeelaGame()
+  //const { player, rollHistory, planHistory, rollDice, lastRoll } = useLeelaGame()
 
   const { t } = useTranslation()
 
-  const fullName = 'John Doe'
-  const isAdmin = false
-  const isLiked = true
-  const likeCount = 10
-  const commCount = 5
-  const date = '2023-08-07'
-  // Определите все необходимые обработчики событий
-  const handleProfile = () => {
-    // Обработчик для нажатия на профиль пользователя
-    console.log('Profile Pressed')
-  }
-
-  const handleTranslate = () => {
-    // Обработчик для перевода
-    console.log('Translate Pressed')
-  }
-
-  const handlePressWand = async () => {
-    // Обработчик для перевода с помощью искусственного интеллекта
-    console.log('Wand Pressed')
-  }
-
-  const handleAdminMenu = () => {
-    // Обработчик для меню администратора
-    console.log('Admin Menu Pressed')
-  }
-
-  const handleShareLink = () => {
-    // Обработчик для поделиться ссылкой на пост
-    console.log('Share Link Pressed')
-  }
-
-  const handleLike = () => {
-    // Обработчик для лайка поста
-    console.log('Like Pressed')
-  }
-
-  const handleComment = () => {
-    // Обработчик для комментирования поста
-    console.log('Comment Pressed')
-  }
-
   return (
     <NavigationContainer ref={navRef} theme={theme}>
+      <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <GestureHandlerRootView>
-        <SafeAreaView style={[backgroundStyle, { alignItems: 'center' }]}>
-          <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
+        <SafeAreaView style={backgroundStyle}>
+          <ScrollView
+            contentContainerStyle={[backgroundStyle, styles.scrollSctyle]}
+          >
+            <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
 
-          <ReportCard
-            post={post}
-            isDetail={false}
-            fullName={fullName}
-            avaUrl={avaUrl}
-            isAdmin={isAdmin}
-            isLiked={isLiked}
-            likeCount={likeCount}
-            commCount={commCount}
-            date={date}
-            handleProfile={handleProfile}
-            handleTranslate={handleTranslate}
-            handlePressWand={handlePressWand}
-            handleAdminMenu={handleAdminMenu}
-            handleShareLink={handleShareLink}
-            handleLike={handleLike}
-            handleComment={handleComment}
-          />
-          <Space height={40} />
-          {/* <Avatar
+            <Space height={40} />
+            <ReportCard
+              post={post}
+              isDetail={false}
+              fullName={fullName}
+              avaUrl={avaUrl}
+              isAdmin={isAdmin}
+              isLiked={isLiked}
+              likeCount={likeCount}
+              commCount={commCount}
+              date={date}
+              handleProfile={handleProfile}
+              handleTranslate={handleTranslate}
+              handlePressWand={handlePressWand}
+              handleAdminMenu={handleAdminMenu}
+              handleShareLink={handleShareLink}
+              handleLike={handleLike}
+              handleComment={handleComment}
+            />
+
+            <Space height={40} />
+            <CommentBubble {...MockedCommentData} />
+            <Space height={40} />
+            <CommentBubble {...MockedCommentData} />
+            <Space height={140} />
+            {/* <Avatar
           plan={1}
           size="large"
           avaUrl={avaUrl}
@@ -217,29 +149,33 @@ function App(): JSX.Element {
           }}
         /> */}
 
-          <Button title={t('buy')} onPress={() => console.log('click')} />
-          <Space height={40} />
-          <Text h={'h2'} title={t('takeStep')} />
-          <Space height={150} />
+            <Button title={t('buy')} onPress={() => console.log('click')} />
+            <Space height={40} />
+            <Text h={'h2'} title={t('takeStep')} />
+            <Space height={15} />
 
-          <Space height={150} />
+            {/* <MarkdownView /> */}
+            <GameBoard players={plansPlayers} />
+            <Space height={50} />
 
-          {/* <MarkdownView /> */}
-          {/* <GameBoard players={plansPlayers} />
-        <Space height={50} />
-
-       
-        {plansPlayers.map(gem => (
-          <Gem
-            key={gem.id}
-            planNumber={gem.plan}
-            player={{id: gem.id, uri: gem.uri}}
-          />
-        ))} */}
+            {plansPlayers.map((gem) => (
+              <Gem
+                key={gem.id}
+                planNumber={gem.plan}
+                player={{ id: gem.id, uri: gem.uri }}
+              />
+            ))}
+          </ScrollView>
         </SafeAreaView>
       </GestureHandlerRootView>
     </NavigationContainer>
   )
 }
+
+const styles = StyleSheet.create({
+  scrollSctyle: {
+    alignItems: 'center',
+  },
+})
 
 export default App

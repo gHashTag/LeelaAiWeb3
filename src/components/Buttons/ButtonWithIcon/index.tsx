@@ -1,17 +1,17 @@
-import React, {memo} from 'react'
+import React, { memo } from 'react'
 
-import {useTheme} from '@react-navigation/native'
-import {Pressable, StyleProp, ViewStyle} from 'react-native'
+import { useTheme } from '@react-navigation/native'
+import { Pressable, StyleProp, ViewStyle } from 'react-native'
 import Animated, {
   interpolateColor,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated'
-import {ScaledSheet, s} from 'react-native-size-matters'
+import { ScaledSheet, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import {Space, Text, hT} from '../../'
+import { Space, Text, hT } from '../../'
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable)
 
@@ -36,7 +36,7 @@ export const ButtonWithIcon = memo<ButtonWithIconT>(
     iconSize = s(20),
   }) => {
     const {
-      colors: {text},
+      colors: { text },
     } = useTheme()
     const isPressed = useSharedValue(0)
 
@@ -69,10 +69,11 @@ export const ButtonWithIcon = memo<ButtonWithIconT>(
         onTouchEnd={onTouchEnd}
         style={[
           container,
-          {borderColor: color || text},
+          { borderColor: color || text },
           viewStyle,
           animatedStyles,
-        ]}>
+        ]}
+      >
         {iconName && (
           <>
             <Ionicons name={iconName} color={color || text} size={iconSize} />
@@ -97,4 +98,4 @@ const styles = ScaledSheet.create({
   },
 })
 
-const {container} = styles
+const { container } = styles

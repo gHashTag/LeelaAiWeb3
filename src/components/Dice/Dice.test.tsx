@@ -1,6 +1,6 @@
 import React from 'react'
-import {render, fireEvent, act} from '@testing-library/react-native'
-import {Dice, DiceProps} from './'
+import { render, fireEvent, act } from '@testing-library/react-native'
+import { Dice, DiceProps } from './'
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper')
 jest.mock('./Animated', () => {
@@ -28,12 +28,12 @@ describe('Dice Component', () => {
   })
 
   it('renders correctly with the provided props', () => {
-    const {getByTestId} = render(<Dice {...mockProps} />)
+    const { getByTestId } = render(<Dice {...mockProps} />)
     expect(getByTestId('dice-component')).toBeDefined()
   })
 
   it('calls the rollDice function on press when not disabled', () => {
-    const {getByTestId} = render(<Dice {...mockProps} />)
+    const { getByTestId } = render(<Dice {...mockProps} />)
 
     act(() => {
       fireEvent.press(getByTestId('dice-component'))
@@ -45,7 +45,7 @@ describe('Dice Component', () => {
 
   it('does not call the rollDice function on press when disabled', () => {
     mockProps.disabled = true
-    const {getByTestId} = render(<Dice {...mockProps} />)
+    const { getByTestId } = render(<Dice {...mockProps} />)
 
     act(() => {
       fireEvent.press(getByTestId('dice-component'))
@@ -56,7 +56,7 @@ describe('Dice Component', () => {
   })
 
   it('updates dice image when rollDice function is called', () => {
-    const {getByTestId, rerender} = render(<Dice {...mockProps} />)
+    const { getByTestId, rerender } = render(<Dice {...mockProps} />)
 
     act(() => {
       fireEvent.press(getByTestId('dice-component'))

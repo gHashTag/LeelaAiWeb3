@@ -70,22 +70,25 @@ const ReportCard: React.FC<ReportCardProps> = ({
                 <Space height={vs(8)} />
                 <Text h={'h3'} textStyle={styles.lightText} title={`${date}`} />
               </View>
-              <Avatar
-                avaUrl={avaUrl}
-                onPress={handleProfile}
-                size={'medium'}
-                plan={post.plan as number}
-                isAccept={post.accept}
-                aditionalStyle={styles.img}
-              />
+
+              <View style={styles.avatarStyle}>
+                <Avatar
+                  avaUrl={avaUrl}
+                  onPress={handleProfile}
+                  size={'medium'}
+                  plan={post.plan as number}
+                  isAccept={post.accept}
+                  aditionalStyle={styles.img}
+                />
+              </View>
             </View>
 
-            <Space height={vs(5)} />
+            <Space height={vs(15)} />
             <Text
               h={'h5'}
               textStyle={styles.lightText}
               title={post.text || ' '}
-              numberOfLines={8}
+              numberOfLines={4}
             />
             {!post.accept && (
               <>
@@ -162,17 +165,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: s(8),
   },
-  mediumBtn: {
-    flex: 1,
-    flexDirection: 'row',
-
-    justifyContent: 'center',
-  },
   smallBtn: {
     flexDirection: 'row',
-  },
-  textStyle: {
-    lineHeight: s(21),
   },
   contentContainer: {
     flex: 1,
@@ -188,13 +182,6 @@ const styles = StyleSheet.create({
   lightText: {
     textAlign: 'left',
   },
-  flex1: {
-    flex: 1,
-  },
-  likeBtn: {
-    flex: 2,
-    justifyContent: 'center',
-  },
   userInfoContainer: {
     top: 15,
   },
@@ -209,11 +196,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     marginRight: s(4),
   },
-  withoutBottomBorder: {
-    borderBottomWidth: 0,
-  },
-  flagEmoji: {
-    fontSize: s(16),
+  avatarStyle: {
+    top: 10,
   },
 })
 

@@ -1,13 +1,21 @@
 module.exports = {
   root: true,
-  extends: ['@react-native', 'plugin:prettier/recommended'],
+  extends: ['@react-native'],
+  plugins: ['react', 'react-native', 'prettier'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['tsconfig.json'],
+  },
   env: {
     node: true,
     'jest/globals': true,
   },
   rules: {
     'object-curly-spacing': 'off',
-    trailingComma: 'all',
     semi: ['off'],
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,

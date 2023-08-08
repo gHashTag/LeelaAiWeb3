@@ -31,13 +31,13 @@ interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
   height?: number
 }
 
-interface NeomorphViewProps {
+interface NeomorphCircleProps {
   children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
   viewStyle?: ViewProps
 }
 
-const NeomorphView: React.FC<NeomorphViewProps> = ({
+const NeomorphCircle: React.FC<NeomorphCircleProps> = ({
   children,
   viewStyle,
   shadowStyle,
@@ -62,9 +62,9 @@ const NeomorphView: React.FC<NeomorphViewProps> = ({
 
 const styles = ScaledSheet.create({
   container: {
-    borderRadius: 20,
+    borderRadius: 40,
     shadowRadius: 5,
   },
 })
 
-export { NeomorphView }
+export { NeomorphCircle }

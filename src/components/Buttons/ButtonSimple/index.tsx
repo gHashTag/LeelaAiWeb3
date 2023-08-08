@@ -1,10 +1,10 @@
-import React, {memo} from 'react'
+import React, { memo } from 'react'
 
-import {StyleProp, StyleSheet, ViewStyle} from 'react-native'
-import {vs} from 'react-native-size-matters'
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native'
+import { vs } from 'react-native-size-matters'
 
-import {Text} from '../../'
-import {Pressable} from '../../Pressable'
+import { Text } from '../../'
+import { Pressable } from '../../Pressable'
 
 const styles = StyleSheet.create({
   container: {
@@ -38,8 +38,8 @@ interface ButtonSimpleT {
 }
 
 const ButtonSimple = memo<ButtonSimpleT>(
-  ({title, onPress, h = 'h4', viewStyle}) => {
-    const {container, fontStyle} = styles
+  ({ title, onPress, h = 'h4', viewStyle }) => {
+    const { container, fontStyle } = styles
     return (
       <Pressable onPress={onPress} style={[container, viewStyle]}>
         <Text numberOfLines={1} h={h} title={title} textStyle={fontStyle} />
@@ -48,4 +48,4 @@ const ButtonSimple = memo<ButtonSimpleT>(
   },
 )
 
-export {ButtonSimple}
+export { ButtonSimple }

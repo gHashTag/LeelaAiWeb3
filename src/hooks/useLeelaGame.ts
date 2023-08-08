@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
 type Player = {
   plan: number
@@ -33,7 +33,7 @@ export default function useLeelaGame() {
   const rollDice = () => {
     const rollResult = generateRandomNumber()
     setLastRoll(rollResult)
-    setRollHistory(prev => [...prev, rollResult])
+    setRollHistory((prev) => [...prev, rollResult])
 
     if (!player.isStart && rollResult === MAX_ROLL) {
       setPlayer({
@@ -49,7 +49,7 @@ export default function useLeelaGame() {
   }
 
   const handleRollResult = (roll: number) => {
-    let updatedPlayer = {...player}
+    let updatedPlayer = { ...player }
 
     if (!player.isStart) {
       if (roll === MAX_ROLL) {
@@ -140,7 +140,7 @@ export default function useLeelaGame() {
       previousPlan: updatedPlayer.plan,
     }
 
-    setPlanHistory(prev => [...prev, newPlan])
+    setPlanHistory((prev) => [...prev, newPlan])
 
     // Проверка на завершение
     if (newPlan === WIN_PLAN) {
@@ -153,5 +153,5 @@ export default function useLeelaGame() {
   }
 
   // Возврат данных и функции для использования в компоненте
-  return {player, rollHistory, planHistory, rollDice, lastRoll}
+  return { player, rollHistory, planHistory, rollDice, lastRoll }
 }

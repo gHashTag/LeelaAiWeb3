@@ -10,8 +10,8 @@ import {
 } from 'react-native'
 import { ms, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { Text } from 'components'
-import { orange, primary } from 'cons'
+import { NeomorphCircle, Text } from 'components'
+import { orange } from 'cons'
 
 interface AvatarI {
   plan: number
@@ -28,26 +28,33 @@ const Avatar = memo<AvatarI>(
       colors: { background },
     } = useTheme()
 
-    const { container, badge, bigBadge, smallBadge } = styles
     const textPlan = plan < 10 ? `0${plan}` : `${plan}`
     const fontSize = size === 'small' ? s(6) : s(10)
-    const badgeS = size === 'small' || size === 'medium' ? smallBadge : bigBadge
+    const badgeS =
+      size === 'small' || size === 'medium'
+        ? styles.smallBadge
+        : styles.bigBadge
     return (
-      <Pressable onPress={onPress}>
-        <ImageBackground
-          source={{ uri: avaUrl }}
-          style={[styles[size], aditionalStyle]}
-          imageStyle={container}
-        >
-          <View style={[badge, badgeS, { backgroundColor: background }]}>
-            {!isAccept ? (
-              <Ionicons size={s(15)} color={orange} name="time-sharp" />
-            ) : (
-              <Text textStyle={{ fontSize }} title={textPlan} h="h12" />
-            )}
-          </View>
-        </ImageBackground>
-      </Pressable>
+      // @ts-ignore
+      <NeomorphCircle viewStyle={styles.card}>
+        <Pressable onPress={onPress}>
+          <ImageBackground
+            source={{ uri: avaUrl }}
+            style={[styles[size], styles.img, aditionalStyle]}
+            imageStyle={styles.container}
+          >
+            <View
+              style={[styles.badge, badgeS, { backgroundColor: background }]}
+            >
+              {!isAccept ? (
+                <Ionicons size={s(15)} color={orange} name="time-sharp" />
+              ) : (
+                <Text textStyle={{ fontSize }} title={textPlan} h="h12" />
+              )}
+            </View>
+          </ImageBackground>
+        </Pressable>
+      </NeomorphCircle>
     )
   },
 )
@@ -77,11 +84,9 @@ const styles = StyleSheet.create({
   badge: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: ms(130),
+    borderRadius: s(180),
     flexDirection: 'row',
     position: 'absolute',
-    borderColor: primary,
-    borderWidth: s(0.8),
     padding: s(2),
   },
   smallBadge: {
@@ -91,6 +96,15 @@ const styles = StyleSheet.create({
   bigBadge: {
     right: s(-1),
     bottom: s(2),
+  },
+  card: {
+    width: ms(50, 0.9),
+    height: ms(50, 0.9),
+    alignContent: 'center',
+  },
+  img: {
+    marginTop: -10,
+    left: 1,
   },
 })
 
