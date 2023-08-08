@@ -10,6 +10,7 @@ import { SafeAreaView, useColorScheme } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { useTranslation } from 'react-i18next'
+import { W, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
 import {
   // GameBoard,
   Dice,
@@ -84,11 +85,11 @@ function App(): JSX.Element {
   const { player, rollHistory, planHistory, rollDice, lastRoll } =
     useLeelaGame()
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.white,
+    backgroundColor: isDarkMode ? Colors.darker : lightGray,
   }
 
   const fullName = 'John Doe'
-  const isAdmin = true
+  const isAdmin = false
   const isLiked = true
   const likeCount = 10
   const commCount = 5
@@ -131,7 +132,7 @@ function App(): JSX.Element {
 
   return (
     <GestureHandlerRootView>
-      <SafeAreaView style={backgroundStyle}>
+      <SafeAreaView style={[backgroundStyle, { alignItems: 'center' }]}>
         <Space height={150} />
         <ReportCard
           post={post}
@@ -151,6 +152,7 @@ function App(): JSX.Element {
           handleLike={handleLike}
           handleComment={handleComment}
         />
+        <Space height={400} />
         {/* <Avatar
           plan={1}
           size="large"

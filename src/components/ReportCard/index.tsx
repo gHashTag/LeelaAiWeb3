@@ -2,7 +2,7 @@
 import React from 'react'
 import { StyleSheet, View, Pressable } from 'react-native'
 import { ms, s, vs } from 'react-native-size-matters'
-import { ButtonVectorIcon, Avatar, Space, Text, ShadowView } from 'components'
+import { ButtonVectorIcon, Avatar, Space, Text, NeomorphView } from 'components'
 import { W, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
 
 import { PostT } from 'types'
@@ -39,8 +39,6 @@ const ReportCard: React.FC<ReportCardProps> = ({
   commCount,
   date,
   handleProfile,
-  handleTranslate,
-  handlePressWand,
   handleAdminMenu,
   handleShareLink,
   handleLike,
@@ -56,9 +54,9 @@ const ReportCard: React.FC<ReportCardProps> = ({
 
   return (
     // @ts-ignore
-    <ShadowView viewStyle={styles.card}>
+    <NeomorphView viewStyle={styles.card}>
       <Pressable onPress={onPress} style={styles.container}>
-        <View style={styles.headerS}>
+        <View style={styles.contentContainer}>
           <View style={styles.headerInfo}>
             {/* name, create date/email */}
 
@@ -134,20 +132,20 @@ const ReportCard: React.FC<ReportCardProps> = ({
           </View>
         </View>
       </Pressable>
-    </ShadowView>
+    </NeomorphView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingLeft: s(15),
-    paddingRight: s(15),
+    paddingHorizontal: s(15),
     paddingVertical: s(6),
     height: vs(200),
+    alignItems: 'center',
   },
   card: {
-    width: W - 40,
+    width: W - 50,
     height: vs(180),
   },
   img: {
@@ -155,6 +153,7 @@ const styles = StyleSheet.create({
     marginBottom: s(12),
   },
   btnsContainer: {
+    justifyContent: 'space-between',
     top: 5,
     flexDirection: 'row',
     padding: s(8),
@@ -162,19 +161,16 @@ const styles = StyleSheet.create({
   mediumBtn: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
+
     justifyContent: 'center',
   },
   smallBtn: {
-    flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
   },
   textStyle: {
     lineHeight: s(21),
   },
-  headerS: {
+  contentContainer: {
     flex: 1,
   },
   headerInfo: {

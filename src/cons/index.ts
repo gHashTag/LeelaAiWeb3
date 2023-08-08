@@ -7,7 +7,7 @@ import {
   Dimensions,
   Linking,
   Platform,
-  NativeModules
+  NativeModules,
 } from 'react-native'
 import Rate from 'react-native-rate'
 import i18next from '../i18n'
@@ -19,7 +19,7 @@ export const gray = '#808080'
 export const white = '#ffffff'
 export const black = '#1c1c1c'
 export const dimGray = '#707070'
-export const lightGray = '#D1CDCD'
+export const lightGray = '#f8f4f4'
 export const classicRose = '#FDBEEA'
 export const mustard = '#F3DE50'
 export const fuchsia = '#FF06F4'
@@ -42,7 +42,7 @@ export const navigate = (name: string, params?: any) => {
 export const generateComment = async ({
   message,
   systemMessage,
-  planText
+  planText,
 }: MessageAIT): Promise<string> => {
   try {
     const response = await axios.post(
@@ -52,26 +52,26 @@ export const generateComment = async ({
         messages: [
           {
             role: 'system',
-            content: systemMessage
+            content: systemMessage,
           },
           {
             role: 'user',
-            content: message
+            content: message,
           },
           {
             role: 'assistant',
-            content: planText
-          }
+            content: planText,
+          },
         ],
         max_tokens: 1000,
-        temperature: 0.5
+        temperature: 0.5,
       },
       {
         headers: {
           Authorization: `Bearer ${OPEN_AI_KEY}`,
-          'Content-Type': 'application/json'
-        }
-      }
+          'Content-Type': 'application/json',
+        },
+      },
     )
 
     return response?.data?.choices[0]?.message?.content ?? ''
@@ -88,7 +88,7 @@ export const onLeaveFeedback = (onAction: (success: any) => void) => {
     OtherAndroidURL:
       'https://play.google.com/store/apps/details?id=com.leelagame',
     preferInApp: true,
-    openAppStoreIfInAppFails: true
+    openAppStoreIfInAppFails: true,
   }
   Rate.rate(options, onAction)
 }
@@ -97,12 +97,12 @@ export const handleCommentAi = async ({
   curItem,
   systemMessage,
   message,
-  planText = ' '
+  planText = ' ',
 }: HandleCommentAiParamsT): Promise<void> => {
   const aiComment: string = await generateComment({
     message,
     systemMessage,
-    planText
+    planText,
   })
   console.log('LEELA_ID', LEELA_ID)
   if (curItem && aiComment) {
@@ -160,12 +160,12 @@ export const banAlert = () => {
   Alert.alert(
     i18next.t('online-part.youBanned'),
     i18next.t('online-part.banText'),
-    [{ text: 'OK', onPress: () => navigate('HELLO') }]
+    [{ text: 'OK', onPress: () => navigate('HELLO') }],
   )
 }
 export const accountHasBanAlert = () => {
   Alert.alert(i18next.t('online-part.accountBanned'), undefined, [
-    { text: 'OK' }
+    { text: 'OK' },
   ])
 }
 
@@ -173,7 +173,7 @@ export const captureException = (error: any, target: string) => {
   if (!error) {
     console.log(
       '%c captureException called with messing or incorrect arguments',
-      'background: #555; color: yellow'
+      'background: #555; color: yellow',
     )
     return
   }
