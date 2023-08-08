@@ -10,7 +10,7 @@ import { SafeAreaView, useColorScheme } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { useTranslation } from 'react-i18next'
-import { W, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
+import { W, black, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
 import {
   // GameBoard,
   Dice,
@@ -79,13 +79,14 @@ const avaUrl =
   'https://bafkreiftrmfmimlvo26xaxfvt2ypnjjaavq5mgnkjljs6mczfekii4cmtq.ipfs.nftstorage.link/'
 
 function App(): JSX.Element {
+  const { player, rollHistory, planHistory, rollDice, lastRoll } =
+    useLeelaGame()
   const { t } = useTranslation()
 
   const isDarkMode = useColorScheme() === 'dark'
-  const { player, rollHistory, planHistory, rollDice, lastRoll } =
-    useLeelaGame()
+
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : lightGray,
+    backgroundColor: isDarkMode ? black : lightGray,
   }
 
   const fullName = 'John Doe'
@@ -134,7 +135,8 @@ function App(): JSX.Element {
     <GestureHandlerRootView>
       <SafeAreaView style={[backgroundStyle, { alignItems: 'center' }]}>
         <Space height={150} />
-        <ReportCard
+        <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
+        {/* <ReportCard
           post={post}
           isDetail={false}
           fullName={fullName}
@@ -151,7 +153,7 @@ function App(): JSX.Element {
           handleShareLink={handleShareLink}
           handleLike={handleLike}
           handleComment={handleComment}
-        />
+        /> */}
         <Space height={400} />
         {/* <Avatar
           plan={1}
@@ -167,7 +169,7 @@ function App(): JSX.Element {
         {/* <Button title={t('buy')} onPress={() => console.log('click')} />
         <Text h={'h2'} title={t('takeStep')} />
         <Space height={150} />
-        <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
+       
         <Space height={150} /> */}
 
         {/* <MarkdownView /> */}

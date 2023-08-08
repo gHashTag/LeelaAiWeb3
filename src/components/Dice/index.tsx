@@ -1,5 +1,11 @@
 import React, { useRef } from 'react'
-import { Animated, Easing, Pressable, StyleSheet } from 'react-native'
+import {
+  Animated,
+  Easing,
+  Pressable,
+  StyleSheet,
+  useColorScheme,
+} from 'react-native'
 import { vs } from 'react-native-size-matters'
 
 export interface DiceProps {
@@ -9,29 +15,13 @@ export interface DiceProps {
   size?: 'small' | 'medium' | 'large'
 }
 
-const getImage = (number: number) => {
-  switch (number) {
-    case 1:
-      return require('./assets/1.png')
-    case 2:
-      return require('./assets/2.png')
-    case 3:
-      return require('./assets/3.png')
-    case 4:
-      return require('./assets/4.png')
-    case 5:
-      return require('./assets/5.png')
-    case 6:
-      return require('./assets/6.png')
-  }
-}
-
 const Dice = ({
   disabled = false,
   rollDice,
   lastRoll,
   size = 'medium',
 }: DiceProps & { lastRoll: number }) => {
+  const isDarkMode = useColorScheme() === 'dark'
   const spinValue = useRef(new Animated.Value(0)).current
 
   const spin = spinValue.interpolate({
@@ -66,7 +56,37 @@ const Dice = ({
         return vs(80)
     }
   }
-
+  const getImage = (number: number, isDarkTheme: boolean) => {
+    const folder = isDarkTheme ? 'assets_dark' : 'assets_light'
+    switch (number) {
+      case 1:
+        return isDarkTheme
+          ? require('./assets_dark/1.png')
+          : require('./assets_light/1.png')
+      case 2:
+        return isDarkTheme
+          ? require('./assets_dark/2.png')
+          : require('./assets_light/2.png')
+      case 3:
+        return isDarkTheme
+          ? require('./assets_dark/3.png')
+          : require('./assets_light/3.png')
+      case 4:
+        return isDarkTheme
+          ? require('./assets_dark/4.png')
+          : require('./assets_light/4.png')
+      case 5:
+        return isDarkTheme
+          ? require('./assets_dark/5.png')
+          : require('./assets_light/5.png')
+      case 6:
+        return isDarkTheme
+          ? require('./assets_dark/6.png')
+          : require('./assets_light/6.png')
+      default:
+        return null
+    }
+  }
   return (
     <Pressable
       onPress={animateDice}
@@ -82,7 +102,7 @@ const Dice = ({
             width: getSize(),
           },
         ]}
-        source={getImage(lastRoll)}
+        source={getImage(lastRoll, isDarkMode)}
         testID="dice-image"
       />
     </Pressable>
