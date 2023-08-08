@@ -5,12 +5,25 @@
  * @format
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SafeAreaView, useColorScheme } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { NavigationContainer } from '@react-navigation/native'
+import Orientation from 'react-native-orientation-locker'
 import { useTranslation } from 'react-i18next'
-import { W, black, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
+import SystemNavigationBar from 'react-native-system-navigation-bar'
+import {
+  W,
+  black,
+  brightTurquoise,
+  dimGray,
+  fuchsia,
+  lightGray,
+  navRef,
+  red,
+  secondary,
+  white,
+} from 'cons'
 import {
   // GameBoard,
   Dice,
@@ -24,6 +37,30 @@ import {
 } from 'components'
 
 import useLeelaGame from 'hooks/useLeelaGame'
+
+const DarkTheme = {
+  dark: true,
+  colors: {
+    primary: secondary,
+    background: black,
+    card: white,
+    text: white,
+    border: dimGray,
+    notification: red,
+  },
+}
+
+const LightTheme = {
+  dark: false,
+  colors: {
+    primary: secondary,
+    background: white,
+    card: white,
+    text: black,
+    border: dimGray,
+    notification: red,
+  },
+}
 
 const diceProps = {
   count: 6,
@@ -79,15 +116,28 @@ const avaUrl =
   'https://bafkreiftrmfmimlvo26xaxfvt2ypnjjaavq5mgnkjljs6mczfekii4cmtq.ipfs.nftstorage.link/'
 
 function App(): JSX.Element {
-  const { player, rollHistory, planHistory, rollDice, lastRoll } =
-    useLeelaGame()
-  const { t } = useTranslation()
-
-  const isDarkMode = useColorScheme() === 'dark'
+  // Themes
+  const isDark = useColorScheme() === 'dark'
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? black : lightGray,
+    backgroundColor: isDark ? black : lightGray,
   }
+  const theme = isDark ? DarkTheme : LightTheme
+  const color = isDark ? 'light-content' : 'dark-content'
+
+  useEffect(() => {
+    SystemNavigationBar.setNavigationColor(
+      isDark ? black : white,
+      isDark ? 'dark' : 'light',
+    )
+    SystemNavigationBar.setNavigationBarDividerColor(lightGray)
+    Orientation.lockToPortrait()
+  }, [isDark])
+
+  const { player, rollHistory, planHistory, rollDice, lastRoll } =
+    useLeelaGame()
+
+  const { t } = useTranslation()
 
   const fullName = 'John Doe'
   const isAdmin = false
@@ -132,30 +182,32 @@ function App(): JSX.Element {
   }
 
   return (
-    <GestureHandlerRootView>
-      <SafeAreaView style={[backgroundStyle, { alignItems: 'center' }]}>
-        <Space height={150} />
-        <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
-        {/* <ReportCard
-          post={post}
-          isDetail={false}
-          fullName={fullName}
-          avaUrl={avaUrl}
-          isAdmin={isAdmin}
-          isLiked={isLiked}
-          likeCount={likeCount}
-          commCount={commCount}
-          date={date}
-          handleProfile={handleProfile}
-          handleTranslate={handleTranslate}
-          handlePressWand={handlePressWand}
-          handleAdminMenu={handleAdminMenu}
-          handleShareLink={handleShareLink}
-          handleLike={handleLike}
-          handleComment={handleComment}
-        /> */}
-        <Space height={400} />
-        {/* <Avatar
+    <NavigationContainer ref={navRef} theme={theme}>
+      <GestureHandlerRootView>
+        <SafeAreaView style={[backgroundStyle, { alignItems: 'center' }]}>
+          <Space height={150} />
+          <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
+          <Space height={150} />
+          <ReportCard
+            post={post}
+            isDetail={false}
+            fullName={fullName}
+            avaUrl={avaUrl}
+            isAdmin={isAdmin}
+            isLiked={isLiked}
+            likeCount={likeCount}
+            commCount={commCount}
+            date={date}
+            handleProfile={handleProfile}
+            handleTranslate={handleTranslate}
+            handlePressWand={handlePressWand}
+            handleAdminMenu={handleAdminMenu}
+            handleShareLink={handleShareLink}
+            handleLike={handleLike}
+            handleComment={handleComment}
+          />
+          <Space height={400} />
+          {/* <Avatar
           plan={1}
           size="large"
           avaUrl={avaUrl}
@@ -166,14 +218,14 @@ function App(): JSX.Element {
           }}
         /> */}
 
-        {/* <Button title={t('buy')} onPress={() => console.log('click')} />
+          {/* <Button title={t('buy')} onPress={() => console.log('click')} />
         <Text h={'h2'} title={t('takeStep')} />
         <Space height={150} />
        
         <Space height={150} /> */}
 
-        {/* <MarkdownView /> */}
-        {/* <GameBoard players={plansPlayers} />
+          {/* <MarkdownView /> */}
+          {/* <GameBoard players={plansPlayers} />
         <Space height={50} />
 
        
@@ -184,8 +236,9 @@ function App(): JSX.Element {
             player={{id: gem.id, uri: gem.uri}}
           />
         ))} */}
-      </SafeAreaView>
-    </GestureHandlerRootView>
+        </SafeAreaView>
+      </GestureHandlerRootView>
+    </NavigationContainer>
   )
 }
 
