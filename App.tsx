@@ -185,9 +185,8 @@ function App(): JSX.Element {
     <NavigationContainer ref={navRef} theme={theme}>
       <GestureHandlerRootView>
         <SafeAreaView style={[backgroundStyle, { alignItems: 'center' }]}>
-          <Space height={150} />
           <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
-          <Space height={150} />
+
           <ReportCard
             post={post}
             isDetail={false}
@@ -206,7 +205,7 @@ function App(): JSX.Element {
             handleLike={handleLike}
             handleComment={handleComment}
           />
-          <Space height={400} />
+          <Space height={40} />
           {/* <Avatar
           plan={1}
           size="large"
@@ -218,11 +217,12 @@ function App(): JSX.Element {
           }}
         /> */}
 
-          {/* <Button title={t('buy')} onPress={() => console.log('click')} />
-        <Text h={'h2'} title={t('takeStep')} />
-        <Space height={150} />
-       
-        <Space height={150} /> */}
+          <Button title={t('buy')} onPress={() => console.log('click')} />
+          <Space height={40} />
+          <Text h={'h2'} title={t('takeStep')} />
+          <Space height={150} />
+
+          <Space height={150} />
 
           {/* <MarkdownView /> */}
           {/* <GameBoard players={plansPlayers} />

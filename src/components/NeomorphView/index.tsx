@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { useTheme } from '@react-navigation/native'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 import { Neomorph } from 'react-native-neomorph-shadows'
-import { W, lightGray, white } from 'cons'
+import { W, black, lightGray, white } from 'cons'
 import { View, ViewProps, ViewStyle } from 'react-native'
 
 type FlexStyleProperties =
@@ -43,16 +43,18 @@ const NeomorphView: React.FC<NeomorphViewProps> = ({
   shadowStyle,
 }) => {
   const { dark } = useTheme()
+  const backgroundColor = dark ? black : lightGray
 
   return (
     <Neomorph
       style={{
         // @ts-ignore
-        ...styles.conntainer,
+        ...styles.container,
+        ...shadowStyle,
         ...viewStyle,
         borderRadius: 20,
         shadowRadius: 5,
-        backgroundColor: lightGray,
+        backgroundColor,
       }}
     >
       <View style={[viewStyle]}>{children}</View>
@@ -61,7 +63,7 @@ const NeomorphView: React.FC<NeomorphViewProps> = ({
 }
 
 const styles = ScaledSheet.create({
-  conntainer: {},
+  container: {},
 })
 
 export { NeomorphView }

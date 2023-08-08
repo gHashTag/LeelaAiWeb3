@@ -1,9 +1,10 @@
 // ReportCard.tsx
 import React from 'react'
 import { StyleSheet, View, Pressable } from 'react-native'
+import { useTheme } from '@react-navigation/native'
 import { ms, s, vs } from 'react-native-size-matters'
 import { ButtonVectorIcon, Avatar, Space, Text, NeomorphView } from 'components'
-import { W, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
+import { W, black, brightTurquoise, fuchsia, lightGray, orange } from 'cons'
 
 import { PostT } from 'types'
 
@@ -44,6 +45,9 @@ const ReportCard: React.FC<ReportCardProps> = ({
   handleLike,
   handleComment,
 }) => {
+  const { dark } = useTheme()
+  const backgroundColor = dark ? black : lightGray
+
   const iconSize = ms(15, 0.8)
   const heart = isLiked ? 'heart' : 'heart-outline'
   const heartColor = isLiked ? fuchsia : undefined
