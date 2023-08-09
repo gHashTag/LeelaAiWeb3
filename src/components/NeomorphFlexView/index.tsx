@@ -31,21 +31,19 @@ interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
   height?: number
 }
 
-interface NeomorphCircleProps {
+interface NeomorphFlexViewProps {
   children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
-  viewStyle?: ViewProps
+  viewStyle?: ViewStyleWithShadow
 }
 
-const NeomorphFlexView: React.FC<NeomorphCircleProps> = ({
+const NeomorphFlexView: React.FC<NeomorphFlexViewProps> = ({
   children,
   viewStyle,
   shadowStyle,
 }) => {
   const { dark } = useTheme()
-  console.log('dark', dark)
   const backgroundColor = dark ? black : lightGray
-  console.log('backgroundColor', backgroundColor)
   return (
     <NeomorphFlex
       inner

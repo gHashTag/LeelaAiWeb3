@@ -1,11 +1,9 @@
 import { NeomorphFlexView } from 'components'
-import { dimGray, gray, lightGray } from 'cons'
+import { gray } from 'cons'
 import React from 'react'
 import { View, TextInput, StyleSheet } from 'react-native'
 
 interface TextInputFieldProps {
-  iconName: string
-  iconType: string
   placeholder: string
   multiline?: boolean
   value: string
@@ -25,7 +23,7 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
       <View style={styles.container}>
         <TextInput
           placeholder={placeholder}
-          placeholderTextColor={dimGray}
+          placeholderTextColor={gray}
           multiline={multiline}
           value={value}
           onBlur={onBlur}
@@ -47,8 +45,9 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    bottom: 1,
     fontSize: 16,
-    color: dimGray,
+    color: gray,
   },
 })
 

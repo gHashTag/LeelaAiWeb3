@@ -3,11 +3,12 @@ import React from 'react'
 import { Platform, ScrollView, StyleSheet } from 'react-native'
 import { ms, s } from 'react-native-size-matters'
 import Markdown from 'react-native-markdown-display'
-import { gray } from '../../cons'
+import { gray, W } from 'cons'
 import { Space } from '../Space'
 import { NeomorphView } from 'components'
+import { View } from 'react-native'
 
-const MarkdownView = ({ markdown }) => {
+const MarkdownView = ({ markdown, children }) => {
   return (
     <NeomorphView>
       <ScrollView
@@ -16,6 +17,8 @@ const MarkdownView = ({ markdown }) => {
         style={styles.container}
       >
         <Markdown style={styles}>{markdown}</Markdown>
+        <Space height={s(10)} />
+        <View style={styles.input}>{children}</View>
         <Space height={s(100)} />
       </ScrollView>
     </NeomorphView>
@@ -29,6 +32,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: 15,
     paddingVertical: 20,
+  },
+  input: {
+    width: W,
+    alignSelf: 'center',
   },
   heading1: {
     fontFamily: Platform.OS === 'ios' ? 'mont' : 'mont',

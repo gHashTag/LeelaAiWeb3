@@ -56,7 +56,6 @@ const App = () => {
     )
     SystemNavigationBar.setNavigationBarDividerColor(lightGray)
     Orientation.lockToPortrait()
-    // check version
   }, [isDark])
 
   return (

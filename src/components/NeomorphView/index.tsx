@@ -50,8 +50,8 @@ const NeomorphView: React.FC<NeomorphViewProps> = ({
       style={{
         // @ts-ignore
         ...styles.container,
-        ...shadowStyle,
-        ...viewStyle,
+        ...(shadowStyle || {}),
+        ...(viewStyle || {}),
         backgroundColor,
       }}
     >

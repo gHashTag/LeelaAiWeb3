@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Platform } from 'react-native'
-import { getSystemLanguage } from 'cons'
+import { Platform, StyleSheet, View } from 'react-native'
+import { getSystemLanguage, red } from 'cons'
 import RNFetchBlob from 'rn-fetch-blob'
 import { useForm, Controller } from 'react-hook-form'
 import { readFileAssets } from 'react-native-fs'
-import { MarkdownView, Space, TextInputField } from 'components'
+import { MarkdownView, Button, TextInputField, Space, Text } from 'components'
+import { useTranslation } from 'react-i18next'
+
+interface FormData {
+  name: string
+}
 
 const PlanScreen: React.FC = () => {
+  const fileName = '1-birth'
+  const { t } = useTranslation()
   const {
     control,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm({ mode: 'onBlur' })
+  } = useForm<FormData>({ mode: 'onBlur' })
 
-  const onSubmit = (data) => console.log(data)
-  const fileName = '1-birth'
+  const onSubmit = (data: FormData) => console.log('data', data)
+
   //const { player, rollHistory, planHistory, rollDice, lastRoll } = useLeelaGame()
   const [markdown, setMarkdown] = useState('')
   const systemLanguage = getSystemLanguage()
@@ -45,34 +52,50 @@ const PlanScreen: React.FC = () => {
   }, [fileName, systemLanguage])
 
   return (
-    <>
-      {/* <MarkdownView markdown={markdown} /> */}
-      <Space height={340} />
+    <MarkdownView markdown={markdown}>
       <Controller
         control={control}
         name="name"
         render={({ field: { onChange, value, onBlur } }) => (
           <TextInputField
-            iconName="person"
-            iconType="MaterialIcons"
-            placeholder="Enter your name here"
+            placeholder={t('online-part.notReported')}
             multiline
             value={value}
             onBlur={onBlur}
-            onChangeText={(value) => onChange(value)}
+            onChangeText={(val) => onChange(val)}
           />
         )}
         rules={{
           required: {
             value: true,
-            message: 'Field is required!',
+            message: t('requireField'),
           },
         }}
       />
 
-      {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} /> */}
-    </>
+      <Space height={20} />
+      <View style={styles.btnStyle}>
+        {errors.name && (
+          <>
+            <Text h={'h3'} title={String(errors.name.message)} oneColor={red} />
+            <Space height={15} />
+          </>
+        )}
+
+        <Button
+          title={t('online-part.report')}
+          onPress={handleSubmit(onSubmit)}
+        />
+      </View>
+      <Space height={150} />
+    </MarkdownView>
   )
 }
+
+const styles = StyleSheet.create({
+  btnStyle: {
+    alignItems: 'center',
+  },
+})
 
 export { PlanScreen }

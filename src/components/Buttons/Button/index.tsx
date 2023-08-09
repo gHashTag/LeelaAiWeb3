@@ -1,8 +1,8 @@
-import React, { memo } from 'react'
-import { StyleProp, TextStyle } from 'react-native'
+import React, { memo, useState } from 'react'
+import { StyleProp, TextStyle, Pressable } from 'react-native'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
-import { Text, NeomorphView } from '../../'
-import { Pressable } from '../../Pressable'
+import { Text, NeomorphView, NeomorphFlexView } from '../../' // Подключите необходимые компоненты
+import { dimGray } from 'cons'
 
 interface ButtonT {
   title: string
@@ -12,30 +12,59 @@ interface ButtonT {
 }
 
 const Button = memo<ButtonT>(({ title, onPress, textStyle }) => {
+  const [isPressed, setIsPressed] = useState(false)
+
   const { h } = styles
+
+  const handlePressIn = () => {
+    setIsPressed(true)
+  }
+
+  const handlePressOut = () => {
+    setIsPressed(false)
+    onPress && onPress()
+  }
+
   return (
-    // @ts-ignore
-    <NeomorphView viewStyle={styles.card}>
-      <Pressable onPress={onPress} style={styles.container}>
-        <Text h="h1" textStyle={[h, textStyle]} title={title} />
-      </Pressable>
-    </NeomorphView>
+    <Pressable
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      style={styles.container}
+    >
+      {isPressed ? (
+        // @ts-ignore
+        <NeomorphFlexView viewStyle={styles.card}>
+          <Text
+            h="h1"
+            textStyle={[h, textStyle]}
+            title={title}
+            oneColor={dimGray}
+          />
+        </NeomorphFlexView>
+      ) : (
+        // @ts-ignore
+        <NeomorphView viewStyle={styles.card}>
+          <Text h="h1" textStyle={[h, textStyle]} title={title} />
+        </NeomorphView>
+      )}
+    </Pressable>
   )
 })
+
 const styles = ScaledSheet.create({
   container: {
-    justifyContent: 'center',
     width: ms(230, 0.9),
     height: ms(60, 0.9),
   },
   h: {
     textAlign: 'center',
-    paddingHorizontal: 15,
-    top: 3,
   },
   card: {
     width: ms(230, 0.9),
     height: ms(60, 0.9),
+    borderRadius: s(40),
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
 })
 
