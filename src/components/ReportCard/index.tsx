@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Pressable } from 'react-native'
-import { ms, s, vs } from 'react-native-size-matters'
-import { ButtonVectorIcon, Avatar, Space, Text, NeomorphView } from 'components'
-import { W, fuchsia } from 'cons'
+import { View, Pressable } from 'react-native'
+import { s, vs, ScaledSheet } from 'react-native-size-matters'
+import { Avatar, Space, Text, NeomorphView, ActionButtons } from 'components'
+import { W } from 'cons'
 import { ReportCardProps } from 'types'
 
 const ReportCard: React.FC<ReportCardProps> = ({
@@ -21,10 +21,6 @@ const ReportCard: React.FC<ReportCardProps> = ({
   handleLike,
   handleComment,
 }) => {
-  const iconSize = ms(15, 0.8)
-  const heart = isLiked ? 'heart' : 'heart-outline'
-  const heartColor = isLiked ? fuchsia : undefined
-
   return (
     // @ts-ignore
     <NeomorphView viewStyle={styles.card}>
@@ -63,52 +59,23 @@ const ReportCard: React.FC<ReportCardProps> = ({
               numberOfLines={4}
             />
           </View>
-          <View style={styles.btnsContainer}>
-            {isAdmin && (
-              <>
-                <ButtonVectorIcon
-                  onPress={handleAdminMenu}
-                  viewStyle={[styles.smallBtn, styles.nonDetailAdminMenuButton]}
-                  ionicons
-                  name="ellipsis-vertical-circle"
-                  size={iconSize + s(3)}
-                />
-                <Space height={vs(12)} />
-              </>
-            )}
-            <ButtonVectorIcon
-              onPress={handleComment}
-              count={commCount}
-              viewStyle={[styles.smallBtn, styles.nonDetailCommentButton]}
-              ionicons
-              name="chatbubble-outline"
-              size={iconSize}
-            />
-            <ButtonVectorIcon
-              count={likeCount}
-              onPress={handleLike}
-              color={heartColor}
-              ionicons
-              iconSize={iconSize + s(1.5)}
-              viewStyle={styles.smallBtn}
-              name={heart}
-              size={iconSize}
-            />
-            <ButtonVectorIcon
-              viewStyle={[styles.smallBtn, styles.nonDetailLinkButton]}
-              name="link-outline"
-              ionicons
-              iconSize={iconSize + s(4)}
-              onPress={handleShareLink}
-            />
-          </View>
+          <ActionButtons
+            isAdmin={isAdmin}
+            commCount={commCount}
+            likeCount={likeCount}
+            handleAdminMenu={handleAdminMenu}
+            handleComment={handleComment}
+            handleLike={handleLike}
+            handleShareLink={handleShareLink}
+            isLiked={isLiked}
+          />
         </View>
       </Pressable>
     </NeomorphView>
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: s(15),

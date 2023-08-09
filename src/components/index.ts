@@ -2,6 +2,8 @@
 // export * from './Avatar'
 // export * from './Input'
 // export * from './VerticalLine'
+
+export * from './ActionButtons'
 export * from './Space'
 export * from './GameBoard'
 export * from './MarkdownView'
