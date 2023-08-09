@@ -1,10 +1,10 @@
 import * as Sentry from '@sentry/react-native'
 import React from 'react'
-import { StyleSheet } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import VersionInfo from 'react-native-version-info'
 import Navigation from './Navigation'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const routingInstrumentation = new Sentry.ReactNavigationInstrumentation()
 
@@ -31,7 +31,7 @@ function AppWithProviders() {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   flexOne: { flex: 1 },
 })
 

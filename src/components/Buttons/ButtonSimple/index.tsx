@@ -1,20 +1,10 @@
 import React, { memo } from 'react'
 
-import { StyleProp, StyleSheet, ViewStyle } from 'react-native'
-import { vs } from 'react-native-size-matters'
+import { StyleProp, ViewStyle } from 'react-native'
+import { ScaledSheet, vs } from 'react-native-size-matters'
 
 import { Text } from '../../'
 import { Pressable } from '../../Pressable'
-
-const styles = StyleSheet.create({
-  container: {
-    alignSelf: 'center',
-  },
-  fontStyle: {
-    marginTop: vs(5),
-    marginBottom: vs(5),
-  },
-})
 
 interface ButtonSimpleT {
   title: string
@@ -47,5 +37,15 @@ const ButtonSimple = memo<ButtonSimpleT>(
     )
   },
 )
+
+const styles = ScaledSheet.create({
+  container: {
+    alignSelf: 'center',
+  },
+  fontStyle: {
+    marginTop: vs(5),
+    marginBottom: vs(5),
+  },
+})
 
 export { ButtonSimple }

@@ -1,14 +1,14 @@
 import React from 'react'
-import { StyleSheet, View, Pressable } from 'react-native'
-import { s, vs } from 'react-native-size-matters'
+import { View, Pressable } from 'react-native'
+import { ScaledSheet, s, vs } from 'react-native-size-matters'
 import { Avatar, Space, Text } from 'components'
 
 import { W } from 'cons'
 
-import { PostT } from 'types'
+import { Post } from 'types'
 
 interface CommentCardProps {
-  post: PostT
+  post: Post
   onPress?: () => void
   fullName: string
   avaUrl: string
@@ -56,7 +56,7 @@ const CommentBubbleLeft: React.FC<CommentCardProps> = ({
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: s(20),

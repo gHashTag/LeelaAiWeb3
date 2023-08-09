@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import { s } from 'react-native-size-matters'
+import { View } from 'react-native'
+import { ScaledSheet, s } from 'react-native-size-matters'
 import { Text } from 'components'
 import { useTranslation } from 'react-i18next'
 
@@ -17,7 +17,7 @@ const Display: React.FC<DisplayProps> = ({ title }) => {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     paddingHorizontal: s(20),
     paddingVertical: s(6),

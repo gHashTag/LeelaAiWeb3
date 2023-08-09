@@ -1,9 +1,9 @@
 import React from 'react'
+import { View, ViewStyle } from 'react-native'
 import { useTheme } from '@react-navigation/native'
 import { ScaledSheet } from 'react-native-size-matters'
 import { NeomorphFlex } from 'react-native-neomorph-shadows'
 import { black, lightGray } from 'cons'
-import { View, ViewProps, ViewStyle } from 'react-native'
 
 type FlexStyleProperties =
   | 'flex'

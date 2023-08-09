@@ -1,7 +1,6 @@
-/* eslint-disable react-native/no-unused-styles */
 import React from 'react'
-import { Platform, ScrollView, StyleSheet } from 'react-native'
-import { ms, s } from 'react-native-size-matters'
+import { Platform, ScrollView } from 'react-native'
+import { ms, s, ScaledSheet } from 'react-native-size-matters'
 import Markdown from 'react-native-markdown-display'
 import { gray, W } from 'cons'
 import { Space } from '../Space'
@@ -25,7 +24,7 @@ const MarkdownView = ({ markdown, children }) => {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     height: '100%',
     width: '90%',

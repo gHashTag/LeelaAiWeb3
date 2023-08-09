@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 
 import { useTheme } from '@react-navigation/native'
-import { Image, StyleSheet, View } from 'react-native'
-import { s } from 'react-native-size-matters'
+import { Image, View } from 'react-native'
+import { ScaledSheet, s } from 'react-native-size-matters'
 
 import { ICONS } from './images'
 
@@ -15,7 +15,7 @@ interface ButtonPlayT {
 }
 const circle = s(60)
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',

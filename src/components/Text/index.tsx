@@ -10,7 +10,7 @@ import {
   TextStyle,
   useColorScheme,
 } from 'react-native'
-import { ms, s } from 'react-native-size-matters'
+import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
 export type hT =
   | 'h0'
@@ -27,7 +27,75 @@ export type hT =
   | 'h11'
   | 'h12'
 
-export const textStyles = StyleSheet.create({
+export interface Icolors {
+  dark: string
+  light: string
+}
+
+export interface TxtT extends TextProps {
+  title: string
+  h?: hT
+  colors?: Icolors
+  oneColor?: string
+  numberOfLines?: number
+  textStyle?: StyleProp<TextStyle>
+}
+
+export const Text = memo<TxtT>(
+  ({
+    h,
+    colors,
+    title,
+    oneColor = gray,
+    numberOfLines,
+    textStyle,
+    ...textProps
+  }) => {
+    const {
+      colors: { text },
+    } = useTheme()
+    const scheme = useColorScheme()
+    const isDark = scheme === 'dark'
+    const curColor = oneColor
+      ? oneColor
+      : colors
+      ? isDark
+        ? colors.light
+        : colors.dark
+      : text
+
+    let hStyle: TextStyle | undefined
+    try {
+      if (
+        h &&
+        textStyles[h] &&
+        typeof textStyles[h] === 'object' &&
+        textStyles[h] !== null
+      ) {
+        // @ts-ignore
+        hStyle = { ...textStyles[h], color: curColor }
+      }
+    } catch (error) {
+      console.error('Error spreading textStyles[h]: ', error)
+      hStyle = undefined
+    }
+    const mergedStyles = StyleSheet.flatten([hStyle, textStyle])
+
+    return (
+      <RNText
+        style={mergedStyles}
+        {...textProps}
+        testID="text-component"
+        ellipsizeMode="tail"
+        numberOfLines={numberOfLines}
+      >
+        {title}
+      </RNText>
+    )
+  },
+)
+
+export const textStyles = ScaledSheet.create({
   h0: {
     fontFamily: Platform.OS === 'ios' ? 'Etna' : 'etna-free-font',
     textShadowOffset: { width: 1, height: 1 },
@@ -92,63 +160,3 @@ export const textStyles = StyleSheet.create({
     fontFamily: 'OxygenMono-Regular',
   },
 })
-
-export interface Icolors {
-  dark: string
-  light: string
-}
-
-export interface TxtT extends TextProps {
-  title: string
-  h?: hT
-  colors?: Icolors
-  oneColor?: string
-  numberOfLines?: number
-  textStyle?: StyleProp<TextStyle>
-}
-
-export const Text = memo<TxtT>(
-  ({
-    h,
-    colors,
-    title,
-    oneColor = gray,
-    numberOfLines,
-    textStyle,
-    ...textProps
-  }) => {
-    const {
-      colors: { text },
-    } = useTheme()
-    const scheme = useColorScheme()
-    const isDark = scheme === 'dark'
-    const curColor = oneColor
-      ? oneColor
-      : colors
-      ? isDark
-        ? colors.light
-        : colors.dark
-      : text
-
-    let hStyle
-    if (h && textStyles[h]) {
-      hStyle = { ...textStyles[h], color: curColor }
-    } else {
-      hStyle = undefined
-    }
-
-    const mergedStyles = StyleSheet.flatten([hStyle, textStyle])
-
-    return (
-      <RNText
-        style={mergedStyles}
-        {...textProps}
-        testID="text-component"
-        ellipsizeMode="tail"
-        numberOfLines={numberOfLines}
-      >
-        {title}
-      </RNText>
-    )
-  },
-)

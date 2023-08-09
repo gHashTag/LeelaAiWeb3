@@ -1,12 +1,6 @@
 import React, { useRef } from 'react'
-import {
-  Animated,
-  Easing,
-  Pressable,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native'
-import { vs } from 'react-native-size-matters'
+import { Animated, Easing, Pressable, useColorScheme } from 'react-native'
+import { ScaledSheet, vs } from 'react-native-size-matters'
 
 export interface DiceProps {
   disabled?: boolean
@@ -57,7 +51,6 @@ const Dice = ({
     }
   }
   const getImage = (number: number, isDarkTheme: boolean) => {
-    const folder = isDarkTheme ? 'assets_dark' : 'assets_light'
     switch (number) {
       case 1:
         return isDarkTheme
@@ -109,7 +102,7 @@ const Dice = ({
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   diceContainer: {
     alignItems: 'center',
     alignSelf: 'center',

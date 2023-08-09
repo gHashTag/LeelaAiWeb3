@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-import { Image, StyleSheet, View, useColorScheme } from 'react-native'
-import { ms, mvs, s } from 'react-native-size-matters'
+import { Image, View, useColorScheme } from 'react-native'
+import { ScaledSheet, ms, mvs, s } from 'react-native-size-matters'
 
 import { H, W } from '../../cons'
 import { Gem } from '../Gem'
@@ -87,7 +87,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     marginTop: imageTopMargin,
   },

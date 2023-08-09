@@ -1,21 +1,11 @@
 import React, { memo } from 'react'
 
-import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
+import { StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 import { Text } from '../../'
 import { secondary } from 'cons'
 import { Pressable } from '../../Pressable'
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-  },
-  h: {
-    textDecorationLine: 'underline',
-    color: secondary,
-  },
-})
+import { ScaledSheet } from 'react-native-size-matters'
 
 interface ButtonLinkT {
   title: string
@@ -35,5 +25,16 @@ const ButtonLink = memo<ButtonLinkT>(
     )
   },
 )
+
+const styles = ScaledSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  h: {
+    textDecorationLine: 'underline',
+    color: secondary,
+  },
+})
 
 export { ButtonLink }

@@ -1,8 +1,9 @@
 import React from 'react'
-import { FlatList, View, StyleSheet } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { Space, ReportCard } from 'components'
 import { mockedCommentDataArray } from 'cons/mockdata'
 import { ReportCardProps } from 'types'
+import { ScaledSheet } from 'react-native-size-matters'
 
 const ReportsScreen: React.FC = () => {
   const renderItem = ({ item }: { item: ReportCardProps }) => (
@@ -23,7 +24,7 @@ const ReportsScreen: React.FC = () => {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

@@ -1,16 +1,9 @@
 import React from 'react'
 
-import { Image, StyleProp, StyleSheet, ViewStyle } from 'react-native'
-import { vs } from 'react-native-size-matters'
+import { Image, StyleProp, ViewStyle } from 'react-native'
+import { vs, ScaledSheet } from 'react-native-size-matters'
 
 import { Pressable } from '../../Pressable'
-
-const styles = StyleSheet.create({
-  img: {
-    width: vs(18),
-    height: vs(18),
-  },
-})
 
 interface ButtonEditT {
   onPress: () => void
@@ -24,5 +17,12 @@ const ButtonEdit = ({ onPress, viewStyle }: ButtonEditT) => {
     </Pressable>
   )
 }
+
+const styles = ScaledSheet.create({
+  img: {
+    width: vs(18),
+    height: vs(18),
+  },
+})
 
 export { ButtonEdit }

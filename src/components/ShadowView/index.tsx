@@ -1,8 +1,7 @@
-import React, { memo } from 'react'
-import { useTheme } from '@react-navigation/native'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
+import React from 'react'
+import { ScaledSheet } from 'react-native-size-matters'
 import { Shadow } from 'react-native-neomorph-shadows'
-import { W, lightGray, white } from 'cons'
+import { lightGray, white } from 'cons'
 import { View, ViewProps, ViewStyle } from 'react-native'
 
 type FlexStyleProperties =
@@ -42,8 +41,6 @@ const ShadowView: React.FC<ShadowViewProps> = ({
   viewStyle,
   shadowStyle,
 }) => {
-  const { dark } = useTheme()
-
   return (
     <Shadow
       // @ts-ignore

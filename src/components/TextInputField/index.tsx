@@ -1,7 +1,8 @@
 import { NeomorphFlexView } from 'components'
 import { gray } from 'cons'
 import React from 'react'
-import { View, TextInput, StyleSheet } from 'react-native'
+import { View, TextInput } from 'react-native'
+import { ScaledSheet } from 'react-native-size-matters'
 
 interface TextInputFieldProps {
   placeholder: string
@@ -35,7 +36,7 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

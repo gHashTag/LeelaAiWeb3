@@ -5,22 +5,9 @@
  * @format
  */
 
-import React, { useEffect } from 'react'
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native'
-import {
-  GestureHandlerRootView,
-  ScrollView,
-} from 'react-native-gesture-handler'
-import { NavigationContainer } from '@react-navigation/native'
-import Orientation from 'react-native-orientation-locker'
+import React from 'react'
+import { ScrollView } from 'react-native-gesture-handler'
 import { useTranslation } from 'react-i18next'
-import SystemNavigationBar from 'react-native-system-navigation-bar'
-import { black, dimGray, lightGray, navRef, red, secondary, white } from 'cons'
 import {
   Dice,
   Text,
@@ -50,7 +37,6 @@ import {
   handlePressWand,
   handleProfile,
   handleShareLink,
-  handleTranslate,
   isAdmin,
   isLiked,
   likeCount,
@@ -72,8 +58,8 @@ function UiKit(): JSX.Element {
 
       <Space height={40} />
       <ReportCard
+        id={'1'}
         post={post}
-        isDetail={false}
         fullName={fullName}
         avaUrl={avaUrl}
         isAdmin={isAdmin}
@@ -82,7 +68,6 @@ function UiKit(): JSX.Element {
         commCount={commCount}
         date={date}
         handleProfile={handleProfile}
-        handleTranslate={handleTranslate}
         handlePressWand={handlePressWand}
         handleAdminMenu={handleAdminMenu}
         handleShareLink={handleShareLink}
@@ -135,11 +120,5 @@ function UiKit(): JSX.Element {
     </ScrollView>
   )
 }
-
-const styles = StyleSheet.create({
-  scrollSctyle: {
-    alignItems: 'center',
-  },
-})
 
 export default UiKit

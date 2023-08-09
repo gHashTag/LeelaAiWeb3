@@ -5,10 +5,9 @@ import {
   ImageStyle,
   Pressable,
   StyleProp,
-  StyleSheet,
   View,
 } from 'react-native'
-import { ms, s } from 'react-native-size-matters'
+import { ms, s, ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Text } from 'components'
 import { orange } from 'cons'
@@ -54,7 +53,7 @@ const Avatar = memo<AvatarI>(
   },
 )
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   xLarge: {
     marginLeft: 1,
     width: ms(130),
