@@ -3,7 +3,7 @@ import { BackHandler } from 'react-native'
 
 import { OpenExitModal } from '../cons'
 
-export const useExitModal = () => {
+const useExitModal = () => {
   useFocusEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
@@ -15,3 +15,5 @@ export const useExitModal = () => {
     return () => backHandler.remove()
   })
 }
+
+export { useExitModal }

@@ -14,9 +14,10 @@ interface CommentCardProps {
   avaUrl: string
   date: string
   handleProfile: () => void
+  isLeft?: boolean
 }
 
-const CommentBubble: React.FC<CommentCardProps> = ({
+const CommentBubbleRight: React.FC<CommentCardProps> = ({
   post,
   onPress,
   fullName,
@@ -28,6 +29,22 @@ const CommentBubble: React.FC<CommentCardProps> = ({
     <View style={styles.container}>
       <Pressable onPress={onPress}>
         <View style={styles.bubbleStyle}>
+          <View style={styles.headerName}>
+            <Text
+              h={'h5'}
+              textStyle={styles.lightText}
+              title={post.text || ' '}
+            />
+            <Space height={vs(5)} />
+            <Text
+              title={fullName}
+              h={'h3'}
+              numberOfLines={1}
+              textStyle={styles.dateStyle}
+            />
+            <Space height={vs(3)} />
+            <Text title={date} h={'h4'} textStyle={styles.dateStyle} />
+          </View>
           <Avatar
             avaUrl={avaUrl}
             onPress={handleProfile}
@@ -36,20 +53,9 @@ const CommentBubble: React.FC<CommentCardProps> = ({
             isAccept={post.accept}
             aditionalStyle={styles.img}
           />
-          <View style={styles.headerName}>
-            <Text
-              h={'h5'}
-              textStyle={styles.lightText}
-              title={post.text || ' '}
-            />
-            <Space height={vs(10)} />
-            <Text numberOfLines={1} h={'h3'} title={fullName} />
-          </View>
         </View>
-        <Space height={vs(4)} />
-        <View style={styles.headerName}>
-          <Text h={'h4'} textStyle={styles.lightText} title={date} />
-        </View>
+        <Space height={vs(2)} />
+        <View style={styles.headerName} />
       </Pressable>
     </View>
   )
@@ -71,7 +77,10 @@ const styles = StyleSheet.create({
   lightText: {
     textAlign: 'justify',
     maxWidth: W - 120,
-    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  dateStyle: {
+    paddingRight: 10,
   },
   bubbleStyle: {
     flexDirection: 'row',
@@ -79,4 +88,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export { CommentBubble }
+export { CommentBubbleRight }

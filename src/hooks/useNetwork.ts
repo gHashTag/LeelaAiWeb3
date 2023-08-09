@@ -4,7 +4,7 @@ import NetInfo from '@react-native-community/netinfo'
 
 import { OpenNetworkModal } from '../cons'
 
-export const useNetwork = () => {
+const useNetwork = () => {
   useEffect(() => {
     const unsub = NetInfo.addEventListener((state) => {
       if (state.isConnected === false) {
@@ -14,3 +14,5 @@ export const useNetwork = () => {
     return unsub
   }, [])
 }
+
+export { useNetwork }

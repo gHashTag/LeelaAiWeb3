@@ -8,7 +8,7 @@ type Player = {
   consecutiveSixes: number
 }
 
-export default function useLeelaGame() {
+const useLeelaGame = () => {
   const MAX_ROLL = 6
   const WIN_PLAN = 68
   const TOTAL_PLANS = 72
@@ -155,3 +155,4 @@ export default function useLeelaGame() {
   // Возврат данных и функции для использования в компоненте
   return { player, rollHistory, planHistory, rollDice, lastRoll }
 }
+export { useLeelaGame }

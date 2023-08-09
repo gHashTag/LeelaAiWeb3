@@ -55,7 +55,7 @@ export const textStyles = StyleSheet.create({
   h4: {
     fontFamily: 'mont',
     textShadowRadius: 1,
-    fontSize: Platform.OS === 'ios' ? ms(15, 0.8) : s(15),
+    fontSize: Platform.OS === 'ios' ? ms(12, 0.8) : s(15),
   },
   h5: {
     fontSize: Platform.OS === 'ios' ? s(15) : s(15),

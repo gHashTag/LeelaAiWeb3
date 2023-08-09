@@ -45,9 +45,6 @@ const ReportCard: React.FC<ReportCardProps> = ({
   handleLike,
   handleComment,
 }) => {
-  const { dark } = useTheme()
-  const backgroundColor = dark ? black : lightGray
-
   const iconSize = ms(15, 0.8)
   const heart = isLiked ? 'heart' : 'heart-outline'
   const heartColor = isLiked ? fuchsia : undefined

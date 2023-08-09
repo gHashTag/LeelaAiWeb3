@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { ms, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { NeomorphCircle, Text } from 'components'
+import { Text } from 'components'
 import { orange } from 'cons'
 
 interface AvatarI {
@@ -35,26 +35,21 @@ const Avatar = memo<AvatarI>(
         ? styles.smallBadge
         : styles.bigBadge
     return (
-      // @ts-ignore
-      <NeomorphCircle viewStyle={styles.card}>
-        <Pressable onPress={onPress}>
-          <ImageBackground
-            source={{ uri: avaUrl }}
-            style={[styles[size], styles.img, aditionalStyle]}
-            imageStyle={styles.container}
-          >
-            <View
-              style={[styles.badge, badgeS, { backgroundColor: background }]}
-            >
-              {!isAccept ? (
-                <Ionicons size={s(15)} color={orange} name="time-sharp" />
-              ) : (
-                <Text textStyle={{ fontSize }} title={textPlan} h="h12" />
-              )}
-            </View>
-          </ImageBackground>
-        </Pressable>
-      </NeomorphCircle>
+      <Pressable onPress={onPress}>
+        <ImageBackground
+          source={{ uri: avaUrl }}
+          style={[styles[size], styles.img, aditionalStyle]}
+          imageStyle={styles.container}
+        >
+          <View style={[styles.badge, badgeS, { backgroundColor: background }]}>
+            {!isAccept ? (
+              <Ionicons size={s(15)} color={orange} name="time-sharp" />
+            ) : (
+              <Text textStyle={{ fontSize }} title={textPlan} h="h12" />
+            )}
+          </View>
+        </ImageBackground>
+      </Pressable>
     )
   },
 )

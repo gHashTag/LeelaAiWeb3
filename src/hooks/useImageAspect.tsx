@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { Image } from 'react-native'
 
-export const useImageAspect = (image: string | any, isAsset?: boolean) => {
+const useImageAspect = (image: string | any, isAsset?: boolean) => {
   const [aspect, setAspect] = useState(1)
 
   const imgObj = useMemo(() => {
@@ -25,3 +25,4 @@ export const useImageAspect = (image: string | any, isAsset?: boolean) => {
 
   return isAsset ? imgObj : aspect
 }
+export { useImageAspect }
