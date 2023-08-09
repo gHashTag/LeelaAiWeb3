@@ -1,44 +1,4 @@
-export const fullName = 'John Doe'
-export const isAdmin = false
-export const isLiked = true
-export const likeCount = 10
-export const commCount = 5
-export const date = '2023-08-07'
-// Определите все необходимые обработчики событий
-export const handleProfile = () => {
-  // Обработчик для нажатия на профиль пользователя
-  console.log('Profile Pressed')
-}
-
-export const handleTranslate = () => {
-  // Обработчик для перевода
-  console.log('Translate Pressed')
-}
-
-export const handlePressWand = async () => {
-  // Обработчик для перевода с помощью искусственного интеллекта
-  console.log('Wand Pressed')
-}
-
-export const handleAdminMenu = () => {
-  // Обработчик для меню администратора
-  console.log('Admin Menu Pressed')
-}
-
-export const handleShareLink = () => {
-  // Обработчик для поделиться ссылкой на пост
-  console.log('Share Link Pressed')
-}
-
-export const handleLike = () => {
-  // Обработчик для лайка поста
-  console.log('Like Pressed')
-}
-
-export const handleComment = () => {
-  // Обработчик для комментирования поста
-  console.log('Comment Pressed')
-}
+import { faker } from '@faker-js/faker'
 
 export const diceProps = {
   count: 6,
@@ -54,55 +14,88 @@ export const diceProps = {
   },
 }
 
-export const post = {
-  id: 1,
-  text: 'This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text. This is the post text.',
-  createTime: 1669990226,
-  liked: ['user1', 'user2'],
-  comments: [
-    {
-      id: 'comment1',
-      text: 'This is the first comment.',
-      createTime: 1669990227,
-    },
-    {
-      id: 'comment2',
-      text: 'This is the second comment.',
-      createTime: 1669990228,
-    },
-  ],
-  plan: 3,
-  accept: true,
-  ownerId: 'user123', // Добавьте значение для ownerId
-  systemMessage: 'Some system message', // Добавьте значение для systemMessage
-  planText: 'Plan text', // Добавьте значение для planText
+export const createMockedCommentData = () => {
+  const id = faker.string.uuid()
+  const fullName = faker.internet.userName()
+  const isAdmin = false
+  const isLiked = faker.datatype.boolean()
+  const likeCount = faker.number.int({ max: 100 })
+  const commCount = faker.number.int({ max: 100 })
+  const date = faker.date.past().toISOString().substr(0, 10)
+
+  const handleProfile = () => {
+    console.log('Profile Pressed')
+  }
+
+  const handleTranslate = () => {
+    console.log('Translate Pressed')
+  }
+
+  const handlePressWand = async () => {
+    console.log('Wand Pressed')
+  }
+
+  const handleAdminMenu = () => {
+    console.log('Admin Menu Pressed')
+  }
+
+  const handleShareLink = () => {
+    console.log('Share Link Pressed')
+  }
+
+  const handleLike = () => {
+    console.log('Like Pressed')
+  }
+
+  const handleComment = () => {
+    console.log('Comment Pressed')
+  }
+
+  const post = {
+    id: 1,
+    text: faker.lorem.lines(5),
+    createTime: faker.date.past().getTime() / 1000,
+    liked: [faker.string.uuid(), faker.string.uuid()],
+    comments: [
+      {
+        id: faker.string.uuid(),
+        text: 'This is the first comment.',
+        createTime: faker.date.past().getTime() / 1000,
+      },
+      {
+        id: faker.string.uuid(),
+        text: 'This is the second comment.',
+        createTime: faker.date.past().getTime() / 1000,
+      },
+    ],
+    plan: faker.number.int({ max: 72 }),
+    accept: true,
+    ownerId: faker.string.uuid(),
+  }
+
+  const avaUrl = faker.image.avatar()
+
+  return {
+    id,
+    post,
+    fullName,
+    avaUrl,
+    isAdmin,
+    isLiked,
+    likeCount,
+    commCount,
+    date,
+    handleProfile,
+    handleTranslate,
+    handlePressWand,
+    handleAdminMenu,
+    handleShareLink,
+    handleLike,
+    handleComment,
+  }
 }
 
-export const plansPlayers = [
-  {
-    id: 2,
-    plan: 72,
-    uri: 106,
-  },
-  {
-    id: 4,
-    plan: 34,
-    uri: 'https://bafkreiftrmfmimlvo26xaxfvt2ypnjjaavq5mgnkjljs6mczfekii4cmtq.ipfs.nftstorage.link/',
-  },
-]
-export const avaUrl =
-  'https://bafkreiftrmfmimlvo26xaxfvt2ypnjjaavq5mgnkjljs6mczfekii4cmtq.ipfs.nftstorage.link/'
-
-export const MockedCommentData = {
-  post,
-  fullName: 'John Doe',
-  avaUrl, // замоканный URL аватарки
-  isAdmin: false,
-  isLiked: false,
-  likeCount: 10,
-  commCount: 5,
-  date: '2023-08-07',
-  handleProfile: () => {
-    // функция обработки навигации на профиль пользователя
-  },
-}
+export const mockedCommentDataArray = Array.from(
+  { length: 10 },
+  createMockedCommentData,
+)

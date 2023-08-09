@@ -1,116 +1,44 @@
 export type RootStackParamList = {
   GAME_SCREEN: undefined
   PLAN_SCREEN: undefined
+  REPORTS_SCREEN: undefined
 }
 
-export interface OtherUsersT {
-  email: string
-  firstName: string
-  lastName: string
-  plan: number
-  owner: string
-  isOnline: boolean
-  avatar?: string
-  status?: statusT
-}
-export type statusT = 'ban' | 'Admin' | 'Free' | null
-export interface HistoryT {
-  plan: number
-  count: number
-  status: string
-  createDate: number
+export interface Comment {
+  id: string
+  text: string
+  createTime: number
 }
 
-export interface SelfT {
-  player: number
-  start: boolean
-  finish: boolean
-  plan: number
-  planPrev: number
-  rate?: boolean
-  history: HistoryT[]
-}
-
-export interface FormPostT {
-  text?: string
-  plan?: number
-  systemMessage: string
-  planText: string
-}
-
-export interface MessageAIT {
-  systemMessage: string
-  message: string
-  planText: string
-}
-// types.ts
-export interface PostT {
+export interface Post {
   id: number
   text: string
   createTime: number
   liked: string[]
-  comments: {
-    id: string
-    text: string
-    createTime: number
-  }[]
+  comments: Comment[]
   plan: number
   accept: boolean
   ownerId: string
-  systemMessage: string
-  planText: string
 }
 
-export interface FormCommentT {
-  text: string
-  postId: string
-  postOwner: string
-  ownerId?: string
+export interface UserActions {
+  handleProfile: () => void
+  handlePressWand: () => Promise<void>
+  handleAdminMenu: () => void
+  handleShareLink: () => void
+  handleLike: () => void
+  handleComment: () => void
 }
 
-export interface HandleCommentAiParamsT {
-  curItem: PostT | undefined
-  systemMessage: string
-  message: string
-  planText?: string
-}
-
-export interface CommentT extends FormCommentT {
-  firstName: string
-  lastName: string
-  ownerId: string
-  createTime: number
-  email: string
-  reply: false
+export interface ReportCardProps extends UserActions {
   id: string
-}
-
-export interface FormReplyCom {
-  text: string
-  commentId: string
-  commentOwner: string
-  postId: string
-}
-
-export interface ReplyComT extends FormReplyCom {
-  firstName: string
-  lastName: string
-  ownerId: string
-  createTime: number
-  email: string
-  id: string
-  reply: true
-}
-
-export interface ButtonsModalT {
-  onPress: () => void
-  title: string
-  icon: string
-  key: string
-  color?: string
-}
-
-export interface getTimeT {
-  lastTime: number
-  type?: '' | '-short'
+  post: Post
+  onPress?: () => void
+  fullName: string
+  avaUrl: string
+  isAdmin: boolean
+  isLiked: boolean
+  likeCount: number
+  commCount: number
+  date: string
 }

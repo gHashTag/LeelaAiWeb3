@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Platform, StyleSheet, View } from 'react-native'
-import { getSystemLanguage, red } from 'cons'
+import { captureException, getSystemLanguage, red } from 'cons'
 import RNFetchBlob from 'rn-fetch-blob'
 import { useForm, Controller } from 'react-hook-form'
 import { readFileAssets } from 'react-native-fs'
@@ -17,7 +17,7 @@ const PlanScreen: React.FC = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormData>({ mode: 'onBlur' })
 
   const onSubmit = (data: FormData) => console.log('data', data)
@@ -34,7 +34,7 @@ const PlanScreen: React.FC = () => {
           setMarkdown(data)
         })
         .catch((error) => {
-          console.error('Ошибка при чтении ресурса:', error)
+          captureException(error, 'Error reading resource')
         })
     } else if (Platform.OS === 'ios') {
       const pathToFile =
@@ -46,7 +46,7 @@ const PlanScreen: React.FC = () => {
           setMarkdown(data)
         })
         .catch((error) => {
-          console.error('Ошибка при чтении ресурса:', error)
+          captureException(error, 'Error reading resource')
         })
     }
   }, [fileName, systemLanguage])

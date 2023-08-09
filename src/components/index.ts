@@ -13,7 +13,7 @@ export * from './NeomorphView'
 export * from './CommentBubbleLeft'
 export * from './CommentBubbleRight'
 export * from './TextInputField'
-// export * from './Background'
+export * from './Background'
 export * from './Dice'
 export * from './Display'
 
