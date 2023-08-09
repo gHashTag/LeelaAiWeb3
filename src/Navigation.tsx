@@ -33,7 +33,7 @@ const LightTheme = {
   dark: false,
   colors: {
     primary: secondary,
-    background: white,
+    background: lightGray,
     card: white,
     text: black,
     border: dimGray,

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { Platform } from 'react-native'
+import { Button, Platform } from 'react-native'
 import { getSystemLanguage } from 'cons'
 import RNFetchBlob from 'rn-fetch-blob'
+import { useForm, Controller } from 'react-hook-form'
 import { readFileAssets } from 'react-native-fs'
-import { MarkdownView } from 'components'
+import { MarkdownView, Space, TextInputField } from 'components'
 
 const PlanScreen: React.FC = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({ mode: 'onBlur' })
+
+  const onSubmit = (data) => console.log(data)
   const fileName = '1-birth'
   //const { player, rollHistory, planHistory, rollDice, lastRoll } = useLeelaGame()
   const [markdown, setMarkdown] = useState('')
@@ -38,7 +46,31 @@ const PlanScreen: React.FC = () => {
 
   return (
     <>
-      <MarkdownView markdown={markdown} />
+      {/* <MarkdownView markdown={markdown} /> */}
+      <Space height={340} />
+      <Controller
+        control={control}
+        name="name"
+        render={({ field: { onChange, value, onBlur } }) => (
+          <TextInputField
+            iconName="person"
+            iconType="MaterialIcons"
+            placeholder="Enter your name here"
+            multiline
+            value={value}
+            onBlur={onBlur}
+            onChangeText={(value) => onChange(value)}
+          />
+        )}
+        rules={{
+          required: {
+            value: true,
+            message: 'Field is required!',
+          },
+        }}
+      />
+
+      {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} /> */}
     </>
   )
 }
