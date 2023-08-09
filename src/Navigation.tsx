@@ -1,4 +1,3 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as Sentry from '@sentry/react'
@@ -15,7 +14,7 @@ import {
   secondary,
   white,
 } from './cons'
-import { GameScreen } from './screens'
+import { GameScreen, PlanScreen } from './screens'
 import { RootStackParamList } from './types'
 
 const DarkTheme = {
@@ -63,7 +62,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navRef} theme={theme}>
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="PLAN_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
@@ -72,6 +71,7 @@ const App = () => {
             gestureEnabled: false,
           }}
         >
+          <Stack.Screen name="PLAN_SCREEN" component={PlanScreen} />
           <Stack.Screen name="GAME_SCREEN" component={GameScreen} />
         </Stack.Group>
       </Stack.Navigator>

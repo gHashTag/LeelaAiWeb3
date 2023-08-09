@@ -1,47 +1,15 @@
 /* eslint-disable react-native/no-unused-styles */
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Platform, ScrollView, StyleSheet } from 'react-native'
-import RNFetchBlob from 'rn-fetch-blob'
 import { ms, s } from 'react-native-size-matters'
 import Markdown from 'react-native-markdown-display'
-import { readFileAssets } from 'react-native-fs'
-import { gray, getSystemLanguage } from '../../cons'
+import { gray } from '../../cons'
 import { Space } from '../Space'
-import { ShadowView } from 'components/ShadowView'
+import { NeomorphView } from 'components'
 
-const MarkdownView = ({ fileName = '1-birth' }) => {
-  const [markdown, setMarkdown] = useState('')
-  const systemLanguage = getSystemLanguage()
-
-  useEffect(() => {
-    const assetPath = `locales/${systemLanguage}/${fileName}-${systemLanguage}.md`
-
-    if (Platform.OS === 'android') {
-      // Для Android используем readFileAssets из react-native-fs
-      readFileAssets(assetPath, 'utf8')
-        .then((data) => {
-          setMarkdown(data)
-        })
-        .catch((error) => {
-          console.error('Ошибка при чтении ресурса:', error)
-        })
-    } else if (Platform.OS === 'ios') {
-      const pathToFile =
-        RNFetchBlob.fs.dirs.MainBundleDir + `/${fileName}-${systemLanguage}.md`
-
-      RNFetchBlob.fs
-        .readFile(pathToFile, 'utf8')
-        .then((data) => {
-          setMarkdown(data)
-        })
-        .catch((error) => {
-          console.error('Ошибка при чтении ресурса:', error)
-        })
-    }
-  }, [fileName, systemLanguage])
-
+const MarkdownView = ({ markdown }) => {
   return (
-    <ShadowView>
+    <NeomorphView>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentInsetAdjustmentBehavior="automatic"
@@ -50,7 +18,7 @@ const MarkdownView = ({ fileName = '1-birth' }) => {
         <Markdown style={styles}>{markdown}</Markdown>
         <Space height={s(100)} />
       </ScrollView>
-    </ShadowView>
+    </NeomorphView>
   )
 }
 

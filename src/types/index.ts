@@ -1,5 +1,6 @@
 export type RootStackParamList = {
   GAME_SCREEN: undefined
+  PLAN_SCREEN: undefined
 }
 
 export interface OtherUsersT {
