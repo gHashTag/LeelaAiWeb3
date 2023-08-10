@@ -44,13 +44,18 @@ const CommentBubbleLeft: React.FC<CommentCardProps> = ({
               title={post.text || ' '}
             />
             <Space height={vs(5)} />
-            <Text numberOfLines={1} h={'h3'} title={fullName} />
+            <Text
+              title={fullName}
+              h={'h3'}
+              numberOfLines={1}
+              textStyle={styles.dateStyle}
+            />
+            <View style={styles.headerName}>
+              <Text title={date} h={'h4'} textStyle={styles.dateStyle} />
+            </View>
           </View>
         </View>
         <Space height={vs(2)} />
-        <View style={styles.headerName}>
-          <Text h={'h4'} textStyle={styles.lightText} title={date} />
-        </View>
       </Pressable>
     </View>
   )
@@ -68,11 +73,15 @@ const styles = ScaledSheet.create({
   },
   headerName: {
     alignItems: 'flex-end',
+    backgroundColor: 'transparent',
   },
   lightText: {
-    textAlign: 'justify',
+    textAlign: 'left',
     maxWidth: W - 120,
     paddingLeft: 10,
+  },
+  dateStyle: {
+    paddingRight: 10,
   },
   bubbleStyle: {
     flexDirection: 'row',

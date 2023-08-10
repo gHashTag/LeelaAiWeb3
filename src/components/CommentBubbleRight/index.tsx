@@ -42,7 +42,7 @@ const CommentBubbleRight: React.FC<CommentCardProps> = ({
               numberOfLines={1}
               textStyle={styles.dateStyle}
             />
-            <Space height={vs(3)} />
+            <Space height={vs(2)} />
             <Text title={date} h={'h4'} textStyle={styles.dateStyle} />
           </View>
           <Avatar
@@ -75,7 +75,7 @@ const styles = ScaledSheet.create({
     alignItems: 'flex-end',
   },
   lightText: {
-    textAlign: 'justify',
+    textAlign: 'right',
     maxWidth: W - 120,
     paddingRight: 10,
   },

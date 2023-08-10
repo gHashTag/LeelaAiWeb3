@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   GAME_SCREEN: undefined
   PLAN_SCREEN: undefined
+  REPORT_SCREEN: undefined
   REPORTS_SCREEN: undefined
 }
 
