@@ -5,6 +5,31 @@ export type RootStackParamList = {
   REPORTS_SCREEN: undefined
 }
 
+export interface Player {
+  id: number
+  uri: string | number
+  plan: number
+  previousPlan: number
+  isStart: boolean
+  isFinished: boolean
+  consecutiveSixes: number
+  positionBeforeThreeSixes: number
+  message?: string
+  actionMessage?: string
+}
+
+export interface GameBoardProps {
+  players: Player[]
+  currentPlayerId: number
+}
+
+export interface GemProps {
+  planNumber: number
+  currentPlayerId: number
+  player?: Player
+  onPress?: () => void
+}
+
 export interface Comment {
   id: string
   text: string

@@ -22,7 +22,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
   handleAdminMenu,
   handleComment,
   handleLike,
-  handleShareLink,
+  // handleShareLink,
   isLiked,
 }) => {
   const iconSize = ms(15, 0.8)
@@ -60,13 +60,13 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         name={heart}
         size={iconSize}
       />
-      <ButtonVectorIcon
+      {/* <ButtonVectorIcon
         viewStyle={[styles.smallBtn, styles.nonDetailLinkButton]}
         name="link-outline"
         ionicons
         iconSize={iconSize + 4}
         onPress={handleShareLink}
-      />
+      /> */}
     </View>
   )
 }

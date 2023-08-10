@@ -31,7 +31,7 @@ const Dice = ({
     spinValue.setValue(0)
     Animated.timing(spinValue, {
       toValue: 10,
-      duration: 2000,
+      duration: 500, //2000,
       easing: Easing.cubic,
       useNativeDriver: true,
     }).start(() => {

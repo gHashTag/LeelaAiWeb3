@@ -2,19 +2,10 @@ import React, { useMemo } from 'react'
 import { Image, View, useColorScheme } from 'react-native'
 import { ScaledSheet, ms, mvs, s } from 'react-native-size-matters'
 
-import { H, W } from '../../cons'
+import { H, W } from 'cons'
 import { Gem } from '../Gem'
 import { ICONS } from './images'
-
-interface Player {
-  id: number
-  plan: number
-  uri: string | number
-}
-
-interface GameBoardProps {
-  players: Player[]
-}
+import { GameBoardProps } from 'types'
 
 const marginTop = H - W > 350 ? 20 : 0
 
@@ -28,17 +19,8 @@ const imageWidth = s(279) + s(18)
 const maxImageWidth = ms(279, 0.5) + s(18)
 const curImageWidth = imageWidth >= maxImageWidth ? maxImageWidth : imageWidth
 
-const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
+const GameBoard: React.FC<GameBoardProps> = ({ players, currentPlayerId }) => {
   const scheme = useColorScheme()
-
-  const playerPositions = useMemo(() => {
-    const positions: { [key: number]: { id: number; uri: string | number } } =
-      {}
-    players.forEach((player) => {
-      positions[player.plan] = { id: player.id, uri: player.uri }
-    })
-    return positions
-  }, [players])
 
   const imgObj = useMemo(() => {
     const image = ICONS.find((x) => {
@@ -63,6 +45,18 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
     [18, 17, 16, 15, 14, 13, 12, 11, 10],
     [1, 2, 3, 4, 5, 6, 7, 8, 9],
   ]
+  const getPlayer = (b: number) => {
+    const player = players.find((pl) => pl.plan === b)
+    return player
+      ? {
+          id: player.id,
+          uri: player.uri,
+          plan: player.plan,
+          zIndex:
+            currentPlayerId === player.id ? 10 : players.indexOf(player) + 1,
+        }
+      : undefined
+  }
 
   return (
     <View
@@ -76,7 +70,11 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
             <View style={styles.row} key={i}>
               {a.map((b, index) => (
                 <View key={index} style={styles.box}>
-                  <Gem planNumber={b} player={playerPositions[b]} />
+                  <Gem
+                    planNumber={b}
+                    player={getPlayer(b)}
+                    currentPlayerId={currentPlayerId}
+                  />
                 </View>
               ))}
             </View>

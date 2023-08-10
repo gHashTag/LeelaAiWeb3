@@ -61,7 +61,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navRef} theme={theme}>
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="REPORT_SCREEN">
+      <Stack.Navigator initialRouteName="GAME_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
@@ -70,8 +70,8 @@ const App = () => {
             gestureEnabled: false,
           }}
         >
-          <Stack.Screen name="PLAN_SCREEN" component={PlanScreen} />
           <Stack.Screen name="GAME_SCREEN" component={GameScreen} />
+          <Stack.Screen name="PLAN_SCREEN" component={PlanScreen} />
           <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
           <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />
         </Stack.Group>

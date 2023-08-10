@@ -2,30 +2,27 @@ import React from 'react'
 import { View, Image, Pressable } from 'react-native'
 import { ScaledSheet, ms } from 'react-native-size-matters'
 import { ICONS } from './images'
-import { gray } from '../../cons'
+import { gray } from 'cons'
 import { Text } from '../Text'
-
-interface GemProps {
-  planNumber: number
-  player?: {
-    id: number
-    uri: string | number
-  }
-  onPress?: () => void
-}
+import { GemProps } from 'types'
 
 const Gem: React.FC<GemProps> = ({ planNumber, player, onPress }) => {
   const { container, gems, circle } = styles
 
-  const source =
+  const uri = player?.uri
+  let source
+
+  if (uri && typeof uri === 'number' && uri >= 1 && uri <= 6) {
+    source = ICONS[uri - 1]
+  } else if (
     player?.uri &&
-    typeof player.uri === 'number' &&
-    player.uri >= 101 &&
-    player.uri <= 106
-      ? ICONS[player.uri - 101]
-      : player?.uri && typeof player.uri === 'string' && player.uri !== ''
-      ? { uri: player.uri }
-      : ICONS[0]
+    typeof player.uri === 'string' &&
+    player.uri !== ''
+  ) {
+    source = { uri: player.uri }
+  } else {
+    source = ICONS[0]
+  }
 
   const isNumberVisible = !player && planNumber !== 68
 
@@ -37,7 +34,9 @@ const Gem: React.FC<GemProps> = ({ planNumber, player, onPress }) => {
             <Text h={'h11'} title={planNumber.toString()} oneColor={gray} />
           </View>
         ) : (
-          <Image style={gems} source={source} testID="gem-image" />
+          <View style={[styles.imgStyle, { zIndex: player?.zIndex }]}>
+            <Image style={gems} source={source} testID="gem-image" />
+          </View>
         )}
       </View>
     </Pressable>
@@ -62,6 +61,9 @@ const styles = ScaledSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
+  },
+  imgStyle: {
+    position: 'absolute',
   },
 })
 
