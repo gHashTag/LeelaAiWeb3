@@ -6,8 +6,11 @@ import { gray } from 'cons'
 import { Text } from '../Text'
 import { GemProps } from 'types'
 
-const Gem: React.FC<GemProps> = ({ planNumber, player, onPress }) => {
+const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
   const { container, gems, circle } = styles
+  if (player !== undefined) {
+    console.log('player', player)
+  }
 
   const uri = player?.uri
   let source
@@ -34,7 +37,7 @@ const Gem: React.FC<GemProps> = ({ planNumber, player, onPress }) => {
             <Text h={'h11'} title={planNumber.toString()} oneColor={gray} />
           </View>
         ) : (
-          <View style={[styles.imgStyle, { zIndex: player?.zIndex }]}>
+          <View style={[styles.imgStyle, { zIndex: player?.id }]}>
             <Image style={gems} source={source} testID="gem-image" />
           </View>
         )}

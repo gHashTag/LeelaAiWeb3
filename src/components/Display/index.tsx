@@ -21,6 +21,7 @@ const styles = ScaledSheet.create({
   container: {
     paddingHorizontal: s(20),
     paddingVertical: s(6),
+    width: '80%',
   },
   dateStyle: {
     textAlign: 'center',

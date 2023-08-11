@@ -7,7 +7,7 @@ export type RootStackParamList = {
 
 export interface Player {
   id: number
-  uri: string | number
+  uri?: string | number
   plan: number
   previousPlan: number
   isStart: boolean
@@ -15,7 +15,7 @@ export interface Player {
   consecutiveSixes: number
   positionBeforeThreeSixes: number
   message?: string
-  actionMessage?: string
+  zIndex?: string
 }
 
 export interface GameBoardProps {

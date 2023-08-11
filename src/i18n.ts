@@ -1,5 +1,4 @@
 import i18next from 'i18next'
-import { isoCountry } from 'iso-country'
 import { initReactI18next } from 'react-i18next'
 import * as RNLocalize from 'react-native-localize'
 
@@ -13,6 +12,18 @@ import ru from './locales/ru/translation.json'
 import te from './locales/te/translation.json'
 import tr from './locales/tr/translation.json'
 import uk from './locales/uk/translation.json'
+import zh from './locales/zh/translation.json'
+import es from './locales/es/translation.json'
+import hi from './locales/hi/translation.json'
+import pt from './locales/pt/translation.json'
+import ja from './locales/ja/translation.json'
+import pa from './locales/pa/translation.json'
+import jv from './locales/jv/translation.json'
+import ko from './locales/ko/translation.json'
+import de from './locales/de/translation.json'
+import vi from './locales/vi/translation.json'
+import ta from './locales/ta/translation.json'
+import ur from './locales/ur/translation.json'
 
 const locales = RNLocalize.getLocales()
 
@@ -24,8 +35,6 @@ export const lang = locales[0]?.languageCode
 if (!lang) {
   throw new Error('No language code found for first locale')
 }
-
-export const flagEmoji = isoCountry(locales[0]?.countryCode)?.emoji ?? '🇷🇺'
 
 const resources = {
   ar: {
@@ -58,6 +67,42 @@ const resources = {
   uk: {
     translation: uk,
   },
+  zh: {
+    translation: zh,
+  },
+  es: {
+    translation: es,
+  },
+  hi: {
+    translation: hi,
+  },
+  pt: {
+    translation: pt,
+  },
+  ja: {
+    translation: ja,
+  },
+  pa: {
+    translation: pa,
+  },
+  jv: {
+    translation: jv,
+  },
+  ko: {
+    translation: ko,
+  },
+  de: {
+    translation: de,
+  },
+  vi: {
+    translation: vi,
+  },
+  ta: {
+    translation: ta,
+  },
+  ur: {
+    translation: ur,
+  },
 }
 
 for (const [key, value] of Object.entries(resources)) {
@@ -77,6 +122,18 @@ export const supportedLngs = [
   'te',
   'tr',
   'uk',
+  'zh',
+  'es',
+  'hi',
+  'pt',
+  'ja',
+  'pa',
+  'jv',
+  'ko',
+  'de',
+  'vi',
+  'ta',
+  'ur',
 ]
 
 export const isSupportedLang = supportedLngs.includes(lang)
