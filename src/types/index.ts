@@ -7,26 +7,23 @@ export type RootStackParamList = {
 
 export interface Player {
   id: number
-  uri?: string | number
   plan: number
-  previousPlan: number
-  isStart: boolean
-  isFinished: boolean
-  consecutiveSixes: number
-  positionBeforeThreeSixes: number
+  avatar: string
+  previousPlan?: number
+  isStart?: boolean
+  isFinished?: boolean
+  consecutiveSixes?: number
+  positionBeforeThreeSixes?: number
   message?: string
-  zIndex?: string
 }
 
 export interface GameBoardProps {
   players: Player[]
-  currentPlayerId: number
 }
 
 export interface GemProps {
-  planNumber: number
-  currentPlayerId: number
   player?: Player
+  planNumber: number
   onPress?: () => void
 }
 
@@ -49,7 +46,6 @@ export interface Post {
 
 export interface UserActions {
   handleProfile: () => void
-  handlePressWand: () => Promise<void>
   handleAdminMenu: () => void
   handleShareLink: () => void
   handleLike: () => void
@@ -61,7 +57,6 @@ export interface ReportCardProps extends UserActions {
   post: Post
   onPress?: () => void
   fullName: string
-  avaUrl: string
   isAdmin: boolean
   isLiked: boolean
   likeCount: number

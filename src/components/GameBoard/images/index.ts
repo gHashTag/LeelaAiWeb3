@@ -1,4 +1,4 @@
-export const ICONS = [
+export const GameBoardImage = [
   {
     path: require('./light.png'),
     title: 'light',

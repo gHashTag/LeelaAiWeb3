@@ -1,4 +1,4 @@
-export const ICONS = [
+export const GEM_ICONS = [
   require('./one.png'),
   require('./two.png'),
   require('./three.png'),

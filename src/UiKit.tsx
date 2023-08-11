@@ -24,7 +24,7 @@ import {
   Avatar,
 } from 'components'
 
-import { useLeelaGame } from 'hooks/useLeelaGame'
+import { useLeelaGame } from 'hooks/useLeelaGame/useLeelaGame'
 import {
   MockedCommentData,
   avaUrl,

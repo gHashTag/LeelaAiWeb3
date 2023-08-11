@@ -4,7 +4,7 @@ import { ScaledSheet, ms, mvs, s } from 'react-native-size-matters'
 
 import { H, W } from 'cons'
 import { Gem } from '../Gem'
-import { ICONS } from './images'
+import { GameBoardImage } from './images'
 import { GameBoardProps } from 'types'
 
 const marginTop = H - W > 350 ? 20 : 0
@@ -19,11 +19,11 @@ const imageWidth = s(279) + s(18)
 const maxImageWidth = ms(279, 0.5) + s(18)
 const curImageWidth = imageWidth >= maxImageWidth ? maxImageWidth : imageWidth
 
-const GameBoard: React.FC<GameBoardProps> = ({ players, currentPlayerId }) => {
+const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
   const scheme = useColorScheme()
 
   const imgObj = useMemo(() => {
-    const image = ICONS.find((x) => {
+    const image = GameBoardImage.find((x) => {
       return x.title === scheme
     })?.path
     if (image) {
@@ -50,10 +50,8 @@ const GameBoard: React.FC<GameBoardProps> = ({ players, currentPlayerId }) => {
     return player
       ? {
           id: player.id,
-          uri: player.uri,
           plan: player.plan,
-          zIndex:
-            currentPlayerId === player.id ? 10 : players.indexOf(player) + 1,
+          avatar: player.avatar,
         }
       : undefined
   }
@@ -70,11 +68,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ players, currentPlayerId }) => {
             <View style={styles.row} key={i}>
               {a.map((b, index) => (
                 <View key={index} style={styles.box}>
-                  <Gem
-                    planNumber={b}
-                    player={getPlayer(b)}
-                    currentPlayerId={currentPlayerId}
-                  />
+                  <Gem player={getPlayer(b)} planNumber={b} />
                 </View>
               ))}
             </View>

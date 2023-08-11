@@ -1,11 +1,22 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { GEM_ICONS } from './images'
 import { Player } from 'types'
 import { handlePlayerMovement } from './handlePlayerMovement'
 
 export const MAX_ROLL = 6
 const WIN_PLAN = 68
 export const TOTAL_PLANS = 72
+
+export const updatePlayerAvatar = (
+  currentPlayer: Player,
+  newAvatar: string,
+): Player => {
+  return {
+    ...currentPlayer,
+    avatar: newAvatar,
+  }
+}
 
 const useLeelaGame = () => {
   const { t } = useTranslation()
@@ -20,6 +31,7 @@ const useLeelaGame = () => {
     consecutiveSixes: 0,
     message: starMess,
     positionBeforeThreeSixes: 0,
+    avatar: GEM_ICONS[1],
   }
 
   const [currentPlayer, setCurrentPlayer] = useState<Player>(initialPlayerState)
