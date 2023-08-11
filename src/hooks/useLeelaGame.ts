@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next'
 import { Player } from 'types'
 import { handlePlayerMovement } from './handlePlayerMovement'
 
-const MAX_ROLL = 6
+export const MAX_ROLL = 6
 const WIN_PLAN = 68
 export const TOTAL_PLANS = 72
 
 const useLeelaGame = () => {
   const { t } = useTranslation()
   const starMess = t('sixToBegin')
-  // Инициализация начального состояния игрока
-  const [currentPlayer, setPlayer] = useState<Player>({
+
+  const initialPlayerState = {
     id: 1,
     plan: 68,
     previousPlan: 68,
@@ -20,15 +20,15 @@ const useLeelaGame = () => {
     consecutiveSixes: 0,
     message: starMess,
     positionBeforeThreeSixes: 0,
-  })
+  }
+
+  const [currentPlayer, setCurrentPlayer] = useState<Player>(initialPlayerState)
   const [lastRoll, setLastRoll] = useState<number>(1)
   const [rollHistory, setRollHistory] = useState<number[]>([])
   const [planHistory, setPlanHistory] = useState<number[]>([68])
 
-  const generateRandomNumber = (): number => {
-    const roll = Math.floor(Math.random() * MAX_ROLL) + 1
-    return roll
-  }
+  const generateRandomNumber = (): number =>
+    Math.floor(Math.random() * MAX_ROLL) + 1
 
   const rollDice = () => {
     const rollResult = generateRandomNumber()
@@ -36,7 +36,7 @@ const useLeelaGame = () => {
     setRollHistory((prev) => [...prev, rollResult])
 
     if (!currentPlayer.isStart && rollResult === MAX_ROLL) {
-      setPlayer((prevPlayer) => ({
+      setCurrentPlayer((prevPlayer) => ({
         ...prevPlayer,
         plan: MAX_ROLL,
         isStart: true,
@@ -45,78 +45,55 @@ const useLeelaGame = () => {
           currentPlayer: prevPlayer.id,
         }),
       }))
-      return
+    } else {
+      handleRollResult(rollResult)
     }
-
-    handleRollResult(rollResult)
   }
 
   const handleRollResult = (roll: number) => {
-    let updatedPlayer = { ...currentPlayer }
+    setCurrentPlayer((prevPlayer) => {
+      let updatedPlayer = { ...prevPlayer }
 
-    if (!currentPlayer.isStart) {
-      if (roll === MAX_ROLL) {
-        const updatedState = {
-          isStart: true,
-          consecutiveSixes: 1,
-          plan: MAX_ROLL,
+      if (!prevPlayer.isStart) {
+        if (roll === MAX_ROLL) {
+          const updatedState = {
+            isStart: true,
+            consecutiveSixes: 1,
+            plan: MAX_ROLL,
+          }
+          updatedPlayer = {
+            ...updatedPlayer,
+            ...updatedState,
+          }
         }
-        updatedPlayer = {
-          ...updatedPlayer,
-          ...updatedState,
-        }
+        return updatedPlayer
       }
-      return
-    }
 
-    if (roll === MAX_ROLL) {
-      if (updatedPlayer.consecutiveSixes === 0) {
-        updatedPlayer.message = t('firstSix', {
+      let newPlan = updatedPlayer.plan + roll
+      newPlan = handlePlayerMovement(newPlan, updatedPlayer, roll)
+
+      updatedPlayer = {
+        ...updatedPlayer,
+        plan: newPlan,
+        previousPlan: updatedPlayer.plan,
+      }
+
+      setPlanHistory((prev) => [...prev, newPlan])
+
+      if (newPlan === WIN_PLAN) {
+        updatedPlayer.isFinished = true
+        updatedPlayer.previousPlan = newPlan
+        updatedPlayer.isStart = false
+        updatedPlayer.message = t('finish', {
           currentPlayer: updatedPlayer.id,
         })
-        updatedPlayer.positionBeforeThreeSixes = updatedPlayer.plan
       }
-      updatedPlayer.consecutiveSixes += 1
-      if (updatedPlayer.consecutiveSixes === 3) {
-        updatedPlayer.plan = updatedPlayer.positionBeforeThreeSixes
-        updatedPlayer.consecutiveSixes = 0
-        updatedPlayer.message = t('treeSix', {
-          currentPlayer: updatedPlayer.id,
-        })
-        return
-      }
-    } else {
-      updatedPlayer.consecutiveSixes = 0
-    }
 
-    movePlayer(roll, updatedPlayer)
-  }
-
-  const movePlayer = (roll: number, updatedPlayer: Player) => {
-    let newPlan = updatedPlayer.plan + roll
-    // Snakes and arrow that lead the player
-    newPlan = handlePlayerMovement(newPlan, updatedPlayer, roll)
-
-    updatedPlayer = {
-      ...updatedPlayer,
-      plan: newPlan,
-      previousPlan: updatedPlayer.plan,
-    }
-
-    setPlanHistory((prev) => [...prev, newPlan])
-
-    if (newPlan === WIN_PLAN) {
-      updatedPlayer.isFinished = true
-      updatedPlayer.previousPlan = newPlan
-      updatedPlayer.isStart = false
-      updatedPlayer.message = t('finish', {
-        currentPlayer: updatedPlayer.id,
-      })
-    }
-
-    setPlayer(updatedPlayer)
+      return updatedPlayer
+    })
   }
 
   return { currentPlayer, rollHistory, planHistory, rollDice, lastRoll }
 }
+
 export { useLeelaGame }

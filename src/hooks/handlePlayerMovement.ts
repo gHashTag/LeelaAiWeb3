@@ -1,5 +1,5 @@
 import { Player } from 'types' // Подключите тип Player, если он определен
-import { TOTAL_PLANS } from './useLeelaGame'
+import { MAX_ROLL, TOTAL_PLANS } from './useLeelaGame'
 import i18next from 'i18next'
 
 const handleToMove = (
@@ -76,6 +76,26 @@ const handlePlayerMovement = (
       from: updatedPlayer.plan,
       to: newPlan,
     })
+  }
+
+  if (roll === MAX_ROLL) {
+    if (updatedPlayer.consecutiveSixes === 0) {
+      updatedPlayer.message = i18next.t('firstSix', {
+        currentPlayer: updatedPlayer.id,
+      })
+      updatedPlayer.positionBeforeThreeSixes = updatedPlayer.plan
+    }
+    updatedPlayer.consecutiveSixes += 1
+    if (updatedPlayer.consecutiveSixes === 3) {
+      updatedPlayer.plan = updatedPlayer.positionBeforeThreeSixes
+      updatedPlayer.consecutiveSixes = 0
+      updatedPlayer.message = t('treeSix', {
+        currentPlayer: updatedPlayer.id,
+      })
+      return newPlan
+    }
+  } else {
+    updatedPlayer.consecutiveSixes = 0
   }
 
   return newPlan
