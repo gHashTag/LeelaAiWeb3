@@ -1,111 +1,127 @@
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useEffect, useReducer } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { GEM_ICONS } from './images'
 import { Player } from 'types'
 import { handlePlayerMovement } from './handlePlayerMovement'
+import i18next from 'i18next'
 
-export const MAX_ROLL = 6
-const WIN_PLAN = 68
-export const TOTAL_PLANS = 72
+const MAX_ROLL = 6
 
-export const updatePlayerAvatar = (
-  currentPlayer: Player,
-  newAvatar: string,
-): Player => {
-  return {
-    ...currentPlayer,
-    avatar: newAvatar,
-  }
+interface State {
+  currentPlayer: Player
+  lastRoll: number
+  rollHistory: number[]
+  planHistory: number[]
 }
 
-const useLeelaGame = () => {
-  const { t } = useTranslation()
-  const starMess = t('sixToBegin')
+type Action =
+  | { type: 'ROLL_DICE' }
+  | { type: 'UPDATE_PLAYER'; player: Player }
+  | { type: 'SET_ROLL_HISTORY'; rollHistory: number[] }
+  | { type: 'SET_PLAN_HISTORY'; planHistory: number[] }
+  | { type: 'SET_INITIAL_STATE'; initialState: State }
 
-  const initialPlayerState = {
+const initialState: State = {
+  currentPlayer: {
     id: 1,
     plan: 68,
     previousPlan: 68,
     isStart: false,
     isFinished: false,
     consecutiveSixes: 0,
-    message: starMess,
+    message: i18next.t('sixToBegin'),
     positionBeforeThreeSixes: 0,
     avatar: GEM_ICONS[1],
+  },
+  lastRoll: 1,
+  rollHistory: [],
+  planHistory: [68],
+}
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case 'ROLL_DICE':
+      const rollResult = Math.floor(Math.random() * MAX_ROLL) + 1
+      return {
+        ...state,
+        lastRoll: rollResult,
+        rollHistory: [...state.rollHistory, rollResult],
+        currentPlayer: handlePlayerMovement(state.currentPlayer, rollResult),
+      }
+    case 'UPDATE_PLAYER':
+      return {
+        ...state,
+        currentPlayer: action.player,
+      }
+    case 'SET_ROLL_HISTORY':
+      return {
+        ...state,
+        rollHistory: action.rollHistory,
+      }
+    case 'SET_PLAN_HISTORY':
+      return {
+        ...state,
+        planHistory: action.planHistory,
+      }
+    case 'SET_INITIAL_STATE':
+      return action.initialState
+    default:
+      return state
   }
+}
 
-  const [currentPlayer, setCurrentPlayer] = useState<Player>(initialPlayerState)
-  const [lastRoll, setLastRoll] = useState<number>(1)
-  const [rollHistory, setRollHistory] = useState<number[]>([])
-  const [planHistory, setPlanHistory] = useState<number[]>([68])
+const useLeelaGame = () => {
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  const generateRandomNumber = (): number =>
-    Math.floor(Math.random() * MAX_ROLL) + 1
-
-  const rollDice = () => {
-    const rollResult = generateRandomNumber()
-    setLastRoll(rollResult)
-    setRollHistory((prev) => [...prev, rollResult])
-
-    if (!currentPlayer.isStart && rollResult === MAX_ROLL) {
-      setCurrentPlayer((prevPlayer) => ({
-        ...prevPlayer,
-        plan: MAX_ROLL,
-        isStart: true,
-        consecutiveSixes: 1,
-        message: t('moveAfterSix', {
-          currentPlayer: prevPlayer.id,
-        }),
-      }))
-    } else {
-      handleRollResult(rollResult)
+  const getSavedState = async () => {
+    try {
+      const savedState = await AsyncStorage.getItem('leelaGameState')
+      return savedState ? JSON.parse(savedState) : initialState
+    } catch (error) {
+      console.error('Error retrieving state from AsyncStorage:', error)
+      return initialState
     }
   }
 
-  const handleRollResult = (roll: number) => {
-    setCurrentPlayer((prevPlayer) => {
-      let updatedPlayer = { ...prevPlayer }
-
-      if (!prevPlayer.isStart) {
-        if (roll === MAX_ROLL) {
-          const updatedState = {
-            isStart: true,
-            consecutiveSixes: 1,
-            plan: MAX_ROLL,
-          }
-          updatedPlayer = {
-            ...updatedPlayer,
-            ...updatedState,
-          }
-        }
-        return updatedPlayer
-      }
-
-      let newPlan = updatedPlayer.plan + roll
-      newPlan = handlePlayerMovement(newPlan, updatedPlayer, roll)
-
-      updatedPlayer = {
-        ...updatedPlayer,
-        plan: newPlan,
-        previousPlan: updatedPlayer.plan,
-      }
-
-      setPlanHistory((prev) => [...prev, newPlan])
-
-      if (newPlan === WIN_PLAN) {
-        updatedPlayer.isFinished = true
-        updatedPlayer.previousPlan = newPlan
-        updatedPlayer.isStart = false
-        updatedPlayer.message = t('finish', {
-          currentPlayer: updatedPlayer.id,
-        })
-      }
-
-      return updatedPlayer
+  useEffect(() => {
+    getSavedState().then((savedState) => {
+      dispatch({ type: 'SET_INITIAL_STATE', initialState: savedState })
     })
+  }, [])
+
+  // Подписка на изменения стейта и сохранение в AsyncStorage
+  useEffect(() => {
+    AsyncStorage.setItem('leelaGameState', JSON.stringify(state)).catch(
+      (error) => console.error('Error saving state to AsyncStorage:', error),
+    )
+  }, [state])
+
+  const rollDice = () => {
+    dispatch({ type: 'ROLL_DICE' })
   }
 
-  return { currentPlayer, rollHistory, planHistory, rollDice, lastRoll }
+  const updatePlayer = (player: Player) => {
+    dispatch({ type: 'UPDATE_PLAYER', player })
+  }
+
+  const setRollHistory = (rollHistory: number[]) => {
+    dispatch({ type: 'SET_ROLL_HISTORY', rollHistory })
+  }
+
+  const setPlanHistory = (planHistory: number[]) => {
+    dispatch({ type: 'SET_PLAN_HISTORY', planHistory })
+  }
+
+  return {
+    currentPlayer: state.currentPlayer,
+    rollHistory: state.rollHistory,
+    planHistory: state.planHistory,
+    rollDice,
+    lastRoll: state.lastRoll,
+    updatePlayer,
+    setRollHistory,
+    setPlanHistory,
+  }
 }
 
 export { useLeelaGame }

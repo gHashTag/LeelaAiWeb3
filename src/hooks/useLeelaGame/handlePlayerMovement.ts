@@ -1,6 +1,9 @@
-import { Player } from 'types' // Подключите тип Player, если он определен
-import { MAX_ROLL, TOTAL_PLANS } from './useLeelaGame'
+import { Player } from 'types'
 import i18next from 'i18next'
+
+const MAX_ROLL = 6
+const TOTAL_PLANS = 72
+const WIN_PLAN = 68
 
 const handleToMove = (
   name: string,
@@ -8,97 +11,116 @@ const handleToMove = (
   newPlan: number,
   to: number,
   roll: number,
-): number => {
-  updatedPlayer.message = i18next.t(name, {
+): Player => {
+  const updatedMessage = i18next.t(name, {
     currentPlayer: updatedPlayer.id,
     from: newPlan,
     to: to,
     roll,
   })
-  return to
+  return {
+    ...updatedPlayer,
+    message: updatedMessage,
+    plan: to,
+  }
 }
 
-const handlePlayerMovement = (
-  newPlan: number,
-  updatedPlayer: Player,
-  roll: number,
-): number => {
+const handlePlayerMovement = (updatedPlayer: Player, roll: number): Player => {
+  if (!updatedPlayer.isStart) {
+    if (roll !== MAX_ROLL) {
+      const startMessage = i18next.t('sixToBegin')
+      return {
+        ...updatedPlayer,
+        message: startMessage,
+      }
+    } else {
+      const updatedMessage = i18next.t('moveAfterSix', {
+        currentPlayer: updatedPlayer.id,
+      })
+      return {
+        ...updatedPlayer,
+        plan: MAX_ROLL,
+        isStart: true,
+        consecutiveSixes: 1,
+        message: updatedMessage,
+      }
+    }
+  }
+
+  let newPlan = updatedPlayer.plan + roll
+
   if (newPlan > TOTAL_PLANS) {
-    updatedPlayer.message = i18next.t('stay', {
+    const updatedMessage = i18next.t('stay', {
       currentPlayer: updatedPlayer.id,
       roll,
     })
-    newPlan = updatedPlayer.plan
+    return {
+      ...updatedPlayer,
+      message: updatedMessage,
+    }
   } else if (newPlan === 12) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 8, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 8, roll)
   } else if (newPlan === 16) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 4, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 4, roll)
   } else if (newPlan === 24) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 7, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 7, roll)
   } else if (newPlan === 29) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 6, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 6, roll)
   } else if (newPlan === 44) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 9, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 9, roll)
   } else if (newPlan === 52) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 35, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 35, roll)
   } else if (newPlan === 55) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 3, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 3, roll)
   } else if (newPlan === 61) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 13, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 13, roll)
   } else if (newPlan === 63) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 2, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 2, roll)
   } else if (newPlan === 72) {
-    newPlan = handleToMove('snakes', updatedPlayer, newPlan, 51, roll)
+    return handleToMove('snakes', updatedPlayer, newPlan, 51, roll)
   } else if (newPlan === 10) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 23, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 23, roll)
   } else if (newPlan === 17) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 69, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 69, roll)
   } else if (newPlan === 20) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 32, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 32, roll)
   } else if (newPlan === 22) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 60, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 60, roll)
   } else if (newPlan === 27) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 41, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 41, roll)
   } else if (newPlan === 28) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 50, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 50, roll)
   } else if (newPlan === 37) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 66, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 66, roll)
   } else if (newPlan === 45) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 67, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 67, roll)
   } else if (newPlan === 46) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 62, roll)
-  } else if (newPlan === 54) {
-    newPlan = handleToMove('arrows', updatedPlayer, newPlan, 68, roll)
+    return handleToMove('arrows', updatedPlayer, newPlan, 62, roll)
+  } else if (newPlan === 54 || newPlan === WIN_PLAN) {
+    const updatedMessage = i18next.t('finish', {
+      currentPlayer: updatedPlayer.id,
+    })
+    return {
+      ...updatedPlayer,
+      plan: newPlan,
+      previousPlan: newPlan,
+      isFinished: true,
+      isStart: false,
+      message: updatedMessage,
+    }
   } else {
-    updatedPlayer.message = i18next.t('moveMessage', {
+    const updatedMessage = i18next.t('moveMessage', {
       currentPlayer: updatedPlayer.id,
       roll: roll,
       from: updatedPlayer.plan,
       to: newPlan,
     })
-  }
-
-  if (roll === MAX_ROLL) {
-    if (updatedPlayer.consecutiveSixes === 0) {
-      updatedPlayer.message = i18next.t('firstSix', {
-        currentPlayer: updatedPlayer.id,
-      })
-      updatedPlayer.positionBeforeThreeSixes = updatedPlayer.plan
+    return {
+      ...updatedPlayer,
+      plan: newPlan,
+      message: updatedMessage,
     }
-    updatedPlayer.consecutiveSixes += 1
-    if (updatedPlayer.consecutiveSixes === 3) {
-      updatedPlayer.plan = updatedPlayer.positionBeforeThreeSixes
-      updatedPlayer.consecutiveSixes = 0
-      updatedPlayer.message = t('treeSix', {
-        currentPlayer: updatedPlayer.id,
-      })
-      return newPlan
-    }
-  } else {
-    updatedPlayer.consecutiveSixes = 0
   }
-
-  return newPlan
 }
 
 export { handlePlayerMovement }
