@@ -6,6 +6,8 @@ import { H, W } from 'cons'
 import { Gem } from '../Gem'
 import { GameBoardImage } from './images'
 import { GameBoardProps } from 'types'
+import { NeomorphView } from 'components/NeomorphView'
+import { NeomorphFlexView } from 'components/NeomorphFlexView'
 
 const marginTop = H - W > 350 ? 20 : 0
 
@@ -57,25 +59,34 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
   }
 
   return (
-    <View
-      style={[styles.imageContainer, { width: curImageHeight * imgObj.aspect }]}
-      testID="gem-container"
-    >
-      <Image source={imgObj.image} style={styles.bgImage} resizeMode="cover" />
-      <View style={styles.gameBoardContainer}>
-        <View style={styles.container}>
-          {rows.map((a, i) => (
-            <View style={styles.row} key={i}>
-              {a.map((b, index) => (
-                <View key={index} style={styles.box}>
-                  <Gem player={getPlayer(b)} planNumber={b} />
-                </View>
-              ))}
-            </View>
-          ))}
+    <NeomorphFlexView>
+      <View
+        style={[
+          styles.imageContainer,
+          { width: curImageHeight * imgObj.aspect },
+        ]}
+        testID="gem-container"
+      >
+        <Image
+          source={imgObj.image}
+          style={styles.bgImage}
+          resizeMode="cover"
+        />
+        <View style={styles.gameBoardContainer}>
+          <View style={styles.container}>
+            {rows.map((a, i) => (
+              <View style={styles.row} key={i}>
+                {a.map((b, index) => (
+                  <View key={index} style={styles.box}>
+                    <Gem player={getPlayer(b)} planNumber={b} />
+                  </View>
+                ))}
+              </View>
+            ))}
+          </View>
         </View>
       </View>
-    </View>
+    </NeomorphFlexView>
   )
 }
 
@@ -87,6 +98,7 @@ const styles = ScaledSheet.create({
     height: curImageHeight,
     alignSelf: 'center',
     alignItems: 'center',
+    bottom: 30,
   },
   row: {
     flexDirection: 'row',

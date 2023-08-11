@@ -152,7 +152,7 @@ export const textStyles = ScaledSheet.create({
     fontFamily: 'mont',
   },
   h11: {
-    fontSize: Platform.OS === 'ios' ? s(10) : s(10),
+    fontSize: Platform.OS === 'ios' ? s(13) : s(10),
     fontFamily: 'mont',
   },
   h12: {

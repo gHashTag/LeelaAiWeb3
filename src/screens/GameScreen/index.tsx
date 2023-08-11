@@ -20,9 +20,9 @@ const GameScreen: React.FC = () => {
       <Display
         title={`positionBeforeThreeSixes: ${currentPlayer?.positionBeforeThreeSixes}`}
       /> */}
-      <GameBoard players={[currentPlayer]} currentPlayerId={currentPlayer.id} />
+      <GameBoard players={[currentPlayer]} />
       <Space height={40} />
-      <Dice rollDice={rollDice} lastRoll={lastRoll} size="medium" />
+      <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
       <Space height={40} />
     </Background>
   )
