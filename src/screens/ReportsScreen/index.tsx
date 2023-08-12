@@ -1,9 +1,11 @@
 import React from 'react'
+
 import { FlatList, View } from 'react-native'
+
 import { Space, ReportCard, Display } from 'components'
 import { mockedCommentDataArray } from 'cons/mockdata'
-import { ReportCardProps } from 'types'
 import { ScaledSheet } from 'react-native-size-matters'
+import { ReportCardProps } from 'types'
 
 const ReportsScreen: React.FC = () => {
   const renderItem = ({ item }: { item: ReportCardProps }) => (

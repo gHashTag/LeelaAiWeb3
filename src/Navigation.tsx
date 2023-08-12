@@ -1,10 +1,13 @@
+import React, { useEffect } from 'react'
+
+import { StatusBar, useColorScheme } from 'react-native'
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as Sentry from '@sentry/react'
-import React, { useEffect } from 'react'
-import { StatusBar, useColorScheme } from 'react-native'
 import Orientation from 'react-native-orientation-locker'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
+
 import {
   black,
   dimGray,

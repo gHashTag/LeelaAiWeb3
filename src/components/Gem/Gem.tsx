@@ -1,9 +1,12 @@
 import React from 'react'
+
 import { View, Image, Pressable } from 'react-native'
-import { ScaledSheet, ms } from 'react-native-size-matters'
+
 import { gray } from 'cons'
-import { Text } from '../Text'
+import { ScaledSheet, ms } from 'react-native-size-matters'
 import { GemProps } from 'types'
+
+import { Text } from '../Text/Text'
 
 const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
   const { container, gems, circle } = styles

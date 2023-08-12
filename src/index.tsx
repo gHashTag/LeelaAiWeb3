@@ -1,10 +1,12 @@
-import * as Sentry from '@sentry/react-native'
 import React from 'react'
+
+import * as Sentry from '@sentry/react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import VersionInfo from 'react-native-version-info'
-import Navigation from './Navigation'
 import { ScaledSheet } from 'react-native-size-matters'
+import VersionInfo from 'react-native-version-info'
+
+import Navigation from './Navigation'
 
 const routingInstrumentation = new Sentry.ReactNavigationInstrumentation()
 

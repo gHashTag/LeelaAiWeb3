@@ -1,6 +1,5 @@
-import { useTheme } from '@react-navigation/native'
-import { gray } from 'cons'
 import React, { memo } from 'react'
+
 import {
   Platform,
   Text as RNText,
@@ -10,6 +9,9 @@ import {
   TextStyle,
   useColorScheme,
 } from 'react-native'
+
+import { useTheme } from '@react-navigation/native'
+import { gray } from 'cons'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
 export type hT =

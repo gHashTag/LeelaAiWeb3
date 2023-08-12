@@ -6,8 +6,7 @@
  */
 
 import React from 'react'
-import { ScrollView } from 'react-native-gesture-handler'
-import { useTranslation } from 'react-i18next'
+
 import {
   Dice,
   Text,
@@ -23,8 +22,6 @@ import {
   NeomorphBlurView,
   Avatar,
 } from 'components'
-
-import { useLeelaGame } from 'hooks/useLeelaGame/useLeelaGame'
 import {
   MockedCommentData,
   avaUrl,
@@ -43,6 +40,9 @@ import {
   plansPlayers,
   post,
 } from 'cons/mockdata'
+import { useLeelaGame } from 'hooks/useLeelaGame/useLeelaGame'
+import { useTranslation } from 'react-i18next'
+import { ScrollView } from 'react-native-gesture-handler'
 
 function UiKit(): JSX.Element {
   const { rollDice, lastRoll } = useLeelaGame()

@@ -1,9 +1,10 @@
 // Import libraries
 import React from 'react'
+
 import { render } from '@testing-library/react-native'
 
 // Import the component to be tested
-import { Space } from './'
+import { Space } from './Space'
 
 describe('Space', () => {
   it('renders correctly with default props', () => {

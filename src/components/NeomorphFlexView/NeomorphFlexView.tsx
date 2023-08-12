@@ -1,9 +1,11 @@
 import React from 'react'
+
+import { View, ViewStyle } from 'react-native'
+
 import { useTheme } from '@react-navigation/native'
-import { ScaledSheet } from 'react-native-size-matters'
-import { Neomorph } from 'react-native-neomorph-shadows'
 import { black, lightGray } from 'cons'
-import { View, ViewProps, ViewStyle } from 'react-native'
+import { NeomorphFlex } from 'react-native-neomorph-shadows'
+import { ScaledSheet } from 'react-native-size-matters'
 
 type FlexStyleProperties =
   | 'flex'
@@ -31,22 +33,22 @@ interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
   height?: number
 }
 
-interface NeomorphCircleProps {
+interface NeomorphFlexViewProps {
   children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
-  viewStyle?: ViewProps
+  viewStyle?: ViewStyleWithShadow
 }
 
-const NeomorphCircle: React.FC<NeomorphCircleProps> = ({
+const NeomorphFlexView: React.FC<NeomorphFlexViewProps> = ({
   children,
   viewStyle,
   shadowStyle,
 }) => {
   const { dark } = useTheme()
   const backgroundColor = dark ? black : lightGray
-
   return (
-    <Neomorph
+    <NeomorphFlex
+      inner
       style={{
         // @ts-ignore
         ...styles.container,
@@ -56,7 +58,7 @@ const NeomorphCircle: React.FC<NeomorphCircleProps> = ({
       }}
     >
       <View style={viewStyle}>{children}</View>
-    </Neomorph>
+    </NeomorphFlex>
   )
 }
 
@@ -64,7 +66,8 @@ const styles = ScaledSheet.create({
   container: {
     borderRadius: 40,
     shadowRadius: 5,
+    marginHorizontal: 40,
   },
 })
 
-export { NeomorphCircle }
+export { NeomorphFlexView }

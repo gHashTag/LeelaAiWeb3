@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
+
 import { Animated, Easing, Pressable, useColorScheme } from 'react-native'
+
 import { ScaledSheet, vs } from 'react-native-size-matters'
 
 export interface DiceProps {

@@ -1,7 +1,8 @@
 import React from 'react'
-import { ScaledSheet, s } from 'react-native-size-matters'
+
 import { NeomorphFlexView, Text } from 'components'
 import { useTranslation } from 'react-i18next'
+import { ScaledSheet, s } from 'react-native-size-matters'
 
 interface DisplayProps {
   title: string

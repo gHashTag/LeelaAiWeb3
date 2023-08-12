@@ -1,9 +1,11 @@
 import React from 'react'
-import { useTheme } from '@react-navigation/native'
-import { ScaledSheet } from 'react-native-size-matters'
-import { NeomorphBlur } from 'react-native-neomorph-shadows'
-import { black, lightGray } from 'cons'
+
 import { View, ViewProps, ViewStyle } from 'react-native'
+
+import { useTheme } from '@react-navigation/native'
+import { black, lightGray } from 'cons'
+import { Neomorph } from 'react-native-neomorph-shadows'
+import { ScaledSheet } from 'react-native-size-matters'
 
 type FlexStyleProperties =
   | 'flex'
@@ -31,13 +33,13 @@ interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
   height?: number
 }
 
-interface NeomorphBlurViewProps {
-  children?: React.ReactNode
+interface NeomorphCircleProps {
+  children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
   viewStyle?: ViewProps
 }
 
-const NeomorphBlurView: React.FC<NeomorphBlurViewProps> = ({
+const NeomorphCircle: React.FC<NeomorphCircleProps> = ({
   children,
   viewStyle,
   shadowStyle,
@@ -46,7 +48,7 @@ const NeomorphBlurView: React.FC<NeomorphBlurViewProps> = ({
   const backgroundColor = dark ? black : lightGray
 
   return (
-    <NeomorphBlur
+    <Neomorph
       style={{
         // @ts-ignore
         ...styles.container,
@@ -55,19 +57,16 @@ const NeomorphBlurView: React.FC<NeomorphBlurViewProps> = ({
         backgroundColor,
       }}
     >
-      <View style={viewStyle}>{children ? children : ''}</View>
-    </NeomorphBlur>
+      <View style={viewStyle}>{children}</View>
+    </Neomorph>
   )
 }
 
 const styles = ScaledSheet.create({
   container: {
-    shadowRadius: 12,
-    borderRadius: 70,
-    backgroundColor: black,
-    width: 140,
-    height: 140,
+    borderRadius: 40,
+    shadowRadius: 5,
   },
 })
 
-export { NeomorphBlurView }
+export { NeomorphCircle }

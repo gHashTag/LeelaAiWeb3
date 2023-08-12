@@ -1,8 +1,10 @@
 import React from 'react'
+
 import { View } from 'react-native'
+
 import { ButtonVectorIcon, Space } from 'components'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
 import { fuchsia } from 'cons'
+import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
 interface ActionButtonsProps {
   isAdmin: boolean

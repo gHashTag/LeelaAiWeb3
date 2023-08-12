@@ -1,15 +1,17 @@
 import React from 'react'
+
 import { View, Pressable } from 'react-native'
-import { s, vs, ScaledSheet } from 'react-native-size-matters'
+
 import { Avatar, Space, Text, NeomorphView, ActionButtons } from 'components'
 import { W } from 'cons'
+import { s, vs, ScaledSheet } from 'react-native-size-matters'
 import { ReportCardProps } from 'types'
 
 const ReportCard: React.FC<ReportCardProps> = ({
   post,
   onPress,
   fullName,
-  avaUrl,
+  avatar,
   isAdmin,
   isLiked,
   likeCount,
@@ -41,7 +43,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
 
               <View style={styles.avatarStyle}>
                 <Avatar
-                  avaUrl={avaUrl}
+                  avatar={avatar}
                   onPress={handleProfile}
                   size={'medium'}
                   plan={post.plan as number}

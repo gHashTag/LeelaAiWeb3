@@ -2,10 +2,11 @@ import React, { memo } from 'react'
 
 import { StyleProp, TextStyle, ViewStyle } from 'react-native'
 
-import { Text } from '../../'
 import { secondary } from 'cons'
-import { Pressable } from '../../Pressable'
 import { ScaledSheet } from 'react-native-size-matters'
+
+import { Text } from '../../'
+import { Pressable } from '../../Pressable/Pressable'
 
 interface ButtonLinkT {
   title: string

@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import { View } from 'react-native'
+
 import { s } from 'react-native-size-matters'
 
 interface SpaceT {

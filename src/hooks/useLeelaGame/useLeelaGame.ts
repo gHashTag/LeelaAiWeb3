@@ -1,9 +1,11 @@
 import { useEffect, useReducer } from 'react'
+
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { GEM_ICONS } from './images'
-import { Player } from 'types'
-import { handlePlayerMovement } from './handlePlayerMovement'
 import i18next from 'i18next'
+import { Player } from 'types'
+
+import { handlePlayerMovement } from './handlePlayerMovement'
+import { GEM_ICONS } from './images'
 
 const MAX_ROLL = 6
 

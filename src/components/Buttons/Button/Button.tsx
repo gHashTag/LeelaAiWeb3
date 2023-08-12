@@ -1,8 +1,11 @@
 import React, { memo, useState } from 'react'
+
 import { StyleProp, TextStyle, Pressable } from 'react-native'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
-import { Text, NeomorphView, NeomorphFlexView } from '../../' // Подключите необходимые компоненты
+
 import { dimGray } from 'cons'
+import { ScaledSheet, ms, s } from 'react-native-size-matters'
+
+import { Text, NeomorphView, NeomorphFlexView } from '../..' // Подключите необходимые компоненты
 
 interface ButtonT {
   title: string

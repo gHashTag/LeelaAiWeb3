@@ -1,5 +1,5 @@
-import { Player } from 'types'
 import i18next from 'i18next'
+import { Player } from 'types'
 
 const MAX_ROLL = 6
 const TOTAL_PLANS = 72

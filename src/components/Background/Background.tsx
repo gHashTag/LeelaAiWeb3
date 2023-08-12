@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
+
 import { ImageBackground, ImageSourcePropType } from 'react-native'
+
 import { ScaledSheet } from 'react-native-size-matters'
 
 interface BackgroundProps {

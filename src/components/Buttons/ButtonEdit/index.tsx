@@ -1,9 +1,10 @@
 import React from 'react'
 
 import { Image, StyleProp, ViewStyle } from 'react-native'
+
 import { vs, ScaledSheet } from 'react-native-size-matters'
 
-import { Pressable } from '../../Pressable'
+import { Pressable } from '../../Pressable/Pressable'
 
 interface ButtonEditT {
   onPress: () => void

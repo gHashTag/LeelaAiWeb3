@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { useTheme } from '@react-navigation/native'
+
 import {
   ImageBackground,
   ImageStyle,
@@ -7,22 +7,24 @@ import {
   StyleProp,
   View,
 } from 'react-native'
-import { ms, s, ScaledSheet } from 'react-native-size-matters'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+
+import { useTheme } from '@react-navigation/native'
 import { Text } from 'components'
 import { orange } from 'cons'
+import { ms, s, ScaledSheet } from 'react-native-size-matters'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 interface AvatarI {
   plan: number
   size: 'xLarge' | 'large' | 'medium' | 'small'
-  avaUrl?: string
+  avatar?: string
   isAccept?: boolean
   aditionalStyle?: StyleProp<ImageStyle>
   onPress?: () => void
 }
 
 const Avatar = memo<AvatarI>(
-  ({ size = 'medium', plan, avaUrl, aditionalStyle, isAccept, onPress }) => {
+  ({ size = 'medium', plan, avatar, aditionalStyle, isAccept, onPress }) => {
     const {
       colors: { background },
     } = useTheme()
@@ -36,7 +38,7 @@ const Avatar = memo<AvatarI>(
     return (
       <Pressable onPress={onPress}>
         <ImageBackground
-          source={{ uri: avaUrl }}
+          source={{ uri: avatar }}
           style={[styles[size], styles.img, aditionalStyle]}
           imageStyle={styles.container}
         >

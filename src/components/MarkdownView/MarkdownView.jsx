@@ -1,11 +1,14 @@
 import React from 'react'
+
 import { Platform, ScrollView } from 'react-native'
-import { ms, s, ScaledSheet } from 'react-native-size-matters'
-import Markdown from 'react-native-markdown-display'
-import { gray, W } from 'cons'
-import { Space } from '../Space'
-import { NeomorphView } from 'components'
 import { View } from 'react-native'
+
+import { NeomorphView } from 'components'
+import { gray, W } from 'cons'
+import Markdown from 'react-native-markdown-display'
+import { ms, s, ScaledSheet } from 'react-native-size-matters'
+
+import { Space } from '../Space/Space'
 
 const MarkdownView = ({ markdown, children }) => {
   return (

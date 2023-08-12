@@ -1,6 +1,8 @@
-import { render } from '@testing-library/react-native'
-import { Text, hT, textStyles } from './' // Replace with your actual file path
 import React from 'react'
+
+import { render } from '@testing-library/react-native'
+
+import { Text, hT, textStyles } from './Text' // Replace with your actual file path
 
 describe('Text Component', () => {
   it('renders correctly with default props', () => {

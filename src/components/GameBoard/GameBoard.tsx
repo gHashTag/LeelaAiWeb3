@@ -1,27 +1,19 @@
 import React, { useMemo } from 'react'
-import { Image, View, useColorScheme } from 'react-native'
-import { ScaledSheet, ms, mvs, s } from 'react-native-size-matters'
 
+import { Image, View, useColorScheme } from 'react-native'
+
+import { NeomorphFlexView } from 'components'
 import { H, W } from 'cons'
-import { Gem } from '../Gem'
-import { GameBoardImage } from './images'
+import { ScaledSheet, ms, mvs, s } from 'react-native-size-matters'
 import { GameBoardProps } from 'types'
-import { NeomorphView } from 'components/NeomorphView'
-import { NeomorphFlexView } from 'components/NeomorphFlexView'
+
+import { GameBoardImage } from './images'
+
+import { Gem } from '../Gem/Gem'
 
 const marginTop = H - W > 350 ? 20 : 0
 
-const imageHeight = s(248) + s(32)
-const maxImageHeight = ms(248, 0.5) + s(32)
-
-const imageTopMargin = Math.min(ms(27, 0.5), s(27))
-const curImageHeight = Math.min(maxImageHeight, imageHeight) + imageTopMargin
-
-const imageWidth = s(279) + s(18)
-const maxImageWidth = ms(279, 0.5) + s(18)
-const curImageWidth = imageWidth >= maxImageWidth ? maxImageWidth : imageWidth
-
-const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
+function GameBoard({ players }: GameBoardProps) {
   const scheme = useColorScheme()
 
   const imgObj = useMemo(() => {
@@ -37,16 +29,6 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
     }
   }, [scheme])
 
-  const rows = [
-    [72, 71, 70, 69, 68, 67, 66, 65, 64],
-    [55, 56, 57, 58, 59, 60, 61, 62, 63],
-    [54, 53, 52, 51, 50, 49, 48, 47, 46],
-    [37, 38, 39, 40, 41, 42, 43, 44, 45],
-    [36, 35, 34, 33, 32, 31, 30, 29, 28],
-    [19, 20, 21, 22, 23, 24, 25, 26, 27],
-    [18, 17, 16, 15, 14, 13, 12, 11, 10],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  ]
   const getPlayer = (b: number) => {
     const player = players.find((pl) => pl.plan === b)
     return player
@@ -91,6 +73,26 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
   )
 }
 
+const imageHeight = s(248) + s(32)
+const maxImageHeight = ms(248, 0.5) + s(32)
+const imageTopMargin = Math.min(ms(27, 0.5), s(27))
+const curImageHeight = Math.min(maxImageHeight, imageHeight) + imageTopMargin
+
+const imageWidth = s(279) + s(18)
+const maxImageWidth = ms(279, 0.5) + s(18)
+const curImageWidth = imageWidth >= maxImageWidth ? maxImageWidth : imageWidth
+
+const rows = [
+  [72, 71, 70, 69, 68, 67, 66, 65, 64],
+  [55, 56, 57, 58, 59, 60, 61, 62, 63],
+  [54, 53, 52, 51, 50, 49, 48, 47, 46],
+  [37, 38, 39, 40, 41, 42, 43, 44, 45],
+  [36, 35, 34, 33, 32, 31, 30, 29, 28],
+  [19, 20, 21, 22, 23, 24, 25, 26, 27],
+  [18, 17, 16, 15, 14, 13, 12, 11, 10],
+  [1, 2, 3, 4, 5, 6, 7, 8, 9],
+]
+
 const styles = ScaledSheet.create({
   container: {
     alignItems: 'center',
@@ -127,7 +129,7 @@ const styles = ScaledSheet.create({
     borderRadius: s(31) / 2,
   },
   bgImage: {
-    width: '90%',
+    width: '95%',
     height: '100%',
     position: 'absolute',
     top: mvs(33, 1.6) - imageTopMargin,

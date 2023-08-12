@@ -1,8 +1,11 @@
 import React from 'react'
-import { ScaledSheet } from 'react-native-size-matters'
-import { Shadow } from 'react-native-neomorph-shadows'
-import { lightGray, white } from 'cons'
+
 import { View, ViewProps, ViewStyle } from 'react-native'
+
+import { useTheme } from '@react-navigation/native'
+import { black, lightGray } from 'cons'
+import { Neomorph } from 'react-native-neomorph-shadows'
+import { ScaledSheet } from 'react-native-size-matters'
 
 type FlexStyleProperties =
   | 'flex'
@@ -30,44 +33,40 @@ interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
   height?: number
 }
 
-interface ShadowViewProps {
+interface NeomorphViewProps {
   children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
   viewStyle?: ViewProps
 }
 
-const ShadowView: React.FC<ShadowViewProps> = ({
+const NeomorphView: React.FC<NeomorphViewProps> = ({
   children,
   viewStyle,
   shadowStyle,
 }) => {
-  return (
-    <Shadow
-      // @ts-ignore
+  const { dark } = useTheme()
+  const backgroundColor = dark ? black : lightGray
 
-      draw
+  return (
+    <Neomorph
       style={{
         // @ts-ignore
-        ...styles.shadow,
-        ...shadowStyle,
+        ...styles.container,
+        ...(shadowStyle || {}),
+        ...(viewStyle || {}),
+        backgroundColor,
       }}
     >
       <View style={viewStyle}>{children}</View>
-    </Shadow>
+    </Neomorph>
   )
 }
 
 const styles = ScaledSheet.create({
-  shadow: {
-    alignSelf: 'center',
-    shadowOffset: { width: 3, height: 3 },
-    shadowRadius: 6,
-    shadowColor: lightGray,
-    shadowOpacity: 1,
-    borderRadius: 25,
-    backgroundColor: white,
-    alignItems: 'center',
+  container: {
+    borderRadius: 20,
+    shadowRadius: 5,
   },
 })
 
-export { ShadowView }
+export { NeomorphView }

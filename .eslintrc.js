@@ -1,7 +1,13 @@
 module.exports = {
   root: true,
   extends: ['@react-native', 'plugin:prettier/recommended'],
-  plugins: ['react', 'react-native', 'prettier'],
+  plugins: [
+    'react',
+    'react-native',
+    'prettier',
+    'import',
+    '@typescript-eslint',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -15,6 +21,31 @@ module.exports = {
     'jest/globals': true,
   },
   rules: {
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'sibling'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: 'react-native',
+            group: 'builtin',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react', 'react-native'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+
     'object-curly-spacing': 'off',
     semi: ['off'],
     'react-native/no-unused-styles': 2,

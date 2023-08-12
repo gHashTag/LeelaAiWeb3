@@ -1,10 +1,10 @@
 import React from 'react'
+
 import { View, Pressable } from 'react-native'
-import { ScaledSheet, s, vs } from 'react-native-size-matters'
+
 import { Avatar, Space, Text } from 'components'
-
 import { W } from 'cons'
-
+import { ScaledSheet, s, vs } from 'react-native-size-matters'
 import { Post } from 'types'
 
 interface CommentCardProps {

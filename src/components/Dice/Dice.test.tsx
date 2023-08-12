@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { render, fireEvent, act } from '@testing-library/react-native'
-import { Dice, DiceProps } from './'
+
+import { Dice, DiceProps } from './Dice'
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper')
 jest.mock('./Animated', () => {

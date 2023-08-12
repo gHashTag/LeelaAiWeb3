@@ -63,3 +63,16 @@ export interface ReportCardProps extends UserActions {
   commCount: number
   date: string
 }
+
+export interface MessageAIT {
+  systemMessage: string
+  message: string
+  planText: string
+}
+
+export interface HandleCommentAiParamsT {
+  curItem: Post | undefined
+  systemMessage: string
+  message: string
+  planText?: string
+}
