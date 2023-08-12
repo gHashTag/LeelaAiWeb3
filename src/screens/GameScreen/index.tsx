@@ -11,7 +11,7 @@ const GameScreen: React.FC = () => {
 
   return (
     <Background>
-      <Space height={80} />
+      <Space height={120} />
       <Display title={`${currentPlayer?.message}`} />
       {/* <Display title={`isStart: ${currentPlayer?.isStart}`} />
       <Display title={`isFinished: ${currentPlayer?.isFinished}`} />
@@ -20,9 +20,10 @@ const GameScreen: React.FC = () => {
       <Display
         title={`positionBeforeThreeSixes: ${currentPlayer?.positionBeforeThreeSixes}`}
       /> */}
+      <Space height={20} />
       <GameBoard players={[currentPlayer]} />
-      <Space height={40} />
-      <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
+      <Space height={10} />
+      <Dice rollDice={rollDice} lastRoll={lastRoll} size="medium" />
       <Space height={40} />
     </Background>
   )

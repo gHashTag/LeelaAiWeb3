@@ -1,7 +1,6 @@
 import React from 'react'
-import { View } from 'react-native'
 import { ScaledSheet, s } from 'react-native-size-matters'
-import { Text } from 'components'
+import { NeomorphFlexView, Text } from 'components'
 import { useTranslation } from 'react-i18next'
 
 interface DisplayProps {
@@ -11,18 +10,21 @@ interface DisplayProps {
 const Display: React.FC<DisplayProps> = ({ title }) => {
   const { t } = useTranslation()
   return (
-    <View style={styles.container}>
+    // @ts-ignore
+    <NeomorphFlexView viewStyle={styles.container}>
       <Text title={t(title)} h={'h3'} textStyle={styles.dateStyle} />
-    </View>
+    </NeomorphFlexView>
   )
 }
 
 const styles = ScaledSheet.create({
   container: {
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: s(20),
     paddingVertical: s(6),
     width: '90%',
-    height: s(90),
+    height: s(120),
   },
   dateStyle: {
     textAlign: 'center',

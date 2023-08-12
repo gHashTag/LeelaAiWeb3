@@ -59,7 +59,8 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
   }
 
   return (
-    <NeomorphFlexView>
+    // @ts-ignore
+    <NeomorphFlexView viewStyle={styles.container}>
       <View
         style={[
           styles.imageContainer,
@@ -73,7 +74,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
           resizeMode="cover"
         />
         <View style={styles.gameBoardContainer}>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             {rows.map((a, i) => (
               <View style={styles.row} key={i}>
                 {a.map((b, index) => (
@@ -92,6 +93,12 @@ const GameBoard: React.FC<GameBoardProps> = ({ players }) => {
 
 const styles = ScaledSheet.create({
   container: {
+    alignItems: 'center',
+    paddingHorizontal: s(20),
+    paddingVertical: s(6),
+    width: '90%',
+  },
+  sub: {
     marginTop: imageTopMargin,
   },
   imageContainer: {
@@ -120,7 +127,7 @@ const styles = ScaledSheet.create({
     borderRadius: s(31) / 2,
   },
   bgImage: {
-    width: '100%',
+    width: '90%',
     height: '100%',
     position: 'absolute',
     top: mvs(33, 1.6) - imageTopMargin,
