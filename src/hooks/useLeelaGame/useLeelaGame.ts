@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from 'react'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { captureException } from 'cons'
 import i18next from 'i18next'
 import { Player } from 'types'
 
@@ -80,7 +81,7 @@ const useLeelaGame = () => {
       const savedState = await AsyncStorage.getItem('leelaGameState')
       return savedState ? JSON.parse(savedState) : initialState
     } catch (error) {
-      console.error('Error retrieving state from AsyncStorage:', error)
+      captureException(error, 'Error retrieving state from AsyncStorage:')
       return initialState
     }
   }
@@ -94,7 +95,7 @@ const useLeelaGame = () => {
   // Подписка на изменения стейта и сохранение в AsyncStorage
   useEffect(() => {
     AsyncStorage.setItem('leelaGameState', JSON.stringify(state)).catch(
-      (error) => console.error('Error saving state to AsyncStorage:', error),
+      (error) => captureException(error, 'Error saving state to AsyncStorage:'),
     )
   }, [state])
 

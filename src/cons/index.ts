@@ -98,7 +98,7 @@ export const handleCommentAi = async ({
     systemMessage,
     planText,
   })
-  console.log('LEELA_ID', LEELA_ID)
+
   if (curItem && aiComment) {
     // await PostStore.createComment({
     //   text: aiComment,

@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
-import { gray } from 'cons'
+import { captureException, gray } from 'cons'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
 export type hT = 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
@@ -65,7 +65,8 @@ export const Text = memo<TxtT>(
         hStyle = { ...textStyles[h], color: curColor }
       }
     } catch (error) {
-      console.error('Error spreading textStyles[h]: ', error)
+      console.error(' ', error)
+      captureException(error, 'Text. Error spreading textStyles[h]:')
       hStyle = undefined
     }
     const mergedStyles = StyleSheet.flatten([hStyle, textStyle])
