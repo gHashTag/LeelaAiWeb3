@@ -10,21 +10,7 @@ describe('Text Component', () => {
     expect(getByText('Test Title')).toBeTruthy()
   })
   it('applies the correct style based on the "h" prop', () => {
-    const styles: hT[] = [
-      'h0',
-      'h1',
-      'h2',
-      'h3',
-      'h4',
-      'h5',
-      'h6',
-      'h7',
-      'h8',
-      'h9',
-      'h10',
-      'h11',
-      'h12',
-    ]
+    const styles: hT[] = ['h0', 'h1', 'h2', 'h3', 'h4', 'h5']
     styles.forEach((style) => {
       const { getByTestId } = render(<Text title="Test Title" h={style} />)
       const receivedStyle = getByTestId('text-component').props.style

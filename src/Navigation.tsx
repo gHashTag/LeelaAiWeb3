@@ -65,7 +65,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navRef} theme={theme}>
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="UI_KIT_SCREEN">
+      <Stack.Navigator initialRouteName="GAME_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,

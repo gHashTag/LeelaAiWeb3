@@ -2,13 +2,7 @@ import React from 'react'
 
 import { View, Pressable } from 'react-native'
 
-import {
-  Avatar,
-  NeomorphBlurView,
-  NeomorphFlexView,
-  Space,
-  Text,
-} from 'components'
+import { Avatar, NeomorphFlexView, Space, Text } from 'components'
 import { W } from 'cons'
 import { ScaledSheet, s, vs } from 'react-native-size-matters'
 import { Post } from 'types'

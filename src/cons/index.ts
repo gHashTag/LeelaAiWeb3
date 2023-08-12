@@ -1,6 +1,6 @@
 import { Dimensions, Linking, Platform, NativeModules } from 'react-native'
 
-import { LEELA_ID, OPEN_AI_KEY } from '@env'
+import { OPEN_AI_KEY } from '@env'
 import { createNavigationContainerRef } from '@react-navigation/native'
 import * as Sentry from '@sentry/react-native'
 import axios from 'axios'
