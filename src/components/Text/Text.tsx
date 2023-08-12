@@ -14,20 +14,7 @@ import { useTheme } from '@react-navigation/native'
 import { gray } from 'cons'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
-export type hT =
-  | 'h0'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'h7'
-  | 'h8'
-  | 'h9'
-  | 'h10'
-  | 'h11'
-  | 'h12'
+export type hT = 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
 
 export interface Icolors {
   dark: string
@@ -105,7 +92,7 @@ export const textStyles = ScaledSheet.create({
     fontSize: Platform.OS === 'ios' ? ms(95, 0.5) : ms(95, 0.3),
   },
   h1: {
-    fontFamily: Platform.OS === 'ios' ? 'mont' : 'etna-free-font',
+    fontFamily: 'mont',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
     fontSize: Platform.OS === 'ios' ? ms(35, 0.3) : ms(35, 0.6),
@@ -123,42 +110,12 @@ export const textStyles = ScaledSheet.create({
     fontSize: Platform.OS === 'ios' ? ms(18, 0.6) : ms(18, 0.6),
   },
   h4: {
-    fontFamily: 'mont',
-    textShadowRadius: 1,
-    fontSize: Platform.OS === 'ios' ? ms(12, 0.8) : s(15),
+    fontSize: Platform.OS === 'ios' ? s(15) : s(15),
+    fontFamily: Platform.OS === 'ios' ? 'mont' : 'mont',
+    lineHeight: 18,
   },
   h5: {
-    fontSize: Platform.OS === 'ios' ? s(15) : s(15),
-    fontFamily: Platform.OS === 'ios' ? 'Avenir Next' : 'mont',
-  },
-  h6: {
-    fontSize: Platform.OS === 'ios' ? s(15) : s(15),
     fontFamily: 'mont',
-  },
-  h7: {
-    fontSize: ms(15, 0.6),
-    fontFamily: 'mont',
-    letterSpacing: 0.2,
-    lineHeight: ms(18.5, 0.6),
-  },
-  h8: {
-    fontSize: Platform.OS === 'ios' ? s(14) : s(14),
-    fontFamily: 'mont',
-  },
-  h9: {
-    fontSize: Platform.OS === 'ios' ? s(13) : s(13),
-    fontFamily: 'NeutraText-Bold',
-  },
-  h10: {
-    fontSize: Platform.OS === 'ios' ? s(12) : s(12),
-    fontFamily: 'mont',
-  },
-  h11: {
-    fontSize: Platform.OS === 'ios' ? s(13) : s(10),
-    fontFamily: 'mont',
-  },
-  h12: {
-    fontSize: Platform.OS === 'ios' ? s(10) : s(10),
-    fontFamily: 'OxygenMono-Regular',
+    fontSize: Platform.OS === 'ios' ? ms(12, 0.8) : s(15),
   },
 })

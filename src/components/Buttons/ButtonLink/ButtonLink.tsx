@@ -21,7 +21,7 @@ const ButtonLink = memo<ButtonLinkT>(
 
     return (
       <Pressable onPress={onPress} style={[container, viewStyle]}>
-        <Text h={'h5'} title={title} textStyle={[h, textStyle]} />
+        <Text h={'h4'} title={title} textStyle={[h, textStyle]} />
       </Pressable>
     )
   },

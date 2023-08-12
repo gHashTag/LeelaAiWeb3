@@ -2,7 +2,7 @@ import React from 'react'
 
 import { View, Pressable } from 'react-native'
 
-import { Avatar, Space, Text } from 'components'
+import { Avatar, NeomorphFlexView, Space, Text } from 'components'
 import { W } from 'cons'
 import { ScaledSheet, s, vs } from 'react-native-size-matters'
 import { Post } from 'types'
@@ -26,47 +26,48 @@ const CommentBubbleRight: React.FC<CommentCardProps> = ({
   handleProfile,
 }) => {
   return (
-    <View style={styles.container}>
-      <Pressable onPress={onPress}>
-        <View style={styles.bubbleStyle}>
-          <View style={styles.headerName}>
-            <Text
-              h={'h5'}
-              textStyle={styles.lightText}
-              title={post.text || ' '}
+    <NeomorphFlexView>
+      <View style={styles.container}>
+        <Pressable onPress={onPress}>
+          <View style={styles.bubbleStyle}>
+            <View style={styles.headerName}>
+              <Text
+                h={'h4'}
+                textStyle={styles.lightText}
+                title={post.text || ' '}
+              />
+              <Space height={vs(5)} />
+              <Text
+                title={fullName}
+                h={'h4'}
+                numberOfLines={1}
+                textStyle={styles.nameStyle}
+              />
+              <Space height={vs(2)} />
+              <Text title={date} h={'h5'} textStyle={styles.dateStyle} />
+            </View>
+            <Avatar
+              avatar={avatar}
+              onPress={handleProfile}
+              size={'medium'}
+              plan={post.plan as number}
+              isAccept={post.accept}
+              aditionalStyle={styles.img}
             />
-            <Space height={vs(5)} />
-            <Text
-              title={fullName}
-              h={'h3'}
-              numberOfLines={1}
-              textStyle={styles.dateStyle}
-            />
-            <Space height={vs(2)} />
-            <Text title={date} h={'h4'} textStyle={styles.dateStyle} />
           </View>
-          <Avatar
-            avatar={avatar}
-            onPress={handleProfile}
-            size={'medium'}
-            plan={post.plan as number}
-            isAccept={post.accept}
-            aditionalStyle={styles.img}
-          />
-        </View>
-        <Space height={vs(2)} />
-        <View style={styles.headerName} />
-      </Pressable>
-    </View>
+          <Space height={vs(2)} />
+          <View style={styles.headerName} />
+        </Pressable>
+      </View>
+    </NeomorphFlexView>
   )
 }
 
 const styles = ScaledSheet.create({
   container: {
-    flex: 1,
-    paddingHorizontal: s(20),
-    paddingVertical: s(6),
-    height: 'auto',
+    paddingHorizontal: s(10),
+    paddingTop: s(20),
+    paddingBottom: s(10),
   },
   img: {
     top: 9,
@@ -78,6 +79,10 @@ const styles = ScaledSheet.create({
     textAlign: 'right',
     maxWidth: W - 120,
     paddingRight: 10,
+  },
+  nameStyle: {
+    paddingRight: 10,
+    fontWeight: 'bold',
   },
   dateStyle: {
     paddingRight: 10,

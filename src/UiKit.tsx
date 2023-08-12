@@ -48,7 +48,12 @@ function UiKit(): JSX.Element {
   return (
     <ScrollView>
       <CenterView>
-        <Space height={40} />
+        <Space height={100} />
+        <Text h={'h2'} title={t('takeStep')} />
+        <Text h={'h3'} title={t('takeStep')} />
+        <Text h={'h5'} title={t('takeStep')} />
+        <Text h={'h4'} title={t('takeStep')} />
+
         <NeomorphBlurView />
         <Space height={40} />
 
@@ -71,6 +76,7 @@ function UiKit(): JSX.Element {
         />
         <Space height={40} />
         <CommentBubbleRight {...MockedCommentData} />
+        <Space height={20} />
         <CommentBubbleLeft {...MockedCommentData} />
         <Space height={140} />
         <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />

@@ -3,7 +3,7 @@ import React from 'react'
 import { StyleProp, ViewStyle, useColorScheme } from 'react-native'
 
 import { dimGray, gray } from 'cons'
-import { s } from 'react-native-size-matters'
+import { ScaledSheet, s } from 'react-native-size-matters'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -59,10 +59,19 @@ export function ButtonVectorIcon({
           <Text
             title={count.toString()}
             h={'h5'}
-            textStyle={{ fontSize: size, color: colorTheme }}
+            textStyle={[
+              styles.fontStyle,
+              { fontSize: size, color: colorTheme },
+            ]}
           />
         </>
       )}
     </Pressable>
   )
 }
+
+const styles = ScaledSheet.create({
+  fontStyle: {
+    top: 3,
+  },
+})

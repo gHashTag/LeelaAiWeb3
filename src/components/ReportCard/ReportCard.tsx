@@ -55,7 +55,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
 
             <Space height={vs(11)} />
             <Text
-              h={'h5'}
+              h={'h4'}
               textStyle={styles.lightText}
               title={post.text || ' '}
               numberOfLines={4}
@@ -82,12 +82,11 @@ const styles = ScaledSheet.create({
     flex: 1,
     paddingHorizontal: s(15),
     paddingVertical: s(6),
-    height: vs(200),
     alignItems: 'center',
   },
   card: {
     width: W - 50,
-    height: vs(180),
+    height: vs(160),
   },
   img: {
     top: 9,

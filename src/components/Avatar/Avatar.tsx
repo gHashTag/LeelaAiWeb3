@@ -46,7 +46,7 @@ const Avatar = memo<AvatarI>(
             {!isAccept ? (
               <Ionicons size={s(15)} color={orange} name="time-sharp" />
             ) : (
-              <Text textStyle={{ fontSize }} title={textPlan} h="h12" />
+              <Text textStyle={{ fontSize }} title={textPlan} h="h5" />
             )}
           </View>
         </ImageBackground>
@@ -83,7 +83,7 @@ const styles = ScaledSheet.create({
     borderRadius: s(180),
     flexDirection: 'row',
     position: 'absolute',
-    padding: s(2),
+    padding: s(4),
   },
   smallBadge: {
     right: s(-1),
