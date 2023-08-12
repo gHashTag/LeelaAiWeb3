@@ -11,7 +11,7 @@ interface CommentCardProps {
   post: Post
   onPress?: () => void
   fullName: string
-  avaUrl: string
+  avatar: string
   date: string
   handleProfile: () => void
   isLeft?: boolean
@@ -21,7 +21,7 @@ const CommentBubbleRight: React.FC<CommentCardProps> = ({
   post,
   onPress,
   fullName,
-  avaUrl,
+  avatar,
   date,
   handleProfile,
 }) => {
@@ -46,7 +46,7 @@ const CommentBubbleRight: React.FC<CommentCardProps> = ({
             <Text title={date} h={'h4'} textStyle={styles.dateStyle} />
           </View>
           <Avatar
-            avaUrl={avaUrl}
+            avatar={avatar}
             onPress={handleProfile}
             size={'medium'}
             plan={post.plan as number}

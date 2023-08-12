@@ -3,6 +3,7 @@ export type RootStackParamList = {
   PLAN_SCREEN: undefined
   REPORT_SCREEN: undefined
   REPORTS_SCREEN: undefined
+  UI_KIT_SCREEN: undefined
 }
 
 export interface Player {
@@ -55,6 +56,7 @@ export interface UserActions {
 export interface ReportCardProps extends UserActions {
   id: string
   post: Post
+  avatar: string
   onPress?: () => void
   fullName: string
   isAdmin: boolean

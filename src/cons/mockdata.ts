@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-export const avaUrl = faker.image.avatar()
+export const avatar = faker.image.avatar()
 
 export const diceProps = {
   count: 6,
@@ -25,7 +25,7 @@ export const plansPlayers = [
   {
     id: 4,
     plan: 34,
-    uri: avaUrl,
+    uri: avatar,
   },
 ]
 
@@ -91,7 +91,7 @@ export const MockedCommentData = {
   id: faker.string.uuid(),
   post,
   fullName,
-  avaUrl,
+  avatar,
   isAdmin,
   isLiked,
   likeCount,
@@ -111,7 +111,7 @@ export const createMockedCommentData = () => {
     id: faker.string.uuid(),
     post,
     fullName: faker.internet.userName(),
-    avaUrl: faker.image.avatar(),
+    avatar: faker.image.avatar(),
     isAdmin: false,
     isLiked: faker.datatype.boolean(),
     likeCount: faker.number.int({ max: 100 }),

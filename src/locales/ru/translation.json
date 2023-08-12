@@ -90,7 +90,6 @@
 
   "loadErr": "Ошибка загрузки",
   "networkRequestFailed": "Проверьте интернет соединение",
-
   "passwordsDoNotMatch": "Пароли не совпадают!",
   "shortPassword": "Пароль должен состоять из 6 символов",
   "requireField": "Обязательное поле",

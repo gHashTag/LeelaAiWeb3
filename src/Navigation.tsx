@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as Sentry from '@sentry/react'
 import Orientation from 'react-native-orientation-locker'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
+import UiKit from 'UiKit'
 
 import {
   black,
@@ -64,7 +65,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navRef} theme={theme}>
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="GAME_SCREEN">
+      <Stack.Navigator initialRouteName="UI_KIT_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
@@ -77,6 +78,7 @@ const App = () => {
           <Stack.Screen name="PLAN_SCREEN" component={PlanScreen} />
           <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
           <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />
+          <Stack.Screen name="UI_KIT_SCREEN" component={UiKit} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
