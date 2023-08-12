@@ -24,8 +24,8 @@ const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
   const isNumberVisible = !player && planNumber !== 68
 
   return (
-    <Pressable onPress={onPress} testID="gem-container">
-      <View style={container}>
+    <Pressable onPress={onPress}>
+      <View style={container} testID="gem-container">
         {isNumberVisible ? (
           <View style={[circle, gems]} testID="gem-image">
             <Text h={'h4'} title={planNumber.toString()} oneColor={gray} />
@@ -33,7 +33,7 @@ const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
         ) : (
           <View style={[styles.imgStyle, { zIndex: player?.id }]}>
             {source && (
-              <Image style={gems} source={source} testID="gem-image" />
+              <Image style={gems} source={source} testID="player-gem-image" />
             )}
           </View>
         )}

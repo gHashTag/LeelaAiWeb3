@@ -48,7 +48,6 @@ function GameBoard({ players }: GameBoardProps) {
           styles.imageContainer,
           { width: curImageHeight * imgObj.aspect },
         ]}
-        testID="gem-container"
       >
         <Image
           source={imgObj.image}

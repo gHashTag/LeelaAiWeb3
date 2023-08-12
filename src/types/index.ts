@@ -9,7 +9,7 @@ export type RootStackParamList = {
 export interface Player {
   id: number
   plan: number
-  avatar: string
+  avatar: string | number
   previousPlan?: number
   isStart?: boolean
   isFinished?: boolean
