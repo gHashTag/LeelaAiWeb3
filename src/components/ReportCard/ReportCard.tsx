@@ -26,7 +26,11 @@ const ReportCard: React.FC<ReportCardProps> = ({
   return (
     // @ts-ignore
     <NeomorphView viewStyle={styles.card}>
-      <Pressable onPress={onPress} style={styles.container}>
+      <Pressable
+        onPress={onPress}
+        style={styles.container}
+        testID="report-card"
+      >
         <View style={styles.contentContainer}>
           <View style={styles.headerInfo}>
             <View style={styles.headerName}>
