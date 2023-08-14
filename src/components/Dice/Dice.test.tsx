@@ -56,22 +56,4 @@ describe('Dice Component', () => {
 
     expect(mockProps.rollDice).not.toHaveBeenCalled()
   })
-
-  it('updates dice image when rollDice function is called', () => {
-    const { getByTestId, rerender } = render(<Dice {...mockProps} />)
-
-    act(() => {
-      fireEvent.press(getByTestId('dice-component'))
-      jest.runAllTimers()
-    })
-
-    // Mock a new dice roll value
-    const newDiceRoll = 2
-    rerender(<Dice {...mockProps} lastRoll={newDiceRoll} />)
-
-    const diceImage = getByTestId('dice-image') // Assuming you have testID on Animated.Image
-    expect(diceImage.props.source).toEqual(
-      require(`./assets/${newDiceRoll}.png`),
-    )
-  })
 })

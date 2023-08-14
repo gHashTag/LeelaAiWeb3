@@ -81,7 +81,7 @@ const useLeelaGame = () => {
       const savedState = await AsyncStorage.getItem('leelaGameState')
       return savedState ? JSON.parse(savedState) : initialState
     } catch (error) {
-      captureException(error, 'Error retrieving state from AsyncStorage:')
+      captureException(error, 'getSavedState')
       return initialState
     }
   }
@@ -94,9 +94,15 @@ const useLeelaGame = () => {
 
   // Подписка на изменения стейта и сохранение в AsyncStorage
   useEffect(() => {
-    AsyncStorage.setItem('leelaGameState', JSON.stringify(state)).catch(
-      (error) => captureException(error, 'Error saving state to AsyncStorage:'),
-    )
+    const saveState = async () => {
+      try {
+        await AsyncStorage.setItem('leelaGameState', JSON.stringify(state))
+      } catch (error) {
+        captureException(error, 'saveState')
+      }
+    }
+
+    saveState()
   }, [state])
 
   const rollDice = () => {
