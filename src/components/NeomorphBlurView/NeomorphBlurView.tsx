@@ -56,6 +56,7 @@ const NeomorphBlurView: React.FC<NeomorphBlurViewProps> = ({
         ...viewStyle,
         backgroundColor,
       }}
+      testID="neomorph-blur-view"
     >
       <View style={viewStyle}>{children ? children : ''}</View>
     </NeomorphBlur>
