@@ -32,13 +32,13 @@ interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
   height?: number
 }
 
-interface ShadowViewProps {
+interface NeomorphShadowViewProps {
   children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
   viewStyle?: ViewProps
 }
 
-const ShadowView: React.FC<ShadowViewProps> = ({
+const NeomorphShadowView: React.FC<NeomorphShadowViewProps> = ({
   children,
   viewStyle,
   shadowStyle,
@@ -72,4 +72,4 @@ const styles = ScaledSheet.create({
   },
 })
 
-export { ShadowView }
+export { NeomorphShadowView }
