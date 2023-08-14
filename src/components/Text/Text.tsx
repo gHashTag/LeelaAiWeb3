@@ -10,8 +10,7 @@ import {
   useColorScheme,
 } from 'react-native'
 
-import { useTheme } from '@react-navigation/native'
-import { captureException, gray } from 'cons'
+import { gray } from 'cons'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
 export type hT = 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
@@ -31,7 +30,7 @@ export interface TxtT extends TextProps {
   testID: string
 }
 
-export const Text = memo<TxtT>(
+const Text = memo<TxtT>(
   ({
     h,
     colors,
@@ -42,36 +41,24 @@ export const Text = memo<TxtT>(
     testID,
     ...textProps
   }) => {
-    const {
-      colors: { text },
-    } = useTheme()
     const scheme = useColorScheme()
     const isDark = scheme === 'dark'
-    const curColor = oneColor
-      ? oneColor
-      : colors
-      ? isDark
-        ? colors.light
-        : colors.dark
-      : text
+
+    let curColor = oneColor
+    if (colors) {
+      curColor = isDark ? colors.dark : colors.light
+    }
 
     let hStyle: TextStyle | undefined
-    try {
-      if (
-        h &&
-        textStyles[h] &&
-        typeof textStyles[h] === 'object' &&
-        textStyles[h] !== null
-      ) {
-        // @ts-ignore
-        hStyle = { ...textStyles[h], color: curColor }
-      }
-    } catch (error) {
-      console.error(' ', error)
-      captureException(error, 'Text. Error spreading textStyles[h]:')
-      hStyle = undefined
+    if (h && textStyles[h]) {
+      // @ts-ignore
+      hStyle = { ...textStyles[h], color: curColor }
     }
-    const mergedStyles = StyleSheet.flatten([hStyle, textStyle])
+
+    const mergedStyles: StyleProp<TextStyle> = StyleSheet.flatten([
+      hStyle,
+      textStyle,
+    ])
 
     return (
       <RNText
@@ -122,3 +109,5 @@ export const textStyles = ScaledSheet.create({
     fontSize: Platform.OS === 'ios' ? ms(12, 0.8) : s(15),
   },
 })
+
+export { Text }
