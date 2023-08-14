@@ -16,7 +16,11 @@ interface CenterViewProps {
 }
 
 const CenterView = ({ children, flex = 1, style }: CenterViewProps) => {
-  return <View style={[styles.main, { flex }, style]}>{children}</View>
+  return (
+    <View style={[styles.main, { flex }, style]} testID="center-view">
+      {children}
+    </View>
+  )
 }
 
 export { CenterView }
