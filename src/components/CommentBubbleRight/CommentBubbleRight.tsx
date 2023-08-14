@@ -59,7 +59,7 @@ const CommentBubbleRight: React.FC<CommentCardProps> = ({
               size={'medium'}
               plan={post.plan as number}
               isAccept={post.accept}
-              aditionalStyle={styles.img}
+              additionalStyle={styles.img}
               testID="avatar-bubble-right"
             />
           </View>

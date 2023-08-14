@@ -19,7 +19,7 @@ interface AvatarI {
   size: 'xLarge' | 'large' | 'medium' | 'small'
   avatar?: string
   isAccept?: boolean
-  aditionalStyle?: StyleProp<ImageStyle>
+  additionalStyle?: StyleProp<ImageStyle>
   onPress?: () => void
   testID: string
 }
@@ -29,7 +29,7 @@ const Avatar = memo<AvatarI>(
     size = 'medium',
     plan,
     avatar,
-    aditionalStyle,
+    additionalStyle,
     isAccept,
     onPress,
     testID,
@@ -48,12 +48,17 @@ const Avatar = memo<AvatarI>(
       <Pressable onPress={onPress} testID={testID}>
         <ImageBackground
           source={{ uri: avatar }}
-          style={[styles[size], styles.img, aditionalStyle]}
+          style={[styles[size], styles.img, additionalStyle]}
           imageStyle={styles.container}
         >
           <View style={[styles.badge, badgeS, { backgroundColor: background }]}>
             {!isAccept ? (
-              <Ionicons size={s(15)} color={orange} name="time-sharp" />
+              <Ionicons
+                size={s(15)}
+                color={orange}
+                name="time-sharp"
+                testID="time-icon"
+              />
             ) : (
               <Text
                 testID="avatar-title"

@@ -54,7 +54,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
                   size={'medium'}
                   plan={post.plan as number}
                   isAccept={post.accept}
-                  aditionalStyle={styles.img}
+                  additionalStyle={styles.img}
                   testID="report-card-avatar"
                 />
               </View>
