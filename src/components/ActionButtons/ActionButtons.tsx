@@ -40,6 +40,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
             ionicons
             name="ellipsis-vertical-circle"
             size={iconSize + 3}
+            testID="admin-menu-button"
           />
           <Space height={12} />
         </>
@@ -51,6 +52,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         ionicons
         name="chatbubble-outline"
         size={iconSize}
+        testID="comment-button"
       />
       <ButtonVectorIcon
         count={likeCount}
@@ -61,6 +63,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         viewStyle={styles.smallBtn}
         name={heart}
         size={iconSize}
+        testID={heart}
       />
       {/* <ButtonVectorIcon
         viewStyle={[styles.smallBtn, styles.nonDetailLinkButton]}

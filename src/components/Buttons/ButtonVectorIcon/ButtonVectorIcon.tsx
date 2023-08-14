@@ -20,6 +20,7 @@ interface ButtonVectorIconI {
   viewStyle?: StyleProp<ViewStyle>
   count?: number
   ionicons?: boolean
+  testID: string
   onPressIn?: () => void
 }
 
@@ -33,6 +34,7 @@ export function ButtonVectorIcon({
   count,
   ionicons,
   onPressIn,
+  testID,
 }: ButtonVectorIconI) {
   const scheme = useColorScheme()
   const colorTheme = scheme === 'dark' ? dimGray : gray
@@ -43,7 +45,7 @@ export function ButtonVectorIcon({
       style={viewStyle}
       onPress={onPress}
       onPressIn={onPressIn}
-      testID="button-link-container"
+      testID={testID}
     >
       {ionicons ? (
         <Ionicons

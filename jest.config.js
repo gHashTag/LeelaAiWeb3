@@ -19,4 +19,5 @@ module.exports = {
   },
   cacheDirectory: '.jest/cache',
   useESM: true,
+  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
 }
