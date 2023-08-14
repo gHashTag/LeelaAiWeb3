@@ -27,8 +27,13 @@ const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
     <Pressable onPress={onPress}>
       <View style={container} testID="gem-container">
         {isNumberVisible ? (
-          <View style={[circle, gems]} testID="gem-image">
-            <Text h={'h4'} title={planNumber.toString()} oneColor={gray} />
+          <View style={[circle, gems]} testID="gem-number">
+            <Text
+              h={'h4'}
+              title={planNumber.toString()}
+              oneColor={gray}
+              testID="gem-text"
+            />
           </View>
         ) : (
           <View style={[styles.imgStyle, { zIndex: player?.id }]}>

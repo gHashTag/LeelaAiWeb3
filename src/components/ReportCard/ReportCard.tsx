@@ -36,9 +36,15 @@ const ReportCard: React.FC<ReportCardProps> = ({
                   h={'h2'}
                   title={fullName}
                   ellipsizeMode="tail"
+                  testID="report-card-fullName"
                 />
                 <Space height={vs(8)} />
-                <Text h={'h3'} textStyle={styles.lightText} title={`${date}`} />
+                <Text
+                  h={'h3'}
+                  textStyle={styles.lightText}
+                  title={`${date}`}
+                  testID="report-card-date"
+                />
               </View>
 
               <View style={styles.avatarStyle}>
@@ -49,6 +55,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
                   plan={post.plan as number}
                   isAccept={post.accept}
                   aditionalStyle={styles.img}
+                  testID="report-card-avatar"
                 />
               </View>
             </View>
@@ -59,6 +66,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
               textStyle={styles.lightText}
               title={post.text || ' '}
               numberOfLines={4}
+              testID="report-card-postText"
             />
           </View>
           <ActionButtons

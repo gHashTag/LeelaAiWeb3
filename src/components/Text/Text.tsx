@@ -28,6 +28,7 @@ export interface TxtT extends TextProps {
   oneColor?: string
   numberOfLines?: number
   textStyle?: StyleProp<TextStyle>
+  testID: string
 }
 
 export const Text = memo<TxtT>(
@@ -38,6 +39,7 @@ export const Text = memo<TxtT>(
     oneColor = gray,
     numberOfLines,
     textStyle,
+    testID,
     ...textProps
   }) => {
     const {
@@ -75,7 +77,7 @@ export const Text = memo<TxtT>(
       <RNText
         style={mergedStyles}
         {...textProps}
-        testID="text-component"
+        testID={testID}
         ellipsizeMode="tail"
         numberOfLines={numberOfLines}
       >

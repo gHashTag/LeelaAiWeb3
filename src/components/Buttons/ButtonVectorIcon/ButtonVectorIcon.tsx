@@ -39,7 +39,12 @@ export function ButtonVectorIcon({
   const summaryIconSize = iconSize ? iconSize : size
   const summaryIoniconsSize = iconSize ? iconSize + s(2) : size + s(2)
   return (
-    <Pressable style={viewStyle} onPress={onPress} onPressIn={onPressIn}>
+    <Pressable
+      style={viewStyle}
+      onPress={onPress}
+      onPressIn={onPressIn}
+      testID="button-link-container"
+    >
       {ionicons ? (
         <Ionicons
           name={name}
@@ -63,6 +68,7 @@ export function ButtonVectorIcon({
               styles.fontStyle,
               { fontSize: size, color: colorTheme },
             ]}
+            testID="button-link-title"
           />
         </>
       )}

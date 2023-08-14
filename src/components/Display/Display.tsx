@@ -13,7 +13,12 @@ const Display: React.FC<DisplayProps> = ({ title }) => {
   return (
     // @ts-ignore
     <NeomorphFlexView viewStyle={styles.container}>
-      <Text title={t(title)} h={'h3'} textStyle={styles.dateStyle} />
+      <Text
+        title={t(title)}
+        h={'h3'}
+        textStyle={styles.dateStyle}
+        testID="display-text"
+      />
     </NeomorphFlexView>
   )
 }

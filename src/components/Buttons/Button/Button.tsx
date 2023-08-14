@@ -38,6 +38,7 @@ const Button = memo<ButtonT>(({ title, onPress, textStyle }) => {
         // @ts-ignore
         <NeomorphFlexView viewStyle={styles.card}>
           <Text
+            testID="button-container"
             h="h1"
             textStyle={[h, textStyle]}
             title={title}
@@ -47,7 +48,12 @@ const Button = memo<ButtonT>(({ title, onPress, textStyle }) => {
       ) : (
         // @ts-ignore
         <NeomorphView viewStyle={styles.card}>
-          <Text h="h1" textStyle={[h, textStyle]} title={title} />
+          <Text
+            h="h1"
+            textStyle={[h, textStyle]}
+            title={title}
+            testID="button-title"
+          />
         </NeomorphView>
       )}
     </Pressable>

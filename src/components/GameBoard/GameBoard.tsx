@@ -59,7 +59,11 @@ function GameBoard({ players }: GameBoardProps) {
             {rows.map((a, i) => (
               <View style={styles.row} key={i}>
                 {a.map((b, index) => (
-                  <View key={index} style={styles.box}>
+                  <View
+                    key={index}
+                    style={styles.box}
+                    testID={`gem-${getPlayer(b)?.id}`}
+                  >
                     <Gem player={getPlayer(b)} planNumber={b} />
                   </View>
                 ))}

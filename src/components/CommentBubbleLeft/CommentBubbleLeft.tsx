@@ -28,7 +28,7 @@ const CommentBubbleLeft: React.FC<CommentCardProps> = ({
   return (
     <NeomorphFlexView>
       <View style={styles.container}>
-        <Pressable onPress={onPress}>
+        <Pressable onPress={onPress} testID="comment-bubble-left-container">
           <View style={styles.bubbleStyle}>
             <Avatar
               avatar={avatar}
@@ -37,12 +37,14 @@ const CommentBubbleLeft: React.FC<CommentCardProps> = ({
               plan={post.plan as number}
               isAccept={post.accept}
               aditionalStyle={styles.img}
+              testID="avatar-bubble-left"
             />
             <View style={styles.headerName}>
               <Text
                 h={'h4'}
                 textStyle={styles.lightText}
                 title={post.text || ' '}
+                testID="comment-bubble-left-comment"
               />
               <Space height={vs(5)} />
               <Text
@@ -50,9 +52,15 @@ const CommentBubbleLeft: React.FC<CommentCardProps> = ({
                 h={'h4'}
                 numberOfLines={1}
                 textStyle={styles.nameStyle}
+                testID="comment-bubble-left-fullName"
               />
               <View style={styles.headerName}>
-                <Text title={date} h={'h5'} textStyle={styles.dateStyle} />
+                <Text
+                  title={date}
+                  h={'h5'}
+                  textStyle={styles.dateStyle}
+                  testID="comment-bubble-left-date"
+                />
               </View>
             </View>
           </View>

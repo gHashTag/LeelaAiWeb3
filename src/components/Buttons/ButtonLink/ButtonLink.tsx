@@ -20,8 +20,17 @@ const ButtonLink = memo<ButtonLinkT>(
     const { container, h } = styles
 
     return (
-      <Pressable onPress={onPress} style={[container, viewStyle]}>
-        <Text h={'h4'} title={title} textStyle={[h, textStyle]} />
+      <Pressable
+        onPress={onPress}
+        style={[container, viewStyle]}
+        testID="button-link-container"
+      >
+        <Text
+          h={'h4'}
+          title={title}
+          textStyle={[h, textStyle]}
+          testID="button-link-title"
+        />
       </Pressable>
     )
   },
