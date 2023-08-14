@@ -13,7 +13,7 @@ interface ButtonEditT {
 
 const ButtonEdit = ({ onPress, viewStyle }: ButtonEditT) => {
   return (
-    <Pressable onPress={onPress} style={viewStyle}>
+    <Pressable onPress={onPress} style={viewStyle} testID="button-edit">
       <Image style={styles.img} source={require('./edit.png')} />
     </Pressable>
   )

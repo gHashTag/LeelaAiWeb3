@@ -9,7 +9,6 @@ import { Text, NeomorphView, NeomorphFlexView } from '../..' // Подключи
 
 interface ButtonT {
   title: string
-  cancel?: boolean
   onPress?: () => void
   textStyle?: StyleProp<TextStyle>
 }
@@ -30,6 +29,7 @@ const Button = memo<ButtonT>(({ title, onPress, textStyle }) => {
 
   return (
     <Pressable
+      onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       style={styles.container}
