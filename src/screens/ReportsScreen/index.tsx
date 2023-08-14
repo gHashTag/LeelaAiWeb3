@@ -4,10 +4,12 @@ import { FlatList, View } from 'react-native'
 
 import { Space, ReportCard, Display } from 'components'
 import { mockedCommentDataArray } from 'cons/mockdata'
+import { useTranslation } from 'react-i18next'
 import { ScaledSheet } from 'react-native-size-matters'
 import { ReportCardProps } from 'types'
 
 const ReportsScreen: React.FC = () => {
+  const { t } = useTranslation()
   const renderItem = ({ item }: { item: ReportCardProps }) => (
     <>
       <ReportCard {...item} />
@@ -17,7 +19,7 @@ const ReportsScreen: React.FC = () => {
 
   const header = () => (
     <>
-      <Display title={'sixToBegin'} />
+      <Display title={t('sixToBegin')} />
       <Space height={20} />
     </>
   )
