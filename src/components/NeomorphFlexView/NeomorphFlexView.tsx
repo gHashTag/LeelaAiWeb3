@@ -37,12 +37,14 @@ interface NeomorphFlexViewProps {
   children: React.ReactNode
   shadowStyle?: ViewStyleWithShadow
   viewStyle?: ViewStyleWithShadow
+  borderRadius?: number
 }
 
 const NeomorphFlexView: React.FC<NeomorphFlexViewProps> = ({
   children,
   viewStyle,
   shadowStyle,
+  borderRadius = 40,
 }) => {
   const { dark } = useTheme()
   const backgroundColor = dark ? black : lightGray
@@ -55,16 +57,16 @@ const NeomorphFlexView: React.FC<NeomorphFlexViewProps> = ({
         ...shadowStyle,
         ...viewStyle,
         backgroundColor,
+        borderRadius,
       }}
     >
-      <View style={viewStyle}>{children}</View>
+      <View style={{ ...viewStyle, borderRadius }}>{children}</View>
     </NeomorphFlex>
   )
 }
 
 const styles = ScaledSheet.create({
   container: {
-    borderRadius: 40,
     shadowRadius: 5,
     marginHorizontal: 40,
   },

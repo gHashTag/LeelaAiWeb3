@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { View, TextInput } from 'react-native'
 
-import { NeomorphView, NeomorphFlexView } from 'components' // Подключите необходимые компоненты
+import { NeomorphView, NeomorphFlexView } from 'components'
 import { gray } from 'cons'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { View } from 'react-native'
 
-import { Space, TextInputField, Button, Text } from 'components'
-import { red } from 'cons'
+import { Space, TextInputField, Button, Text, Avatar } from 'components'
+import { getImagePicker, red } from 'cons'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { ScaledSheet } from 'react-native-size-matters'
@@ -17,6 +17,7 @@ interface FormData {
 
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
+  const [avatar, setAvatar] = useState<string | null>(null)
   const {
     control,
     handleSubmit,
@@ -25,9 +26,28 @@ const UserScreen: React.FC = () => {
 
   const onSubmit = (data: FormData) => console.log('data', data)
 
+  const chooseAvatarImage = async () => {
+    try {
+      const image = await getImagePicker()
+      console.log('image', image)
+      setAvatar(image?.path || null)
+    } catch (error) {
+      console.error('Error selecting image:', error)
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Space height={200} />
+      <Avatar
+        plan={1}
+        size="xLarge"
+        avatar={avatar || ''}
+        isAccept={false}
+        showIcon={false}
+        onPress={chooseAvatarImage}
+      />
+      <Space height={40} />
       <Controller
         control={control}
         name="firstName"
