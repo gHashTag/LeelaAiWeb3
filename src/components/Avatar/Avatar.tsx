@@ -107,9 +107,9 @@ const Avatar = memo<AvatarI>(
 const styles = ScaledSheet.create({
   xLarge: {
     marginLeft: 1,
-    width: ms(130),
-    height: ms(130),
-    borderRadius: s(130),
+    width: ms(134),
+    height: ms(134),
+    borderRadius: s(70),
     justifyContent: 'center',
   },
   card: {
@@ -117,7 +117,7 @@ const styles = ScaledSheet.create({
     height: ms(130, 0.9),
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: s(65),
+    borderRadius: s(70),
   },
   large: {
     marginLeft: 1,

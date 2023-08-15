@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { View } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Space, TextInputField, Text, Avatar, Button } from 'components'
 import { red } from 'cons'
-import { useChooseAvatarImage } from 'hooks'
+import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -31,9 +31,11 @@ const schema = Yup.object().shape({
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
   const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
+  const { profileData, setProfileData } = useProfile()
   const {
     control,
     handleSubmit,
+    setValue, // Добавляем setValue из react-hook-form
     formState: { errors },
   } = useForm<FormData>({
     mode: 'onBlur',
@@ -46,8 +48,24 @@ const UserScreen: React.FC = () => {
     resolver: yupResolver(schema),
   })
 
-  const onSubmit = _.debounce((data) => {
-    console.log('data', data)
+  useEffect(() => {
+    setValue('firstName', profileData.firstName)
+    setValue('lastName', profileData.lastName)
+    setValue('email', profileData.email)
+    setValue('intention', profileData.intention)
+  }, [profileData, setValue])
+
+  const onSubmit = _.debounce(async (data) => {
+    try {
+      const newProfileData = {
+        ...data,
+        avatar: avatar || '',
+      }
+      const updatedProfileData = { ...data, avatar: newProfileData.avatar }
+      setProfileData(updatedProfileData)
+    } catch (error) {
+      console.error('Error submitting profile data:', error)
+    }
   }, 1000)
 
   return (
@@ -56,7 +74,7 @@ const UserScreen: React.FC = () => {
       <Avatar
         plan={1}
         size="xLarge"
-        avatar={avatar || ''}
+        avatar={profileData.avatar || ''}
         isAccept={false}
         showIcon={false}
         onPress={chooseAvatarImage}
