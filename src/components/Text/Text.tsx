@@ -28,6 +28,7 @@ export interface TxtT extends TextProps {
   numberOfLines?: number
   textStyle?: StyleProp<TextStyle>
   testID?: string
+  onPress?: () => void
 }
 
 const Text = memo<TxtT>(
@@ -39,6 +40,7 @@ const Text = memo<TxtT>(
     numberOfLines,
     textStyle,
     testID = 'text',
+    onPress,
     ...textProps
   }) => {
     const scheme = useColorScheme()
@@ -67,6 +69,7 @@ const Text = memo<TxtT>(
         testID={testID}
         ellipsizeMode="tail"
         numberOfLines={numberOfLines}
+        onPress={onPress}
       >
         {title}
       </RNText>

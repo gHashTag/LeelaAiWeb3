@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.0.2",
+    "@hookform/resolvers": "^3.2.0",
     "@react-native-async-storage/async-storage": "^1.19.1",
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/netinfo": "^9.4.1",
@@ -24,6 +25,7 @@
     "faker": "^6.6.6",
     "i18next": "^23.4.1",
     "iso-country": "^3.0.0",
+    "lodash": "^4.17.21",
     "patch-package": "^8.0.0",
     "react": "18.2.0",
     "react-hook-form": "^7.45.4",
@@ -46,7 +48,8 @@
     "react-native-system-navigation-bar": "^2.6.1",
     "react-native-vector-icons": "^10.0.0",
     "react-native-version-info": "^1.1.1",
-    "rn-fetch-blob": "^0.12.0"
+    "rn-fetch-blob": "^0.12.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -61,6 +64,7 @@
     "@testing-library/react-native": "^12.2.0",
     "@tsconfig/react-native": "^3.0.2",
     "@types/jest": "^29.5.3",
+    "@types/lodash": "^4.14.197",
     "@types/react": "^18.2.18",
     "@types/react-native-dotenv": "^0.2.0",
     "@types/react-native-vector-icons": "^6.4.13",

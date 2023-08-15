@@ -12,6 +12,29 @@ interface TextInputFieldProps {
   value: string
   onBlur: () => void
   onChangeText: (text: string) => void
+  inputMode?:
+    | 'decimal'
+    | 'email'
+    | 'none'
+    | 'numeric'
+    | 'search'
+    | 'tel'
+    | 'text'
+    | 'url'
+  keyboardType?:
+    | 'default'
+    | 'email-address'
+    | 'numeric'
+    | 'phone-pad'
+    | 'ascii-capable'
+    | 'numbers-and-punctuation'
+    | 'url'
+    | 'number-pad'
+    | 'name-phone-pad'
+    | 'decimal-pad'
+    | 'twitter'
+    | 'web-search'
+    | 'visible-password'
 }
 
 const TextInputField: React.FC<TextInputFieldProps> = ({
@@ -19,6 +42,8 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   value,
   onChangeText,
   multiline = false,
+  inputMode,
+  keyboardType,
 }) => {
   const inputComponent = (
     <View style={styles.container}>
@@ -29,6 +54,8 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
         value={value}
         onChangeText={onChangeText}
         style={styles.input}
+        inputMode={inputMode}
+        keyboardType={keyboardType}
       />
     </View>
   )

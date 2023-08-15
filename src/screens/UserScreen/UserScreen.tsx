@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 
 import { View } from 'react-native'
 
-import { Space, TextInputField, Button, Text, Avatar } from 'components'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Space, TextInputField, Text, Avatar, Button } from 'components'
 import { getImagePicker, red } from 'cons'
+import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { ScaledSheet } from 'react-native-size-matters'
+import * as Yup from 'yup'
 
 interface FormData {
   firstName: string
@@ -15,6 +18,15 @@ interface FormData {
   intention: string
 }
 
+const schema = Yup.object().shape({
+  firstName: Yup.string().required('FirstName field is required'),
+  lastName: Yup.string().required('LastName field is required'),
+  email: Yup.string()
+    .required('E-mail field is required')
+    .email('Invalid email format'),
+  intention: Yup.string().required('Intention field is required'),
+})
+
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
   const [avatar, setAvatar] = useState<string | null>(null)
@@ -22,9 +34,20 @@ const UserScreen: React.FC = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({ mode: 'onBlur' })
+  } = useForm<FormData>({
+    mode: 'onBlur',
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      intention: '',
+    },
+    resolver: yupResolver(schema),
+  })
 
-  const onSubmit = (data: FormData) => console.log('data', data)
+  const onSubmit = _.debounce((data) => {
+    console.log('data', data)
+  }, 1000)
 
   const chooseAvatarImage = async () => {
     try {
@@ -37,7 +60,7 @@ const UserScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Space height={200} />
+      <Space height={150} />
       <Avatar
         plan={1}
         size="xLarge"
@@ -46,106 +69,101 @@ const UserScreen: React.FC = () => {
         showIcon={false}
         onPress={chooseAvatarImage}
       />
-      <Space height={40} />
-      <Controller
-        control={control}
-        name="firstName"
-        render={({ field: { onChange, value, onBlur } }) => (
-          <TextInputField
-            placeholder={t('auth.firstName')}
-            multiline
-            value={value}
-            onBlur={onBlur}
-            onChangeText={(val) => onChange(val)}
-          />
-        )}
-        rules={{
-          required: {
-            value: true,
-            message: t('requireField'),
-          },
-        }}
-      />
-      <Space height={20} />
+      <Space height={25} />
 
       <Controller
         control={control}
+        rules={{ required: true }}
+        name="firstName"
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInputField
+            placeholder={t('auth.firstName')}
+            multiline
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+          />
+        )}
+      />
+      <Space height={20} />
+      <Controller
+        control={control}
         name="lastName"
-        render={({ field: { onChange, value, onBlur } }) => (
+        rules={{ required: true }}
+        render={({ field: { onChange, onBlur, value } }) => (
           <TextInputField
             placeholder={t('auth.lastName')}
             multiline
-            value={value}
             onBlur={onBlur}
-            onChangeText={(val) => onChange(val)}
+            onChangeText={onChange}
+            value={value}
           />
         )}
-        rules={{
-          required: {
-            value: true,
-            message: t('requireField'),
-          },
-        }}
       />
-      <Space height={20} />
+      <Space height={10} />
 
       <Controller
         control={control}
         name="email"
-        render={({ field: { onChange, value, onBlur } }) => (
+        rules={{ required: true }}
+        render={({ field: { onChange, onBlur, value } }) => (
           <TextInputField
             placeholder={t('auth.email')}
             multiline
-            value={value}
             onBlur={onBlur}
-            onChangeText={(val) => onChange(val)}
+            onChangeText={onChange}
+            value={value}
+            inputMode="email"
+            keyboardType="email-address"
           />
         )}
-        rules={{
-          required: {
-            value: true,
-            message: t('requireField'),
-          },
-          pattern: {
-            value: /\S+@\S+\.\S+/,
-            message: t('invalidEmail'),
-          },
-        }}
       />
       <Space height={20} />
-
       <Controller
         control={control}
         name="intention"
-        render={({ field: { onChange, value, onBlur } }) => (
+        rules={{ required: true }}
+        render={({ field: { onChange, onBlur, value } }) => (
           <TextInputField
             placeholder={t('intention')}
             multiline
-            value={value}
             onBlur={onBlur}
-            onChangeText={(val) => onChange(val)}
+            onChangeText={onChange}
+            value={value}
           />
         )}
-        rules={{
-          required: {
-            value: true,
-            message: t('requireField'),
-          },
-        }}
       />
       <Space height={20} />
 
       <View style={styles.btnStyle}>
         {errors.firstName && (
-          <>
-            <Text
-              h={'h3'}
-              title={String(errors.firstName.message)}
-              oneColor={red}
-            />
-            <Space height={15} />
-          </>
+          <Text
+            h={'h3'}
+            title={String(errors.firstName.message)}
+            oneColor={red}
+          />
         )}
+        <Space height={5} />
+        {errors.lastName && (
+          <Text
+            h={'h3'}
+            title={String(errors.lastName.message)}
+            oneColor={red}
+          />
+        )}
+        <Space height={5} />
+        {errors.email && (
+          <Text h={'h3'} title={String(errors.email.message)} oneColor={red} />
+        )}
+        <Space height={5} />
+        {errors.intention && (
+          <Text
+            h={'h3'}
+            title={String(errors.intention.message)}
+            oneColor={red}
+          />
+        )}
+        <Space height={15} />
 
         <Button title={t('auth.signIn')} onPress={handleSubmit(onSubmit)} />
       </View>
