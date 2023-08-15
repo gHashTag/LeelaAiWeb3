@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "تسجيل الدخول",
     "signUp": "إنشاء حساب",
     "signOut": "تسجيل الخروج",

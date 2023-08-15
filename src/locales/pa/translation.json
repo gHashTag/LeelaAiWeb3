@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "ਸਾਇਨ ਇਨ",
     "signUp": "ਸਾਇਨ ਅੱਪ",
     "signOut": "ਸਾਇਨ ਆਊਟ",

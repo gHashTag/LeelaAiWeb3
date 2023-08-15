@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "سائن ان کریں",
     "signUp": "سائن اپ کریں",
     "signOut": "سائن آؤٹ کریں",

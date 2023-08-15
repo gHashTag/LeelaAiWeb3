@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { View, TextInput } from 'react-native'
 
-import { NeomorphView, NeomorphFlexView } from 'components'
+import { NeomorphFlexView } from 'components'
 import { gray } from 'cons'
 import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
@@ -17,57 +17,27 @@ interface TextInputFieldProps {
 const TextInputField: React.FC<TextInputFieldProps> = ({
   placeholder,
   value,
-  onBlur,
   onChangeText,
   multiline = false,
 }) => {
-  const [isFocused, setIsFocused] = useState(false)
-
-  const handleBlur = () => {
-    setIsFocused(false)
-    onBlur && onBlur()
-  }
-
-  const handleFocus = () => {
-    setIsFocused(true)
-  }
+  const inputComponent = (
+    <View style={styles.container}>
+      <TextInput
+        placeholder={placeholder}
+        placeholderTextColor={gray}
+        multiline={multiline}
+        value={value}
+        onChangeText={onChangeText}
+        style={styles.input}
+      />
+    </View>
+  )
 
   return (
-    <View>
-      {isFocused ? (
-        //@ts-ignore
-        <NeomorphFlexView viewStyle={styles.card}>
-          <View style={styles.container}>
-            <TextInput
-              placeholder={placeholder}
-              placeholderTextColor={gray}
-              multiline={multiline}
-              value={value}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onChangeText={onChangeText}
-              style={styles.input}
-            />
-          </View>
-        </NeomorphFlexView>
-      ) : (
-        //@ts-ignore
-        <NeomorphView viewStyle={styles.card}>
-          <View style={styles.container}>
-            <TextInput
-              placeholder={placeholder}
-              placeholderTextColor={gray}
-              multiline={multiline}
-              value={value}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onChangeText={onChangeText}
-              style={styles.input}
-            />
-          </View>
-        </NeomorphView>
-      )}
-    </View>
+    // @ts-ignore
+    <NeomorphFlexView viewStyle={styles.card}>
+      {inputComponent}
+    </NeomorphFlexView>
   )
 }
 

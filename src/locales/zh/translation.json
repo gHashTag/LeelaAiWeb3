@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "登錄",
     "signUp": "註冊",
     "signOut": "登出",

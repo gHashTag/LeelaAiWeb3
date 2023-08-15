@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "Oturum Aç",
     "signUp": "Kaydol",
     "signOut": "Oturumu Kapat",

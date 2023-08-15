@@ -29,7 +29,6 @@ const UserScreen: React.FC = () => {
   const chooseAvatarImage = async () => {
     try {
       const image = await getImagePicker()
-      console.log('image', image)
       setAvatar(image?.path || null)
     } catch (error) {
       console.error('Error selecting image:', error)
@@ -95,7 +94,7 @@ const UserScreen: React.FC = () => {
         name="email"
         render={({ field: { onChange, value, onBlur } }) => (
           <TextInputField
-            placeholder={t('email')}
+            placeholder={t('auth.email')}
             multiline
             value={value}
             onBlur={onBlur}

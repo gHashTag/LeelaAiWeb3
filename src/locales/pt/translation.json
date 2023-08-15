@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "Entrar",
     "signUp": "Inscrever-se",
     "signOut": "Sair",

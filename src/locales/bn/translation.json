@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "সাইন ইন করুন",
     "signUp": "নিবন্ধন করুন",
     "signOut": "সাইন আউট করুন",

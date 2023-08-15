@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "로그인",
     "signUp": "회원 가입",
     "signOut": "로그아웃",

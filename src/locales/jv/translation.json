@@ -1,5 +1,6 @@
 {
   "auth": {
+    "email": "E-mail",
     "signIn": "Gabung",
     "signUp": "Daftar",
     "signOut": "Keluar",
