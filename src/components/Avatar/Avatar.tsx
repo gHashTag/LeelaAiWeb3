@@ -21,7 +21,7 @@ interface AvatarI {
   isAccept?: boolean
   additionalStyle?: StyleProp<ImageStyle>
   onPress?: () => void
-  testID: string
+  testID?: string
 }
 
 const Avatar = memo<AvatarI>(
@@ -32,7 +32,7 @@ const Avatar = memo<AvatarI>(
     additionalStyle,
     isAccept,
     onPress,
-    testID,
+    testID = 'avatar',
   }) => {
     const {
       colors: { background },

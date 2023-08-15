@@ -27,7 +27,7 @@ export interface TxtT extends TextProps {
   oneColor?: string
   numberOfLines?: number
   textStyle?: StyleProp<TextStyle>
-  testID: string
+  testID?: string
 }
 
 const Text = memo<TxtT>(
@@ -38,7 +38,7 @@ const Text = memo<TxtT>(
     oneColor = gray,
     numberOfLines,
     textStyle,
-    testID,
+    testID = 'text',
     ...textProps
   }) => {
     const scheme = useColorScheme()

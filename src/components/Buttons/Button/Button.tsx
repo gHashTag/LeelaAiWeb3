@@ -66,6 +66,7 @@ const styles = ScaledSheet.create({
     height: ms(60, 0.9),
   },
   h: {
+    top: 3,
     textAlign: 'center',
   },
   card: {

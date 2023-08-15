@@ -18,7 +18,13 @@ import {
   secondary,
   white,
 } from './cons'
-import { GameScreen, PlanScreen, ReportScreen, ReportsScreen } from './screens'
+import {
+  GameScreen,
+  PlanScreen,
+  ReportScreen,
+  ReportsScreen,
+  UserScreen,
+} from './screens'
 import { RootStackParamList } from './types'
 
 const DarkTheme = {
@@ -65,7 +71,7 @@ const App = () => {
   return (
     <NavigationContainer ref={navRef} theme={theme}>
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="GAME_SCREEN">
+      <Stack.Navigator initialRouteName="USER_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
@@ -79,6 +85,7 @@ const App = () => {
           <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
           <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />
           <Stack.Screen name="UI_KIT_SCREEN" component={UiKit} />
+          <Stack.Screen name="USER_SCREEN" component={UserScreen} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
