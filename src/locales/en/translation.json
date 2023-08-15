@@ -78,7 +78,6 @@
   "placeholderReport": "Make a plan report",
   "clearly": "clearly",
   "profile": "Profile",
-  "intention": "Intention",
   "anonymous": "Anonymous",
 
   "clips": "Clips",
@@ -123,5 +122,11 @@
   "arrows": "Player {{currentPlayer}} landed on an arrow and moves from square {{from}} to square {{to}} after rolling {{roll}}.",
   "stay": "Player {{currentPlayer}} rolled {{roll}}, which goes beyond the game board. They stay in place.",
   "moveMessage": "Player {{currentPlayer}} moves from square {{from}} to square {{to}} after rolling {{roll}}.",
-  "finish": "Player {{currentPlayer}} reached the victory square and finished the game. Congratulations!!!"
+  "finish": "Player {{currentPlayer}} reached the victory square and finished the game. Congratulations!!!",
+  "required": "{{field}} field is required",
+  "email": "Invalid email format",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "e-mail": "E-mail",
+  "intention": "Intention"
 }

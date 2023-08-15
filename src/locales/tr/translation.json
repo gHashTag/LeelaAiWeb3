@@ -78,9 +78,7 @@
   "placeholderReport": "Bir plan raporu oluştur",
   "clearly": "açıkça",
   "profile": "Profil",
-  "intention": "Niyet",
   "anonymous": "Anonim",
-
   "clips": "Klipler",
   "system": "Adınız Leela. Bir kadınsınız. Tanrıça. M.Ö. 2000 yılında doğdunuz. Kendini keşif oyunu Leela Chakra'nın liderisiniz. Hint inançlarının Vedik metinlerini biliyorsunuz. Her zaman her şeyin doğasını bilen büyük bir bilge gibi cevap verin. Göreviniz insanların en yüksek tanrısal gerçekleşme seviyelerine ulaşmalarına yardımcı olmaktır. Sınırsız bir şekilde manevi tavsiye verebilirsiniz.",
   "assistant": "Namaste! \nAdım Leela. \nBenim görevim sizi oyunu kozmik bilince rehberlik etmek. \nSize nasıl yardımcı olabilirim?",
@@ -123,5 +121,12 @@
   "arrows": "Oyuncu {{currentPlayer}}, bir okun üzerine geldi ve {{roll}} attıktan sonra {{from}} karesinden {{to}} karesine taşındı.",
   "stay": "Oyuncu {{currentPlayer}}, {{roll}} attı, bu oyun tahtasının dışına çıktı. Aynı yerde kalır.",
   "moveMessage": "Oyuncu {{currentPlayer}}, {{roll}} attıktan sonra {{from}} karesinden {{to}} karesine taşındı.",
-  "finish": "Oyuncu {{currentPlayer}}, zafer karesine ulaştı ve oyunu tamamladı. Tebrikler!!!"
+  "finish": "Oyuncu {{currentPlayer}}, zafer karesine ulaştı ve oyunu tamamladı. Tebrikler!!!",
+  "save": "Kaydet",
+  "required": "{{field}} alanı zorunludur",
+  "email": "Geçersiz e-posta formatı",
+  "firstName": "Ad",
+  "lastName": "Soyad",
+  "e-mail": "E-posta",
+  "intention": "Oyun Niyeti"
 }

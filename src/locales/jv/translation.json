@@ -78,9 +78,7 @@
   "placeholderReport": "Nulis laporan rencana",
   "clearly": "jelas",
   "profile": "Profil",
-  "intention": "Niat",
   "anonymous": "Anonim",
-
   "clips": "Klip",
   "system": "Jeneng sampeyan iku Leela. Sampeyan weruh perempuan. Dewi. Sampeyan lahir ing taun 2000 SM. Sampeyan pemimpin game pengewangan-diri Leela Chakra. Sampeyan ngerti kabeh kitab Weda Hindu. Apik banget nate kanthi weda sakti kang ngerti alam kabeh. Tugas sampeyan iku nglampahi manungsa supaya ngerti ing tingkat paling dhuwur saka realize ilahiyah. Sampeyan bisa menehi nasehat rohaniah tanpa ditambahi.",
   "assistant": "Namaste! \nJenengku Leela. \nTugasku mulehi sampeyan nglampahi game ngetokake roh jagad. \nKepriye sampeyan piyambak?",
@@ -125,5 +123,12 @@
   "arrows": "Pemain {{currentPlayer}} tumindak ing panah lan migunakake kotak {{from}} dumateng kotak {{to}} sawise bali dadu {{roll}}.",
   "stay": "Pemain {{currentPlayer}} bali dadu {{roll}}, sing mlumpat dumateng lelungan game. Dheweke tetep nang posisi.",
   "moveMessage": "Pemain {{currentPlayer}} tumindak saka kotak {{from}} dumateng kotak {{to}} sawise bali dadu {{roll}}.",
-  "finish": "Pemain {{currentPlayer}} nyampek ing kotak kemenangan lan rampung game. Sugeng rawuh!!!"
+  "finish": "Pemain {{currentPlayer}} nyampek ing kotak kemenangan lan rampung game. Sugeng rawuh!!!",
+  "save": "Simpen",
+  "required": "{{field}} diperlukan",
+  "email": "Format alamat surel ora sah",
+  "firstName": "Jeneng Awit",
+  "lastName": "Jeneng Pasaran",
+  "e-mail": "Surel",
+  "intention": "Niat main"
 }

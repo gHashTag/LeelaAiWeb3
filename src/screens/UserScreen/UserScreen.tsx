@@ -19,23 +19,36 @@ interface FormData {
   intention: string
 }
 
-const schema = Yup.object().shape({
-  firstName: Yup.string().required('FirstName field is required'),
-  lastName: Yup.string().required('LastName field is required'),
-  email: Yup.string()
-    .required('E-mail field is required')
-    .email('Invalid email format'),
-  intention: Yup.string().required('Intention field is required'),
-})
+const validationFieldNames = {
+  firstName: 'First Name',
+  lastName: 'Last Name',
+  email: 'E-mail',
+  intention: 'Intention',
+}
 
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
+  const schema = Yup.object().shape({
+    firstName: Yup.string().required(
+      t('required', { field: t(validationFieldNames.firstName) }),
+    ),
+    lastName: Yup.string().required(
+      t('required', { field: t(validationFieldNames.lastName) }),
+    ),
+    email: Yup.string()
+      .required(t('required', { field: t(validationFieldNames.email) }))
+      .email(t('email')),
+    intention: Yup.string().required(
+      t('required', { field: t(validationFieldNames.intention) }),
+    ),
+  })
+
   const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
   const { profileData, setProfileData } = useProfile()
   const {
     control,
     handleSubmit,
-    setValue, // Добавляем setValue из react-hook-form
+    setValue,
     formState: { errors },
   } = useForm<FormData>({
     mode: 'onBlur',
@@ -176,7 +189,7 @@ const UserScreen: React.FC = () => {
         )}
         <Space height={15} />
 
-        <Button title={t('auth.signIn')} onPress={handleSubmit(onSubmit)} />
+        <Button title={t('save')} onPress={handleSubmit(onSubmit)} />
       </View>
       <Space height={150} />
     </View>

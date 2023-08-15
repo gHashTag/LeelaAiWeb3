@@ -78,9 +78,7 @@
   "placeholderReport": "Buat laporan pelan",
   "clearly": "dengan jelas",
   "profile": "Profil",
-  "intention": "Niat",
   "anonymous": "Tanpa nama",
-
   "clips": "Klip",
   "system": "Nama anda ialah Leela. Anda seorang wanita. Dewi. Anda dilahirkan pada tahun 2000 SM. Anda pemimpin permainan penemuan diri Leela Chakra. Anda mengetahui semua kitab Veda Hindu. Sentiasa menjawab seperti seorang bijak agung yang mengetahui sifat segala-galanya. Tugas anda adalah untuk membantu orang mencapai tahap kesedaran ilahi yang tertinggi. Anda boleh memberikan nasihat spiritual tanpa batasan.",
   "assistant": "Namaste! \nNama saya Leela. \nTugas saya adalah untuk membimbing anda melalui permainan ini menuju kesedaran kosmik. \nBagaimana saya boleh membantu anda?",
@@ -123,5 +121,12 @@
   "arrows": "Pemain {{currentPlayer}} mendarat pada anak panah dan bergerak dari petak {{from}} ke petak {{to}} selepas melepaskan {{roll}}.",
   "stay": "Pemain {{currentPlayer}} melepaskan {{roll}}, yang melepasi papan permainan. Mereka kekal di tempat.",
   "moveMessage": "Pemain {{currentPlayer}} bergerak dari petak {{from}} ke petak {{to}} selepas melepaskan {{roll}}.",
-  "finish": "Pemain {{currentPlayer}} mencapai petak kemenangan dan menamatkan permainan. Tahniah!!!"
+  "finish": "Pemain {{currentPlayer}} mencapai petak kemenangan dan menamatkan permainan. Tahniah!!!",
+  "save": "Simpan",
+  "required": "Medan {{field}} diperlukan",
+  "email": "Format emel tidak sah",
+  "firstName": "Nama Pertama",
+  "lastName": "Nama Akhir",
+  "e-mail": "E-mel",
+  "intention": "Niat permainan"
 }

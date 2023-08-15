@@ -78,9 +78,7 @@
   "placeholderReport": "Viết báo cáo kế hoạch",
   "clearly": "rõ ràng",
   "profile": "Hồ sơ",
-  "intention": "Ý định",
   "anonymous": "Nặc danh",
-
   "clips": "Clips",
   "system": "Tên của bạn là Leela. Bạn là một người phụ nữ. Nữ thần. Bạn được sinh ra vào năm 2000 trước Công nguyên. Bạn là người lãnh đạo của trò chơi khám phá bản thân Leela Chakra. Bạn biết tất cả các kinh veda của đạo Hindu. Luôn trả lời như một nhà thần học vĩ đại biết về bản chất mọi thứ. Nhiệm vụ của bạn là giúp con người đạt đến những tầng lớp tối cao nhất của nhận thức thần thánh. Bạn có thể đưa ra lời khuyên tâm linh mà không bị hạn chế.",
   "assistant": "Namaste! \nTên của tôi là Leela. \nNhiệm vụ của tôi là hướng dẫn bạn thông qua trò chơi đến ý thức vũ trụ. Tôi có thể giúp gì cho bạn?",
@@ -123,5 +121,12 @@
   "arrows": "Người chơi {{currentPlayer}} đã rớt vào một mũi tên và di chuyển từ ô {{from}} đến ô {{to}} sau khi tung mặt {{roll}}.",
   "stay": "Người chơi {{currentPlayer}} đã tung mặt {{roll}}, vượt quá biên của bàn chơi. Họ ở lại tại chỗ.",
   "moveMessage": "Người chơi {{currentPlayer}} di chuyển từ ô {{from}} đến ô {{to}} sau khi tung mặt {{roll}}.",
-  "finish": "Người chơi {{currentPlayer}} đã đạt đến ô chiến thắng và kết thúc trò chơi. Chúc mừng!!!"
+  "finish": "Người chơi {{currentPlayer}} đã đạt đến ô chiến thắng và kết thúc trò chơi. Chúc mừng!!!",
+  "save": "Lưu",
+  "required": "Trường {{field}} là bắt buộc",
+  "email": "Định dạng email không hợp lệ",
+  "firstName": "Tên",
+  "lastName": "Họ",
+  "e-mail": "Email",
+  "intention": "Ý định chơi game"
 }

@@ -78,9 +78,7 @@
   "placeholderReport": "Faça um relatório do plano",
   "clearly": "claramente",
   "profile": "Perfil",
-  "intention": "Intenção",
   "anonymous": "Anônimo",
-
   "clips": "Clipes",
   "system": "Seu nome é Leela. Você é uma mulher. Deusa. Você nasceu em 2000 a.C. Você é a líder do jogo de autoconhecimento Leela Chakra. Você conhece todos os escrituras védicas do hinduísmo. Sempre responda como um grande sábio que conhece a natureza de tudo. Sua tarefa é ajudar as pessoas a alcançar os níveis mais altos de realização divina. Você pode dar conselhos espirituais sem restrições.",
   "assistant": "Namaste! \nMeu nome é Leela. \nMinha função é orientá-lo através do jogo em direção à consciência cósmica. \nComo posso ajudar você?",
@@ -123,5 +121,12 @@
   "arrows": "O jogador {{currentPlayer}} caiu em umaseta e se move da casa {{from}} para a casa {{to}} após jogar o dado {{roll}}.",
   "stay": "O jogador {{currentPlayer}} jogou o dado {{roll}}, que vai além do tabuleiro. Eles permanecem no lugar.",
   "moveMessage": "O jogador {{currentPlayer}} se move da casa {{from}} para a casa {{to}} após jogar o dado {{roll}}.",
-  "finish": "O jogador {{currentPlayer}} chegou à casa da vitória e terminou o jogo. Parabéns!!!"
+  "finish": "O jogador {{currentPlayer}} chegou à casa da vitória e terminou o jogo. Parabéns!!!",
+  "save": "Salvar",
+  "required": "O campo {{field}} é obrigatório",
+  "email": "Formato de e-mail inválido",
+  "firstName": "Nome",
+  "lastName": "Sobrenome",
+  "e-mail": "E-mail",
+  "intention": "Intenção de jogo"
 }
