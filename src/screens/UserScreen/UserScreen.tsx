@@ -26,7 +26,7 @@ const UserScreen: React.FC = () => {
   const onSubmit = (data: FormData) => console.log('data', data)
 
   return (
-    <>
+    <View style={styles.container}>
       <Space height={200} />
       <Controller
         control={control}
@@ -131,11 +131,16 @@ const UserScreen: React.FC = () => {
         <Button title={t('auth.signIn')} onPress={handleSubmit(onSubmit)} />
       </View>
       <Space height={150} />
-    </>
+    </View>
   )
 }
 
 const styles = ScaledSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   btnStyle: {
     alignItems: 'center',
   },

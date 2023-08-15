@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { View, TextInput } from 'react-native'
 
-import { NeomorphFlexView } from 'components'
+import { NeomorphView, NeomorphFlexView } from 'components' // Подключите необходимые компоненты
 import { gray } from 'cons'
-import { ScaledSheet } from 'react-native-size-matters'
+import { ScaledSheet, ms, s } from 'react-native-size-matters'
 
 interface TextInputFieldProps {
   placeholder: string
@@ -21,20 +21,53 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   onChangeText,
   multiline = false,
 }) => {
+  const [isFocused, setIsFocused] = useState(false)
+
+  const handleBlur = () => {
+    setIsFocused(false)
+    onBlur && onBlur()
+  }
+
+  const handleFocus = () => {
+    setIsFocused(true)
+  }
+
   return (
-    <NeomorphFlexView>
-      <View style={styles.container}>
-        <TextInput
-          placeholder={placeholder}
-          placeholderTextColor={gray}
-          multiline={multiline}
-          value={value}
-          onBlur={onBlur}
-          onChangeText={onChangeText}
-          style={styles.input}
-        />
-      </View>
-    </NeomorphFlexView>
+    <View>
+      {isFocused ? (
+        //@ts-ignore
+        <NeomorphFlexView viewStyle={styles.card}>
+          <View style={styles.container}>
+            <TextInput
+              placeholder={placeholder}
+              placeholderTextColor={gray}
+              multiline={multiline}
+              value={value}
+              onBlur={handleBlur}
+              onFocus={handleFocus}
+              onChangeText={onChangeText}
+              style={styles.input}
+            />
+          </View>
+        </NeomorphFlexView>
+      ) : (
+        //@ts-ignore
+        <NeomorphView viewStyle={styles.card}>
+          <View style={styles.container}>
+            <TextInput
+              placeholder={placeholder}
+              placeholderTextColor={gray}
+              multiline={multiline}
+              value={value}
+              onBlur={handleBlur}
+              onFocus={handleFocus}
+              onChangeText={onChangeText}
+              style={styles.input}
+            />
+          </View>
+        </NeomorphView>
+      )}
+    </View>
   )
 }
 
@@ -42,6 +75,7 @@ const styles = ScaledSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'center',
     paddingVertical: 10,
     marginHorizontal: 20,
     marginVertical: 10,
@@ -51,6 +85,13 @@ const styles = ScaledSheet.create({
     bottom: 1,
     fontSize: 16,
     color: gray,
+  },
+  card: {
+    width: ms(230, 0.9),
+    height: ms(60, 0.9),
+    borderRadius: s(40),
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
 })
 
