@@ -1,12 +1,18 @@
 import React from 'react'
 
+import { RALLY_API_KEY } from '@env'
+import { RlyMumbaiNetwork, Network } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ScaledSheet } from 'react-native-size-matters'
 import VersionInfo from 'react-native-version-info'
+import { RecoilRoot } from 'recoil'
 
 import Navigation from './Navigation'
+
+export const RlyNetwork: Network = RlyMumbaiNetwork
+RlyNetwork.setApiKey(RALLY_API_KEY)
 
 const routingInstrumentation = new Sentry.ReactNavigationInstrumentation()
 
@@ -27,7 +33,9 @@ function AppWithProviders() {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={styles.flexOne}>
-        <Navigation />
+        <RecoilRoot>
+          <Navigation />
+        </RecoilRoot>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   )

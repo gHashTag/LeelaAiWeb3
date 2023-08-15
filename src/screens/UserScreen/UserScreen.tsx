@@ -3,13 +3,20 @@ import React, { useEffect } from 'react'
 import { View } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useNavigation } from '@react-navigation/native'
+import {
+  createAccount as createRlyAccount,
+  getAccount,
+} from '@rly-network/mobile-sdk'
 import { Space, TextInputField, Text, Avatar, Button } from 'components'
-import { red } from 'cons'
+import { captureException, red } from 'cons'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { ScaledSheet } from 'react-native-size-matters'
+import { useRecoilState } from 'recoil'
+import { account } from 'state'
 import * as Yup from 'yup'
 
 interface FormData {
@@ -20,14 +27,16 @@ interface FormData {
 }
 
 const validationFieldNames = {
-  firstName: 'First Name',
-  lastName: 'Last Name',
-  email: 'E-mail',
-  intention: 'Intention',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  intention: 'intention',
 }
 
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
+  const navigation = useNavigation()
+
   const schema = Yup.object().shape({
     firstName: Yup.string().required(
       t('required', { field: t(validationFieldNames.firstName) }),
@@ -42,8 +51,9 @@ const UserScreen: React.FC = () => {
       t('required', { field: t(validationFieldNames.intention) }),
     ),
   })
-
+  const [, setAct] = useRecoilState(account)
   const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
+
   const { profileData, setProfileData } = useProfile()
   const {
     control,
@@ -72,12 +82,17 @@ const UserScreen: React.FC = () => {
     try {
       const newProfileData = {
         ...data,
-        avatar: avatar || '',
+        avatar: avatar || profileData.avatar,
       }
       const updatedProfileData = { ...data, avatar: newProfileData.avatar }
       setProfileData(updatedProfileData)
+      await createRlyAccount()
+      const rlyAct = await getAccount()
+      setAct(rlyAct)
+      // @ts-ignore
+      navigation.navigate('GAME_SCREEN')
     } catch (error) {
-      console.error('Error submitting profile data:', error)
+      captureException(error, 'onSubmit: Error submitting profile data')
     }
   }, 1000)
 
@@ -87,7 +102,7 @@ const UserScreen: React.FC = () => {
       <Avatar
         plan={1}
         size="xLarge"
-        avatar={profileData.avatar || ''}
+        avatar={profileData.avatar || avatar || ''}
         isAccept={false}
         showIcon={false}
         onPress={chooseAvatarImage}

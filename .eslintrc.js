@@ -7,6 +7,7 @@ module.exports = {
     'prettier',
     'import',
     '@typescript-eslint',
+    'react-hooks',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -21,6 +22,8 @@ module.exports = {
     'jest/globals': true,
   },
   rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'import/order': [
       'error',
       {

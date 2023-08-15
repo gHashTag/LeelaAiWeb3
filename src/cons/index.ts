@@ -25,14 +25,6 @@ export const orange = '#FFB700'
 export const blackOpacity = 'rgba(0, 0, 0, 0.8)'
 export const grayBlackOpacity = 'rgba(139, 139, 139, 0.1)'
 
-export const navRef = createNavigationContainerRef<any>()
-
-export const navigate = (name: string, params?: any) => {
-  if (navRef.isReady()) {
-    navRef.navigate(name, params)
-  }
-}
-
 export const generateComment = async ({
   message,
   systemMessage,
