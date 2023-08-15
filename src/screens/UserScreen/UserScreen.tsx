@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { View } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Space, TextInputField, Text, Avatar, Button } from 'components'
-import { getImagePicker, red } from 'cons'
+import { red } from 'cons'
+import { useChooseAvatarImage } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -29,7 +30,7 @@ const schema = Yup.object().shape({
 
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
-  const [avatar, setAvatar] = useState<string | null>(null)
+  const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
   const {
     control,
     handleSubmit,
@@ -49,15 +50,6 @@ const UserScreen: React.FC = () => {
     console.log('data', data)
   }, 1000)
 
-  const chooseAvatarImage = async () => {
-    try {
-      const image = await getImagePicker()
-      setAvatar(image?.path || null)
-    } catch (error) {
-      console.error('Error selecting image:', error)
-    }
-  }
-
   return (
     <View style={styles.container}>
       <Space height={150} />
@@ -68,6 +60,7 @@ const UserScreen: React.FC = () => {
         isAccept={false}
         showIcon={false}
         onPress={chooseAvatarImage}
+        isLoading={isLoading}
       />
       <Space height={25} />
 

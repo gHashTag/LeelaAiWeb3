@@ -3,4 +3,5 @@ declare module '@env' {
   export const OPEN_AI_KEY: string
   export const APPLE: string
   export const GOOGLE: string
+  export const NFT_STORAGE_API_KEY: string
 }

@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import {
+  ActivityIndicator,
   ImageBackground,
   ImageStyle,
   Pressable,
@@ -10,7 +11,7 @@ import {
 
 import { useTheme } from '@react-navigation/native'
 import { NeomorphView, Text } from 'components'
-import { orange } from 'cons'
+import { orange, secondary } from 'cons'
 import { ms, s, ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -23,6 +24,7 @@ interface AvatarI {
   onPress?: () => void
   testID?: string
   showIcon?: boolean
+  isLoading: boolean
 }
 
 const Avatar = memo<AvatarI>(
@@ -35,6 +37,7 @@ const Avatar = memo<AvatarI>(
     showIcon = true,
     onPress,
     testID = 'avatar',
+    isLoading = true,
   }) => {
     const {
       colors: { background },
@@ -49,10 +52,12 @@ const Avatar = memo<AvatarI>(
 
     return (
       <Pressable onPress={onPress} testID={testID}>
-        {avatar ? (
-          // @ts-ignore
-          <NeomorphView viewStyle={styles.card}>
-            <View style={styles.container}>
+        {/* @ts-ignore */}
+        <NeomorphView viewStyle={styles.card}>
+          <View style={styles.container}>
+            {isLoading ? (
+              <ActivityIndicator size="large" color={secondary} />
+            ) : avatar ? (
               <ImageBackground
                 source={{ uri: avatar }}
                 style={[styles[size], additionalStyle]}
@@ -84,21 +89,16 @@ const Avatar = memo<AvatarI>(
                   )}
                 </View>
               </ImageBackground>
-            </View>
-          </NeomorphView>
-        ) : (
-          // @ts-ignore
-          <NeomorphView viewStyle={styles.card}>
-            <View style={styles.container}>
+            ) : (
               <Text
                 h={'h2'}
                 testID="add-image-text"
                 title="add image"
                 textStyle={styles.textStyle}
               />
-            </View>
-          </NeomorphView>
-        )}
+            )}
+          </View>
+        </NeomorphView>
       </Pressable>
     )
   },
