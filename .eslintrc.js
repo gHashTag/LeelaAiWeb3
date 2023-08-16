@@ -1,6 +1,10 @@
 module.exports = {
   root: true,
-  extends: ['@react-native', 'plugin:prettier/recommended'],
+  extends: [
+    '@react-native',
+    'plugin:prettier/recommended',
+    'plugin:react-native/all',
+  ],
   plugins: [
     'react',
     'react-native',
@@ -48,15 +52,15 @@ module.exports = {
         },
       },
     ],
-
-    'object-curly-spacing': 'off',
-    semi: ['off'],
-    'react-native/no-unused-styles': 2,
-    'react-native/split-platform-components': 2,
-    'react-native/no-inline-styles': 2,
-    'react-native/no-color-literals': 2,
-    'react-native/no-raw-text': 2,
-    'react-native/no-single-element-style-arrays': 2,
+    'object-curly-spacing': 0,
+    semi: 0,
+    '@typescript-eslint/no-unused-vars': 'error',
+    'react-native/no-unused-styles': 'error',
+    'react-native/split-platform-components': 'error',
+    'react-native/no-inline-styles': 'error',
+    'react-native/no-color-literals': 'error',
+    'react-native/no-raw-text': 'error',
+    'react-native/no-single-element-style-arrays': 'error',
     'comma-dangle': 'off',
   },
 }

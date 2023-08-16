@@ -19,6 +19,8 @@ import {
   NeomorphBlurView,
   CenterView,
   Background,
+  ButtonVectorIcon,
+  ButtonCircle,
 } from 'components'
 import {
   MockedCommentData,
@@ -44,6 +46,10 @@ function UiKit(): JSX.Element {
   //const { player, rollHistory, planHistory, rollDice, lastRoll } = useLeelaGame()
 
   const { t } = useTranslation()
+  const handleButtonPress = () => {
+    // Ваш обработчик нажатия
+    console.log('Button pressed')
+  }
 
   return (
     <Background isScrollView>
@@ -57,6 +63,21 @@ function UiKit(): JSX.Element {
       <Space height={40} />
 */}
       <Space height={200} />
+      <ButtonCircle
+        name="arrow-back"
+        isIonicons
+        size={40}
+        onPress={handleButtonPress}
+      />
+      <Space height={20} />
+      <ButtonCircle
+        name="book"
+        isIonicons
+        size={40}
+        onPress={handleButtonPress}
+      />
+      <Space height={20} />
+
       <ReportCard
         id={'1'}
         post={post}

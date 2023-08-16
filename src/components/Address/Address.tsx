@@ -37,8 +37,8 @@ const Address: React.FC<AddressProps> = ({ rlyAccount }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
     flexDirection: 'row',
+    marginTop: 20,
     opacity: 1,
   },
   pressed: {

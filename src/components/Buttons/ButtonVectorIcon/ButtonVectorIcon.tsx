@@ -19,7 +19,7 @@ interface ButtonVectorIconI {
   onPress?: () => void | Promise<void>
   viewStyle?: StyleProp<ViewStyle>
   count?: number
-  ionicons?: boolean
+  isIonicons?: boolean
   testID: string
   onPressIn?: () => void
 }
@@ -32,7 +32,7 @@ export function ButtonVectorIcon({
   color,
   viewStyle,
   count,
-  ionicons,
+  isIonicons,
   onPressIn,
   testID,
 }: ButtonVectorIconI) {
@@ -47,7 +47,7 @@ export function ButtonVectorIcon({
       onPressIn={onPressIn}
       testID={testID}
     >
-      {ionicons ? (
+      {isIonicons ? (
         <Ionicons
           name={name}
           size={summaryIoniconsSize}

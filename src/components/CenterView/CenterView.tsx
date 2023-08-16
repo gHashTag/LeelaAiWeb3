@@ -4,8 +4,8 @@ import { StyleSheet, View, ViewStyle } from 'react-native'
 
 const styles = StyleSheet.create({
   main: {
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 })
 

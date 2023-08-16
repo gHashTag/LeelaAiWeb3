@@ -123,8 +123,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   loadingScreenContainer: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center',
   },
 })

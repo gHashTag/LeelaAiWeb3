@@ -37,7 +37,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
           <ButtonVectorIcon
             onPress={handleAdminMenu}
             viewStyle={[styles.smallBtn, styles.nonDetailAdminMenuButton]}
-            ionicons
+            isIonicons
             name="ellipsis-vertical-circle"
             size={iconSize + 3}
             testID="admin-menu-button"
@@ -49,7 +49,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         onPress={handleComment}
         count={commCount}
         viewStyle={[styles.smallBtn, styles.nonDetailCommentButton]}
-        ionicons
+        isIonicons
         name="chatbubble-outline"
         size={iconSize}
         testID="comment-button"
@@ -58,7 +58,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         count={likeCount}
         onPress={handleLike}
         color={heartColor}
-        ionicons
+        isIonicons
         iconSize={iconSize + 1.5}
         viewStyle={styles.smallBtn}
         name={heart}
@@ -68,7 +68,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
       {/* <ButtonVectorIcon
         viewStyle={[styles.smallBtn, styles.nonDetailLinkButton]}
         name="link-outline"
-        ionicons
+        isIonicons
         iconSize={iconSize + 4}
         onPress={handleShareLink}
       /> */}
