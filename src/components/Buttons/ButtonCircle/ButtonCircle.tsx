@@ -1,9 +1,9 @@
 import React, { memo, useState } from 'react'
 
-import { Pressable, useColorScheme } from 'react-native'
+import { Pressable, useColorScheme, StyleSheet } from 'react-native'
 
 import { dimGray, gray } from 'cons'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
+import { ms, s } from 'react-native-size-matters'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -84,25 +84,25 @@ const ButtonCircle = memo<ButtonCircleProps>(
   },
 )
 
-const styles = ScaledSheet.create({
-  container: {
-    width: ms(60, 0.9),
-    height: ms(60, 0.9),
-    borderRadius: s(30),
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  st: {
-    height: 1,
-  },
+const styles = StyleSheet.create({
   card: {
-    width: ms(60, 0.9),
-    height: ms(60, 0.9),
     borderRadius: s(30),
+    height: ms(60, 0.9),
     justifyContent: 'center',
+    width: ms(60, 0.9),
+  },
+  container: {
+    alignItems: 'center',
+    borderRadius: s(30),
+    height: ms(60, 0.9),
+    justifyContent: 'center',
+    width: ms(60, 0.9),
   },
   icon: {
     alignSelf: 'center',
+  },
+  st: {
+    height: 1,
   },
 })
 

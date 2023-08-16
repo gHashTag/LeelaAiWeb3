@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { View, Pressable } from 'react-native'
+import { View, Pressable, StyleSheet } from 'react-native'
 
 import { Avatar, NeomorphFlexView, Space, Text } from 'components'
 import { W } from 'cons'
-import { ScaledSheet, s, vs } from 'react-native-size-matters'
+import { s, vs } from 'react-native-size-matters'
 import { Post } from 'types'
 
 interface CommentCardProps {
@@ -71,33 +71,33 @@ const CommentBubbleRight: React.FC<CommentCardProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
+  bubbleStyle: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+  },
   container: {
+    paddingBottom: s(10),
     paddingHorizontal: s(10),
     paddingTop: s(20),
-    paddingBottom: s(10),
-  },
-  img: {
-    top: 9,
-  },
-  headerName: {
-    alignItems: 'flex-end',
-  },
-  lightText: {
-    textAlign: 'right',
-    maxWidth: W - 120,
-    paddingRight: 10,
-  },
-  nameStyle: {
-    paddingRight: 10,
-    fontWeight: 'bold',
   },
   dateStyle: {
     paddingRight: 10,
   },
-  bubbleStyle: {
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
+  headerName: {
+    alignItems: 'flex-end',
+  },
+  img: {
+    top: 9,
+  },
+  lightText: {
+    maxWidth: W - 120,
+    paddingRight: 10,
+    textAlign: 'right',
+  },
+  nameStyle: {
+    fontWeight: 'bold',
+    paddingRight: 10,
   },
 })
 

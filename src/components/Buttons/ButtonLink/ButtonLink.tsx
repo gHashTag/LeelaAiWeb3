@@ -1,9 +1,8 @@
 import React, { memo } from 'react'
 
-import { StyleProp, TextStyle, ViewStyle } from 'react-native'
+import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
 
 import { secondary } from 'cons'
-import { ScaledSheet } from 'react-native-size-matters'
 
 import { Text } from '../..'
 import { Pressable } from '../../Pressable/Pressable'
@@ -36,14 +35,14 @@ const ButtonLink = memo<ButtonLinkT>(
   },
 )
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
     alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   h: {
-    textDecorationLine: 'underline',
     color: secondary,
+    textDecorationLine: 'underline',
   },
 })
 

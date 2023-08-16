@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 
 import { gray } from 'cons'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
+import { ms, s } from 'react-native-size-matters'
 
 export type hT = 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
 
@@ -77,36 +77,36 @@ const Text = memo<TxtT>(
   },
 )
 
-export const textStyles = ScaledSheet.create({
+export const textStyles = StyleSheet.create({
   h0: {
     fontFamily: Platform.OS === 'ios' ? 'Etna' : 'etna-free-font',
+    fontSize: Platform.OS === 'ios' ? ms(95, 0.5) : ms(95, 0.3),
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
-    fontSize: Platform.OS === 'ios' ? ms(95, 0.5) : ms(95, 0.3),
   },
   h1: {
     fontFamily: 'mont',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
     fontSize: Platform.OS === 'ios' ? ms(35, 0.3) : ms(35, 0.6),
     fontWeight: 'bold',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
   },
   h2: {
-    fontSize: Platform.OS === 'ios' ? s(20) : s(20),
     fontFamily: 'mont',
+    fontSize: Platform.OS === 'ios' ? s(20) : s(20),
     fontWeight: 'bold',
     lineHeight: 20,
   },
   h3: {
     fontFamily: 'mont',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
     fontSize: Platform.OS === 'ios' ? ms(18, 0.6) : ms(18, 0.6),
     lineHeight: 20,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
   },
   h4: {
-    fontSize: Platform.OS === 'ios' ? s(15) : s(15),
     fontFamily: Platform.OS === 'ios' ? 'mont' : 'mont',
+    fontSize: Platform.OS === 'ios' ? s(15) : s(15),
     lineHeight: 18,
   },
   h5: {

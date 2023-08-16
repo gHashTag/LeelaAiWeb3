@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ScrollView } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 
 import {
   Space,
@@ -9,7 +9,6 @@ import {
   CommentBubbleLeft,
 } from 'components'
 import { MockedCommentData } from 'cons/mockdata'
-import { ScaledSheet } from 'react-native-size-matters'
 
 const ReportScreen: React.FC = () => {
   const item = MockedCommentData
@@ -26,11 +25,11 @@ const ReportScreen: React.FC = () => {
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     top: 80,
   },
 })

@@ -1,10 +1,9 @@
 import React from 'react'
 
-import { View, ViewProps, ViewStyle } from 'react-native'
+import { View, ViewProps, ViewStyle, StyleSheet } from 'react-native'
 
 import { lightGray, white } from 'cons'
 import { Shadow } from 'react-native-neomorph-shadows'
-import { ScaledSheet } from 'react-native-size-matters'
 
 type FlexStyleProperties =
   | 'flex'
@@ -59,16 +58,16 @@ const NeomorphShadowView: React.FC<NeomorphShadowViewProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   shadow: {
-    alignSelf: 'center',
-    shadowOffset: { width: 3, height: 3 },
-    shadowRadius: 6,
-    shadowColor: lightGray,
-    shadowOpacity: 1,
-    borderRadius: 25,
-    backgroundColor: white,
     alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: white,
+    borderRadius: 25,
+    shadowColor: lightGray,
+    shadowOffset: { width: 3, height: 3 },
+    shadowOpacity: 1,
+    shadowRadius: 6,
   },
 })
 

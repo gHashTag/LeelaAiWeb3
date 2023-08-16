@@ -1,8 +1,14 @@
 import React, { useRef } from 'react'
 
-import { Animated, Easing, Pressable, useColorScheme } from 'react-native'
+import {
+  Animated,
+  StyleSheet,
+  Easing,
+  Pressable,
+  useColorScheme,
+} from 'react-native'
 
-import { ScaledSheet, vs } from 'react-native-size-matters'
+import { vs } from 'react-native-size-matters'
 
 export interface DiceProps {
   disabled?: boolean
@@ -104,7 +110,7 @@ const Dice = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   diceContainer: {
     alignItems: 'center',
     alignSelf: 'center',

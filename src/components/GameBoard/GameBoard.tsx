@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
 
-import { Image, View, useColorScheme } from 'react-native'
+import { Image, View, useColorScheme, StyleSheet } from 'react-native'
 
 import { NeomorphFlexView } from 'components'
 import { H, W } from 'cons'
-import { ScaledSheet, ms, mvs, s } from 'react-native-size-matters'
+import { ms, mvs, s } from 'react-native-size-matters'
 import { GameBoardProps } from 'types'
 
 import { GameBoardImage } from './images'
@@ -96,46 +96,46 @@ const rows = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
 ]
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
+  bgImage: {
+    height: '100%',
+    position: 'absolute',
+    top: mvs(33, 1.6) - imageTopMargin,
+    width: '95%',
+  },
+  box: {
+    alignItems: 'center',
+    borderRadius: s(31) / 2,
+    height: s(31),
+    justifyContent: 'center',
+    marginHorizontal: s(1),
+    marginVertical: s(2),
+    maxHeight: ms(31, 0.5),
+    maxWidth: ms(31, 0.5),
+    width: s(31),
+  },
   container: {
     alignItems: 'center',
     paddingHorizontal: s(20),
     paddingVertical: s(6),
     width: '90%',
   },
-  sub: {
-    marginTop: imageTopMargin,
+  gameBoardContainer: {
+    height: curImageHeight,
+    marginTop,
+    width: curImageWidth,
   },
   imageContainer: {
-    height: curImageHeight,
-    alignSelf: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
     bottom: 30,
+    height: curImageHeight,
   },
   row: {
     flexDirection: 'row',
   },
-  gameBoardContainer: {
-    width: curImageWidth,
-    height: curImageHeight,
-    marginTop,
-  },
-  box: {
-    width: s(31),
-    height: s(31),
-    maxHeight: ms(31, 0.5),
-    maxWidth: ms(31, 0.5),
-    marginVertical: s(2),
-    marginHorizontal: s(1),
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: s(31) / 2,
-  },
-  bgImage: {
-    width: '95%',
-    height: '100%',
-    position: 'absolute',
-    top: mvs(33, 1.6) - imageTopMargin,
+  sub: {
+    marginTop: imageTopMargin,
   },
 })
 

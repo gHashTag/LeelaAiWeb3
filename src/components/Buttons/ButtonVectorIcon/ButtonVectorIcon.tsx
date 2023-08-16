@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { StyleProp, ViewStyle, useColorScheme } from 'react-native'
+import { StyleProp, ViewStyle, useColorScheme, StyleSheet } from 'react-native'
 
 import { dimGray, gray } from 'cons'
-import { ScaledSheet, s } from 'react-native-size-matters'
+import { s } from 'react-native-size-matters'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -78,7 +78,7 @@ export function ButtonVectorIcon({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   fontStyle: {
     top: 3,
   },

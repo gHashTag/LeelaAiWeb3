@@ -6,13 +6,14 @@ import {
   ImageStyle,
   Pressable,
   StyleProp,
+  StyleSheet,
   View,
 } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
 import { Text } from 'components'
 import { orange, secondary } from 'cons'
-import { ms, s, ScaledSheet } from 'react-native-size-matters'
+import { ms, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 interface AvatarI {
@@ -99,60 +100,60 @@ const Avatar = memo<AvatarI>(
   },
 )
 
-const styles = ScaledSheet.create({
-  xLarge: {
-    marginLeft: 1,
-    width: ms(134),
-    height: ms(134),
-    borderRadius: s(70),
-    justifyContent: 'center',
-  },
-  card: {
-    width: ms(130, 0.9),
-    height: ms(130, 0.9),
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: s(70),
-  },
-  large: {
-    marginLeft: 1,
-    width: s(55),
-    height: s(55),
-  },
-  medium: {
-    width: ms(50, 0.9),
-    height: ms(50, 0.9),
-  },
-  small: {
-    width: s(36),
-    height: s(36),
-  },
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: ms(130),
-  },
+const styles = StyleSheet.create({
   badge: {
     alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: s(180),
     flexDirection: 'row',
-    position: 'absolute',
+    justifyContent: 'center',
     padding: s(4),
-  },
-  smallBadge: {
-    right: s(-1),
-    bottom: s(1),
+    position: 'absolute',
   },
   bigBadge: {
-    right: s(-1),
     bottom: s(2),
+    right: s(-1),
+  },
+  card: {
+    alignItems: 'center',
+    borderRadius: s(70),
+    height: ms(130, 0.9),
+    justifyContent: 'center',
+    width: ms(130, 0.9),
+  },
+  container: {
+    alignItems: 'center',
+    borderRadius: ms(130),
+    justifyContent: 'center',
+  },
+  large: {
+    height: s(55),
+    marginLeft: 1,
+    width: s(55),
+  },
+  medium: {
+    height: ms(50, 0.9),
+    width: ms(50, 0.9),
+  },
+  small: {
+    height: s(36),
+    width: s(36),
+  },
+  smallBadge: {
+    bottom: s(1),
+    right: s(-1),
   },
   textStyle: {
-    width: 100,
-    textAlign: 'center',
-    lineHeight: 30,
     alignSelf: 'center',
+    lineHeight: 30,
+    textAlign: 'center',
+    width: 100,
+  },
+  xLarge: {
+    borderRadius: s(70),
+    height: ms(134),
+    justifyContent: 'center',
+    marginLeft: 1,
+    width: ms(134),
   },
 })
 

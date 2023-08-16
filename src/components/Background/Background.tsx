@@ -1,10 +1,14 @@
 import React, { ReactNode } from 'react'
 
-import { ImageBackground, ImageSourcePropType, ScrollView } from 'react-native'
+import {
+  ImageBackground,
+  ImageSourcePropType,
+  ScrollView,
+  StyleSheet,
+} from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
 import { W, black, lightGray } from 'cons'
-import { ScaledSheet } from 'react-native-size-matters'
 
 interface BackgroundProps {
   children: ReactNode
@@ -42,18 +46,18 @@ const Background: React.FC<BackgroundProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   background: {
-    flex: 1,
-    justifyContent: 'flex-start', // Поднимаем контент вверх
     alignItems: 'center',
-    width: '100%',
+    flex: 1,
     height: '100%',
+    justifyContent: 'flex-start',
+    width: '100%',
   },
   scrollViewContent: {
-    flexGrow: 1,
-    justifyContent: 'flex-start', // Поднимаем контент вверх
     alignItems: 'center',
+    flexGrow: 1,
+    justifyContent: 'flex-start',
     width: W,
   },
 })

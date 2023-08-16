@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { FlatList, View } from 'react-native'
+import { FlatList, View, StyleSheet } from 'react-native'
 
 import { Space, ReportCard, Display } from 'components'
 import { mockedCommentDataArray } from 'cons/mockdata'
 import { useTranslation } from 'react-i18next'
-import { ScaledSheet } from 'react-native-size-matters'
 import { ReportCardProps } from 'types'
 
 const ReportsScreen: React.FC = () => {
@@ -36,15 +35,15 @@ const ReportsScreen: React.FC = () => {
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     top: 60,
   },
   contentContainer: {
-    paddingVertical: 20,
     alignItems: 'center',
+    paddingVertical: 20,
   },
 })
 

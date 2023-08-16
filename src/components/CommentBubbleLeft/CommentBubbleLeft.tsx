@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { View, Pressable } from 'react-native'
+import { View, Pressable, StyleSheet } from 'react-native'
 
 import { Avatar, NeomorphFlexView, Space, Text } from 'components'
-import { W } from 'cons'
-import { ScaledSheet, s, vs } from 'react-native-size-matters'
+import { W, transparent } from 'cons'
+import { s, vs } from 'react-native-size-matters'
 import { Post } from 'types'
 
 interface CommentCardProps {
@@ -71,34 +71,34 @@ const CommentBubbleLeft: React.FC<CommentCardProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
+  bubbleStyle: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+  },
   container: {
+    paddingBottom: s(10),
     paddingHorizontal: s(10),
     paddingTop: s(20),
-    paddingBottom: s(10),
-  },
-  img: {
-    top: 9,
-  },
-  headerName: {
-    alignItems: 'flex-start',
-    backgroundColor: 'transparent',
-  },
-  lightText: {
-    textAlign: 'left',
-    maxWidth: W - 120,
-    paddingLeft: 10,
-  },
-  nameStyle: {
-    paddingLeft: 10,
-    fontWeight: 'bold',
   },
   dateStyle: {
     paddingLeft: 10,
   },
-  bubbleStyle: {
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
+  headerName: {
+    alignItems: 'flex-start',
+    backgroundColor: transparent,
+  },
+  img: {
+    top: 9,
+  },
+  lightText: {
+    maxWidth: W - 120,
+    paddingLeft: 10,
+    textAlign: 'left',
+  },
+  nameStyle: {
+    fontWeight: 'bold',
+    paddingLeft: 10,
   },
 })
 

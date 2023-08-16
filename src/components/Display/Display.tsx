@@ -1,7 +1,9 @@
 import React from 'react'
 
+import { StyleSheet } from 'react-native'
+
 import { NeomorphFlexView, Text } from 'components'
-import { ScaledSheet, s } from 'react-native-size-matters'
+import { s } from 'react-native-size-matters'
 
 interface DisplayProps {
   title: string
@@ -28,18 +30,18 @@ const Display: React.FC<DisplayProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: s(20),
     paddingVertical: s(6),
     width: '90%',
   },
   dateStyle: {
-    textAlign: 'center',
     lineHeight: s(20),
     paddingRight: 10,
+    textAlign: 'center',
   },
 })
 

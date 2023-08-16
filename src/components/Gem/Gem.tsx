@@ -1,16 +1,14 @@
 import React from 'react'
 
-import { View, Image, Pressable } from 'react-native'
+import { View, Image, Pressable, StyleSheet } from 'react-native'
 
-import { gray } from 'cons'
-import { ScaledSheet, ms } from 'react-native-size-matters'
+import { gray, transparent } from 'cons'
+import { ms } from 'react-native-size-matters'
 import { GemProps } from 'types'
 
 import { Text } from '../Text/Text'
 
 const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
-  const { container, gems, circle } = styles
-
   let source
 
   if (player?.avatar) {
@@ -25,9 +23,9 @@ const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
 
   return (
     <Pressable onPress={onPress}>
-      <View style={container} testID="gem-container">
+      <View style={styles.container} testID="gem-container">
         {isNumberVisible ? (
-          <View style={[circle, gems]} testID="gem-number">
+          <View style={[styles.circle, styles.gems]} testID="gem-number">
             <Text
               h={'h4'}
               title={planNumber.toString()}
@@ -38,7 +36,11 @@ const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
         ) : (
           <View style={[styles.imgStyle, { zIndex: player?.id }]}>
             {source && (
-              <Image style={gems} source={source} testID="player-gem-image" />
+              <Image
+                style={styles.gems}
+                source={source}
+                testID="player-gem-image"
+              />
             )}
           </View>
         )}
@@ -47,23 +49,23 @@ const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
+  circle: {
+    alignItems: 'center',
+    backgroundColor: transparent,
+    borderRadius: ms(44) / 2,
+    height: ms(44),
+    justifyContent: 'center',
+    width: ms(44),
+  },
   container: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   gems: {
-    width: ms(42, 0.5),
-    height: ms(42, 0.5),
     borderRadius: ms(42, 0.5) / 2,
-  },
-  circle: {
-    width: ms(44),
-    height: ms(44),
-    borderRadius: ms(44) / 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
+    height: ms(42, 0.5),
+    width: ms(42, 0.5),
   },
   imgStyle: {
     position: 'absolute',

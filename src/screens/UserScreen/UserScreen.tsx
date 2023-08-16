@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { Linking, View } from 'react-native'
+import { Linking, View, StyleSheet } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useNavigation } from '@react-navigation/native'
@@ -23,7 +23,6 @@ import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { ScaledSheet } from 'react-native-size-matters'
 import { useRecoilState } from 'recoil'
 import * as Yup from 'yup'
 
@@ -253,14 +252,14 @@ const UserScreen: React.FC = () => {
   )
 }
 
-const styles = ScaledSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+const styles = StyleSheet.create({
   btnStyle: {
     alignItems: 'center',
+  },
+  container: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
 })
 

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 import { ButtonVectorIcon, Space } from 'components'
 import { fuchsia } from 'cons'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
+import { ms, s } from 'react-native-size-matters'
 
 interface ActionButtonsProps {
   isAdmin: boolean
@@ -76,26 +76,26 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   btnsContainer: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    top: 5,
-    flexDirection: 'row',
     padding: s(8),
-  },
-  smallBtn: {
-    flexDirection: 'row',
-  },
-  nonDetailCommentButton: {
-    justifyContent: 'flex-start',
-  },
-  nonDetailLinkButton: {
-    justifyContent: 'flex-end',
-    marginRight: s(5),
+    top: 5,
   },
   nonDetailAdminMenuButton: {
     alignItems: 'flex-end',
     marginRight: s(4),
+  },
+  nonDetailCommentButton: {
+    justifyContent: 'flex-start',
+  },
+  // nonDetailLinkButton: {
+  //   justifyContent: 'flex-end',
+  //   marginRight: s(5),
+  // },
+  smallBtn: {
+    flexDirection: 'row',
   },
 })
 

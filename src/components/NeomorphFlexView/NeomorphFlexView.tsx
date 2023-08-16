@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { View, ViewStyle } from 'react-native'
+import { View, ViewStyle, StyleSheet } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
 import { black, lightGray } from 'cons'
 import { NeomorphFlex } from 'react-native-neomorph-shadows'
-import { ScaledSheet } from 'react-native-size-matters'
 
 type FlexStyleProperties =
   | 'flex'
@@ -65,10 +64,10 @@ const NeomorphFlexView: React.FC<NeomorphFlexViewProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   container: {
-    shadowRadius: 5,
     marginHorizontal: 40,
+    shadowRadius: 5,
   },
 })
 

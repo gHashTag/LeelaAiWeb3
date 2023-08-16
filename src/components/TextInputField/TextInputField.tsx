@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { View, TextInput } from 'react-native'
+import { View, TextInput, StyleSheet } from 'react-native'
 
 import { NeomorphFlexView } from 'components'
 import { gray } from 'cons'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
+import { ms, s } from 'react-native-size-matters'
 
 interface TextInputFieldProps {
   placeholder: string
@@ -68,27 +68,27 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
+  card: {
+    alignSelf: 'center',
+    borderRadius: s(40),
+    height: ms(60, 0.9),
+    justifyContent: 'center',
+    width: ms(230, 0.9),
+  },
   container: {
-    flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'center',
-    paddingVertical: 10,
+    flexDirection: 'row',
     marginHorizontal: 20,
     marginVertical: 10,
+    paddingVertical: 10,
   },
   input: {
-    flex: 1,
     bottom: 1,
-    fontSize: 16,
     color: gray,
-  },
-  card: {
-    width: ms(230, 0.9),
-    height: ms(60, 0.9),
-    borderRadius: s(40),
-    justifyContent: 'center',
-    alignSelf: 'center',
+    flex: 1,
+    fontSize: 16,
   },
 })
 

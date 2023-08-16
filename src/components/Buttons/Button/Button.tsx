@@ -1,9 +1,9 @@
 import React, { memo, useState } from 'react'
 
-import { StyleProp, TextStyle, Pressable } from 'react-native'
+import { StyleProp, StyleSheet, TextStyle, Pressable } from 'react-native'
 
 import { dimGray } from 'cons'
-import { ScaledSheet, ms, s } from 'react-native-size-matters'
+import { ms, s } from 'react-native-size-matters'
 
 import { Text, NeomorphView, NeomorphFlexView, hT } from '../..'
 
@@ -61,21 +61,21 @@ const Button = memo<ButtonProps>(({ title, onPress, textStyle, h = 'h1' }) => {
   )
 })
 
-const styles = ScaledSheet.create({
-  container: {
-    width: ms(230, 0.9),
+const styles = StyleSheet.create({
+  card: {
+    alignSelf: 'center',
+    borderRadius: s(40),
     height: ms(60, 0.9),
+    justifyContent: 'center',
+    width: ms(230, 0.9),
+  },
+  container: {
+    height: ms(60, 0.9),
+    width: ms(230, 0.9),
   },
   h: {
-    top: 3,
     textAlign: 'center',
-  },
-  card: {
-    width: ms(230, 0.9),
-    height: ms(60, 0.9),
-    borderRadius: s(40),
-    justifyContent: 'center',
-    alignSelf: 'center',
+    top: 3,
   },
 })
 

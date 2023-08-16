@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { View, Pressable } from 'react-native'
+import { View, Pressable, StyleSheet } from 'react-native'
 
 import { Avatar, Space, Text, NeomorphView, ActionButtons } from 'components'
 import { W } from 'cons'
-import { s, vs, ScaledSheet } from 'react-native-size-matters'
+import { s, vs } from 'react-native-size-matters'
 import { ReportCardProps } from 'types'
 
 const ReportCard: React.FC<ReportCardProps> = ({
@@ -91,28 +91,19 @@ const ReportCard: React.FC<ReportCardProps> = ({
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
+  avatarStyle: {
+    top: 10,
+  },
+  card: {
+    height: vs(180),
+    width: W - 50,
+  },
   container: {
+    alignItems: 'center',
     flex: 1,
     paddingHorizontal: s(15),
     paddingVertical: s(6),
-    alignItems: 'center',
-  },
-  card: {
-    width: W - 50,
-    height: vs(180),
-  },
-  img: {
-    marginBottom: s(12),
-  },
-  btnsContainer: {
-    justifyContent: 'space-between',
-    top: 5,
-    flexDirection: 'row',
-    padding: s(8),
-  },
-  smallBtn: {
-    flexDirection: 'row',
   },
   contentContainer: {
     flex: 1,
@@ -122,29 +113,18 @@ const styles = ScaledSheet.create({
     flex: 1,
   },
   headerName: {
-    justifyContent: 'space-between',
     flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  img: {
+    marginBottom: s(12),
   },
   lightText: {
     textAlign: 'left',
   },
   userInfoContainer: {
-    width: W - 150,
     top: 15,
-  },
-  nonDetailCommentButton: {
-    justifyContent: 'flex-start',
-  },
-  nonDetailLinkButton: {
-    justifyContent: 'flex-end',
-    marginRight: s(5),
-  },
-  nonDetailAdminMenuButton: {
-    alignItems: 'flex-end',
-    marginRight: s(4),
-  },
-  avatarStyle: {
-    top: 10,
+    width: W - 150,
   },
 })
 

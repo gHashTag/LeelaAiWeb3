@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
-import { Platform, View } from 'react-native'
+import { Platform, View, StyleSheet } from 'react-native'
 
 import { MarkdownView, Button, TextInputField, Space, Text } from 'components'
 import { captureException, getSystemLanguage, red } from 'cons'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { readFileAssets } from 'react-native-fs'
-import { ScaledSheet } from 'react-native-size-matters'
 import RNFetchBlob from 'rn-fetch-blob'
 
 interface FormData {
@@ -95,7 +94,7 @@ const PlanScreen: React.FC = () => {
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   btnStyle: {
     alignItems: 'center',
   },

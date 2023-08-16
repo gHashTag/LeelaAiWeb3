@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 
-import { Platform, View } from 'react-native'
+import { Platform, View, StyleSheet } from 'react-native'
 
 import { Avatar, ButtonCircle } from 'components'
 import { navigate } from 'cons/RootNavigation'
-import { ScaledSheet, ms, mvs, s, vs } from 'react-native-size-matters'
+import { mvs, s, vs } from 'react-native-size-matters'
 
 const isIos = Platform.OS === 'ios'
 
@@ -59,23 +59,23 @@ const Header = memo<HeaderT>(
   },
 )
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
+  childrenStyle: {},
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingBottom: mvs(1, 0.4),
     zIndex: 20,
   },
+  flexOne: { flex: 1 },
+  pressStyle: {
+    bottom: 3,
+  },
   rightViewStyle: {
     width: isIos ? s(60) : s(44),
   },
   titleStyle: {
     fontSize: vs(18),
-  },
-  childrenStyle: {},
-  flexOne: { flex: 1 },
-  pressStyle: {
-    bottom: 3,
   },
 })
 

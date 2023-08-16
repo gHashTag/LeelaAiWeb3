@@ -1,11 +1,12 @@
 import React from 'react'
 
+import { StyleSheet } from 'react-native'
+
 import { RALLY_API_KEY } from '@env'
 import { RlyMumbaiNetwork, Network } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { ScaledSheet } from 'react-native-size-matters'
 import VersionInfo from 'react-native-version-info'
 import { RecoilRoot } from 'recoil'
 
@@ -41,7 +42,7 @@ function AppWithProviders() {
   )
 }
 
-const styles = ScaledSheet.create({
+const styles = StyleSheet.create({
   flexOne: { flex: 1 },
 })
 

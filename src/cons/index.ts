@@ -23,6 +23,7 @@ export const red = '#FC2847'
 export const orange = '#FFB700'
 export const blackOpacity = 'rgba(0, 0, 0, 0.8)'
 export const grayBlackOpacity = 'rgba(139, 139, 139, 0.1)'
+export const transparent = 'transparent'
 
 export const generateComment = async ({
   message,
