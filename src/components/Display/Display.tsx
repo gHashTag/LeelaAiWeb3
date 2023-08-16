@@ -5,17 +5,24 @@ import { ScaledSheet, s } from 'react-native-size-matters'
 
 interface DisplayProps {
   title: string
+  onColor?: string
+  height?: number
 }
 
-const Display: React.FC<DisplayProps> = ({ title }) => {
+const Display: React.FC<DisplayProps> = ({
+  title,
+  onColor,
+  height = s(120),
+}) => {
   return (
     // @ts-ignore
-    <NeomorphFlexView viewStyle={styles.container}>
+    <NeomorphFlexView viewStyle={{ ...styles.container, height }}>
       <Text
         title={title}
         h={'h3'}
         textStyle={styles.dateStyle}
         testID="display-text"
+        oneColor={onColor}
       />
     </NeomorphFlexView>
   )
@@ -28,7 +35,6 @@ const styles = ScaledSheet.create({
     paddingHorizontal: s(20),
     paddingVertical: s(6),
     width: '90%',
-    height: s(120),
   },
   dateStyle: {
     textAlign: 'center',

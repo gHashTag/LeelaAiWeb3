@@ -128,5 +128,9 @@
   "firstName": "First Name",
   "lastName": "Last Name",
   "e-mail": "E-mail",
-  "intention": "Intention"
+  "intention": "Intention",
+  "neverDisclose": "Never disclose your seed phrase.",
+  "iUnderstand": "I understand",
+  "copySeedPhrase": "Copy seed phrase",
+  "educateUsers": "It’s important to educate users to keep their seed phrases safe and how it can be used to import to another device or external wallet."
 }

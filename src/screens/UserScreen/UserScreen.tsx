@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { View } from 'react-native'
+import { Linking, View } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useNavigation } from '@react-navigation/native'
@@ -18,6 +18,7 @@ import {
   Address,
 } from 'components'
 import { captureException, red } from 'cons'
+import { navigate } from 'cons/RootNavigation'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
@@ -97,9 +98,11 @@ const UserScreen: React.FC = () => {
       }
       const updatedProfileData = { ...data, avatar: newProfileData.avatar }
       setProfileData(updatedProfileData)
-      await createRlyAccount()
-      const rlyAct = await getAccount()
-      setAct(rlyAct)
+      if (!rlyAccount) {
+        await createRlyAccount()
+        const rlyAct = await getAccount()
+        setAct(rlyAct)
+      }
       // @ts-ignore
       navigation.navigate('GAME_SCREEN')
     } catch (error) {
@@ -108,9 +111,9 @@ const UserScreen: React.FC = () => {
   }, 1000)
 
   return (
-    <Background>
+    <Background isScrollView>
       <View style={styles.container}>
-        <Space height={150} />
+        <Space height={100} />
         <Avatar
           plan={1}
           size="xLarge"
@@ -222,7 +225,27 @@ const UserScreen: React.FC = () => {
           )}
           <Space height={15} />
 
-          <Button title={t('save')} onPress={handleSubmit(onSubmit)} />
+          <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
+          {rlyAccount && (
+            <>
+              <Space height={20} />
+              <Button
+                h={'h2'}
+                title="Explorer"
+                onPress={async () => {
+                  Linking.openURL(
+                    `https://mumbai.polygonscan.com/address/${rlyAccount}`,
+                  )
+                }}
+              />
+              <Space height={20} />
+              <Button
+                h={'h2'}
+                title="View seed"
+                onPress={() => navigate('SEED_SCREEN')}
+              />
+            </>
+          )}
         </View>
         <Space height={150} />
       </View>

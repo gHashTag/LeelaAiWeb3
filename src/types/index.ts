@@ -5,6 +5,7 @@ export type RootStackParamList = {
   REPORT_SCREEN: undefined
   REPORTS_SCREEN: undefined
   UI_KIT_SCREEN: undefined
+  SEED_SCREEN: undefined
 }
 
 export interface Player {

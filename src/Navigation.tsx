@@ -24,6 +24,7 @@ import {
   ReportScreen,
   ReportsScreen,
   UserScreen,
+  SeedPhraseScreen,
 } from './screens'
 import { account } from './state'
 import { RootStackParamList } from './types'
@@ -131,6 +132,7 @@ const App = () => {
           <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />
           <Stack.Screen name="UI_KIT_SCREEN" component={UiKit} />
           <Stack.Screen name="USER_SCREEN" component={UserScreen} />
+          <Stack.Screen name="SEED_SCREEN" component={SeedPhraseScreen} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
