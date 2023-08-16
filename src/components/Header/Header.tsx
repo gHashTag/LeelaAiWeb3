@@ -2,8 +2,9 @@ import React, { memo } from 'react'
 
 import { Platform, View, StyleSheet } from 'react-native'
 
-import { Avatar, ButtonCircle } from 'components'
-import { navigate } from 'cons/RootNavigation'
+import { ButtonCircle } from 'components'
+import { W } from 'cons'
+import { goBack, navigate } from 'cons/RootNavigation'
 import { mvs, s, vs } from 'react-native-size-matters'
 
 const isIos = Platform.OS === 'ios'
@@ -12,12 +13,16 @@ interface HeaderT {
   avatar?: string
   onPress?: () => void | null
   onPressRight?: () => void
+  onPressCenter?: () => void
 }
 
 const Header = memo<HeaderT>(
   ({
     onPress = () => {
-      navigate('RULES_SCREEN')
+      goBack()
+    },
+    onPressCenter = () => {
+      navigate('USER_SCREEN')
     },
     onPressRight = () => {
       navigate('PLANS_SCREEN')
@@ -38,15 +43,11 @@ const Header = memo<HeaderT>(
 
         <View style={styles.flexOne}>
           {avatar && (
-            <Avatar
-              plan={1}
-              size="large"
-              avatar={avatar}
-              isAccept={true}
-              onPress={() => {
-                // Обработчик для нажатия на аватар
-                console.log('Avatar Pressed')
-              }}
+            <ButtonCircle
+              name={avatar}
+              isIonicons={false}
+              size={40}
+              onPress={onPressCenter}
             />
           )}
         </View>
@@ -63,9 +64,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingBottom: mvs(1, 0.4),
+    width: W - 40,
     zIndex: 20,
   },
-  flexOne: { flex: 1 },
+  flexOne: {
+    alignSelf: 'center',
+    top: 3,
+  },
   pressStyle: {
     bottom: 3,
   },

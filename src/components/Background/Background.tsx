@@ -5,6 +5,7 @@ import {
   ImageSourcePropType,
   ScrollView,
   StyleSheet,
+  View,
 } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
@@ -19,7 +20,7 @@ const Background: React.FC<BackgroundProps> = ({
   children,
   isScrollView = false,
 }) => {
-  const imageSource: ImageSourcePropType = require('../../../assets/images/background.png')
+  // const imageSource: ImageSourcePropType = require('../../../assets/images/background.png')
 
   const { dark } = useTheme()
   const backgroundColor = dark ? black : lightGray
@@ -28,21 +29,23 @@ const Background: React.FC<BackgroundProps> = ({
 
   if (isScrollView) {
     return (
-      <ImageBackground source={imageSource} style={backgroundStyle}>
+      // <ImageBackground source={imageSource} style={backgroundStyle}>
+      <View style={backgroundStyle}>
         <ScrollView
           contentContainerStyle={styles.scrollViewContent}
           showsVerticalScrollIndicator={false} // Убираем индикатор скролла
         >
           {children}
         </ScrollView>
-      </ImageBackground>
+      </View>
+      // </ImageBackground>
     )
   }
 
   return (
-    <ImageBackground source={imageSource} style={backgroundStyle}>
-      {children}
-    </ImageBackground>
+    // <ImageBackground source={imageSource} style={backgroundStyle}>
+    <View style={backgroundStyle}>{children}</View>
+    // </ImageBackground>
   )
 }
 

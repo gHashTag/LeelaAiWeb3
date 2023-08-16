@@ -21,11 +21,12 @@ import {
   Background,
   ButtonVectorIcon,
   ButtonCircle,
+  Header,
 } from 'components'
 import {
   MockedCommentData,
-  avatar,
   commCount,
+  avatar,
   date,
   fullName,
   handleAdminMenu,
@@ -38,10 +39,14 @@ import {
   likeCount,
   post,
 } from 'cons/mockdata'
+import { useChooseAvatarImage } from 'hooks'
 import { useLeelaGame } from 'hooks/useLeelaGame/useLeelaGame'
 import { useTranslation } from 'react-i18next'
+import { useRecoilState } from 'recoil'
+import { account } from 'state'
 
 function UiKit(): JSX.Element {
+  // const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
   const { rollDice, lastRoll } = useLeelaGame()
   //const { player, rollHistory, planHistory, rollDice, lastRoll } = useLeelaGame()
 
@@ -50,7 +55,7 @@ function UiKit(): JSX.Element {
     // Ваш обработчик нажатия
     console.log('Button pressed')
   }
-
+  //console.log('avatar', avatar)
   return (
     <Background isScrollView>
       {/* <Space height={100} />
@@ -63,7 +68,9 @@ function UiKit(): JSX.Element {
       <Space height={40} />
 */}
       <Space height={200} />
-      <ButtonCircle
+      <Header avatar={avatar} />
+      <Space height={20} />
+      {/* <ButtonCircle
         name="arrow-back"
         isIonicons
         size={40}
@@ -75,14 +82,14 @@ function UiKit(): JSX.Element {
         isIonicons
         size={40}
         onPress={handleButtonPress}
-      />
+      /> */}
       <Space height={20} />
 
       <ReportCard
         id={'1'}
         post={post}
         fullName={fullName}
-        avatar={avatar}
+        //avatar={avatar}
         isLoading={false}
         isAdmin={isAdmin}
         isLiked={isLiked}
@@ -102,18 +109,19 @@ function UiKit(): JSX.Element {
       <Space height={140} />
       <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
 
-      <Space height={40} /> */}
+     */}
+      <Space height={50} />
 
-      {/* <Avatar
-          plan={1}
-          size="large"
-          avatar={avatar}
-          isAccept={true}
-          onPress={() => {
-            // Обработчик для нажатия на аватар
-            console.log('Avatar Pressed')
-          }}
-        /> */}
+      <Avatar
+        plan={1}
+        size="xLarge"
+        avatar={avatar}
+        isAccept={true}
+        onPress={() => {
+          // Обработчик для нажатия на аватар
+          console.log('Avatar Pressed')
+        }}
+      />
 
       {/* <Button title={t('buy')} onPress={() => console.log('click')} />
       <Space height={40} />
@@ -122,15 +130,7 @@ function UiKit(): JSX.Element {
 
       {/* <MarkdownView /> */}
 
-      {/* <Space height={50} />
-
-      <Avatar
-        avatar={avatar}
-        onPress={handleProfile}
-        size={'medium'}
-        plan={post.plan as number}
-        isAccept={post.accept}
-      /> */}
+      {/* <Space height={50} />*/}
     </Background>
   )
 }

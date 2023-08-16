@@ -1,10 +1,9 @@
 import React, { memo, useState } from 'react'
 
-import { Pressable, useColorScheme, StyleSheet } from 'react-native'
+import { Pressable, useColorScheme, StyleSheet, Image } from 'react-native'
 
 import { dimGray, gray } from 'cons'
 import { ms, s } from 'react-native-size-matters'
-import Icon from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import { NeomorphView, NeomorphFlexView } from '../..'
@@ -50,12 +49,7 @@ const ButtonCircle = memo<ButtonCircleProps>(
                 style={styles.icon}
               />
             ) : (
-              <Icon
-                name={name}
-                size={size}
-                color={colorTheme}
-                style={styles.icon}
-              />
+              <Image source={{ uri: name }} style={styles.img} />
             )}
           </NeomorphFlexView>
         ) : (
@@ -68,12 +62,7 @@ const ButtonCircle = memo<ButtonCircleProps>(
                 style={styles.icon}
               />
             ) : (
-              <Icon
-                name={name}
-                size={size}
-                color={colorTheme}
-                style={styles.icon}
-              />
+              <Image source={{ uri: name }} style={styles.img} />
             )}
           </NeomorphView>
         )}
@@ -99,8 +88,11 @@ const styles = StyleSheet.create({
   icon: {
     alignSelf: 'center',
   },
-  st: {
-    height: 1,
+  img: {
+    borderRadius: s(30),
+    height: ms(60, 0.9),
+    justifyContent: 'center',
+    width: ms(60, 0.9),
   },
 })
 

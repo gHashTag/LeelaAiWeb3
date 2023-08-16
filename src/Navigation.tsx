@@ -67,7 +67,7 @@ const App = () => {
       }
 
       setAct(rlyAccount)
-      navigate('UI_KIT_SCREEN')
+      navigate('USER_SCREEN')
     }
     loadAccount()
   }, [setAct])

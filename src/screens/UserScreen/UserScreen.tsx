@@ -16,6 +16,7 @@ import {
   Button,
   Background,
   Address,
+  Header,
 } from 'components'
 import { captureException, red } from 'cons'
 import { navigate } from 'cons/RootNavigation'
@@ -44,7 +45,6 @@ const validationFieldNames = {
 
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
-  const navigation = useNavigation()
 
   const [rlyAccount] = useRecoilState(account)
 
@@ -102,8 +102,7 @@ const UserScreen: React.FC = () => {
         const rlyAct = await getAccount()
         setAct(rlyAct)
       }
-      // @ts-ignore
-      navigation.navigate('GAME_SCREEN')
+      navigate('GAME_SCREEN')
     } catch (error) {
       captureException(error, 'onSubmit: Error submitting profile data')
     }
@@ -112,7 +111,9 @@ const UserScreen: React.FC = () => {
   return (
     <Background isScrollView>
       <View style={styles.container}>
-        <Space height={100} />
+        <Space height={70} />
+        <Header />
+        <Space height={40} />
         <Avatar
           plan={1}
           size="xLarge"
@@ -122,6 +123,7 @@ const UserScreen: React.FC = () => {
           onPress={chooseAvatarImage}
           isLoading={isLoading}
         />
+        <Space height={40} />
         {rlyAccount && <Address rlyAccount={rlyAccount} />}
 
         <Space height={25} />

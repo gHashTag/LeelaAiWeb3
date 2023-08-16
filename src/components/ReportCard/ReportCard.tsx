@@ -65,7 +65,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
               </View>
             </View>
 
-            <Space height={vs(5)} />
+            <Space height={vs(15)} />
             <Text
               h={'h3'}
               textStyle={styles.lightText}

@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
-import { Text } from 'components'
+import { NeomorphView, Text } from 'components'
 import { orange, secondary } from 'cons'
 import { ms, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -51,50 +51,58 @@ const Avatar = memo<AvatarI>(
         ? styles.smallBadge
         : styles.bigBadge
 
+    const newSize = [styles[size]]
+
     return (
       <Pressable onPress={onPress} testID={testID}>
-        {/* @ts-ignore */}
-
-        <View style={styles.container}>
-          {isLoading ? (
-            <ActivityIndicator size="large" color={secondary} />
-          ) : avatar ? (
-            <ImageBackground
-              source={{ uri: avatar }}
-              style={[styles[size], additionalStyle]}
-              imageStyle={styles.container}
-            >
-              <View
-                style={[styles.badge, badgeS, { backgroundColor: background }]}
+        <NeomorphView viewStyle={{ ...styles.card, ...newSize }}>
+          <View style={styles.container}>
+            {isLoading ? (
+              <ActivityIndicator size="large" color={secondary} />
+            ) : avatar ? (
+              <ImageBackground
+                source={{ uri: avatar }}
+                style={[styles[size], additionalStyle]}
+                imageStyle={styles.container}
               >
-                {!isAccept ? (
-                  showIcon && (
-                    <Ionicons
-                      size={s(15)}
-                      color={orange}
-                      name="time-sharp"
-                      testID="time-icon"
+                <View
+                  style={[
+                    styles.badge,
+                    badgeS,
+                    { backgroundColor: background },
+                  ]}
+                >
+                  {!isAccept ? (
+                    showIcon && (
+                      <Ionicons
+                        size={s(15)}
+                        color={orange}
+                        name="time-sharp"
+                        testID="time-icon"
+                      />
+                    )
+                  ) : (
+                    <Text
+                      testID="avatar-title"
+                      textStyle={[styles.plan, { fontSize }]}
+                      title={textPlan}
+                      h="h5"
                     />
-                  )
-                ) : (
-                  <Text
-                    testID="avatar-title"
-                    textStyle={{ fontSize }}
-                    title={textPlan}
-                    h="h5"
-                  />
-                )}
-              </View>
-            </ImageBackground>
-          ) : (
-            <Text
-              h={'h2'}
-              testID="add-image-text"
-              title="add image"
-              textStyle={styles.textStyle}
-            />
-          )}
-        </View>
+                  )}
+                </View>
+              </ImageBackground>
+            ) : (
+              <NeomorphView viewStyle={styles.card}>
+                <Text
+                  h={'h4'}
+                  testID="add-image-text"
+                  title="add image"
+                  textStyle={styles.textStyle}
+                />
+              </NeomorphView>
+            )}
+          </View>
+        </NeomorphView>
       </Pressable>
     )
   },
@@ -115,10 +123,10 @@ const styles = StyleSheet.create({
   },
   card: {
     alignItems: 'center',
-    borderRadius: s(70),
-    height: ms(130, 0.9),
+    borderRadius: s(60),
+    height: s(65),
     justifyContent: 'center',
-    width: ms(130, 0.9),
+    width: s(65),
   },
   container: {
     alignItems: 'center',
@@ -127,12 +135,15 @@ const styles = StyleSheet.create({
   },
   large: {
     height: s(55),
-    marginLeft: 1,
     width: s(55),
   },
   medium: {
     height: ms(50, 0.9),
     width: ms(50, 0.9),
+  },
+  plan: {
+    left: 0.5,
+    top: 1,
   },
   small: {
     height: s(36),
@@ -144,9 +155,9 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     alignSelf: 'center',
-    lineHeight: 30,
+    //lineHeight: 30,
     textAlign: 'center',
-    width: 100,
+    width: 60,
   },
   xLarge: {
     borderRadius: s(70),
