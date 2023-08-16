@@ -24,7 +24,7 @@ interface AvatarI {
   onPress?: () => void
   testID?: string
   showIcon?: boolean
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 const Avatar = memo<AvatarI>(

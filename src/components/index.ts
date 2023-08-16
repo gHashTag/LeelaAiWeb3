@@ -1,3 +1,4 @@
+export * from './Address'
 export * from './Gem/Gem'
 export * from './ActionButtons/ActionButtons'
 export * from './Space/Space'

@@ -1,7 +1,6 @@
 import { Dimensions, Linking, Platform, NativeModules } from 'react-native'
 
 import { OPEN_AI_KEY } from '@env'
-import { createNavigationContainerRef } from '@react-navigation/native'
 import * as Sentry from '@sentry/react-native'
 import axios from 'axios'
 import Rate from 'react-native-rate'
@@ -125,11 +124,6 @@ export const openUrl = async (url: string) => {
   await Linking.openURL(url)
 }
 
-export const goBack = () => {
-  if (navRef.isReady()) {
-    navRef.goBack()
-  }
-}
 //@ts-ignore
 export const goHome = (navigation) => () => navigation.popToTop()()
 
@@ -145,4 +139,28 @@ export const getSystemLanguage = () => {
   }
 
   return languageCode.slice(0, 2).toLowerCase()
+}
+
+type AccountHumanReadable = {
+  short: string
+  full: string
+}
+
+export const accountHumanReadable = (
+  rlyAccount: string,
+): AccountHumanReadable => {
+  if (!rlyAccount) {
+    return {
+      short: '',
+      full: '',
+    }
+  }
+
+  const firstChars = rlyAccount.slice(0, 5)
+  const lastChars = rlyAccount.slice(rlyAccount.length - 9, rlyAccount.length)
+
+  return {
+    short: `${firstChars}...${lastChars}`,
+    full: rlyAccount,
+  }
 }

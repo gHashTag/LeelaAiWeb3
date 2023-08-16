@@ -13,7 +13,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { getAccount } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react'
 import { navigationRef, isReadyRef, navigate } from 'cons/RootNavigation'
-import Orientation from 'react-native-orientation-locker'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import { useRecoilState } from 'recoil'
 import UiKit from 'UiKit'
@@ -56,7 +55,6 @@ const LightTheme = {
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const App = () => {
-  // Themes
   const isDark = useColorScheme() === 'dark'
 
   const theme = isDark ? DarkTheme : LightTheme
@@ -70,7 +68,6 @@ const App = () => {
       isDark ? 'dark' : 'light',
     )
     SystemNavigationBar.setNavigationBarDividerColor(lightGray)
-    Orientation.lockToPortrait()
     return () => {
       // @ts-ignore
       isReadyRef.current = false
@@ -87,7 +84,7 @@ const App = () => {
       }
 
       setAct(rlyAccount)
-      navigate('GAME_SCREEN')
+      navigate('USER_SCREEN')
     }
     loadAccount()
   }, [setAct])
