@@ -27,6 +27,7 @@ import { black, lightGray, secondary, white } from './cons'
 import {
   GameScreen,
   PlanScreen,
+  PlansScreen,
   ReportScreen,
   ReportsScreen,
   UserScreen,
@@ -67,7 +68,7 @@ const App = () => {
       }
 
       setAct(rlyAccount)
-      navigate('USER_SCREEN')
+      navigate('PLANS_SCREEN')
     }
     loadAccount()
   }, [setAct])
@@ -99,7 +100,7 @@ const App = () => {
       theme={theme}
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="UI_KIT_SCREEN">
+      <Stack.Navigator initialRouteName="PLANS_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
@@ -109,6 +110,7 @@ const App = () => {
           }}
         >
           <Stack.Screen name="GAME_SCREEN" component={GameScreen} />
+          <Stack.Screen name="PLANS_SCREEN" component={PlansScreen} />
           <Stack.Screen name="PLAN_SCREEN" component={PlanScreen} />
           <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
           <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />

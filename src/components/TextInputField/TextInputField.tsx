@@ -45,6 +45,7 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   inputMode,
   keyboardType,
 }) => {
+  const height = ms(multiline ? 90 : 60, 0.9)
   const inputComponent = (
     <View style={styles.container}>
       <TextInput
@@ -61,7 +62,7 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   )
 
   return (
-    <NeomorphFlexView viewStyle={styles.card}>
+    <NeomorphFlexView viewStyle={{ ...styles.card, height }}>
       {inputComponent}
     </NeomorphFlexView>
   )
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
   card: {
     alignSelf: 'center',
     borderRadius: s(40),
-    height: ms(60, 0.9),
     justifyContent: 'center',
     width: ms(230, 0.9),
   },

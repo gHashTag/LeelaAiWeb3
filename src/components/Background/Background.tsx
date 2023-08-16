@@ -1,12 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import {
-  ImageBackground,
-  ImageSourcePropType,
-  ScrollView,
-  StyleSheet,
-  View,
-} from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
 import { W, black, lightGray } from 'cons'

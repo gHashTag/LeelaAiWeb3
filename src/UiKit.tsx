@@ -110,7 +110,6 @@ function UiKit(): JSX.Element {
       <Dice rollDice={rollDice} lastRoll={lastRoll} size="large" />
 
      */}
-      <Space height={50} />
 
       <Avatar
         plan={1}
