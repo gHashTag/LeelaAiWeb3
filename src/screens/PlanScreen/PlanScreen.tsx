@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { Platform, View, StyleSheet } from 'react-native'
 
+import { RouteProp } from '@react-navigation/native'
 import {
   MarkdownView,
   Button,
@@ -17,17 +18,16 @@ import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { readFileAssets } from 'react-native-fs'
 import RNFetchBlob from 'rn-fetch-blob'
+import { RootStackParamList } from 'types'
 
 interface FormData {
   name: string
 }
 
+type PlanScreenRouteProp = RouteProp<RootStackParamList, 'PLAN_SCREEN'>
+
 type PlanScreenProps = {
-  route: {
-    params: {
-      key: string
-    }
-  }
+  route: PlanScreenRouteProp
 }
 
 const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
@@ -87,6 +87,7 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
               value={value}
               onBlur={onBlur}
               onChangeText={(val) => onChange(val)}
+              isWide
             />
           )}
           rules={{

@@ -17,7 +17,6 @@ const PlansScreen: React.FC = () => {
   const { profileData } = useProfile()
 
   useEffect(() => {
-    // Здесь вы можете импортировать plansList.json или использовать его напрямую
     const plansData = require('./plansList.json')
     setPlans(Object.values(plansData))
   }, [])
@@ -37,13 +36,12 @@ const PlansScreen: React.FC = () => {
 
   return (
     <Background>
-      <Space height={70} />
+      <Space height={20} />
       <FlatList
         data={plans}
         renderItem={renderItem}
         keyExtractor={(item) => item.title}
         contentContainerStyle={styles.listContainer}
-        ListHeaderComponent={<Header avatar={profileData.avatar} />}
         ListHeaderComponentStyle={styles.headerStyle}
       />
     </Background>

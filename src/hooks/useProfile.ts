@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 interface ProfileData {
-  firstName: string
-  lastName: string
+  fullName: string
   email: string
   intention: string
   avatar: string
@@ -17,8 +16,7 @@ interface ProfileHook {
 
 export const useProfile = (): ProfileHook => {
   const [profileData, setProfileData] = useState<ProfileData>({
-    firstName: '',
-    lastName: '',
+    fullName: '',
     email: '',
     intention: '',
     avatar: '',

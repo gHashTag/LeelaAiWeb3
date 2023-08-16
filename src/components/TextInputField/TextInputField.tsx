@@ -9,6 +9,7 @@ import { ms, s } from 'react-native-size-matters'
 interface TextInputFieldProps {
   placeholder: string
   multiline?: boolean
+  isWide?: boolean
   value: string
   onBlur: () => void
   onChangeText: (text: string) => void
@@ -44,8 +45,9 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   multiline = false,
   inputMode,
   keyboardType,
+  isWide = false,
 }) => {
-  const height = ms(multiline ? 90 : 60, 0.9)
+  const height = ms(isWide ? 90 : 60, 0.9)
   const inputComponent = (
     <View style={styles.container}>
       <TextInput

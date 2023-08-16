@@ -89,7 +89,7 @@ function UiKit(): JSX.Element {
         id={'1'}
         post={post}
         fullName={fullName}
-        //avatar={avatar}
+        avatar={avatar}
         isLoading={false}
         isAdmin={isAdmin}
         isLiked={isLiked}

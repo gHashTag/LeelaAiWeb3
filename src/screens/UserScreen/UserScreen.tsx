@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { Linking, View, StyleSheet } from 'react-native'
 
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useNavigation } from '@react-navigation/native'
 import {
   createAccount as createRlyAccount,
   getAccount,
@@ -16,7 +15,6 @@ import {
   Button,
   Background,
   Address,
-  Header,
 } from 'components'
 import { captureException, red } from 'cons'
 import { navigate } from 'cons/RootNavigation'
@@ -30,15 +28,13 @@ import * as Yup from 'yup'
 import { account } from '../../state'
 
 interface FormData {
-  firstName: string
-  lastName: string
+  fullName: string
   email: string
   intention: string
 }
 
 const validationFieldNames = {
-  firstName: 'firstName',
-  lastName: 'lastName',
+  fullName: 'firstName',
   email: 'email',
   intention: 'intention',
 }
@@ -49,11 +45,8 @@ const UserScreen: React.FC = () => {
   const [rlyAccount] = useRecoilState(account)
 
   const schema = Yup.object().shape({
-    firstName: Yup.string().required(
-      t('required', { field: t(validationFieldNames.firstName) }),
-    ),
-    lastName: Yup.string().required(
-      t('required', { field: t(validationFieldNames.lastName) }),
+    fullName: Yup.string().required(
+      t('required', { field: t(validationFieldNames.fullName) }),
     ),
     email: Yup.string()
       .required(t('required', { field: t(validationFieldNames.email) }))
@@ -74,8 +67,7 @@ const UserScreen: React.FC = () => {
   } = useForm<FormData>({
     mode: 'onBlur',
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      fullName: '',
       email: '',
       intention: '',
     },
@@ -83,8 +75,7 @@ const UserScreen: React.FC = () => {
   })
 
   useEffect(() => {
-    setValue('firstName', profileData.firstName)
-    setValue('lastName', profileData.lastName)
+    setValue('fullName', profileData.fullName)
     setValue('email', profileData.email)
     setValue('intention', profileData.intention)
   }, [profileData, setValue])
@@ -111,9 +102,7 @@ const UserScreen: React.FC = () => {
   return (
     <Background isScrollView>
       <View style={styles.container}>
-        <Space height={70} />
-        <Header />
-        <Space height={40} />
+        <Space height={20} />
         <Avatar
           plan={1}
           size="xLarge"
@@ -123,7 +112,7 @@ const UserScreen: React.FC = () => {
           onPress={chooseAvatarImage}
           isLoading={isLoading}
         />
-        <Space height={40} />
+        <Space height={10} />
         {rlyAccount && <Address rlyAccount={rlyAccount} />}
 
         <Space height={25} />
@@ -131,25 +120,10 @@ const UserScreen: React.FC = () => {
         <Controller
           control={control}
           rules={{ required: true }}
-          name="firstName"
+          name="fullName"
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInputField
-              placeholder={t('auth.firstName')}
-              multiline
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Space height={20} />
-        <Controller
-          control={control}
-          name="lastName"
-          rules={{ required: true }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInputField
-              placeholder={t('auth.lastName')}
+              placeholder={t('auth.fullName')}
               multiline
               onBlur={onBlur}
               onChangeText={onChange}
@@ -193,21 +167,14 @@ const UserScreen: React.FC = () => {
         <Space height={20} />
 
         <View style={styles.btnStyle}>
-          {errors.firstName && (
+          {errors.fullName && (
             <Text
               h={'h3'}
-              title={String(errors.firstName.message)}
+              title={String(errors.fullName.message)}
               oneColor={red}
             />
           )}
           <Space height={5} />
-          {errors.lastName && (
-            <Text
-              h={'h3'}
-              title={String(errors.lastName.message)}
-              oneColor={red}
-            />
-          )}
           <Space height={5} />
           {errors.email && (
             <Text
@@ -224,8 +191,7 @@ const UserScreen: React.FC = () => {
               oneColor={red}
             />
           )}
-          <Space height={15} />
-
+          <Space height={5} />
           <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
           {rlyAccount && (
             <>

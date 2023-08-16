@@ -13,6 +13,7 @@ import {
 import { useTheme } from '@react-navigation/native'
 import { NeomorphView, Text } from 'components'
 import { orange, secondary } from 'cons'
+import { useTranslation } from 'react-i18next'
 import { ms, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -43,7 +44,7 @@ const Avatar = memo<AvatarI>(
     const {
       colors: { background },
     } = useTheme()
-
+    const { t } = useTranslation()
     const textPlan = plan < 10 ? `0${plan}` : `${plan}`
     const fontSize = size === 'small' ? s(6) : s(10)
     const badgeS =
@@ -52,10 +53,10 @@ const Avatar = memo<AvatarI>(
         : styles.bigBadge
 
     const newSize = [styles[size]]
-
+    console.log('newSize', newSize)
     return (
       <Pressable onPress={onPress} testID={testID}>
-        <NeomorphView viewStyle={{ ...styles.card, ...newSize }}>
+        <NeomorphView viewStyle={{ ...styles.card, ...newSize[0] }}>
           <View style={styles.container}>
             {isLoading ? (
               <ActivityIndicator size="large" color={secondary} />
@@ -92,14 +93,12 @@ const Avatar = memo<AvatarI>(
                 </View>
               </ImageBackground>
             ) : (
-              <NeomorphView viewStyle={styles.card}>
-                <Text
-                  h={'h4'}
-                  testID="add-image-text"
-                  title="add image"
-                  textStyle={styles.textStyle}
-                />
-              </NeomorphView>
+              <Text
+                h={'h3'}
+                testID="add-image-text"
+                title={t('auth.addImage')}
+                textStyle={styles.textStyle}
+              />
             )}
           </View>
         </NeomorphView>
@@ -155,9 +154,10 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     alignSelf: 'center',
-    //lineHeight: 30,
+    lineHeight: 23,
     textAlign: 'center',
-    width: 60,
+    top: 5,
+    width: 110,
   },
   xLarge: {
     borderRadius: s(70),
