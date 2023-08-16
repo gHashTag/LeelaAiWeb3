@@ -25,7 +25,6 @@ const ReportCard: React.FC<ReportCardProps> = ({
   handleComment,
 }) => {
   return (
-    // @ts-ignore
     <NeomorphView viewStyle={styles.card}>
       <Pressable
         onPress={onPress}

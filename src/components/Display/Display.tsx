@@ -17,7 +17,6 @@ const Display: React.FC<DisplayProps> = ({
   height = s(120),
 }) => {
   return (
-    // @ts-ignore
     <NeomorphFlexView viewStyle={{ ...styles.container, height }}>
       <Text
         title={title}

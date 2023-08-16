@@ -41,7 +41,6 @@ const ButtonCircle = memo<ButtonCircleProps>(
         testID="buttonCircle"
       >
         {isPressed ? (
-          // @ts-ignore
           <NeomorphFlexView viewStyle={styles.card}>
             {isIonicons ? (
               <Ionicons
@@ -60,7 +59,6 @@ const ButtonCircle = memo<ButtonCircleProps>(
             )}
           </NeomorphFlexView>
         ) : (
-          // @ts-ignore
           <NeomorphView viewStyle={styles.card}>
             {isIonicons ? (
               <Ionicons

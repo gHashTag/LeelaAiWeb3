@@ -41,7 +41,6 @@ function GameBoard({ players }: GameBoardProps) {
   }
 
   return (
-    // @ts-ignore
     <NeomorphFlexView viewStyle={styles.container}>
       <View
         style={[

@@ -61,7 +61,6 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   )
 
   return (
-    // @ts-ignore
     <NeomorphFlexView viewStyle={styles.card}>
       {inputComponent}
     </NeomorphFlexView>
