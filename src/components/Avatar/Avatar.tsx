@@ -50,7 +50,7 @@ const Avatar = memo<AvatarI>(
       size === 'small' || size === 'medium'
         ? styles.smallBadge
         : styles.bigBadge
-    console.log('background', background)
+
     return (
       <Pressable onPress={onPress} testID={testID}>
         {/* @ts-ignore */}

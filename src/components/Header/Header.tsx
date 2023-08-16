@@ -12,8 +12,6 @@ interface HeaderT {
   avatar?: string
   onPress?: () => void | null
   onPressRight?: () => void
-  children?: React.ReactNode
-  hidestar?: boolean
 }
 
 const Header = memo<HeaderT>(
