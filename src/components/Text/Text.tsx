@@ -95,12 +95,14 @@ export const textStyles = ScaledSheet.create({
     fontSize: Platform.OS === 'ios' ? s(20) : s(20),
     fontFamily: 'mont',
     fontWeight: 'bold',
+    lineHeight: 20,
   },
   h3: {
     fontFamily: 'mont',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 1,
     fontSize: Platform.OS === 'ios' ? ms(18, 0.6) : ms(18, 0.6),
+    lineHeight: 20,
   },
   h4: {
     fontSize: Platform.OS === 'ios' ? s(15) : s(15),

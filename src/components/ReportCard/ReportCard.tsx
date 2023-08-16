@@ -12,6 +12,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
   onPress,
   fullName,
   avatar,
+  isLoading,
   isAdmin,
   isLiked,
   likeCount,
@@ -55,18 +56,19 @@ const ReportCard: React.FC<ReportCardProps> = ({
                 <Avatar
                   avatar={avatar}
                   onPress={handleProfile}
-                  size={'medium'}
+                  size={'large'}
                   plan={post.plan as number}
                   isAccept={post.accept}
                   additionalStyle={styles.img}
                   testID="report-card-avatar"
+                  isLoading={isLoading}
                 />
               </View>
             </View>
 
-            <Space height={vs(11)} />
+            <Space height={vs(5)} />
             <Text
-              h={'h4'}
+              h={'h3'}
               textStyle={styles.lightText}
               title={post.text || ' '}
               numberOfLines={4}
@@ -98,10 +100,9 @@ const styles = ScaledSheet.create({
   },
   card: {
     width: W - 50,
-    height: vs(160),
+    height: vs(180),
   },
   img: {
-    top: 9,
     marginBottom: s(12),
   },
   btnsContainer: {

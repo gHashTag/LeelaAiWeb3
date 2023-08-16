@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
-import { black, lightGray } from 'cons'
+import { W, black, lightGray } from 'cons'
 import { ScaledSheet } from 'react-native-size-matters'
 
 interface BackgroundProps {
@@ -59,6 +59,7 @@ const styles = ScaledSheet.create({
     flexGrow: 1,
     justifyContent: 'flex-start', // Поднимаем контент вверх
     alignItems: 'center',
+    width: W,
   },
 })
 

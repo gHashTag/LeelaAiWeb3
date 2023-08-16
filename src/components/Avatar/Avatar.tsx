@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
-import { NeomorphView, Text } from 'components'
+import { Text } from 'components'
 import { orange, secondary } from 'cons'
 import { ms, s, ScaledSheet } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -37,7 +37,7 @@ const Avatar = memo<AvatarI>(
     showIcon = true,
     onPress,
     testID = 'avatar',
-    isLoading = true,
+    isLoading = false,
   }) => {
     const {
       colors: { background },
@@ -49,56 +49,51 @@ const Avatar = memo<AvatarI>(
       size === 'small' || size === 'medium'
         ? styles.smallBadge
         : styles.bigBadge
-
+    console.log('background', background)
     return (
       <Pressable onPress={onPress} testID={testID}>
         {/* @ts-ignore */}
-        <NeomorphView viewStyle={styles.card}>
-          <View style={styles.container}>
-            {isLoading ? (
-              <ActivityIndicator size="large" color={secondary} />
-            ) : avatar ? (
-              <ImageBackground
-                source={{ uri: avatar }}
-                style={[styles[size], additionalStyle]}
-                imageStyle={styles.container}
+
+        <View style={styles.container}>
+          {isLoading ? (
+            <ActivityIndicator size="large" color={secondary} />
+          ) : avatar ? (
+            <ImageBackground
+              source={{ uri: avatar }}
+              style={[styles[size], additionalStyle]}
+              imageStyle={styles.container}
+            >
+              <View
+                style={[styles.badge, badgeS, { backgroundColor: background }]}
               >
-                <View
-                  style={[
-                    styles.badge,
-                    badgeS,
-                    { backgroundColor: background },
-                  ]}
-                >
-                  {!isAccept ? (
-                    showIcon && (
-                      <Ionicons
-                        size={s(15)}
-                        color={orange}
-                        name="time-sharp"
-                        testID="time-icon"
-                      />
-                    )
-                  ) : (
-                    <Text
-                      testID="avatar-title"
-                      textStyle={{ fontSize }}
-                      title={textPlan}
-                      h="h5"
+                {!isAccept ? (
+                  showIcon && (
+                    <Ionicons
+                      size={s(15)}
+                      color={orange}
+                      name="time-sharp"
+                      testID="time-icon"
                     />
-                  )}
-                </View>
-              </ImageBackground>
-            ) : (
-              <Text
-                h={'h2'}
-                testID="add-image-text"
-                title="add image"
-                textStyle={styles.textStyle}
-              />
-            )}
-          </View>
-        </NeomorphView>
+                  )
+                ) : (
+                  <Text
+                    testID="avatar-title"
+                    textStyle={{ fontSize }}
+                    title={textPlan}
+                    h="h5"
+                  />
+                )}
+              </View>
+            </ImageBackground>
+          ) : (
+            <Text
+              h={'h2'}
+              testID="add-image-text"
+              title="add image"
+              textStyle={styles.textStyle}
+            />
+          )}
+        </View>
       </Pressable>
     )
   },

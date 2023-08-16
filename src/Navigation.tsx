@@ -12,12 +12,18 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { getAccount } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react'
-import { navigationRef, isReadyRef, navigate } from 'cons/RootNavigation'
+import {
+  navigationRef,
+  isReadyRef,
+  navigate,
+  LightTheme,
+  DarkTheme,
+} from 'cons/RootNavigation'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import { useRecoilState } from 'recoil'
 import UiKit from 'UiKit'
 
-import { black, dimGray, lightGray, red, secondary, white } from './cons'
+import { black, lightGray, secondary, white } from './cons'
 import {
   GameScreen,
   PlanScreen,
@@ -28,30 +34,6 @@ import {
 } from './screens'
 import { account } from './state'
 import { RootStackParamList } from './types'
-
-const DarkTheme = {
-  dark: true,
-  colors: {
-    primary: secondary,
-    background: black,
-    card: white,
-    text: white,
-    border: dimGray,
-    notification: red,
-  },
-}
-
-const LightTheme = {
-  dark: false,
-  colors: {
-    primary: secondary,
-    background: lightGray,
-    card: white,
-    text: black,
-    border: dimGray,
-    notification: red,
-  },
-}
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -85,7 +67,7 @@ const App = () => {
       }
 
       setAct(rlyAccount)
-      navigate('USER_SCREEN')
+      navigate('UI_KIT_SCREEN')
     }
     loadAccount()
   }, [setAct])
@@ -117,7 +99,7 @@ const App = () => {
       theme={theme}
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="GAME_SCREEN">
+      <Stack.Navigator initialRouteName="UI_KIT_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
