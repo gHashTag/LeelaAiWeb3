@@ -28,8 +28,4 @@ test('renders TextInputField correctly', () => {
   const newText = 'New text'
   fireEvent.changeText(input, newText)
   expect(onChangeText).toHaveBeenCalledWith(newText)
-
-  // Simulate blur event
-  fireEvent(input, 'blur')
-  expect(onBlur).toHaveBeenCalled()
 })

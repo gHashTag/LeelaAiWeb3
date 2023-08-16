@@ -9,6 +9,8 @@ import { useLeelaGame } from './useLeelaGame'
 const mockAsyncStorage = new MockAsyncStorage()
 jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage)
 
+mockAsyncStorage.setItem = jest.fn()
+
 describe('useLeelaGame', () => {
   beforeEach(() => {
     mockAsyncStorage.clear()

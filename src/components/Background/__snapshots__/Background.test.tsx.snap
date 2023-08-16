@@ -4,13 +4,18 @@ exports[`Background Component renders correctly 1`] = `
 <View
   accessibilityIgnoresInvertColors={true}
   style={
-    {
-      "alignItems": "center",
-      "flex": 1,
-      "height": "100%",
-      "justifyContent": "center",
-      "width": "100%",
-    }
+    [
+      {
+        "alignItems": "center",
+        "flex": 1,
+        "height": "100%",
+        "justifyContent": "flex-start",
+        "width": "100%",
+      },
+      {
+        "backgroundColor": "#F5F7F8",
+      },
+    ]
   }
 >
   <Image

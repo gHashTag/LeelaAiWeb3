@@ -59,7 +59,7 @@ export interface ReportCardProps extends UserActions {
   id: string
   post: Post
   avatar: string
-  isLoading: boolean
+  isLoading?: boolean
   onPress?: () => void
   fullName: string
   isAdmin: boolean
