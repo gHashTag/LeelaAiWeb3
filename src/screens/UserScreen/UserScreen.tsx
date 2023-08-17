@@ -15,6 +15,7 @@ import {
   Button,
   Background,
   Address,
+  ErrorMessages,
 } from 'components'
 import { captureException, red } from 'cons'
 import { navigate } from 'cons/RootNavigation'
@@ -167,53 +168,32 @@ const UserScreen: React.FC = () => {
         <Space height={20} />
 
         <View style={styles.btnStyle}>
-          {errors.fullName && (
-            <Text
-              h={'h3'}
-              title={String(errors.fullName.message)}
-              oneColor={red}
-            />
-          )}
+          <ErrorMessages errors={errors} />
           <Space height={5} />
-          <Space height={5} />
-          {errors.email && (
-            <Text
-              h={'h3'}
-              title={String(errors.email.message)}
-              oneColor={red}
-            />
-          )}
-          <Space height={5} />
-          {errors.intention && (
-            <Text
-              h={'h3'}
-              title={String(errors.intention.message)}
-              oneColor={red}
-            />
-          )}
-          <Space height={5} />
-          <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
-          {rlyAccount && (
-            <>
-              <Space height={20} />
-              <Button
-                h={'h2'}
-                title="Explorer"
-                onPress={async () => {
-                  Linking.openURL(
-                    `https://mumbai.polygonscan.com/address/${rlyAccount}`,
-                  )
-                }}
-              />
-              <Space height={20} />
-              <Button
-                h={'h2'}
-                title="View seed"
-                onPress={() => navigate('SEED_SCREEN')}
-              />
-            </>
-          )}
         </View>
+        <Space height={5} />
+        <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
+        {rlyAccount && (
+          <>
+            <Space height={20} />
+            <Button
+              h={'h2'}
+              title="Explorer"
+              onPress={async () => {
+                Linking.openURL(
+                  `https://mumbai.polygonscan.com/address/${rlyAccount}`,
+                )
+              }}
+            />
+            <Space height={20} />
+            <Button
+              h={'h2'}
+              title="View seed"
+              onPress={() => navigate('SEED_SCREEN')}
+            />
+          </>
+        )}
+
         <Space height={150} />
       </View>
     </Background>
@@ -223,6 +203,7 @@ const UserScreen: React.FC = () => {
 const styles = StyleSheet.create({
   btnStyle: {
     alignItems: 'center',
+    width: '80%',
   },
   container: {
     alignItems: 'center',

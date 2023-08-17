@@ -59,7 +59,6 @@ const Header = memo<HeaderT>(
 )
 
 const styles = StyleSheet.create({
-  childrenStyle: {},
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
