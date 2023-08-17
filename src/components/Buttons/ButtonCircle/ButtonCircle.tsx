@@ -36,7 +36,7 @@ const ButtonCircle = memo<ButtonCircleProps>(
         onPress={onPress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
-        style={styles.container}
+        style={[styles.card, styles.container]}
         testID="buttonCircle"
       >
         {isPressed ? (
@@ -73,26 +73,20 @@ const ButtonCircle = memo<ButtonCircleProps>(
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: s(30),
-    height: ms(60, 0.9),
+    borderRadius: s(25),
+    height: ms(50, 0.9),
     justifyContent: 'center',
-    width: ms(60, 0.9),
+    width: ms(50, 0.9),
   },
   container: {
     alignItems: 'center',
-    borderRadius: s(30),
-    height: ms(60, 0.9),
     justifyContent: 'center',
-    width: ms(60, 0.9),
   },
   icon: {
     alignSelf: 'center',
   },
   img: {
-    borderRadius: s(30),
-    height: ms(60, 0.9),
-    justifyContent: 'center',
-    width: ms(60, 0.9),
+    borderRadius: s(20),
   },
 })
 

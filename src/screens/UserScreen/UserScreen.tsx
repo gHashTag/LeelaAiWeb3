@@ -34,7 +34,7 @@ interface FormData {
 }
 
 const validationFieldNames = {
-  fullName: 'firstName',
+  fullName: 'fullName',
   email: 'email',
   intention: 'intention',
 }

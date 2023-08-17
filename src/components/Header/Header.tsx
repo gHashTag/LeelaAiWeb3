@@ -36,7 +36,7 @@ const Header = memo<HeaderT>(
           <ButtonCircle
             name="arrow-back"
             isIonicons
-            size={40}
+            size={30}
             onPress={onPress}
           />
         }
@@ -46,13 +46,13 @@ const Header = memo<HeaderT>(
             <ButtonCircle
               name={avatar}
               isIonicons={false}
-              size={40}
+              size={30}
               onPress={onPressCenter}
             />
           )}
         </View>
 
-        <ButtonCircle name="book" isIonicons size={40} onPress={onPressRight} />
+        <ButtonCircle name="book" isIonicons size={30} onPress={onPressRight} />
       </View>
     )
   },

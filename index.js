@@ -13,9 +13,7 @@ import { name as appName } from './app.json'
 import App from './src'
 
 // if (__DEV__) {
-//   const ignoreWarns = [
-//     'react-i18next:: You will need to pass in an i18next instance by using initReactI18next',
-//   ]
+//   const ignoreWarns = ['i18next::translator:']
 
 //   const warn = console.warn
 //   console.warn = (...arg) => {

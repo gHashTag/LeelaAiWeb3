@@ -53,7 +53,6 @@ const Avatar = memo<AvatarI>(
         : styles.bigBadge
 
     const newSize = [styles[size]]
-    console.log('newSize', newSize)
     return (
       <Pressable onPress={onPress} testID={testID}>
         <NeomorphView viewStyle={{ ...styles.card, ...newSize[0] }}>
