@@ -3,47 +3,39 @@ import React from 'react'
 import { View, Pressable, StyleSheet } from 'react-native'
 
 import { Avatar, NeomorphFlexView, Space, Text } from 'components'
-import { W, transparent } from 'cons'
+import { W, formatDate, transparent } from 'cons'
 import { s, vs } from 'react-native-size-matters'
-import { Post } from 'types'
+import { Comment } from 'types'
 
-interface CommentCardProps {
-  post: Post
-  onPress?: () => void
-  fullName: string
-  avatar: string
-  date: string
+interface CommentBubbleLeftProps {
+  commentItem: Comment
   handleProfile: () => void
-  isLeft?: boolean
 }
 
-const CommentBubbleLeft: React.FC<CommentCardProps> = ({
-  post,
-  onPress,
-  fullName,
-  avatar,
-  date,
+const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
+  commentItem,
   handleProfile,
 }) => {
+  const { author, title, createdAt } = commentItem
+  const { avatar, fullName, plan } = author
   return (
-    <NeomorphFlexView>
+    <NeomorphFlexView marginHorizontal={20}>
       <View style={styles.container}>
-        <Pressable onPress={onPress} testID="comment-bubble-left-container">
+        <Pressable testID="comment-bubble-left-container">
           <View style={styles.bubbleStyle}>
             <Avatar
+              plan={plan}
               avatar={avatar}
               onPress={handleProfile}
               size={'medium'}
-              plan={post.plan as number}
-              isAccept={post.accept}
-              additionalStyle={styles.img}
               testID="avatar-bubble-left"
+              isAccept
             />
             <View style={styles.headerName}>
               <Text
                 h={'h4'}
                 textStyle={styles.lightText}
-                title={post.text || ' '}
+                title={title || ' '}
                 testID="comment-bubble-left-comment"
               />
               <Space height={vs(5)} />
@@ -56,7 +48,7 @@ const CommentBubbleLeft: React.FC<CommentCardProps> = ({
               />
               <View style={styles.headerName}>
                 <Text
-                  title={date}
+                  title={`${formatDate(createdAt)}`}
                   h={'h5'}
                   textStyle={styles.dateStyle}
                   testID="comment-bubble-left-date"
@@ -87,9 +79,6 @@ const styles = StyleSheet.create({
   headerName: {
     alignItems: 'flex-start',
     backgroundColor: transparent,
-  },
-  img: {
-    top: 9,
   },
   lightText: {
     maxWidth: W - 120,

@@ -11,15 +11,21 @@ export const AllReportsQuery = gql`
       }
       title
       createdAt
-      comments {
-        createdAt
-        id
-        title
-      }
       likes {
         id
         player {
           id
+          fullName
+        }
+      }
+      comments {
+        createdAt
+        id
+        title
+        author {
+          avatar
+          fullName
+          plan
         }
       }
     }

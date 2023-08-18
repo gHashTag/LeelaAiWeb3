@@ -4,8 +4,8 @@ import { ScrollView, StyleSheet, View } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
 import { Header, Space } from 'components'
-import { W, black, lightGray } from 'cons'
-import { useProfile } from 'hooks'
+import { H, W, black, lightGray } from 'cons'
+import { useGlobalBackground, useProfile } from 'hooks'
 import { useRecoilState } from 'recoil'
 import { account } from 'state'
 
@@ -13,25 +13,22 @@ interface BackgroundProps {
   children: ReactNode
   isScrollView?: boolean
   isShowHeader?: boolean
+  isFlatList?: boolean
 }
 
 const Background: React.FC<BackgroundProps> = ({
   children,
   isScrollView = false,
   isShowHeader = true,
+  isFlatList = false,
 }) => {
-  // const imageSource: ImageSourcePropType = require('../../../assets/images/background.png')
   const { profileData } = useProfile()
   const [rlyAccount] = useRecoilState(account)
-  const { dark } = useTheme()
-  const backgroundColor = dark ? black : lightGray
-
-  const backgroundStyle = [styles.background, { backgroundColor }]
+  const backgroundStyle = useGlobalBackground()
 
   if (isScrollView) {
     return (
-      // <ImageBackground source={imageSource} style={backgroundStyle}>
-      <View style={backgroundStyle}>
+      <View style={[backgroundStyle, styles.container]}>
         <Space height={60} />
         {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
         <ScrollView
@@ -41,29 +38,37 @@ const Background: React.FC<BackgroundProps> = ({
           {children}
         </ScrollView>
       </View>
-      // </ImageBackground>
+    )
+  }
+
+  if (isFlatList) {
+    return (
+      <View style={[backgroundStyle, styles.flatlistStyle]}>
+        <Space height={60} />
+        {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
+        {children}
+      </View>
     )
   }
 
   return (
-    // <ImageBackground source={imageSource} style={backgroundStyle}>
-
-    <View style={backgroundStyle}>
+    <View style={[backgroundStyle, styles.container]}>
       <Space height={60} />
       {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
       {children}
     </View>
-    // </ImageBackground>
   )
 }
 
 const styles = StyleSheet.create({
-  background: {
+  container: {
     alignItems: 'center',
     flex: 1,
-    height: '100%',
     justifyContent: 'flex-start',
-    width: '100%',
+    top: 20,
+  },
+  flatlistStyle: {
+    alignItems: 'center',
   },
   scrollViewContent: {
     alignItems: 'center',

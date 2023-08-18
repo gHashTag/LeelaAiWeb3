@@ -9,13 +9,13 @@ import { Display } from 'components/Display'
 import { Loader } from 'components/Loader'
 import { black, lightGray, red } from 'cons'
 
-interface BackgroundProps {
+interface LayoutProps {
   children?: ReactNode
   loading?: boolean
   error?: ApolloError
 }
 
-const Layout: React.FC<BackgroundProps> = ({ children, loading, error }) => {
+const Layout: React.FC<LayoutProps> = ({ children, loading, error }) => {
   const { dark } = useTheme()
   const backgroundColor = dark ? black : lightGray
 
@@ -43,8 +43,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     height: '100%',
-    justifyContent: 'flex-start',
-    width: '100%',
+    justifyContent: 'center',
   },
 })
 

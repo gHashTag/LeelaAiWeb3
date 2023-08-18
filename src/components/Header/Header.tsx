@@ -5,6 +5,7 @@ import { Platform, View, StyleSheet } from 'react-native'
 import { ButtonCircle } from 'components'
 import { W } from 'cons'
 import { goBack, navigate } from 'cons/RootNavigation'
+import _ from 'lodash'
 import { mvs, s, vs } from 'react-native-size-matters'
 
 const isIos = Platform.OS === 'ios'
@@ -30,6 +31,7 @@ const Header = memo<HeaderT>(
 
     avatar,
   }) => {
+    const debouncedOnPress = _.debounce((handler) => handler(), 100)
     return (
       <View style={styles.container}>
         {
@@ -37,7 +39,7 @@ const Header = memo<HeaderT>(
             name="arrow-back"
             isIonicons
             size={30}
-            onPress={onPress}
+            onPress={() => debouncedOnPress(onPress)}
           />
         }
 
@@ -47,12 +49,17 @@ const Header = memo<HeaderT>(
               name={avatar}
               isIonicons={false}
               size={30}
-              onPress={onPressCenter}
+              onPress={() => debouncedOnPress(onPressCenter)}
             />
           )}
         </View>
 
-        <ButtonCircle name="book" isIonicons size={30} onPress={onPressRight} />
+        <ButtonCircle
+          name="book"
+          isIonicons
+          size={30}
+          onPress={() => debouncedOnPress(onPressRight)}
+        />
       </View>
     )
   },

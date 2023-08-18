@@ -3,8 +3,8 @@ export type RootStackParamList = {
   GAME_SCREEN: undefined
   PLANS_SCREEN: undefined
   PLAN_SCREEN: { key: string }
-  REPORT_SCREEN: undefined
   REPORTS_SCREEN: undefined
+  REPORT_SCREEN: { item: Report }
   UI_KIT_SCREEN: undefined
   SEED_SCREEN: undefined
 }
@@ -28,8 +28,9 @@ export interface GameBoardProps {
 
 export interface Comment {
   id: string
-  text: string
-  createTime: number
+  title: string
+  author: Player
+  createdAt: string
 }
 
 export interface UserActions {
@@ -53,7 +54,7 @@ export interface Report extends UserActions {
   isLikedByCurrentUser: boolean
   likes: Like[]
   commentCount: number
-  likeCount?: number
+  likeCount: number
   createdAt: string
 }
 

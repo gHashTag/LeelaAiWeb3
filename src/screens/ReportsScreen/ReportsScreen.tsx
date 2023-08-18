@@ -3,36 +3,33 @@ import React from 'react'
 import { FlatList, StyleSheet } from 'react-native'
 
 import { useQuery } from '@apollo/client'
-import { Space, ReportCard, Layout, Header } from 'components'
+import { Space, ReportCard, Layout } from 'components'
 import { W } from 'cons'
+import { navigate } from 'cons/RootNavigation'
 import { AllReportsQuery } from 'graphql/query/AllReportsQuery'
-import { useProfile } from 'hooks'
 import { useRecoilState } from 'recoil'
 import { account } from 'state'
 import { Report, Like } from 'types'
 
 const ReportsScreen: React.FC = () => {
-  const { profileData } = useProfile()
   const [rlyAccount] = useRecoilState(account)
 
   const isCurrentUserLike = (like: Like) => like.player.id === rlyAccount
 
   const { loading, error, data } = useQuery(AllReportsQuery)
 
+  const onPress = (item: Report) => {
+    console.log('click')
+    navigate('REPORT_SCREEN', { item })
+  }
   const renderItem = ({ item }: { item: Report }) => (
     <>
-      <ReportCard {...item} />
+      <ReportCard {...item} onPress={() => onPress(item)} />
       <Space height={20} />
     </>
   )
 
-  const header = () => (
-    <>
-      <Space height={60} />
-      <Header avatar={profileData.avatar} />
-      <Space height={30} />
-    </>
-  )
+  const header = () => <Space height={60} />
 
   const reportsWithCommentCount: Report[] =
     data?.getAllReports.map((report: Report) => ({
