@@ -8,7 +8,7 @@ import { ms, s } from 'react-native-size-matters'
 
 interface ActionButtonsProps {
   isAdmin: boolean
-  commCount: number
+  commentCount: number
   likeCount: number
   isLiked: boolean
   handleAdminMenu: () => void
@@ -19,7 +19,7 @@ interface ActionButtonsProps {
 
 const ActionButtons: React.FC<ActionButtonsProps> = ({
   isAdmin,
-  commCount,
+  commentCount,
   likeCount,
   handleAdminMenu,
   handleComment,
@@ -47,7 +47,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
       )}
       <ButtonVectorIcon
         onPress={handleComment}
-        count={commCount}
+        count={commentCount}
         viewStyle={[styles.smallBtn, styles.nonDetailCommentButton]}
         isIonicons
         name="chatbubble-outline"

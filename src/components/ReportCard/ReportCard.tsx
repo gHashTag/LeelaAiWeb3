@@ -3,26 +3,25 @@ import React from 'react'
 import { View, Pressable, StyleSheet } from 'react-native'
 
 import { Avatar, Space, Text, NeomorphView, ActionButtons } from 'components'
-import { W } from 'cons'
+import { W, formatDate } from 'cons'
 import { s, vs } from 'react-native-size-matters'
-import { ReportCardProps } from 'types'
+import { Report } from 'types'
 
-const ReportCard: React.FC<ReportCardProps> = ({
-  post,
+const ReportCard: React.FC<Report> = ({
+  player,
+  plan,
+  createdAt,
+  title,
   onPress,
-  fullName,
-  avatar,
-  isLoading,
-  isAdmin,
-  isLiked,
-  likeCount,
-  commCount,
-  date,
   handleProfile,
   handleAdminMenu,
   handleShareLink,
   handleLike,
   handleComment,
+  isAdmin,
+  isLikedByCurrentUser,
+  likeCount,
+  commentCount,
 }) => {
   return (
     <NeomorphView viewStyle={styles.card}>
@@ -38,7 +37,7 @@ const ReportCard: React.FC<ReportCardProps> = ({
                 <Text
                   numberOfLines={1}
                   h={'h2'}
-                  title={fullName}
+                  title={player.fullName}
                   ellipsizeMode="tail"
                   testID="report-card-fullName"
                 />
@@ -46,21 +45,20 @@ const ReportCard: React.FC<ReportCardProps> = ({
                 <Text
                   h={'h3'}
                   textStyle={styles.lightText}
-                  title={`${date}`}
+                  title={`${formatDate(createdAt)}`}
                   testID="report-card-date"
                 />
               </View>
 
               <View style={styles.avatarStyle}>
                 <Avatar
-                  avatar={avatar}
+                  avatar={player.avatar}
                   onPress={handleProfile}
                   size={'large'}
-                  plan={post.plan as number}
-                  isAccept={post.accept}
-                  additionalStyle={styles.img}
+                  plan={plan}
+                  isAccept={true}
                   testID="report-card-avatar"
-                  isLoading={isLoading}
+                  isLoading={false}
                 />
               </View>
             </View>
@@ -69,20 +67,20 @@ const ReportCard: React.FC<ReportCardProps> = ({
             <Text
               h={'h3'}
               textStyle={styles.lightText}
-              title={post.text || ' '}
+              title={title}
               numberOfLines={4}
               testID="report-card-postText"
             />
           </View>
           <ActionButtons
             isAdmin={isAdmin}
-            commCount={commCount}
+            commentCount={commentCount}
             likeCount={likeCount}
             handleAdminMenu={handleAdminMenu}
             handleComment={handleComment}
             handleLike={handleLike}
             handleShareLink={handleShareLink}
-            isLiked={isLiked}
+            isLiked={isLikedByCurrentUser}
           />
         </View>
       </Pressable>
@@ -114,9 +112,6 @@ const styles = StyleSheet.create({
   headerName: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  img: {
-    marginBottom: s(12),
   },
   lightText: {
     textAlign: 'left',

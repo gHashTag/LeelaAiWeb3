@@ -11,8 +11,8 @@ import {
 } from 'react-native'
 
 import { useTheme } from '@react-navigation/native'
-import { NeomorphView, Text } from 'components'
-import { orange, secondary } from 'cons'
+import { NeomorphView, Text, Loader } from 'components'
+import { orange } from 'cons'
 import { useTranslation } from 'react-i18next'
 import { ms, s } from 'react-native-size-matters'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -58,7 +58,7 @@ const Avatar = memo<AvatarI>(
         <NeomorphView viewStyle={{ ...styles.card, ...newSize[0] }}>
           <View style={styles.container}>
             {isLoading ? (
-              <ActivityIndicator size="large" color={secondary} />
+              <Loader />
             ) : avatar ? (
               <ImageBackground
                 source={{ uri: avatar }}

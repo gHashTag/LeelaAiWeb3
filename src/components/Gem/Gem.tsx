@@ -4,9 +4,15 @@ import { View, Image, Pressable, StyleSheet } from 'react-native'
 
 import { gray, transparent } from 'cons'
 import { ms } from 'react-native-size-matters'
-import { GemProps } from 'types'
+import { Player } from 'types'
 
 import { Text } from '../Text/Text'
+
+interface GemProps {
+  player?: Player
+  planNumber: number
+  onPress?: () => void
+}
 
 const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
   let source

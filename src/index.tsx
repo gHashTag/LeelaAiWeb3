@@ -2,6 +2,7 @@ import React from 'react'
 
 import { StyleSheet } from 'react-native'
 
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { RALLY_API_KEY } from '@env'
 import { RlyMumbaiNetwork, Network } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react-native'
@@ -11,6 +12,12 @@ import VersionInfo from 'react-native-version-info'
 import { RecoilRoot } from 'recoil'
 
 import Navigation from './Navigation'
+
+// Create an Apollo Client instance
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/',
+  cache: new InMemoryCache(),
+})
 
 export const RlyNetwork: Network = RlyMumbaiNetwork
 RlyNetwork.setApiKey(RALLY_API_KEY)
@@ -35,7 +42,9 @@ function AppWithProviders() {
     <SafeAreaProvider>
       <GestureHandlerRootView style={styles.flexOne}>
         <RecoilRoot>
-          <Navigation />
+          <ApolloProvider client={client}>
+            <Navigation />
+          </ApolloProvider>
         </RecoilRoot>
       </GestureHandlerRootView>
     </SafeAreaProvider>

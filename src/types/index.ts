@@ -10,9 +10,10 @@ export type RootStackParamList = {
 }
 
 export interface Player {
-  id: number
+  id: string
+  fullName: string
   plan: number
-  avatar: string | number
+  avatar: string
   previousPlan?: number
   isStart?: boolean
   isFinished?: boolean
@@ -25,27 +26,10 @@ export interface GameBoardProps {
   players: Player[]
 }
 
-export interface GemProps {
-  player?: Player
-  planNumber: number
-  onPress?: () => void
-}
-
 export interface Comment {
   id: string
   text: string
   createTime: number
-}
-
-export interface Post {
-  id: number
-  text: string
-  createTime: number
-  liked: string[]
-  comments: Comment[]
-  plan: number
-  accept: boolean
-  ownerId: string
 }
 
 export interface UserActions {
@@ -56,18 +40,21 @@ export interface UserActions {
   handleComment: () => void
 }
 
-export interface ReportCardProps extends UserActions {
+export interface Report extends UserActions {
   id: string
-  post: Post
-  avatar: string
-  isLoading?: boolean
-  onPress?: () => void
-  fullName: string
+  player: Player
+  text: string
+  title: string
+  comments: Comment[]
+  onPress: () => void
+  plan: number
+  accept: boolean
   isAdmin: boolean
-  isLiked: boolean
-  likeCount: number
-  commCount: number
-  date: string
+  isLikedByCurrentUser: boolean
+  likes: Like[]
+  commentCount: number
+  likeCount?: number
+  createdAt: string
 }
 
 export interface MessageAIT {
@@ -77,8 +64,15 @@ export interface MessageAIT {
 }
 
 export interface HandleCommentAiParamsT {
-  curItem: Post | undefined
+  curItem: Report | undefined
   systemMessage: string
   message: string
   planText?: string
+}
+
+export interface Like {
+  id: string
+  report: Report
+  player: Player
+  createdAt: string
 }

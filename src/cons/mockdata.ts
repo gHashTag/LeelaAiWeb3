@@ -1,5 +1,17 @@
 import { faker } from '@faker-js/faker'
 
+interface Player {
+  id: number
+  plan: number
+  avatar: string | number
+  previousPlan?: number
+  isStart?: boolean
+  isFinished?: boolean
+  consecutiveSixes?: number
+  positionBeforeThreeSixes?: number
+  message?: string
+}
+
 export const avatar = faker.image.avatar()
 
 export const diceProps = {
@@ -16,16 +28,16 @@ export const diceProps = {
   },
 }
 
-export const plansPlayers = [
+export const plansPlayers: Player[] = [
   {
     id: 2,
     plan: 72,
-    uri: 106,
+    avatar: 106,
   },
   {
     id: 4,
     plan: 34,
-    uri: avatar,
+    avatar: avatar,
   },
 ]
 
@@ -39,14 +51,6 @@ export const date = faker.date.past().toISOString().substring(0, 10)
 
 export const handleProfile = () => {
   console.log('Profile Pressed')
-}
-
-export const handleTranslate = () => {
-  console.log('Translate Pressed')
-}
-
-export const handlePressWand = async () => {
-  console.log('Wand Pressed')
 }
 
 export const handleAdminMenu = () => {
@@ -65,69 +69,97 @@ export const handleComment = () => {
   console.log('Comment Pressed')
 }
 
-export const post = {
+interface Comment {
+  id: string
+  text: string
+  createTime: number
+}
+
+interface UserActions {
+  handleProfile: () => void
+  handleAdminMenu: () => void
+  handleShareLink: () => void
+  handleLike: () => void
+  handleComment: () => void
+}
+
+interface Post extends UserActions {
+  id: number
+  player: Player
+  text: string
+  liked: string[]
+  comments: Comment[]
+  plan: number
+  accept: boolean
+  isAdmin: boolean
+  isLiked: boolean
+  likeCount: number
+  commCount: number
+  createTime: number
+}
+
+export const post: Post = {
   id: 1,
-  text: faker.lorem.lines(5),
-  createTime: faker.date.past().getTime() / 1000,
+  player: {
+    id: 1,
+    plan: 72,
+    avatar: avatar,
+  },
+  text: faker.lorem.paragraphs(2),
   liked: [faker.string.uuid(), faker.string.uuid()],
   comments: [
     {
       id: faker.string.uuid(),
       text: 'This is the first comment.',
-      createTime: faker.date.past().getTime() / 1000,
+      createTime: faker.number.int(),
     },
     {
       id: faker.string.uuid(),
       text: 'This is the second comment.',
-      createTime: faker.date.past().getTime() / 1000,
+      createTime: faker.number.int(),
     },
   ],
-  plan: faker.number.int({ max: 72 }),
+  plan: faker.number.int(),
   accept: true,
-  ownerId: faker.string.uuid(),
+  isAdmin: false,
+  isLiked: faker.datatype.boolean(),
+  likeCount: faker.number.int(),
+  commCount: faker.number.int(),
+  createTime: faker.number.int(),
 }
 
-export const MockedCommentData = {
-  id: faker.string.uuid(),
-  post,
-  fullName,
-  avatar,
-  isAdmin,
-  isLiked,
-  likeCount,
-  commCount,
-  date,
-  handleProfile,
-  handleTranslate,
-  handlePressWand,
-  handleAdminMenu,
-  handleShareLink,
-  handleLike,
-  handleComment,
+interface MockedCommentData extends UserActions {
+  id: string
+  post: Post
+  fullName: string
+  avatar: string
+  isAdmin: boolean
+  isLiked: boolean
+  likeCount: number
+  commCount: number
+  date: string
 }
 
-export const createMockedCommentData = () => {
+export const createMockedCommentData = (): MockedCommentData => {
   return {
     id: faker.string.uuid(),
     post,
     fullName: faker.internet.userName(),
-    avatar: faker.image.avatar(),
-    isAdmin: false,
-    isLiked: faker.datatype.boolean(),
-    likeCount: faker.number.int({ max: 100 }),
-    commCount: faker.number.int({ max: 100 }),
-    date: faker.date.past().toISOString().substring(0, 10),
-    handleProfile,
-    handleTranslate,
-    handlePressWand,
-    handleAdminMenu,
-    handleShareLink,
-    handleLike,
-    handleComment,
+    avatar: avatar,
+    isAdmin: isAdmin,
+    isLiked: isLiked,
+    likeCount: likeCount,
+    commCount: commCount,
+    date: date,
+    handleProfile: handleProfile,
+    handleAdminMenu: handleAdminMenu,
+    handleShareLink: handleShareLink,
+    handleLike: handleLike,
+    handleComment: handleComment,
   }
 }
 
-export const mockedCommentDataArray = Array.from(
+export const mockedCommentDataArray: MockedCommentData[] = Array.from(
   { length: 10 },
   createMockedCommentData,
 )

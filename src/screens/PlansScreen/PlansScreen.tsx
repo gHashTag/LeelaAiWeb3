@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 
 import { StyleSheet, View, FlatList } from 'react-native'
 
-import { Space, Background, ButtonItem, Header } from 'components'
+import { Space, Background, ButtonItem } from 'components'
 import { W } from 'cons'
 import { navigate } from 'cons/RootNavigation'
-import { useProfile } from 'hooks'
 
 interface PlanItem {
   title: string
@@ -14,7 +13,6 @@ interface PlanItem {
 
 const PlansScreen: React.FC = () => {
   const [plans, setPlans] = useState<PlanItem[]>([])
-  const { profileData } = useProfile()
 
   useEffect(() => {
     const plansData = require('./plansList.json')

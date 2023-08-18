@@ -10,14 +10,13 @@ import {
 import {
   Space,
   TextInputField,
-  Text,
   Avatar,
   Button,
   Background,
   Address,
   ErrorMessages,
 } from 'components'
-import { captureException, red } from 'cons'
+import { captureException } from 'cons'
 import { navigate } from 'cons/RootNavigation'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'

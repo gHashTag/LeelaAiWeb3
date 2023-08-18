@@ -68,7 +68,7 @@ const App = () => {
       }
 
       setAct(rlyAccount)
-      navigate('USER_SCREEN')
+      navigate('REPORTS_SCREEN')
     }
     loadAccount()
   }, [setAct])
@@ -100,7 +100,7 @@ const App = () => {
       theme={theme}
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="USER_SCREEN">
+      <Stack.Navigator initialRouteName="REPORTS_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,

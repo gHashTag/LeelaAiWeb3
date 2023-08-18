@@ -11,6 +11,7 @@
     "postinstall": "patch-package && cd ios && arch -arm64 pod install && cd .."
   },
   "dependencies": {
+    "@apollo/client": "^3.8.1",
     "@faker-js/faker": "^8.0.2",
     "@hookform/resolvers": "^3.2.0",
     "@react-native-async-storage/async-storage": "^1.19.1",
@@ -25,8 +26,10 @@
     "@sentry/react-native": "^5.8.0",
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
+    "date-fns": "^2.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "faker": "^6.6.6",
+    "graphql": "^16.8.0",
     "i18next": "^23.4.1",
     "iso-country": "^3.0.0",
     "lodash": "^4.17.21",

@@ -3,6 +3,7 @@ import { Dimensions, Linking, Platform, NativeModules } from 'react-native'
 import { OPEN_AI_KEY } from '@env'
 import * as Sentry from '@sentry/react-native'
 import axios from 'axios'
+import { format } from 'date-fns'
 import Rate from 'react-native-rate'
 import { MessageAIT, HandleCommentAiParamsT } from 'types'
 
@@ -164,4 +165,9 @@ export const accountHumanReadable = (
     short: `${firstChars}...${lastChars}`,
     full: rlyAccount,
   }
+}
+
+export const formatDate = (dateString: string): string => {
+  const date = new Date(dateString)
+  return format(date, 'yyyy-MM-dd')
 }
