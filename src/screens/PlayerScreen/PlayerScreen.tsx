@@ -4,6 +4,7 @@ import { Linking, View, StyleSheet } from 'react-native'
 
 import { useMutation, useQuery } from '@apollo/client'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { RouteProp } from '@react-navigation/native'
 import {
   Space,
   TextInputField,
@@ -21,7 +22,7 @@ import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useAccount } from 'store'
-import { PlayerInput } from 'types'
+import { PlayerInput, RootStackParamList } from 'types'
 import * as Yup from 'yup'
 
 import { createOrUpdatePlayer } from './createOrUpdatePlayer'
@@ -38,7 +39,12 @@ const validationFieldNames = {
   intention: 'intention',
 }
 
-const PlayerScreen: React.FC = () => {
+interface PlayerScreenProps {
+  route: RouteProp<RootStackParamList, 'PLAYER_SCREEN'>
+}
+
+const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
+  const { oldPlan } = route.params
   const { t } = useTranslation()
 
   const [account, setAccount] = useAccount()
@@ -97,7 +103,7 @@ const PlayerScreen: React.FC = () => {
       const playerInput: PlayerInput = {
         rallyAccount: '',
         fullName: item.fullName,
-        avatar: avatar || profileData.avatar,
+        avatar: avatar || profileData.createPlayer.avatar,
         intention: item.intention,
         email: item.email,
         plan: 0,
@@ -128,9 +134,9 @@ const PlayerScreen: React.FC = () => {
         <View style={styles.container}>
           <Space height={20} />
           <Avatar
-            plan={1}
+            plan={oldPlan || profileData?.createPlayer?.plan || 68}
             size="xLarge"
-            avatar={profileData.avatar || avatar || ''}
+            avatar={avatar || profileData?.createPlayer?.avatar || ''}
             isAccept={false}
             showIcon={false}
             onPress={chooseAvatarImage}

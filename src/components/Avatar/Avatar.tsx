@@ -35,8 +35,6 @@ const Avatar = memo<AvatarI>(
     plan,
     avatar,
     additionalStyle,
-    isAccept,
-    showIcon = true,
     onPress,
     testID = 'avatar',
     isLoading = false,
@@ -45,12 +43,24 @@ const Avatar = memo<AvatarI>(
       colors: { background },
     } = useTheme()
     const { t } = useTranslation()
+
     const textPlan = plan < 10 ? `0${plan}` : `${plan}`
-    const fontSize = size === 'small' ? s(6) : s(10)
-    const badgeS =
-      size === 'small' || size === 'medium'
-        ? styles.smallBadge
-        : styles.bigBadge
+
+    let fontSize
+    if (size === 'small') {
+      fontSize = s(6)
+    } else if (size === 'xLarge') {
+      fontSize = s(15)
+    } else {
+      fontSize = s(10)
+    }
+
+    let badgeS
+    if (size === 'small' || size === 'medium') {
+      badgeS = styles.smallBadge
+    } else {
+      badgeS = styles.bigBadge
+    }
 
     const newSize = [styles[size]]
     return (
@@ -72,23 +82,12 @@ const Avatar = memo<AvatarI>(
                     { backgroundColor: background },
                   ]}
                 >
-                  {!isAccept ? (
-                    showIcon && (
-                      <Ionicons
-                        size={s(15)}
-                        color={orange}
-                        name="time-sharp"
-                        testID="time-icon"
-                      />
-                    )
-                  ) : (
-                    <Text
-                      testID="avatar-title"
-                      textStyle={[styles.plan, { fontSize }]}
-                      title={textPlan}
-                      h="h5"
-                    />
-                  )}
+                  <Text
+                    testID="avatar-title"
+                    textStyle={[styles.plan, { fontSize }]}
+                    title={textPlan}
+                    h="h5"
+                  />
                 </View>
               </ImageBackground>
             ) : (
@@ -117,7 +116,9 @@ const styles = StyleSheet.create({
   },
   bigBadge: {
     bottom: s(2),
+    height: s(30),
     right: s(-1),
+    width: s(30),
   },
   card: {
     alignItems: 'center',

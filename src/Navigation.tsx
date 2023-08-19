@@ -25,6 +25,8 @@ import UiKit from 'UiKit'
 
 import { black, lightGray, secondary, white } from './cons'
 import {
+  ContinueScreen,
+  WelcomeScreen,
   GameScreen,
   PlanScreen,
   PlansScreen,
@@ -63,10 +65,11 @@ const App = () => {
       setHasLoadedAccount(true)
 
       if (!rlyAccount) {
+        navigate('WELCOME_SCREEN')
         return
       }
       setAccount(rlyAccount)
-      navigate('PLAYER_SCREEN')
+      navigate('WELCOME_SCREEN')
     }
     loadAccount()
   }, [setAccount])
@@ -98,7 +101,7 @@ const App = () => {
       theme={theme}
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="PLAYER_SCREEN">
+      <Stack.Navigator initialRouteName="WELCOME_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
@@ -107,6 +110,8 @@ const App = () => {
             gestureEnabled: false,
           }}
         >
+          <Stack.Screen name="WELCOME_SCREEN" component={WelcomeScreen} />
+          <Stack.Screen name="CONTINUE_SCREEN" component={ContinueScreen} />
           <Stack.Screen name="GAME_SCREEN" component={GameScreen} />
           <Stack.Screen name="PLANS_SCREEN" component={PlansScreen} />
           <Stack.Screen name="PLAN_SCREEN" component={PlanScreen} />

@@ -1,5 +1,7 @@
 export type RootStackParamList = {
-  PLAYER_SCREEN: undefined
+  WELCOME_SCREEN: undefined
+  CONTINUE_SCREEN: undefined
+  PLAYER_SCREEN: { oldPlan: number }
   GAME_SCREEN: undefined
   PLANS_SCREEN: undefined
   PLAN_SCREEN: { key: string }
