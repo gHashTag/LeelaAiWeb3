@@ -5,8 +5,7 @@ import { ScrollView, StyleSheet, View } from 'react-native'
 import { Header, Space } from 'components'
 import { W } from 'cons'
 import { useGlobalBackground, useProfile } from 'hooks'
-import { useRecoilState } from 'recoil'
-import { account } from 'state'
+import { useAccount } from 'store'
 
 interface BackgroundProps {
   children: ReactNode
@@ -22,7 +21,9 @@ const Background: React.FC<BackgroundProps> = ({
   isFlatList = false,
 }) => {
   const { profileData } = useProfile()
-  const [rlyAccount] = useRecoilState(account)
+
+  const [account] = useAccount()
+
   const backgroundStyle = useGlobalBackground()
 
   if (isScrollView) {
@@ -33,7 +34,7 @@ const Background: React.FC<BackgroundProps> = ({
           showsVerticalScrollIndicator={false}
         >
           <Space height={60} />
-          {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
+          {account && isShowHeader && <Header avatar={profileData.avatar} />}
           {children}
         </ScrollView>
       </View>
@@ -44,7 +45,7 @@ const Background: React.FC<BackgroundProps> = ({
     return (
       <View style={[backgroundStyle, styles.flatlistStyle]}>
         <Space height={60} />
-        {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
+        {account && isShowHeader && <Header avatar={profileData.avatar} />}
         {children}
       </View>
     )
@@ -53,7 +54,7 @@ const Background: React.FC<BackgroundProps> = ({
   return (
     <View style={[backgroundStyle, styles.container]}>
       <Space height={60} />
-      {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
+      {account && isShowHeader && <Header avatar={profileData.avatar} />}
       {children}
     </View>
   )

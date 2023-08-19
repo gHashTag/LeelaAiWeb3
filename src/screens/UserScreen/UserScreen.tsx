@@ -25,10 +25,8 @@ import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { useRecoilState } from 'recoil'
+import { useAccount } from 'store'
 import * as Yup from 'yup'
-
-import { account } from '../../state'
 
 interface FormData {
   fullName: string
@@ -45,11 +43,11 @@ const validationFieldNames = {
 const UserScreen: React.FC = () => {
   const { t } = useTranslation()
 
-  const [rlyAccount] = useRecoilState(account)
+  const [account, setAccount] = useAccount()
 
   const { loading, error, data } = useQuery(GetPlayerById, {
     variables: {
-      playerId: rlyAccount,
+      playerId: account,
     },
   })
 
@@ -64,7 +62,7 @@ const UserScreen: React.FC = () => {
       t('required', { field: t(validationFieldNames.intention) }),
     ),
   })
-  const [, setAct] = useRecoilState(account)
+
   const { avatar, chooseAvatarImage, isLoading, setAvatar } =
     useChooseAvatarImage()
 
@@ -102,10 +100,10 @@ const UserScreen: React.FC = () => {
       }
       const updatedProfileData = { ...item, avatar: newProfileData.avatar }
       setProfileData(updatedProfileData)
-      if (!rlyAccount) {
+      if (!account) {
         await createRlyAccount()
         const rlyAct = await getAccount()
-        setAct(rlyAct)
+        setAccount(rlyAct)
       }
       navigate('GAME_SCREEN')
     } catch (exception) {
@@ -128,7 +126,7 @@ const UserScreen: React.FC = () => {
             isLoading={isLoading}
           />
           <Space height={10} />
-          {rlyAccount && <Address rlyAccount={rlyAccount} />}
+          {account && <Address rlyAccount={account} />}
 
           <Space height={25} />
 
@@ -187,7 +185,7 @@ const UserScreen: React.FC = () => {
           </View>
           <Space height={5} />
           <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
-          {rlyAccount && (
+          {account && (
             <>
               <Space height={20} />
               <Button
@@ -195,7 +193,7 @@ const UserScreen: React.FC = () => {
                 title="Explorer"
                 onPress={async () => {
                   Linking.openURL(
-                    `https://mumbai.polygonscan.com/address/${rlyAccount}`,
+                    `https://mumbai.polygonscan.com/address/${account}`,
                   )
                 }}
               />

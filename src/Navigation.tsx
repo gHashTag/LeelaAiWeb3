@@ -20,7 +20,7 @@ import {
   DarkTheme,
 } from 'cons/RootNavigation'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
-import { useRecoilState } from 'recoil'
+import { useAccount } from 'store'
 import UiKit from 'UiKit'
 
 import { black, lightGray, secondary, white } from './cons'
@@ -33,7 +33,6 @@ import {
   UserScreen,
   SeedPhraseScreen,
 } from './screens'
-import { account } from './state'
 import { RootStackParamList } from './types'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -44,7 +43,7 @@ const App = () => {
   const theme = isDark ? DarkTheme : LightTheme
   const color = isDark ? 'light-content' : 'dark-content'
   const [hasLoadedAccount, setHasLoadedAccount] = useState(false)
-  const [, setAct] = useRecoilState(account)
+  const [, setAccount] = useAccount()
 
   useEffect(() => {
     SystemNavigationBar.setNavigationColor(
@@ -66,12 +65,11 @@ const App = () => {
       if (!rlyAccount) {
         return
       }
-
-      setAct(rlyAccount)
+      setAccount(rlyAccount)
       navigate('USER_SCREEN')
     }
     loadAccount()
-  }, [setAct])
+  }, [setAccount])
 
   if (!hasLoadedAccount) {
     return (

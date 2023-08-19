@@ -7,14 +7,12 @@ import { Space, ReportCard, Layout } from 'components'
 import { W } from 'cons'
 import { navigate } from 'cons/RootNavigation'
 import { AllReportsQuery } from 'graphql/query/AllReportsQuery'
-import { useRecoilState } from 'recoil'
-import { account } from 'state'
+import { useAccount } from 'store'
 import { Report, Like } from 'types'
 
 const ReportsScreen: React.FC = () => {
-  const [rlyAccount] = useRecoilState(account)
-
-  const isCurrentUserLike = (like: Like) => like.player.id === rlyAccount
+  const [account] = useAccount()
+  const isCurrentUserLike = (like: Like) => like.player.id === account
 
   const { loading, error, data } = useQuery(AllReportsQuery)
 

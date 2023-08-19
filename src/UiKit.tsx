@@ -7,24 +7,8 @@
 
 import React from 'react'
 
+import { Space, Avatar, ReportCard, Background, Header } from 'components'
 import {
-  Dice,
-  Text,
-  Space,
-  Button,
-  Avatar,
-  ReportCard,
-  CommentBubbleLeft,
-  CommentBubbleRight,
-  NeomorphBlurView,
-  CenterView,
-  Background,
-  ButtonVectorIcon,
-  ButtonCircle,
-  Header,
-} from 'components'
-import {
-  MockedCommentData,
   commCount,
   avatar,
   date,
@@ -39,11 +23,8 @@ import {
   likeCount,
   post,
 } from 'cons/mockdata'
-import { useChooseAvatarImage } from 'hooks'
 import { useLeelaGame } from 'hooks/useLeelaGame/useLeelaGame'
 import { useTranslation } from 'react-i18next'
-import { useRecoilState } from 'recoil'
-import { account } from 'state'
 
 function UiKit(): JSX.Element {
   // const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
