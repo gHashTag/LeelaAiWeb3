@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 import { Platform, View, StyleSheet } from 'react-native'
 
-import { ButtonCircle } from 'components'
+import { Avatar, ButtonCircle } from 'components'
 import { W } from 'cons'
 import { goBack, navigate } from 'cons/RootNavigation'
 import _ from 'lodash'
@@ -15,45 +15,49 @@ interface HeaderT {
   onPress?: () => void | null
   onPressRight?: () => void
   onPressCenter?: () => void
+  isCenterButton: boolean
+  plan: number
 }
 
 const Header = memo<HeaderT>(
   ({
+    avatar,
     onPress = () => {
       goBack()
     },
     onPressCenter = () => {
-      navigate('USER_SCREEN')
+      navigate('PLAYER_SCREEN')
     },
     onPressRight = () => {
       navigate('PLANS_SCREEN')
     },
-
-    avatar,
+    isCenterButton = true,
+    plan = 58,
   }) => {
     const debouncedOnPress = _.debounce((handler) => handler(), 500)
+
+    let centerButton = null
+    if (isCenterButton && avatar) {
+      centerButton = (
+        <Avatar
+          plan={plan}
+          size="medium"
+          avatar={avatar}
+          isAccept={true}
+          onPress={() => debouncedOnPress(onPressCenter)}
+        />
+      )
+    }
+
     return (
       <View style={styles.container}>
-        {
-          <ButtonCircle
-            name="arrow-back"
-            isIonicons
-            size={30}
-            onPress={() => debouncedOnPress(onPress)}
-          />
-        }
-
-        <View style={styles.flexOne}>
-          {avatar && (
-            <ButtonCircle
-              name={avatar}
-              isIonicons={false}
-              size={30}
-              onPress={() => debouncedOnPress(onPressCenter)}
-            />
-          )}
-        </View>
-
+        <ButtonCircle
+          name="arrow-back"
+          isIonicons
+          size={30}
+          onPress={() => debouncedOnPress(onPress)}
+        />
+        <View style={styles.flexOne}>{centerButton}</View>
         <ButtonCircle
           name="book"
           isIonicons
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
   },
   flexOne: {
     alignSelf: 'center',
-    top: 3,
+    bottom: 8,
   },
   pressStyle: {
     bottom: 3,

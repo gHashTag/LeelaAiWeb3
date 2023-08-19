@@ -12,6 +12,7 @@ interface BackgroundProps {
   isScrollView?: boolean
   isShowHeader?: boolean
   isFlatList?: boolean
+  isCenterButton?: boolean
 }
 
 const Background: React.FC<BackgroundProps> = ({
@@ -19,13 +20,14 @@ const Background: React.FC<BackgroundProps> = ({
   isScrollView = false,
   isShowHeader = true,
   isFlatList = false,
+  isCenterButton = true,
 }) => {
   const { profileData } = useProfile()
-
   const [account] = useAccount()
 
   const backgroundStyle = useGlobalBackground()
   const avatar = profileData?.createPlayer?.avatar
+  const plan = profileData?.createPlayer?.plan
   if (isScrollView) {
     return (
       <View style={styles.container}>
@@ -34,7 +36,13 @@ const Background: React.FC<BackgroundProps> = ({
           showsVerticalScrollIndicator={false}
         >
           <Space height={60} />
-          {account && isShowHeader && <Header avatar={avatar} />}
+          {account && isShowHeader && (
+            <Header
+              avatar={avatar}
+              isCenterButton={isCenterButton}
+              plan={plan}
+            />
+          )}
           {children}
         </ScrollView>
       </View>
@@ -45,7 +53,9 @@ const Background: React.FC<BackgroundProps> = ({
     return (
       <View style={[backgroundStyle, styles.flatlistStyle]}>
         <Space height={60} />
-        {account && isShowHeader && <Header avatar={avatar} />}
+        {account && isShowHeader && (
+          <Header avatar={avatar} isCenterButton={isCenterButton} plan={plan} />
+        )}
         {children}
       </View>
     )
@@ -54,7 +64,9 @@ const Background: React.FC<BackgroundProps> = ({
   return (
     <View style={[backgroundStyle, styles.container]}>
       <Space height={60} />
-      {account && isShowHeader && <Header avatar={avatar} />}
+      {account && isShowHeader && (
+        <Header avatar={avatar} isCenterButton={isCenterButton} plan={plan} />
+      )}
       {children}
     </View>
   )

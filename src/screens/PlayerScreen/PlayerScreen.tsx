@@ -44,7 +44,7 @@ interface PlayerScreenProps {
 }
 
 const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
-  const { oldPlan } = route.params
+  const { oldPlan } = route?.params
   const { t } = useTranslation()
 
   const [account, setAccount] = useAccount()
@@ -129,7 +129,7 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
   }, 1000)
 
   return (
-    <Background isScrollView>
+    <Background isScrollView isCenterButton={false}>
       <Layout loading={loading} error={error}>
         <View style={styles.container}>
           <Space height={20} />

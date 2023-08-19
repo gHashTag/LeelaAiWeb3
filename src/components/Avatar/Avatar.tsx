@@ -1,7 +1,6 @@
 import React, { memo } from 'react'
 
 import {
-  ActivityIndicator,
   ImageBackground,
   ImageStyle,
   Pressable,
@@ -12,10 +11,8 @@ import {
 
 import { useTheme } from '@react-navigation/native'
 import { NeomorphView, Text, Loader } from 'components'
-import { orange } from 'cons'
 import { useTranslation } from 'react-i18next'
 import { ms, s } from 'react-native-size-matters'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 
 interface AvatarI {
   plan: number
@@ -137,8 +134,8 @@ const styles = StyleSheet.create({
     width: s(55),
   },
   medium: {
-    height: ms(50, 0.9),
-    width: ms(50, 0.9),
+    height: ms(70, 0.9),
+    width: ms(70, 0.9),
   },
   plan: {
     left: 0.5,

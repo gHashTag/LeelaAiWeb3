@@ -14,7 +14,7 @@ const GameScreen: React.FC = () => {
 
   return (
     <Background>
-      <Space height={30} />
+      <Space height={10} />
       <Display title={t(`${currentPlayer?.message}`)} />
       <Space height={10} />
       <GameBoard players={[currentPlayer]} />
