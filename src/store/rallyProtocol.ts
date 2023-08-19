@@ -4,6 +4,8 @@ export const accountVar = makeVar<string | undefined>(undefined)
 
 export const balanceVar = makeVar<number | undefined>(undefined)
 
+// HOOKS
+
 export const userDetailsVar = makeVar<
   { name: string; username: string } | undefined
 >(undefined)
@@ -16,7 +18,6 @@ type SetAccountFunction = (newAccount: string | undefined) => void
 
 export function useAccount(): [string | undefined, SetAccountFunction] {
   const account = useReactiveVar(accountVar)
-  console.log('account', account)
   const setAccount: SetAccountFunction = (newAccount) => accountVar(newAccount)
 
   return [account, setAccount]
