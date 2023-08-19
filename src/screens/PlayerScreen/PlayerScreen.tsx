@@ -2,12 +2,8 @@ import React, { useEffect } from 'react'
 
 import { Linking, View, StyleSheet } from 'react-native'
 
-import { useQuery } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import { yupResolver } from '@hookform/resolvers/yup'
-import {
-  createAccount as createRlyAccount,
-  getAccount,
-} from '@rly-network/mobile-sdk'
 import {
   Space,
   TextInputField,
@@ -18,15 +14,17 @@ import {
   ErrorMessages,
   Layout,
 } from 'components'
-import { captureException } from 'cons'
-import { navigate } from 'cons/RootNavigation'
-import { GetPlayerById } from 'graphql/query/GetPlayerById'
+import { captureException, navigate } from 'cons'
+import { CREATE_PLAYER_MUTATION, GET_PLAYER_BY_ID_QUERY } from 'graphql'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useAccount } from 'store'
+import { PlayerInput } from 'types'
 import * as Yup from 'yup'
+
+import { createOrUpdatePlayer } from './createOrUpdatePlayer'
 
 interface FormData {
   fullName: string
@@ -40,16 +38,22 @@ const validationFieldNames = {
   intention: 'intention',
 }
 
-const UserScreen: React.FC = () => {
+const PlayerScreen: React.FC = () => {
   const { t } = useTranslation()
 
   const [account, setAccount] = useAccount()
 
-  const { loading, error, data } = useQuery(GetPlayerById, {
+  const [createPlayerMutation] = useMutation(CREATE_PLAYER_MUTATION)
+
+  const { loading, error, data } = useQuery(GET_PLAYER_BY_ID_QUERY, {
     variables: {
       playerId: account,
     },
   })
+  const { avatar, chooseAvatarImage, isLoading, setAvatar } =
+    useChooseAvatarImage()
+
+  const { profileData, setProfileData } = useProfile()
 
   const schema = Yup.object().shape({
     fullName: Yup.string().required(
@@ -63,10 +67,6 @@ const UserScreen: React.FC = () => {
     ),
   })
 
-  const { avatar, chooseAvatarImage, isLoading, setAvatar } =
-    useChooseAvatarImage()
-
-  const { profileData, setProfileData } = useProfile()
   const {
     control,
     handleSubmit,
@@ -94,17 +94,28 @@ const UserScreen: React.FC = () => {
 
   const onSubmit = _.debounce(async (item) => {
     try {
-      const newProfileData = {
-        ...item,
+      const playerInput: PlayerInput = {
+        rallyAccount: '',
+        fullName: item.fullName,
         avatar: avatar || profileData.avatar,
+        intention: item.intention,
+        email: item.email,
+        plan: 0,
+        previousPlan: 0,
+        isStart: false,
+        isFinished: false,
+        consecutiveSixes: 0,
+        positionBeforeThreeSixes: 0,
       }
-      const updatedProfileData = { ...item, avatar: newProfileData.avatar }
-      setProfileData(updatedProfileData)
-      if (!account) {
-        await createRlyAccount()
-        const rlyAct = await getAccount()
-        setAccount(rlyAct)
-      }
+
+      await createOrUpdatePlayer(
+        playerInput,
+        account,
+        (options) => createPlayerMutation({ variables: { input: options } }),
+        setAccount,
+        setProfileData,
+      )
+
       navigate('GAME_SCREEN')
     } catch (exception) {
       captureException(exception, 'onSubmit: Error submitting profile data')
@@ -224,4 +235,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export { UserScreen }
+export { PlayerScreen }

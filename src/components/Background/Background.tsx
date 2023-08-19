@@ -25,7 +25,7 @@ const Background: React.FC<BackgroundProps> = ({
   const [account] = useAccount()
 
   const backgroundStyle = useGlobalBackground()
-
+  const avatar = profileData?.createPlayer?.avatar
   if (isScrollView) {
     return (
       <View style={styles.container}>
@@ -34,7 +34,7 @@ const Background: React.FC<BackgroundProps> = ({
           showsVerticalScrollIndicator={false}
         >
           <Space height={60} />
-          {account && isShowHeader && <Header avatar={profileData.avatar} />}
+          {account && isShowHeader && <Header avatar={avatar} />}
           {children}
         </ScrollView>
       </View>
@@ -45,7 +45,7 @@ const Background: React.FC<BackgroundProps> = ({
     return (
       <View style={[backgroundStyle, styles.flatlistStyle]}>
         <Space height={60} />
-        {account && isShowHeader && <Header avatar={profileData.avatar} />}
+        {account && isShowHeader && <Header avatar={avatar} />}
         {children}
       </View>
     )
@@ -54,7 +54,7 @@ const Background: React.FC<BackgroundProps> = ({
   return (
     <View style={[backgroundStyle, styles.container]}>
       <Space height={60} />
-      {account && isShowHeader && <Header avatar={profileData.avatar} />}
+      {account && isShowHeader && <Header avatar={avatar} />}
       {children}
     </View>
   )

@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client'
 
-export const GetPlayerById = gql`
+export const GET_PLAYER_BY_ID_QUERY = gql`
   query GetPlayerById($playerId: ID!) {
     getPlayer(id: $playerId) {
       id

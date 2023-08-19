@@ -12,7 +12,7 @@ interface ProfileHook {
 
 export const useProfile = (): ProfileHook => {
   const profileData = useReactiveVar(profileDataVar)
-
+  console.log('profileData', profileData)
   const setProfileData = (newData: ProfileData) => {
     profileDataVar(newData)
   }

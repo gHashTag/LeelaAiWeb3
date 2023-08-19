@@ -1,2 +1,2 @@
-export * from './UserScreen'
+export * from './PlayerScreen'
 export * from './SeedPhraseScreen'

@@ -26,12 +26,13 @@ type Action =
 
 const initialState: State = {
   currentPlayer: {
-    id: 1,
+    id: '1',
     plan: 68,
     previousPlan: 68,
     isStart: false,
     isFinished: false,
     consecutiveSixes: 0,
+    fullName: 'Leela',
     message: i18next.t('sixToBegin'),
     positionBeforeThreeSixes: 0,
     avatar: GEM_ICONS[1],

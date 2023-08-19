@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-  USER_SCREEN: undefined
+  PLAYER_SCREEN: undefined
   GAME_SCREEN: undefined
   PLANS_SCREEN: undefined
   PLAN_SCREEN: { key: string }
@@ -79,8 +79,18 @@ export interface Like {
 }
 
 export interface ProfileData {
+  createPlayer: Player
+}
+export interface PlayerInput {
+  rallyAccount: string
   fullName: string
-  email: string
-  intention: string
   avatar: string
+  intention: string
+  email: string
+  plan: number
+  previousPlan: number
+  isStart: boolean
+  isFinished: boolean
+  consecutiveSixes: number
+  positionBeforeThreeSixes: number
 }

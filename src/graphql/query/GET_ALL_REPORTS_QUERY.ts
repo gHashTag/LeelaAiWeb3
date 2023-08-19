@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
-export const AllReportsQuery = gql`
-  query AllReportsQuery {
+export const GET_ALL_REPORTS_QUERY = gql`
+  query GetAllReportsQuery {
     getAllReports {
       id
       plan

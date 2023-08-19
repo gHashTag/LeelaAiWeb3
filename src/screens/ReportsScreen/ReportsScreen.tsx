@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client'
 import { Space, ReportCard, Layout } from 'components'
 import { W } from 'cons'
 import { navigate } from 'cons/RootNavigation'
-import { AllReportsQuery } from 'graphql/query/AllReportsQuery'
+import { GET_ALL_REPORTS_QUERY } from 'graphql'
 import { useAccount } from 'store'
 import { Report, Like } from 'types'
 
@@ -14,7 +14,7 @@ const ReportsScreen: React.FC = () => {
   const [account] = useAccount()
   const isCurrentUserLike = (like: Like) => like.player.id === account
 
-  const { loading, error, data } = useQuery(AllReportsQuery)
+  const { loading, error, data } = useQuery(GET_ALL_REPORTS_QUERY)
 
   const onPress = (item: Report) => {
     console.log('click')

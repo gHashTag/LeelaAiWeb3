@@ -30,7 +30,7 @@ import {
   PlansScreen,
   ReportScreen,
   ReportsScreen,
-  UserScreen,
+  PlayerScreen,
   SeedPhraseScreen,
 } from './screens'
 import { RootStackParamList } from './types'
@@ -66,7 +66,7 @@ const App = () => {
         return
       }
       setAccount(rlyAccount)
-      navigate('USER_SCREEN')
+      navigate('PLAYER_SCREEN')
     }
     loadAccount()
   }, [setAccount])
@@ -98,7 +98,7 @@ const App = () => {
       theme={theme}
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="USER_SCREEN">
+      <Stack.Navigator initialRouteName="PLAYER_SCREEN">
         <Stack.Group
           screenOptions={{
             headerShown: false,
@@ -113,7 +113,7 @@ const App = () => {
           <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
           <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />
           <Stack.Screen name="UI_KIT_SCREEN" component={UiKit} />
-          <Stack.Screen name="USER_SCREEN" component={UserScreen} />
+          <Stack.Screen name="PLAYER_SCREEN" component={PlayerScreen} />
           <Stack.Screen name="SEED_SCREEN" component={SeedPhraseScreen} />
         </Stack.Group>
       </Stack.Navigator>
