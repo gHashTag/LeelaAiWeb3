@@ -128,13 +128,16 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
     }
   }, 1000)
 
+  const plan =
+    oldPlan !== undefined ? oldPlan : profileData?.createPlayer?.plan || 68
+
   return (
     <Background isScrollView isCenterButton={false}>
       <Layout loading={loading} error={error}>
         <View style={styles.container}>
           <Space height={20} />
           <Avatar
-            plan={oldPlan || profileData?.createPlayer?.plan || 68}
+            plan={plan}
             size="xLarge"
             avatar={avatar || profileData?.createPlayer?.avatar || ''}
             isAccept={false}
