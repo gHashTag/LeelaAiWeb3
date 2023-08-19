@@ -5,6 +5,7 @@ export const GET_PLAYER_BY_ID_QUERY = gql`
     getPlayer(id: $playerId) {
       id
       avatar
+      rallyAccount
       email
       intention
       consecutiveSixes

@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native'
 
+import { useQuery } from '@apollo/client'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { getAccount } from '@rly-network/mobile-sdk'
@@ -19,11 +20,13 @@ import {
   LightTheme,
   DarkTheme,
 } from 'cons/RootNavigation'
+import { GET_PLAYER_BY_ID_QUERY } from 'graphql/query/GET_PLAYER_BY_ID_QUERY'
+import { useProfile } from 'hooks'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import { useAccount } from 'store'
 import UiKit from 'UiKit'
 
-import { black, lightGray, secondary, white } from './cons'
+import { black, captureException, lightGray, secondary, white } from './cons'
 import {
   ContinueScreen,
   WelcomeScreen,
@@ -45,7 +48,14 @@ const App = () => {
   const theme = isDark ? DarkTheme : LightTheme
   const color = isDark ? 'light-content' : 'dark-content'
   const [hasLoadedAccount, setHasLoadedAccount] = useState(false)
-  const [, setAccount] = useAccount()
+  const [account, setAccount] = useAccount()
+  const [, setProfileData] = useProfile()
+
+  const { loading, error, data } = useQuery(GET_PLAYER_BY_ID_QUERY, {
+    variables: {
+      playerId: account,
+    },
+  })
 
   useEffect(() => {
     SystemNavigationBar.setNavigationColor(
@@ -69,10 +79,14 @@ const App = () => {
         return
       }
       setAccount(rlyAccount)
-      navigate('WELCOME_SCREEN')
+      if (loading) {
+        setProfileData(data?.getPlayerById)
+      } else {
+        captureException(error, 'Error loading profile data')
+      }
     }
     loadAccount()
-  }, [setAccount])
+  }, [data?.getPlayerById, error, loading, setAccount, setProfileData])
 
   if (!hasLoadedAccount) {
     return (

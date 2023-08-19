@@ -44,7 +44,7 @@ interface PlayerScreenProps {
 }
 
 const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
-  const { oldPlan } = route?.params
+  const { oldPlan = 68 } = route?.params
   const { t } = useTranslation()
 
   const [account, setAccount] = useAccount()
@@ -56,10 +56,11 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
       playerId: account,
     },
   })
+
   const { avatar, chooseAvatarImage, isLoading, setAvatar } =
     useChooseAvatarImage()
 
-  const { profileData, setProfileData } = useProfile()
+  const [profileData, setProfileData] = useProfile()
 
   const schema = Yup.object().shape({
     fullName: Yup.string().required(

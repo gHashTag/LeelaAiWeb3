@@ -8,7 +8,7 @@ import { useProfile } from 'hooks'
 import { useTranslation } from 'react-i18next'
 
 const SeedPhraseScreen: React.FC = () => {
-  const { profileData } = useProfile()
+  const [profileData] = useProfile()
   const { t } = useTranslation()
   const [didConfirm, setDidConfirm] = useState(false)
   const [seed, setSeed] = useState<undefined | null | string>()
@@ -24,11 +24,13 @@ const SeedPhraseScreen: React.FC = () => {
     }
     doAsyncWork()
   }, [didConfirm])
+  const avatar = profileData?.createPlayer?.avatar
+  const plan = profileData?.createPlayer?.plan
 
   return (
-    <Background isScrollView>
+    <Background isScrollView profileData={profileData}>
       <Space height={70} />
-      <Header avatar={profileData.avatar} />
+      <Header avatar={avatar} plan={plan} />
 
       {!didConfirm && (
         <>

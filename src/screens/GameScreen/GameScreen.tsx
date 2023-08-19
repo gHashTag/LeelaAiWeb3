@@ -1,19 +1,19 @@
 import React from 'react'
 
 import { Display, Dice, GameBoard, Space, Background } from 'components'
-import { useLeelaGame } from 'hooks'
+import { useLeelaGame, useProfile } from 'hooks'
 import { useTranslation } from 'react-i18next'
 
 const GameScreen: React.FC = () => {
   const { currentPlayer, lastRoll, rollDice } = useLeelaGame()
-
+  const [profileData] = useProfile()
   const { t } = useTranslation()
   // const sortedPlayers = players.sort((a) =>
   //   a.id === currentPlayer.id ? -1 : 1,
   // )
 
   return (
-    <Background>
+    <Background profileData={profileData}>
       <Space height={10} />
       <Display title={t(`${currentPlayer?.message}`)} />
       <Space height={10} />

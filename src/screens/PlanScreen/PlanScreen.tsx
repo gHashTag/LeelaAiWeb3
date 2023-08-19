@@ -32,7 +32,7 @@ type PlanScreenProps = {
 
 const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   const { key } = route.params
-  const { profileData } = useProfile()
+  const [profileData] = useProfile()
   const { t } = useTranslation()
   const {
     control,
@@ -72,9 +72,12 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   }, [key, systemLanguage])
 
   return (
-    <Background>
+    <Background profileData={profileData}>
       <Space height={85} />
-      <Header avatar={profileData.avatar} />
+      <Header
+        avatar={profileData?.createPlayer?.avatar}
+        plan={profileData?.createPlayer?.plan}
+      />
       <Space height={20} />
       <MarkdownView markdown={markdown}>
         <Controller

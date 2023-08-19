@@ -13,7 +13,7 @@ import {
   ErrorMessages,
 } from 'components'
 import { navigate } from 'cons'
-import { useLeelaGame } from 'hooks'
+import { useLeelaGame, useProfile } from 'hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import * as Yup from 'yup'
@@ -25,7 +25,7 @@ interface FormData {
 const ContinueScreen: React.FC = () => {
   const { t } = useTranslation()
   const { rollDice, lastRoll } = useLeelaGame()
-
+  const [profileData] = useProfile()
   const schema = Yup.object().shape({
     planNumber: Yup.string().required(t('required')),
   })
@@ -44,12 +44,11 @@ const ContinueScreen: React.FC = () => {
 
   const onSubmit = (data: FormData) => {
     const oldPlan = parseInt(data.planNumber, 10)
-    console.log('oldPlan', oldPlan)
     navigate('PLAYER_SCREEN', { oldPlan })
   }
 
   return (
-    <Background isShowHeader={false}>
+    <Background isShowHeader={false} profileData={profileData}>
       <Space height={50} />
       <Dice rollDice={rollDice} lastRoll={lastRoll} size="medium" />
       <Space height={50} />

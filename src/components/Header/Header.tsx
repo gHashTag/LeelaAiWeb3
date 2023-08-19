@@ -15,7 +15,7 @@ interface HeaderT {
   onPress?: () => void | null
   onPressRight?: () => void
   onPressCenter?: () => void
-  isCenterButton: boolean
+  isCenterButton?: boolean
   plan: number
 }
 
@@ -26,7 +26,7 @@ const Header = memo<HeaderT>(
       goBack()
     },
     onPressCenter = () => {
-      navigate('PLAYER_SCREEN')
+      navigate('PLAYER_SCREEN', { oldPlan: plan })
     },
     onPressRight = () => {
       navigate('PLANS_SCREEN')

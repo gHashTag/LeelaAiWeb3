@@ -5,14 +5,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { profileDataVar } from 'store'
 import { ProfileData } from 'types'
 
-interface ProfileHook {
-  profileData: ProfileData
-  setProfileData: (newData: ProfileData) => void
-}
-
-export const useProfile = (): ProfileHook => {
+export const useProfile = (): [ProfileData, (newData: ProfileData) => void] => {
   const profileData = useReactiveVar(profileDataVar)
-  console.log('profileData', profileData)
+
   const setProfileData = (newData: ProfileData) => {
     profileDataVar(newData)
   }
@@ -35,7 +30,9 @@ export const useProfile = (): ProfileHook => {
   useEffect(() => {
     const saveProfileData = async () => {
       try {
-        await AsyncStorage.setItem('profileData', JSON.stringify(profileData))
+        if (profileData) {
+          await AsyncStorage.setItem('profileData', JSON.stringify(profileData))
+        }
       } catch (error) {
         console.error('Error saving profile data:', error)
       }
@@ -44,5 +41,5 @@ export const useProfile = (): ProfileHook => {
     saveProfileData()
   }, [profileData])
 
-  return { profileData, setProfileData }
+  return [profileData, setProfileData]
 }

@@ -13,15 +13,21 @@ export type RootStackParamList = {
 
 export interface Player {
   id: string
+  rallyAccount: string
   fullName: string
   plan: number
   avatar: string
+  email: string
+  intention: string
   previousPlan?: number
   isStart?: boolean
   isFinished?: boolean
   consecutiveSixes?: number
   positionBeforeThreeSixes?: number
   message?: string
+}
+export interface ProfileData {
+  createPlayer: Player
 }
 
 export interface GameBoardProps {
@@ -80,9 +86,6 @@ export interface Like {
   createdAt: string
 }
 
-export interface ProfileData {
-  createPlayer: Player
-}
 export interface PlayerInput {
   rallyAccount: string
   fullName: string

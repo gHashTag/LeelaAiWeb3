@@ -6,8 +6,13 @@ export const avatarVar = makeVar<string | null>(null)
 export const isLoadingAvatarVar = makeVar<boolean>(false)
 
 export const profileDataVar = makeVar<ProfileData>({
-  fullName: '',
-  email: '',
-  intention: '',
-  avatar: '',
+  createPlayer: {
+    id: '',
+    plan: 68,
+    fullName: '',
+    email: '',
+    intention: '',
+    avatar: '',
+    rallyAccount: '',
+  },
 })

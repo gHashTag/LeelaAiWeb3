@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { Linking } from 'react-native'
+
 import { black, dimGray, lightGray, red, secondary, white } from 'cons'
 
 export const navigationRef = React.createRef<any>()
@@ -38,4 +40,11 @@ export const LightTheme = {
     border: dimGray,
     notification: red,
   },
+}
+
+//@ts-ignore
+export const goHome = (navigation) => () => navigation.popToTop()()
+
+export const openUrl = async (url: string) => {
+  await Linking.openURL(url)
 }

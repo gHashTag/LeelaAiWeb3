@@ -10,7 +10,6 @@ import React from 'react'
 import { Space, Avatar, ReportCard, Background, Header } from 'components'
 import {
   commCount,
-  avatar,
   date,
   fullName,
   handleAdminMenu,
@@ -23,22 +22,22 @@ import {
   likeCount,
   post,
 } from 'cons/mockdata'
+import { useProfile } from 'hooks'
 import { useLeelaGame } from 'hooks/useLeelaGame/useLeelaGame'
 import { useTranslation } from 'react-i18next'
 
 function UiKit(): JSX.Element {
-  // const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
-  const { rollDice, lastRoll } = useLeelaGame()
-  //const { player, rollHistory, planHistory, rollDice, lastRoll } = useLeelaGame()
+  // const { rollDice, lastRoll } = useLeelaGame()
 
-  const { t } = useTranslation()
-  const handleButtonPress = () => {
-    // Ваш обработчик нажатия
-    console.log('Button pressed')
-  }
+  const [profileData] = useProfile()
+  //const { t } = useTranslation()
+
+  const avatar = profileData?.createPlayer?.avatar
+  const plan = profileData?.createPlayer?.plan
+
   //console.log('avatar', avatar)
   return (
-    <Background isScrollView>
+    <Background isScrollView profileData={profileData}>
       {/* <Space height={100} />
       <Text h={'h2'} title={t('takeStep')} />
       <Text h={'h3'} title={t('takeStep')} />
@@ -49,7 +48,7 @@ function UiKit(): JSX.Element {
       <Space height={40} />
 */}
       <Space height={200} />
-      <Header avatar={avatar} />
+      <Header avatar={avatar} plan={plan} />
       <Space height={20} />
       {/* <ButtonCircle
         name="arrow-back"

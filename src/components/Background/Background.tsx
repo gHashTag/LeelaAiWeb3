@@ -4,8 +4,8 @@ import { ScrollView, StyleSheet, View } from 'react-native'
 
 import { Header, Space } from 'components'
 import { W } from 'cons'
-import { useGlobalBackground, useProfile } from 'hooks'
-import { useAccount } from 'store'
+import { useGlobalBackground } from 'hooks'
+import { ProfileData } from 'types'
 
 interface BackgroundProps {
   children: ReactNode
@@ -13,6 +13,7 @@ interface BackgroundProps {
   isShowHeader?: boolean
   isFlatList?: boolean
   isCenterButton?: boolean
+  profileData: ProfileData
 }
 
 const Background: React.FC<BackgroundProps> = ({
@@ -21,16 +22,17 @@ const Background: React.FC<BackgroundProps> = ({
   isShowHeader = true,
   isFlatList = false,
   isCenterButton = true,
+  profileData,
 }) => {
-  const { profileData } = useProfile()
-  const [account] = useAccount()
-
   const backgroundStyle = useGlobalBackground()
+
   const avatar = profileData?.createPlayer?.avatar
   const plan = profileData?.createPlayer?.plan
+  const account = profileData?.createPlayer?.rallyAccount
+
   if (isScrollView) {
     return (
-      <View style={styles.container}>
+      <View style={[backgroundStyle, styles.flatlistStyle]}>
         <ScrollView
           contentContainerStyle={styles.scrollViewContent}
           showsVerticalScrollIndicator={false}
