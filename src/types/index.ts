@@ -77,3 +77,10 @@ export interface Like {
   player: Player
   createdAt: string
 }
+
+export interface ProfileData {
+  fullName: string
+  email: string
+  intention: string
+  avatar: string
+}

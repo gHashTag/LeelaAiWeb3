@@ -1,34 +1,28 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
+import { useReactiveVar } from '@apollo/client'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
-interface ProfileData {
-  fullName: string
-  email: string
-  intention: string
-  avatar: string
-}
+import { profileDataVar } from 'store'
+import { ProfileData } from 'types'
 
 interface ProfileHook {
   profileData: ProfileData
-  setProfileData: React.Dispatch<React.SetStateAction<ProfileData>>
+  setProfileData: (newData: ProfileData) => void
 }
 
 export const useProfile = (): ProfileHook => {
-  const [profileData, setProfileData] = useState<ProfileData>({
-    fullName: '',
-    email: '',
-    intention: '',
-    avatar: '',
-  })
+  const profileData = useReactiveVar(profileDataVar)
+
+  const setProfileData = (newData: ProfileData) => {
+    profileDataVar(newData)
+  }
 
   useEffect(() => {
-    // Загрузка данных из AsyncStorage при монтировании
     const loadProfileData = async () => {
       try {
         const storedData = await AsyncStorage.getItem('profileData')
         if (storedData) {
-          setProfileData(JSON.parse(storedData))
+          profileDataVar(JSON.parse(storedData))
         }
       } catch (error) {
         console.error('Error loading profile data:', error)
@@ -39,7 +33,6 @@ export const useProfile = (): ProfileHook => {
   }, [])
 
   useEffect(() => {
-    // Сохранение данных в AsyncStorage при изменении profileData
     const saveProfileData = async () => {
       try {
         await AsyncStorage.setItem('profileData', JSON.stringify(profileData))
