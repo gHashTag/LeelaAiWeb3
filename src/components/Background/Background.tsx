@@ -2,9 +2,8 @@ import React, { ReactNode } from 'react'
 
 import { ScrollView, StyleSheet, View } from 'react-native'
 
-import { useTheme } from '@react-navigation/native'
 import { Header, Space } from 'components'
-import { H, W, black, lightGray } from 'cons'
+import { W } from 'cons'
 import { useGlobalBackground, useProfile } from 'hooks'
 import { useRecoilState } from 'recoil'
 import { account } from 'state'
@@ -28,13 +27,13 @@ const Background: React.FC<BackgroundProps> = ({
 
   if (isScrollView) {
     return (
-      <View style={[backgroundStyle, styles.container]}>
-        <Space height={60} />
-        {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
+      <View style={styles.container}>
         <ScrollView
           contentContainerStyle={styles.scrollViewContent}
-          showsVerticalScrollIndicator={false} // Убираем индикатор скролла
+          showsVerticalScrollIndicator={false}
         >
+          <Space height={60} />
+          {rlyAccount && isShowHeader && <Header avatar={profileData.avatar} />}
           {children}
         </ScrollView>
       </View>

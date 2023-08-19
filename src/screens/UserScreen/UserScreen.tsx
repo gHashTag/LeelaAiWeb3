@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import { Linking, View, StyleSheet } from 'react-native'
 
+import { useQuery } from '@apollo/client'
 import { yupResolver } from '@hookform/resolvers/yup'
 import {
   createAccount as createRlyAccount,
@@ -15,9 +16,11 @@ import {
   Background,
   Address,
   ErrorMessages,
+  Layout,
 } from 'components'
 import { captureException } from 'cons'
 import { navigate } from 'cons/RootNavigation'
+import { GetPlayerById } from 'graphql/query/GetPlayerById'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
@@ -44,6 +47,12 @@ const UserScreen: React.FC = () => {
 
   const [rlyAccount] = useRecoilState(account)
 
+  const { loading, error, data } = useQuery(GetPlayerById, {
+    variables: {
+      playerId: rlyAccount,
+    },
+  })
+
   const schema = Yup.object().shape({
     fullName: Yup.string().required(
       t('required', { field: t(validationFieldNames.fullName) }),
@@ -56,7 +65,8 @@ const UserScreen: React.FC = () => {
     ),
   })
   const [, setAct] = useRecoilState(account)
-  const { avatar, chooseAvatarImage, isLoading } = useChooseAvatarImage()
+  const { avatar, chooseAvatarImage, isLoading, setAvatar } =
+    useChooseAvatarImage()
 
   const { profileData, setProfileData } = useProfile()
   const {
@@ -75,18 +85,22 @@ const UserScreen: React.FC = () => {
   })
 
   useEffect(() => {
-    setValue('fullName', profileData.fullName)
-    setValue('email', profileData.email)
-    setValue('intention', profileData.intention)
-  }, [profileData, setValue])
+    if (data && data.getPlayer) {
+      const { fullName, email, intention } = data.getPlayer
+      setValue('fullName', fullName)
+      setValue('email', email)
+      setValue('intention', intention)
+      setAvatar(data.getPlayer.avatar)
+    }
+  }, [data, setValue, setAvatar])
 
-  const onSubmit = _.debounce(async (data) => {
+  const onSubmit = _.debounce(async (item) => {
     try {
       const newProfileData = {
-        ...data,
+        ...item,
         avatar: avatar || profileData.avatar,
       }
-      const updatedProfileData = { ...data, avatar: newProfileData.avatar }
+      const updatedProfileData = { ...item, avatar: newProfileData.avatar }
       setProfileData(updatedProfileData)
       if (!rlyAccount) {
         await createRlyAccount()
@@ -94,107 +108,109 @@ const UserScreen: React.FC = () => {
         setAct(rlyAct)
       }
       navigate('GAME_SCREEN')
-    } catch (error) {
-      captureException(error, 'onSubmit: Error submitting profile data')
+    } catch (exception) {
+      captureException(exception, 'onSubmit: Error submitting profile data')
     }
   }, 1000)
 
   return (
     <Background isScrollView>
-      <View style={styles.container}>
-        <Space height={20} />
-        <Avatar
-          plan={1}
-          size="xLarge"
-          avatar={profileData.avatar || avatar || ''}
-          isAccept={false}
-          showIcon={false}
-          onPress={chooseAvatarImage}
-          isLoading={isLoading}
-        />
-        <Space height={10} />
-        {rlyAccount && <Address rlyAccount={rlyAccount} />}
+      <Layout loading={loading} error={error}>
+        <View style={styles.container}>
+          <Space height={20} />
+          <Avatar
+            plan={1}
+            size="xLarge"
+            avatar={profileData.avatar || avatar || ''}
+            isAccept={false}
+            showIcon={false}
+            onPress={chooseAvatarImage}
+            isLoading={isLoading}
+          />
+          <Space height={10} />
+          {rlyAccount && <Address rlyAccount={rlyAccount} />}
 
-        <Space height={25} />
+          <Space height={25} />
 
-        <Controller
-          control={control}
-          rules={{ required: true }}
-          name="fullName"
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInputField
-              placeholder={t('auth.fullName')}
-              multiline
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Space height={10} />
+          <Controller
+            control={control}
+            rules={{ required: true }}
+            name="fullName"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInputField
+                placeholder={t('auth.fullName')}
+                multiline
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Space height={10} />
 
-        <Controller
-          control={control}
-          name="email"
-          rules={{ required: true }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInputField
-              placeholder={t('auth.email')}
-              multiline
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              inputMode="email"
-              keyboardType="email-address"
-            />
-          )}
-        />
-        <Space height={20} />
-        <Controller
-          control={control}
-          name="intention"
-          rules={{ required: true }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInputField
-              placeholder={t('intention')}
-              multiline
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Space height={20} />
+          <Controller
+            control={control}
+            name="email"
+            rules={{ required: true }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInputField
+                placeholder={t('auth.email')}
+                multiline
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                inputMode="email"
+                keyboardType="email-address"
+              />
+            )}
+          />
+          <Space height={20} />
+          <Controller
+            control={control}
+            name="intention"
+            rules={{ required: true }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInputField
+                placeholder={t('intention')}
+                multiline
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Space height={20} />
 
-        <View style={styles.btnStyle}>
-          <ErrorMessages errors={errors} />
+          <View style={styles.btnStyle}>
+            <ErrorMessages errors={errors} />
+            <Space height={5} />
+          </View>
           <Space height={5} />
-        </View>
-        <Space height={5} />
-        <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
-        {rlyAccount && (
-          <>
-            <Space height={20} />
-            <Button
-              h={'h2'}
-              title="Explorer"
-              onPress={async () => {
-                Linking.openURL(
-                  `https://mumbai.polygonscan.com/address/${rlyAccount}`,
-                )
-              }}
-            />
-            <Space height={20} />
-            <Button
-              h={'h2'}
-              title="View seed"
-              onPress={() => navigate('SEED_SCREEN')}
-            />
-          </>
-        )}
+          <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
+          {rlyAccount && (
+            <>
+              <Space height={20} />
+              <Button
+                h={'h2'}
+                title="Explorer"
+                onPress={async () => {
+                  Linking.openURL(
+                    `https://mumbai.polygonscan.com/address/${rlyAccount}`,
+                  )
+                }}
+              />
+              <Space height={20} />
+              <Button
+                h={'h2'}
+                title="View seed"
+                onPress={() => navigate('SEED_SCREEN')}
+              />
+            </>
+          )}
 
-        <Space height={150} />
-      </View>
+          <Space height={150} />
+        </View>
+      </Layout>
     </Background>
   )
 }
@@ -202,7 +218,6 @@ const UserScreen: React.FC = () => {
 const styles = StyleSheet.create({
   btnStyle: {
     alignItems: 'center',
-    width: '80%',
   },
   container: {
     alignItems: 'center',

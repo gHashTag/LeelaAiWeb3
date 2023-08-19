@@ -31,7 +31,7 @@ const Header = memo<HeaderT>(
 
     avatar,
   }) => {
-    const debouncedOnPress = _.debounce((handler) => handler(), 100)
+    const debouncedOnPress = _.debounce((handler) => handler(), 500)
     return (
       <View style={styles.container}>
         {

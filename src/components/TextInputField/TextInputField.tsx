@@ -47,7 +47,7 @@ const TextInputField: React.FC<TextInputFieldProps> = ({
   keyboardType,
   isWide = false,
 }) => {
-  const height = ms(isWide ? 90 : 60, 0.9)
+  const height = multiline ? null : ms(isWide ? 90 : 60, 0.9)
   const inputComponent = (
     <View style={styles.container}>
       <TextInput
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: s(40),
     justifyContent: 'center',
-    width: ms(230, 0.9),
+    width: ms(290, 0.9),
   },
   container: {
     alignItems: 'center',

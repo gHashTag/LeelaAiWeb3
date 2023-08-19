@@ -23,6 +23,7 @@ const ReportCard: React.FC<Report> = ({
   likeCount,
   commentCount,
 }) => {
+  console.log('createdAt', createdAt)
   return (
     <NeomorphView viewStyle={styles.card}>
       <Pressable
