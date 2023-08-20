@@ -11,6 +11,7 @@ import {
   Text,
   Header,
   Background,
+  KeyboardContainer,
 } from 'components'
 import { captureException, getSystemLanguage, red } from 'cons'
 import { useProfile } from 'hooks'
@@ -80,27 +81,28 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
       />
       <Space height={20} />
       <MarkdownView markdown={markdown}>
-        <Controller
-          control={control}
-          name="name"
-          render={({ field: { onChange, value, onBlur } }) => (
-            <TextInputField
-              placeholder={t('online-part.notReported')}
-              multiline
-              value={value}
-              onBlur={onBlur}
-              onChangeText={(val) => onChange(val)}
-              isWide
-            />
-          )}
-          rules={{
-            required: {
-              value: true,
-              message: t('requireField'),
-            },
-          }}
-        />
-
+        <KeyboardContainer>
+          <Controller
+            control={control}
+            name="name"
+            render={({ field: { onChange, value, onBlur } }) => (
+              <TextInputField
+                placeholder={t('online-part.notReported')}
+                multiline
+                value={value}
+                onBlur={onBlur}
+                onChangeText={(val) => onChange(val)}
+                isWide
+              />
+            )}
+            rules={{
+              required: {
+                value: true,
+                message: t('requireField'),
+              },
+            }}
+          />
+        </KeyboardContainer>
         <Space height={20} />
         <View style={styles.btnStyle}>
           {errors.name && (

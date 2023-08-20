@@ -14,6 +14,7 @@ import {
   Address,
   ErrorMessages,
   Layout,
+  KeyboardContainer,
 } from 'components'
 import { captureException, navigate } from 'cons'
 import { CREATE_PLAYER_MUTATION, GET_PLAYER_BY_ID_QUERY } from 'graphql'
@@ -133,7 +134,7 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
     oldPlan !== undefined ? oldPlan : profileData?.createPlayer?.plan || 68
 
   return (
-    <Background isScrollView isCenterButton={false}>
+    <Background isScrollView isCenterButton={false} profileData={profileData}>
       <Layout loading={loading} error={error}>
         <View style={styles.container}>
           <Space height={20} />
@@ -150,54 +151,55 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
           {account && <Address rlyAccount={account} />}
 
           <Space height={25} />
+          <KeyboardContainer>
+            <Controller
+              control={control}
+              rules={{ required: true }}
+              name="fullName"
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInputField
+                  placeholder={t('auth.fullName')}
+                  multiline
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  value={value}
+                />
+              )}
+            />
+            <Space height={10} />
 
-          <Controller
-            control={control}
-            rules={{ required: true }}
-            name="fullName"
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInputField
-                placeholder={t('auth.fullName')}
-                multiline
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-              />
-            )}
-          />
-          <Space height={10} />
-
-          <Controller
-            control={control}
-            name="email"
-            rules={{ required: true }}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInputField
-                placeholder={t('auth.email')}
-                multiline
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-                inputMode="email"
-                keyboardType="email-address"
-              />
-            )}
-          />
-          <Space height={20} />
-          <Controller
-            control={control}
-            name="intention"
-            rules={{ required: true }}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInputField
-                placeholder={t('intention')}
-                multiline
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-              />
-            )}
-          />
+            <Controller
+              control={control}
+              name="email"
+              rules={{ required: true }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInputField
+                  placeholder={t('auth.email')}
+                  multiline
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  value={value}
+                  inputMode="email"
+                  keyboardType="email-address"
+                />
+              )}
+            />
+            <Space height={20} />
+            <Controller
+              control={control}
+              name="intention"
+              rules={{ required: true }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInputField
+                  placeholder={t('intention')}
+                  multiline
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  value={value}
+                />
+              )}
+            />
+          </KeyboardContainer>
           <Space height={20} />
 
           <View style={styles.btnStyle}>

@@ -11,6 +11,7 @@ import {
   Dice,
   TextInputField,
   ErrorMessages,
+  KeyboardContainer,
 } from 'components'
 import { navigate } from 'cons'
 import { useLeelaGame, useProfile } from 'hooks'
@@ -54,20 +55,22 @@ const ContinueScreen: React.FC = () => {
       <Space height={50} />
       <Display title={t('insertPlan')} />
       <Space height={50} />
-      <Controller
-        control={control}
-        rules={{ required: true }}
-        name="planNumber"
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInputField
-            placeholder={t('insertPlanPlaceholder')}
-            multiline
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-          />
-        )}
-      />
+      <KeyboardContainer>
+        <Controller
+          control={control}
+          rules={{ required: true }}
+          name="planNumber"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInputField
+              placeholder={t('insertPlanPlaceholder')}
+              multiline
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+        />
+      </KeyboardContainer>
       <View style={styles.errorStyle}>
         <ErrorMessages errors={errors} />
         <Space height={5} />
