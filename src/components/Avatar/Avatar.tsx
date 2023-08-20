@@ -112,9 +112,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   bigBadge: {
-    bottom: s(2),
+    alignSelf: 'center',
+    bottom: s(-15),
     height: s(30),
-    right: s(-1),
     width: s(30),
   },
   card: {
@@ -146,8 +146,8 @@ const styles = StyleSheet.create({
     width: s(36),
   },
   smallBadge: {
-    bottom: s(1),
-    right: s(-1),
+    alignSelf: 'center',
+    bottom: s(-8),
   },
   textStyle: {
     alignSelf: 'center',
