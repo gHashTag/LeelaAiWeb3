@@ -77,7 +77,7 @@ const App = () => {
       setHasLoadedAccount(true)
 
       if (!rlyAccount) {
-        navigate('WELCOME_SCREEN')
+        navigate('REPORTS_SCREEN')
         return
       }
       setAccount(rlyAccount)
@@ -137,7 +137,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="WELCOME_SCREEN"
+        initialRouteName="REPORTS_SCREEN"
         screenOptions={{
           headerShown: false,
         }}
@@ -195,12 +195,22 @@ const App = () => {
               header: () => header({}),
             }}
           />
-          <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
+          <Stack.Screen
+            name="REPORT_SCREEN"
+            component={ReportScreen}
+            options={{
+              header: () => header({}),
+            }}
+          />
           <Stack.Screen
             name="REPORTS_SCREEN"
             component={ReportsScreen}
             options={{
-              headerShown: false,
+              header: () =>
+                header({
+                  leftName: 'information',
+                  onPress: () => navigate('INFO_SCREEN'),
+                }),
             }}
           />
           <Stack.Screen name="UI_KIT_SCREEN" component={UiKit} />

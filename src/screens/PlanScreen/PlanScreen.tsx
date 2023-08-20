@@ -38,7 +38,7 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   const [createReportMutation, { loading, error }] = useMutation(
     CREATE_REPORT_MUTATION,
   )
-  console.log('error', error)
+
   const { t } = useTranslation()
   const {
     control,

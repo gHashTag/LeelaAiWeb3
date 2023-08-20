@@ -18,7 +18,6 @@ const ReportsScreen: React.FC = () => {
   const { loading, error, data } = useQuery(GET_ALL_REPORTS_QUERY)
 
   const onPress = (item: Report) => {
-    console.log('click')
     navigate('REPORT_SCREEN', { item })
   }
   const renderItem = ({ item }: { item: Report }) => (
@@ -30,7 +29,6 @@ const ReportsScreen: React.FC = () => {
 
   const header = () => (
     <>
-      <Space height={60} />
       <Display
         title={t('nextStep', {
           date: 24,

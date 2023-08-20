@@ -141,5 +141,9 @@
   "withStart": "С начала",
   "continue": "Продолжить",
   "insertPlan": "Введите номер плана на котором вы остановились",
-  "insertPlanPlaceholder": "Номер плана"
+  "insertPlanPlaceholder": "Номер плана",
+  "comment": "Комментарий",
+  "input": {
+    "comment": "Напишите свой комментарий"
+  }
 }
