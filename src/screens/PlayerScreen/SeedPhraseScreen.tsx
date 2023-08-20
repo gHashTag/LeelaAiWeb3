@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 import Clipboard from '@react-native-clipboard/clipboard'
 import { getAccountPhrase } from '@rly-network/mobile-sdk'
-import { Space, Button, Background, Display, Header } from 'components'
+import { Space, Button, Background, Display } from 'components'
 import { red } from 'cons'
-import { useProfile } from 'hooks'
 import { useTranslation } from 'react-i18next'
 
 const SeedPhraseScreen: React.FC = () => {
-  const [profileData] = useProfile()
   const { t } = useTranslation()
   const [didConfirm, setDidConfirm] = useState(false)
   const [seed, setSeed] = useState<undefined | null | string>()
@@ -24,13 +22,10 @@ const SeedPhraseScreen: React.FC = () => {
     }
     doAsyncWork()
   }, [didConfirm])
-  const avatar = profileData?.createPlayer?.avatar
-  const plan = profileData?.createPlayer?.plan
 
   return (
-    <Background isScrollView profileData={profileData}>
+    <Background isScrollView>
       <Space height={70} />
-      <Header avatar={avatar} plan={plan} />
 
       {!didConfirm && (
         <>

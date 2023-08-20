@@ -14,7 +14,7 @@ import {
   KeyboardContainer,
 } from 'components'
 import { navigate } from 'cons'
-import { useLeelaGame, useProfile } from 'hooks'
+import { useLeelaGame } from 'hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import * as Yup from 'yup'
@@ -26,7 +26,6 @@ interface FormData {
 const ContinueScreen: React.FC = () => {
   const { t } = useTranslation()
   const { rollDice, lastRoll } = useLeelaGame()
-  const [profileData] = useProfile()
   const schema = Yup.object().shape({
     planNumber: Yup.string().required(t('required')),
   })
@@ -49,12 +48,12 @@ const ContinueScreen: React.FC = () => {
   }
 
   return (
-    <Background isShowHeader={false} profileData={profileData}>
+    <Background>
       <Space height={50} />
       <Dice rollDice={rollDice} lastRoll={lastRoll} size="medium" />
-      <Space height={50} />
+      <Space height={30} />
       <Display title={t('insertPlan')} />
-      <Space height={50} />
+      <Space height={40} />
       <KeyboardContainer>
         <Controller
           control={control}
@@ -75,9 +74,8 @@ const ContinueScreen: React.FC = () => {
         <ErrorMessages errors={errors} />
         <Space height={5} />
       </View>
-      <Space height={80} />
       <Button h={'h2'} title={t('start')} onPress={handleSubmit(onSubmit)} />
-      <Space height={30} />
+      <Space height={140} />
     </Background>
   )
 }

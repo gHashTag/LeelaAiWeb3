@@ -9,12 +9,10 @@ import {
   TextInputField,
   Space,
   Text,
-  Header,
   Background,
   KeyboardContainer,
 } from 'components'
 import { captureException, getSystemLanguage, red } from 'cons'
-import { useProfile } from 'hooks'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { readFileAssets } from 'react-native-fs'
@@ -33,7 +31,7 @@ type PlanScreenProps = {
 
 const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   const { key } = route.params
-  const [profileData] = useProfile()
+
   const { t } = useTranslation()
   const {
     control,
@@ -73,13 +71,7 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   }, [key, systemLanguage])
 
   return (
-    <Background profileData={profileData}>
-      <Space height={85} />
-      <Header
-        avatar={profileData?.createPlayer?.avatar}
-        plan={profileData?.createPlayer?.plan}
-      />
-      <Space height={20} />
+    <Background>
       <MarkdownView markdown={markdown}>
         <KeyboardContainer>
           <Controller

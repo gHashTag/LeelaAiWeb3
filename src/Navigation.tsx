@@ -13,6 +13,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { getAccount } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react'
+import { Header, HeaderT } from 'components'
 import {
   navigationRef,
   isReadyRef,
@@ -37,6 +38,7 @@ import {
   ReportsScreen,
   PlayerScreen,
   SeedPhraseScreen,
+  InfoScreen,
 } from './screens'
 import { RootStackParamList } from './types'
 
@@ -49,7 +51,7 @@ const App = () => {
   const color = isDark ? 'light-content' : 'dark-content'
   const [hasLoadedAccount, setHasLoadedAccount] = useState(false)
   const [account, setAccount] = useAccount()
-  const [, setProfileData] = useProfile()
+  const [profileData, setProfileData] = useProfile()
 
   const { loading, error, data } = useQuery(GET_PLAYER_BY_ID_QUERY, {
     variables: {
@@ -105,6 +107,25 @@ const App = () => {
     )
   }
 
+  const header = ({
+    leftName,
+    onPress,
+    isStartGame,
+    isCenterButton,
+  }: HeaderT) => {
+    const { avatar, plan } = profileData?.createPlayer ?? {}
+    return (
+      <Header
+        avatar={avatar}
+        plan={plan}
+        leftName={leftName}
+        onPress={onPress}
+        isStartGame={isStartGame}
+        isCenterButton={isCenterButton}
+      />
+    )
+  }
+
   return (
     <NavigationContainer
       ref={navigationRef}
@@ -115,24 +136,84 @@ const App = () => {
       theme={theme}
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
-      <Stack.Navigator initialRouteName="WELCOME_SCREEN">
+      <Stack.Navigator
+        initialRouteName="WELCOME_SCREEN"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Group
           screenOptions={{
-            headerShown: false,
-            presentation: 'transparentModal',
+            headerShown: true,
             animation: 'fade',
             gestureEnabled: false,
           }}
         >
-          <Stack.Screen name="WELCOME_SCREEN" component={WelcomeScreen} />
-          <Stack.Screen name="CONTINUE_SCREEN" component={ContinueScreen} />
-          <Stack.Screen name="GAME_SCREEN" component={GameScreen} />
-          <Stack.Screen name="PLANS_SCREEN" component={PlansScreen} />
-          <Stack.Screen name="PLAN_SCREEN" component={PlanScreen} />
+          <Stack.Screen
+            name="WELCOME_SCREEN"
+            component={WelcomeScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="INFO_SCREEN"
+            component={InfoScreen}
+            options={{
+              header: () => header({}),
+            }}
+          />
+          <Stack.Screen
+            name="CONTINUE_SCREEN"
+            component={ContinueScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="GAME_SCREEN"
+            component={GameScreen}
+            options={{
+              header: () =>
+                header({
+                  leftName: 'information',
+                  onPress: () => navigate('INFO_SCREEN'),
+                }),
+            }}
+          />
+          <Stack.Screen
+            name="PLANS_SCREEN"
+            component={PlansScreen}
+            options={{
+              header: () => header({}),
+            }}
+          />
+          <Stack.Screen
+            name="PLAN_SCREEN"
+            component={PlanScreen}
+            options={{
+              header: () => header({}),
+            }}
+          />
           <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
           <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />
           <Stack.Screen name="UI_KIT_SCREEN" component={UiKit} />
-          <Stack.Screen name="PLAYER_SCREEN" component={PlayerScreen} />
+          <Stack.Screen
+            name="PLAYER_SCREEN"
+            component={PlayerScreen}
+            options={({ route }) => {
+              const isStartGame = route.params?.isStartGame ?? false
+              return {
+                header: () =>
+                  header({
+                    leftName: 'information',
+                    onPress: () => navigate('INFO_SCREEN'),
+                    isStartGame: isStartGame,
+                    isCenterButton: false,
+                  }),
+              }
+            }}
+          />
           <Stack.Screen name="SEED_SCREEN" component={SeedPhraseScreen} />
         </Stack.Group>
       </Stack.Navigator>

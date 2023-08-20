@@ -45,7 +45,7 @@ interface PlayerScreenProps {
 }
 
 const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
-  const { oldPlan = 68 } = route?.params
+  const { oldPlan = 68, isStartGame = false } = route?.params
   const { t } = useTranslation()
 
   const [account, setAccount] = useAccount()
@@ -134,7 +134,7 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
     oldPlan !== undefined ? oldPlan : profileData?.createPlayer?.plan || 68
 
   return (
-    <Background isScrollView isCenterButton={false} profileData={profileData}>
+    <Background isScrollView>
       <Layout loading={loading} error={error}>
         <View style={styles.container}>
           <Space height={20} />
@@ -208,7 +208,7 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
           </View>
           <Space height={5} />
           <Button h={'h2'} title={t('save')} onPress={handleSubmit(onSubmit)} />
-          {account && (
+          {account && !isStartGame && (
             <>
               <Space height={20} />
               <Button

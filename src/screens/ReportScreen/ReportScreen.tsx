@@ -4,7 +4,7 @@ import { FlatList, StyleSheet } from 'react-native'
 
 import { RouteProp } from '@react-navigation/native'
 import { Space, ReportCard, CommentBubbleLeft, Background } from 'components'
-import { useGlobalBackground, useProfile } from 'hooks'
+import { useGlobalBackground } from 'hooks'
 import { s, vs } from 'react-native-size-matters'
 import { Comment, RootStackParamList } from 'types' // Импортируйте необходимые типы
 
@@ -14,12 +14,11 @@ interface ReportScreenProps {
 
 const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
   const backgroundStyle = useGlobalBackground()
-  const [profileData] = useProfile()
   const { item } = route.params
 
   const header = () => {
     return (
-      <Background isFlatList profileData={profileData}>
+      <Background isFlatList>
         <Space height={20} />
         <ReportCard {...item} />
       </Background>
