@@ -196,7 +196,13 @@ const App = () => {
             }}
           />
           <Stack.Screen name="REPORT_SCREEN" component={ReportScreen} />
-          <Stack.Screen name="REPORTS_SCREEN" component={ReportsScreen} />
+          <Stack.Screen
+            name="REPORTS_SCREEN"
+            component={ReportsScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
           <Stack.Screen name="UI_KIT_SCREEN" component={UiKit} />
           <Stack.Screen
             name="PLAYER_SCREEN"

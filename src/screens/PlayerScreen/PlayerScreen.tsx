@@ -16,7 +16,7 @@ import {
   Layout,
   KeyboardContainer,
 } from 'components'
-import { captureException, navigate } from 'cons'
+import { navigate } from 'cons'
 import { CREATE_PLAYER_MUTATION, GET_PLAYER_BY_ID_QUERY } from 'graphql'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
@@ -101,33 +101,29 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
   }, [data, setValue, setAvatar])
 
   const onSubmit = _.debounce(async (item) => {
-    try {
-      const playerInput: PlayerInput = {
-        rallyAccount: '',
-        fullName: item.fullName,
-        avatar: avatar || profileData.createPlayer.avatar,
-        intention: item.intention,
-        email: item.email,
-        plan: 0,
-        previousPlan: 0,
-        isStart: false,
-        isFinished: false,
-        consecutiveSixes: 0,
-        positionBeforeThreeSixes: 0,
-      }
-
-      await createOrUpdatePlayer(
-        playerInput,
-        account,
-        (options) => createPlayerMutation({ variables: { input: options } }),
-        setAccount,
-        setProfileData,
-      )
-
-      navigate('GAME_SCREEN')
-    } catch (exception) {
-      captureException(exception, 'onSubmit: Error submitting profile data')
+    const playerInput: PlayerInput = {
+      rallyAccount: '',
+      fullName: item.fullName,
+      avatar: avatar || profileData.createPlayer.avatar,
+      intention: item.intention,
+      email: item.email,
+      plan: 0,
+      previousPlan: 0,
+      isStart: false,
+      isFinished: false,
+      consecutiveSixes: 0,
+      positionBeforeThreeSixes: 0,
     }
+
+    await createOrUpdatePlayer(
+      playerInput,
+      account,
+      (options) => createPlayerMutation({ variables: { input: options } }),
+      setAccount,
+      setProfileData,
+    )
+
+    navigate('GAME_SCREEN')
   }, 1000)
 
   const plan =

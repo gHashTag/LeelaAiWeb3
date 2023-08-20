@@ -41,7 +41,6 @@ const Layout: React.FC<LayoutProps> = ({ children, loading, error }) => {
 const styles = StyleSheet.create({
   background: {
     alignItems: 'center',
-    flex: 1,
     height: '100%',
     justifyContent: 'center',
   },

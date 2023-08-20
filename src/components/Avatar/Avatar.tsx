@@ -130,12 +130,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   large: {
-    height: s(55),
-    width: s(55),
+    height: s(70),
+    width: s(70),
   },
   medium: {
-    height: ms(70, 0.9),
-    width: ms(70, 0.9),
+    height: ms(55, 0.9),
+    width: ms(55, 0.9),
   },
   plan: {
     left: 0.5,

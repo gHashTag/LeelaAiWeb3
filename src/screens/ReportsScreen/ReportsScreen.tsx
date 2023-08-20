@@ -3,17 +3,18 @@ import React from 'react'
 import { FlatList, StyleSheet } from 'react-native'
 
 import { useQuery } from '@apollo/client'
-import { Space, ReportCard, Layout } from 'components'
+import { Space, ReportCard, Layout, Display } from 'components'
 import { W } from 'cons'
 import { navigate } from 'cons/RootNavigation'
 import { GET_ALL_REPORTS_QUERY } from 'graphql'
+import { useTranslation } from 'react-i18next'
 import { useAccount } from 'store'
 import { Report, Like } from 'types'
 
 const ReportsScreen: React.FC = () => {
   const [account] = useAccount()
   const isCurrentUserLike = (like: Like) => like.player.id === account
-
+  const { t } = useTranslation()
   const { loading, error, data } = useQuery(GET_ALL_REPORTS_QUERY)
 
   const onPress = (item: Report) => {
@@ -27,7 +28,19 @@ const ReportsScreen: React.FC = () => {
     </>
   )
 
-  const header = () => <Space height={60} />
+  const header = () => (
+    <>
+      <Space height={60} />
+      <Display
+        title={t('nextStep', {
+          date: 24,
+        })}
+        height={60}
+        width={W - 45}
+      />
+      <Space height={20} />
+    </>
+  )
 
   const reportsWithCommentCount: Report[] =
     data?.getAllReports.map((report: Report) => ({

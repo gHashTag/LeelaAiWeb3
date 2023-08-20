@@ -9,15 +9,17 @@ interface DisplayProps {
   title: string
   onColor?: string
   height?: number
+  width?: number
 }
 
 const Display: React.FC<DisplayProps> = ({
   title,
   onColor,
   height = s(120),
+  width,
 }) => {
   return (
-    <NeomorphFlexView viewStyle={{ ...styles.container, height }}>
+    <NeomorphFlexView viewStyle={{ ...styles.container, height, width }}>
       <Text
         title={title}
         h={'h3'}

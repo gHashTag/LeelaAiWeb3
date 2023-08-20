@@ -55,7 +55,7 @@ const ReportCard: React.FC<Report> = ({
                 <Avatar
                   avatar={player.avatar}
                   onPress={handleProfile}
-                  size={'large'}
+                  size={'medium'}
                   plan={plan}
                   isAccept={true}
                   testID="report-card-avatar"

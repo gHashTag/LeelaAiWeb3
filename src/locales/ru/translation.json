@@ -78,7 +78,7 @@
   "online": "Онлайн",
   "offline": "Офлайн",
   "takeStep": "Нажмите на кубик",
-  "nextStep": "Следующий шаг через",
+  "nextStep": "Следующий ход через {{date}}",
   "you": "Вы",
   "placeholderReport": "Сделать отчет о плане",
   "clearly": "понятно",
