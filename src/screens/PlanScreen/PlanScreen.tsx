@@ -15,7 +15,7 @@ import {
   Layout,
 } from 'components'
 import { captureException, getSystemLanguage, navigate, red } from 'cons'
-import { CREATE_REPORT_MUTATION } from 'graphql'
+import { CREATE_REPORT_MUTATION } from 'graph'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { readFileAssets } from 'react-native-fs'

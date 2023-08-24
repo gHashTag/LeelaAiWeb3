@@ -4,7 +4,7 @@ import { StyleSheet, View, FlatList } from 'react-native'
 
 import { Space, Background, ButtonItem } from 'components'
 import { W } from 'cons'
-import { navigate } from 'cons/RootNavigation'
+import { navigate } from 'cons/navigation'
 
 interface PlanItem {
   title: string

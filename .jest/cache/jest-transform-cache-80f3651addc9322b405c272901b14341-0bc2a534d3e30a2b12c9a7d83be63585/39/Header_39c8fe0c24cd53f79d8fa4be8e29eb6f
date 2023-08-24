@@ -42,17 +42,17 @@ exports.Header = void 0;
 var react_1 = __importStar(require("react"));
 var react_native_1 = require("react-native");
 var components_1 = require("./..");
-var RootNavigation_1 = require("../../cons/RootNavigation");
+var navigation_1 = require("../../cons/navigation");
 var react_native_size_matters_1 = require("react-native-size-matters");
 var isIos = react_native_1.Platform.OS === 'ios';
 var Header = (0, react_1.memo)(function (_ref) {
   var _ref$onPress = _ref.onPress,
     onPress = _ref$onPress === void 0 ? function () {
-      (0, RootNavigation_1.navigate)('RULES_SCREEN');
+      (0, navigation_1.navigate)('RULES_SCREEN');
     } : _ref$onPress,
     _ref$onPressRight = _ref.onPressRight,
     onPressRight = _ref$onPressRight === void 0 ? function () {
-      (0, RootNavigation_1.navigate)('PLANS_SCREEN');
+      (0, navigation_1.navigate)('PLANS_SCREEN');
     } : _ref$onPressRight,
     avatar = _ref.avatar;
   return (0, _jsxRuntime.jsxs)(react_native_1.View, {

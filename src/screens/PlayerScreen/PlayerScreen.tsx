@@ -17,7 +17,7 @@ import {
   KeyboardContainer,
 } from 'components'
 import { navigate } from 'cons'
-import { CREATE_PLAYER_MUTATION, GET_PLAYER_BY_ID_QUERY } from 'graphql'
+import { CREATE_PLAYER_MUTATION, GET_PLAYER_BY_ID_QUERY } from 'graph'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'

@@ -16,7 +16,7 @@ import {
   Layout,
 } from 'components'
 import { red } from 'cons'
-import { CREATE_COMMENT_MUTATION } from 'graphql/mutations/CREATE_COMMENT_MUTATION'
+import { CREATE_COMMENT_MUTATION } from 'graph'
 import { useGlobalBackground } from 'hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'

@@ -14,7 +14,8 @@
       "locales/*": ["./src/locales/*"],
       "hooks/*": ["./src/hooks/*"],
       "types/*": ["./src/types/*"],
-      "helpers/*": ["src/helpers/*"]
+      "helpers/*": ["src/helpers/*"],
+      "graph/*": ["src/graph/*"]
     }
   }
 }

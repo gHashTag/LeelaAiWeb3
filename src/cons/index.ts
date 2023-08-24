@@ -1,5 +1,5 @@
 export * from './constants'
-export * from './RootNavigation'
+export * from './navigation'
 export * from './mockdata'
 export * from './colors'
 export * from './ai'

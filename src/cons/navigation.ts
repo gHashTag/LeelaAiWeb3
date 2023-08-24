@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Linking } from 'react-native'
 
-import { black, dimGray, lightGray, red, secondary, white } from 'cons'
+import { black, dimGray, lightGray, red, secondary, white } from './colors'
 
 export const navigationRef = React.createRef<any>()
 

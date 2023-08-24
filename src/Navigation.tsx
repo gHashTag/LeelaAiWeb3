@@ -20,8 +20,8 @@ import {
   navigate,
   LightTheme,
   DarkTheme,
-} from 'cons/RootNavigation'
-import { GET_PLAYER_BY_ID_QUERY } from 'graphql/query/GET_PLAYER_BY_ID_QUERY'
+} from 'cons/navigation'
+import { GET_PLAYER_BY_ID_QUERY } from 'graph/query/GET_PLAYER_BY_ID_QUERY'
 import { useProfile } from 'hooks'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import { useAccount } from 'store'
