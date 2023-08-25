@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { StyleSheet } from 'react-native'
 
@@ -6,6 +6,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { RALLY_API_KEY, SENTRY_DSN } from '@env'
 import { RlyMumbaiNetwork, Network } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react-native'
+import { ContractFactory, ethers } from 'ethers'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import VersionInfo from 'react-native-version-info'
@@ -38,6 +39,11 @@ Sentry.init({
 })
 
 function AppWithProviders() {
+  useEffect(() => {
+    const w = ethers.Wallet.createRandom()
+    console.log({ walletObject: w, mnemonic: w.mnemonic })
+  }, [])
+
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={styles.flexOne}>

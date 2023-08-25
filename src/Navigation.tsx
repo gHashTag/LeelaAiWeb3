@@ -77,7 +77,7 @@ const App = () => {
       setHasLoadedAccount(true)
 
       if (!rlyAccount) {
-        navigate('REPORTS_SCREEN')
+        navigate('WELCOME_SCREEN')
         return
       }
       setAccount(rlyAccount)
@@ -137,7 +137,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="REPORTS_SCREEN"
+        initialRouteName="WELCOME_SCREEN"
         screenOptions={{
           headerShown: false,
         }}

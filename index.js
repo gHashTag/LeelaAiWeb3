@@ -2,8 +2,11 @@
  * @format
  */
 import '@env'
+import 'react-native-get-random-values'
+import '@ethersproject/shims' //for ethers.js https://dev.to/gate3/tutorial-setting-up-a-web3-react-native-dapp-96
 
 import { AppRegistry } from 'react-native'
+
 // import { LogBox } from 'react-native'
 
 import './src/i18n'
@@ -26,6 +29,13 @@ import App from './src'
 //   }
 
 //   LogBox.ignoreLogs(ignoreWarns)
+// }
+
+// const App = () => {
+//   useEffect(() => {
+//     const w = ethers.Wallet.createRandom()
+//     console.log({ walletObject: w, mnemonic: w.mnemonic })
+//   }, [])
 // }
 
 AppRegistry.registerComponent(appName, () => App)
