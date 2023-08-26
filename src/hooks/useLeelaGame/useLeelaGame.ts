@@ -125,11 +125,11 @@ const useLeelaGame = () => {
       if (contractWithSigner) {
         try {
           // 0.0002 matic one step
-          const estimatedGas =
-            await contractWithSigner.estimateGas.rollDice(rollResult)
-          console.log('estimatedGas', estimatedGas)
+          // const estimatedGas =
+          //   await contractWithSigner.estimateGas.rollDice(rollResult)
+          // console.log('estimatedGas', estimatedGas)
           const txResponse = await contractWithSigner.rollDice(rollResult, {
-            gasLimit: estimatedGas,
+            gasLimit: 150000,
           })
           console.log('Транзакция:', txResponse)
         } catch (error) {
@@ -140,6 +140,7 @@ const useLeelaGame = () => {
       // Подписка на событие DiceRolled
       contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
         console.log('Событие DiceRolled:', roller, rolled, currentPlan)
+        dispatch({ type: 'ROLL_DICE', rollResult: rolled })
         console.log('event', event)
         // Обработка события здесь
       })
@@ -180,8 +181,8 @@ const useLeelaGame = () => {
   const rollDice = () => {
     const rollResult = Math.floor(Math.random() * MAX_ROLL) + 1
     console.log('rollResult', rollResult)
-    dispatch({ type: 'ROLL_DICE', rollResult }) // Передаем результат броска в действие
-    // getContract(rollResult) // Вызываем getContract с результатом броска
+    // Передаем результат броска в действие
+    getContract(rollResult) // Вызываем getContract с результатом броска
   }
 
   const updatePlayer = (player: Player) => {

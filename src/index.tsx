@@ -15,7 +15,8 @@ import Navigation from './Navigation'
 
 // Create an Apollo Client instance
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
+  // uri: 'http://localhost:4000/',
+  uri: 'https://api.studio.thegraph.com/query/49806/leela-ai/v0.0.2/',
   cache: new InMemoryCache(),
 })
 

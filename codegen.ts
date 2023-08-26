@@ -6,7 +6,18 @@ const config: CodegenConfig = {
   generates: {
     'src/gql/': {
       preset: 'client',
-      plugins: [],
+      plugins: ['typescript'],
+      config: {
+        arrayInputCoercion: false,
+      },
+    },
+    'src/': {
+      preset: 'near-operation-file',
+      presetConfig: {
+        extension: '.generated.tsx',
+        baseTypesPath: 'types.ts',
+      },
+      plugins: ['typescript-operations', 'typescript-react-apollo'],
     },
   },
 }
