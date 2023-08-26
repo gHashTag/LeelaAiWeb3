@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react'
 
-import {
-  ALCHEMY_API_KEY,
-  ALCHEMY_API_HTTPS,
-  PUBLIC_KEY,
-  PRIVATE_KEY,
-} from '@env'
+import { ALCHEMY_API_KEY, ALCHEMY_API_HTTPS, ALCHEMY_API_WS } from '@env'
 import { RlyMumbaiNetwork, getAccountPhrase } from '@rly-network/mobile-sdk'
 import { GsnTransactionDetails } from '@rly-network/mobile-sdk/lib/typescript/gsnClient/utils'
 import { Network, Alchemy, AlchemySubscription } from 'alchemy-sdk'
 import { Display, Dice, GameBoard, Space, Background } from 'components'
-import { ethers, ContractInterface } from 'ethers'
+import { ethers } from 'ethers'
 import { useLeelaGame } from 'hooks'
 import { useTranslation } from 'react-i18next'
 import { useAccount } from 'store'
@@ -38,40 +33,39 @@ const GameScreen: React.FC = () => {
     // https://mumbaifaucet.com
     const getContract = async () => {
       try {
-        alchemy.core.getTokenBalances(PUBLIC_KEY).then(console.log)
+        const erc20TokenAddress = '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889' // Matic Mimbai Testnet
+        const balance = await RlyMumbaiNetwork.getBalance(erc20TokenAddress)
+        console.log('balance', balance)
+
+        alchemy.core
+          .getTokenBalances('0x61715aE5947Bdc45f4853639d1a48962051622d5')
+          .then(console.log)
+
+        const mnemonic = await getAccountPhrase()
+
+        let privateKey
+        if (mnemonic) {
+          privateKey =
+            ethers.Wallet.fromMnemonic(mnemonic)._signingKey().privateKey
+        }
 
         const provider = new ethers.providers.JsonRpcProvider(ALCHEMY_API_HTTPS)
 
-        const wallet = new ethers.Wallet(PRIVATE_KEY, provider)
-
+        let wallet
+        if (privateKey) {
+          wallet = new ethers.Wallet(privateKey, provider)
+        }
         // console.log('wallet', wallet)
         const contract = new ethers.Contract(
           contractAddress,
           contractAbi,
           wallet,
         )
-
-        const rollDiceMethod = contractAbi.find(
-          (item) => item.name === 'rollDice',
-        )
-        if (rollDiceMethod) {
-          console.log('Метод rollDice найден:', rollDiceMethod)
-        } else {
-          console.log('Метод rollDice не найден')
-        }
         const contractWithSigner = contract.connect(wallet)
-        console.log('contractWithSigner', contractWithSigner)
         const rollResult = 6 // Укажите нужное значение rollResult
         if (contractWithSigner) {
           try {
-            // 0.0002 matic one step
-            const estimatedGas = await contractWithSigner.estimateGas.rollDice(
-              rollResult,
-            )
-            console.log('estimatedGas', estimatedGas)
-            const txResponse = await contractWithSigner.rollDice(rollResult, {
-              gasLimit: estimatedGas,
-            })
+            const txResponse = await contractWithSigner.rollDice(rollResult)
             console.log('Транзакция:', txResponse)
           } catch (error) {
             console.error('Ошибка при вызове rollDice:', error)
