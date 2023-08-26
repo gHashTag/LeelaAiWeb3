@@ -23,29 +23,6 @@
 		4D6BEB5D68C14A9EA5901F17 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D378BB22FF4599A2A8A7D0 /* Montserrat-ExtraBold.ttf */; };
 		533C73BDDFDA49EF825FB79D /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C76BFEC3041E4DB1AD7E87A4 /* Montserrat-ExtraBoldItalic.ttf */; };
 		6F1DE3819FB049C6938C3964 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8786D7C08D704784B1618029 /* Montserrat-Light.ttf */; };
-		734EBD282A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBCFC2A9A021F00007C4E /* translation.json */; };
-		734EBD292A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBCFE2A9A021F00007C4E /* translation.json */; };
-		734EBD2A2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD002A9A021F00007C4E /* translation.json */; };
-		734EBD2B2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD022A9A021F00007C4E /* translation.json */; };
-		734EBD2C2A9A021F00007C4E /* check_json.sh in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD032A9A021F00007C4E /* check_json.sh */; };
-		734EBD2D2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD052A9A021F00007C4E /* translation.json */; };
-		734EBD2E2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD072A9A021F00007C4E /* translation.json */; };
-		734EBD2F2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD092A9A021F00007C4E /* translation.json */; };
-		734EBD302A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD0B2A9A021F00007C4E /* translation.json */; };
-		734EBD312A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD0D2A9A021F00007C4E /* translation.json */; };
-		734EBD322A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD0F2A9A021F00007C4E /* translation.json */; };
-		734EBD332A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD112A9A021F00007C4E /* translation.json */; };
-		734EBD342A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD132A9A021F00007C4E /* translation.json */; };
-		734EBD352A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD152A9A021F00007C4E /* translation.json */; };
-		734EBD362A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD172A9A021F00007C4E /* translation.json */; };
-		734EBD372A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD192A9A021F00007C4E /* translation.json */; };
-		734EBD382A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD1B2A9A021F00007C4E /* translation.json */; };
-		734EBD392A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD1D2A9A021F00007C4E /* translation.json */; };
-		734EBD3A2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD1F2A9A021F00007C4E /* translation.json */; };
-		734EBD3B2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD212A9A021F00007C4E /* translation.json */; };
-		734EBD3C2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD232A9A021F00007C4E /* translation.json */; };
-		734EBD3D2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD252A9A021F00007C4E /* translation.json */; };
-		734EBD3E2A9A021F00007C4E /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 734EBD272A9A021F00007C4E /* translation.json */; };
 		737E45862A820AB300822B1C /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45732A820AB300822B1C /* Fontisto.ttf */; };
 		737E45872A820AB300822B1C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45742A820AB300822B1C /* Octicons.ttf */; };
 		737E45882A820AB300822B1C /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 737E45752A820AB300822B1C /* Feather.ttf */; };
@@ -122,29 +99,6 @@
 		6652CEFE350599AE4D02DE65 /* Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; path = "Target Support Files/Pods-LeelaAiWeb3-LeelaAiWeb3Tests/Pods-LeelaAiWeb3-LeelaAiWeb3Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		66A3FA817E5B4F84A55A56F3 /* NeutraText-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Book.otf"; path = "../assets/fonts/NeutraText-Book.otf"; sourceTree = "<group>"; };
 		6FC4F8D48C11405BBA170477 /* NeutraText-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeutraText-Bold.otf"; path = "../assets/fonts/NeutraText-Bold.otf"; sourceTree = "<group>"; };
-		734EBCFC2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBCFE2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD002A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD022A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD032A9A021F00007C4E /* check_json.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = check_json.sh; sourceTree = "<group>"; };
-		734EBD052A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD072A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD092A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD0B2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD0D2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD0F2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD112A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD132A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD152A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD172A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD192A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD1B2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD1D2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD1F2A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD212A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD232A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD252A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
-		734EBD272A9A021F00007C4E /* translation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
 		737E45732A820AB300822B1C /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		737E45742A820AB300822B1C /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		737E45752A820AB300822B1C /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -235,9 +189,9 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				734EBCFA2A9A021F00007C4E /* locales */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				7344EECB2A9A5F1A00BB8F25 /* locales */,
 			);
 			name = LeelaAiWeb3;
 			sourceTree = "<group>";
@@ -252,209 +206,186 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		734EBCFA2A9A021F00007C4E /* locales */ = {
+		7344EECB2A9A5F1A00BB8F25 /* locales */ = {
 			isa = PBXGroup;
 			children = (
-				734EBCFB2A9A021F00007C4E /* ur */,
-				734EBCFD2A9A021F00007C4E /* vi */,
-				734EBCFF2A9A021F00007C4E /* ms */,
-				734EBD012A9A021F00007C4E /* mr */,
-				734EBD032A9A021F00007C4E /* check_json.sh */,
-				734EBD042A9A021F00007C4E /* ja */,
-				734EBD062A9A021F00007C4E /* te */,
-				734EBD082A9A021F00007C4E /* ru */,
-				734EBD0A2A9A021F00007C4E /* pt */,
-				734EBD0C2A9A021F00007C4E /* zh */,
-				734EBD0E2A9A021F00007C4E /* uk */,
-				734EBD102A9A021F00007C4E /* pa */,
-				734EBD122A9A021F00007C4E /* ar */,
-				734EBD142A9A021F00007C4E /* bn */,
-				734EBD162A9A021F00007C4E /* hi */,
-				734EBD182A9A021F00007C4E /* de */,
-				734EBD1A2A9A021F00007C4E /* ko */,
-				734EBD1C2A9A021F00007C4E /* fr */,
-				734EBD1E2A9A021F00007C4E /* es */,
-				734EBD202A9A021F00007C4E /* en */,
-				734EBD222A9A021F00007C4E /* jv */,
-				734EBD242A9A021F00007C4E /* ta */,
-				734EBD262A9A021F00007C4E /* tr */,
+				7344EECC2A9A5F1A00BB8F25 /* ur */,
+				7344EECD2A9A5F1A00BB8F25 /* vi */,
+				7344EECE2A9A5F1A00BB8F25 /* ms */,
+				7344EECF2A9A5F1A00BB8F25 /* mr */,
+				7344EED02A9A5F1A00BB8F25 /* ja */,
+				7344EED12A9A5F1A00BB8F25 /* te */,
+				7344EED22A9A5F1A00BB8F25 /* ru */,
+				7344EED32A9A5F1A00BB8F25 /* pt */,
+				7344EED42A9A5F1A00BB8F25 /* zh */,
+				7344EED52A9A5F1A00BB8F25 /* uk */,
+				7344EED62A9A5F1A00BB8F25 /* pa */,
+				7344EED72A9A5F1A00BB8F25 /* ar */,
+				7344EED82A9A5F1A00BB8F25 /* bn */,
+				7344EED92A9A5F1A00BB8F25 /* hi */,
+				7344EEDA2A9A5F1A00BB8F25 /* de */,
+				7344EEDB2A9A5F1A00BB8F25 /* ko */,
+				7344EEDC2A9A5F1A00BB8F25 /* fr */,
+				7344EEDD2A9A5F1A00BB8F25 /* es */,
+				7344EEDE2A9A5F1A00BB8F25 /* en */,
+				7344EEDF2A9A5F1A00BB8F25 /* jv */,
+				7344EEE02A9A5F1A00BB8F25 /* ta */,
+				7344EEE12A9A5F1A00BB8F25 /* tr */,
 			);
 			name = locales;
 			path = ../src/locales;
 			sourceTree = "<group>";
 		};
-		734EBCFB2A9A021F00007C4E /* ur */ = {
+		7344EECC2A9A5F1A00BB8F25 /* ur */ = {
 			isa = PBXGroup;
 			children = (
-				734EBCFC2A9A021F00007C4E /* translation.json */,
 			);
 			path = ur;
 			sourceTree = "<group>";
 		};
-		734EBCFD2A9A021F00007C4E /* vi */ = {
+		7344EECD2A9A5F1A00BB8F25 /* vi */ = {
 			isa = PBXGroup;
 			children = (
-				734EBCFE2A9A021F00007C4E /* translation.json */,
 			);
 			path = vi;
 			sourceTree = "<group>";
 		};
-		734EBCFF2A9A021F00007C4E /* ms */ = {
+		7344EECE2A9A5F1A00BB8F25 /* ms */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD002A9A021F00007C4E /* translation.json */,
 			);
 			path = ms;
 			sourceTree = "<group>";
 		};
-		734EBD012A9A021F00007C4E /* mr */ = {
+		7344EECF2A9A5F1A00BB8F25 /* mr */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD022A9A021F00007C4E /* translation.json */,
 			);
 			path = mr;
 			sourceTree = "<group>";
 		};
-		734EBD042A9A021F00007C4E /* ja */ = {
+		7344EED02A9A5F1A00BB8F25 /* ja */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD052A9A021F00007C4E /* translation.json */,
 			);
 			path = ja;
 			sourceTree = "<group>";
 		};
-		734EBD062A9A021F00007C4E /* te */ = {
+		7344EED12A9A5F1A00BB8F25 /* te */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD072A9A021F00007C4E /* translation.json */,
 			);
 			path = te;
 			sourceTree = "<group>";
 		};
-		734EBD082A9A021F00007C4E /* ru */ = {
+		7344EED22A9A5F1A00BB8F25 /* ru */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD092A9A021F00007C4E /* translation.json */,
 			);
 			path = ru;
 			sourceTree = "<group>";
 		};
-		734EBD0A2A9A021F00007C4E /* pt */ = {
+		7344EED32A9A5F1A00BB8F25 /* pt */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD0B2A9A021F00007C4E /* translation.json */,
 			);
 			path = pt;
 			sourceTree = "<group>";
 		};
-		734EBD0C2A9A021F00007C4E /* zh */ = {
+		7344EED42A9A5F1A00BB8F25 /* zh */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD0D2A9A021F00007C4E /* translation.json */,
 			);
 			path = zh;
 			sourceTree = "<group>";
 		};
-		734EBD0E2A9A021F00007C4E /* uk */ = {
+		7344EED52A9A5F1A00BB8F25 /* uk */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD0F2A9A021F00007C4E /* translation.json */,
 			);
 			path = uk;
 			sourceTree = "<group>";
 		};
-		734EBD102A9A021F00007C4E /* pa */ = {
+		7344EED62A9A5F1A00BB8F25 /* pa */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD112A9A021F00007C4E /* translation.json */,
 			);
 			path = pa;
 			sourceTree = "<group>";
 		};
-		734EBD122A9A021F00007C4E /* ar */ = {
+		7344EED72A9A5F1A00BB8F25 /* ar */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD132A9A021F00007C4E /* translation.json */,
 			);
 			path = ar;
 			sourceTree = "<group>";
 		};
-		734EBD142A9A021F00007C4E /* bn */ = {
+		7344EED82A9A5F1A00BB8F25 /* bn */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD152A9A021F00007C4E /* translation.json */,
 			);
 			path = bn;
 			sourceTree = "<group>";
 		};
-		734EBD162A9A021F00007C4E /* hi */ = {
+		7344EED92A9A5F1A00BB8F25 /* hi */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD172A9A021F00007C4E /* translation.json */,
 			);
 			path = hi;
 			sourceTree = "<group>";
 		};
-		734EBD182A9A021F00007C4E /* de */ = {
+		7344EEDA2A9A5F1A00BB8F25 /* de */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD192A9A021F00007C4E /* translation.json */,
 			);
 			path = de;
 			sourceTree = "<group>";
 		};
-		734EBD1A2A9A021F00007C4E /* ko */ = {
+		7344EEDB2A9A5F1A00BB8F25 /* ko */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD1B2A9A021F00007C4E /* translation.json */,
 			);
 			path = ko;
 			sourceTree = "<group>";
 		};
-		734EBD1C2A9A021F00007C4E /* fr */ = {
+		7344EEDC2A9A5F1A00BB8F25 /* fr */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD1D2A9A021F00007C4E /* translation.json */,
 			);
 			path = fr;
 			sourceTree = "<group>";
 		};
-		734EBD1E2A9A021F00007C4E /* es */ = {
+		7344EEDD2A9A5F1A00BB8F25 /* es */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD1F2A9A021F00007C4E /* translation.json */,
 			);
 			path = es;
 			sourceTree = "<group>";
 		};
-		734EBD202A9A021F00007C4E /* en */ = {
+		7344EEDE2A9A5F1A00BB8F25 /* en */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD212A9A021F00007C4E /* translation.json */,
 			);
 			path = en;
 			sourceTree = "<group>";
 		};
-		734EBD222A9A021F00007C4E /* jv */ = {
+		7344EEDF2A9A5F1A00BB8F25 /* jv */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD232A9A021F00007C4E /* translation.json */,
 			);
 			path = jv;
 			sourceTree = "<group>";
 		};
-		734EBD242A9A021F00007C4E /* ta */ = {
+		7344EEE02A9A5F1A00BB8F25 /* ta */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD252A9A021F00007C4E /* translation.json */,
 			);
 			path = ta;
 			sourceTree = "<group>";
 		};
-		734EBD262A9A021F00007C4E /* tr */ = {
+		7344EEE12A9A5F1A00BB8F25 /* tr */ = {
 			isa = PBXGroup;
 			children = (
-				734EBD272A9A021F00007C4E /* translation.json */,
 			);
 			path = tr;
 			sourceTree = "<group>";
@@ -664,25 +595,19 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3F83076131544B1E9126CE7F /* NeutraText-Bold.otf in Resources */,
 				737E458F2A820AB300822B1C /* Ionicons.ttf in Resources */,
-				734EBD312A9A021F00007C4E /* translation.json in Resources */,
 				737E45952A820AB300822B1C /* FontAwesome6_Solid.ttf in Resources */,
 				D70F77DB645047968D013065 /* NeutraText-BoldItalic.otf in Resources */,
-				734EBD3C2A9A021F00007C4E /* translation.json in Resources */,
-				734EBD332A9A021F00007C4E /* translation.json in Resources */,
 				300236FC6E3E42A7A16EB202 /* NeutraText-Book.otf in Resources */,
 				76DD4BF227BD43D3833F75BC /* NeutraText-BookItalic.otf in Resources */,
 				737E458C2A820AB300822B1C /* MaterialCommunityIcons.ttf in Resources */,
 				FFD80FD960B7476A810D92D2 /* OxygenMono-Regular.otf in Resources */,
 				B0F51607D5694B179CA14F83 /* etna-free-font.otf in Resources */,
-				734EBD2E2A9A021F00007C4E /* translation.json in Resources */,
 				FA2D7FD14E6B4399A1359DF5 /* 3270Narrow.ttf in Resources */,
 				737E45932A820AB300822B1C /* Zocial.ttf in Resources */,
 				737E45922A820AB300822B1C /* FontAwesome.ttf in Resources */,
-				734EBD3B2A9A021F00007C4E /* translation.json in Resources */,
 				AAE19CA8134C431AB9A4464C /* IBM-Logo.ttf in Resources */,
 				737E458A2A820AB300822B1C /* Entypo.ttf in Resources */,
 				9FA1A245E1604533B6EB070A /* KLMN_Flash_Pix.ttf in Resources */,
-				734EBD292A9A021F00007C4E /* translation.json in Resources */,
 				737E45962A820AB300822B1C /* SimpleLineIcons.ttf in Resources */,
 				9CEEFC0AD8864D1EA7FC92A4 /* Montserrat-Black.ttf in Resources */,
 				E22F9311D19D49A2833B5B0A /* Montserrat-BlackItalic.ttf in Resources */,
@@ -690,46 +615,29 @@
 				737E45892A820AB300822B1C /* FontAwesome6_Regular.ttf in Resources */,
 				737E45912A820AB300822B1C /* FontAwesome5_Regular.ttf in Resources */,
 				AC69179B133847F0A29F38C3 /* Montserrat-BoldItalic.ttf in Resources */,
-				734EBD2A2A9A021F00007C4E /* translation.json in Resources */,
 				4D6BEB5D68C14A9EA5901F17 /* Montserrat-ExtraBold.ttf in Resources */,
-				734EBD3D2A9A021F00007C4E /* translation.json in Resources */,
-				734EBD2F2A9A021F00007C4E /* translation.json in Resources */,
 				737E458B2A820AB300822B1C /* FontAwesome5_Brands.ttf in Resources */,
-				734EBD372A9A021F00007C4E /* translation.json in Resources */,
 				737E45882A820AB300822B1C /* Feather.ttf in Resources */,
-				734EBD282A9A021F00007C4E /* translation.json in Resources */,
 				533C73BDDFDA49EF825FB79D /* Montserrat-ExtraBoldItalic.ttf in Resources */,
 				AB891917DA574E49BC72F47F /* Montserrat-ExtraLight.ttf in Resources */,
 				737E458E2A820AB300822B1C /* Foundation.ttf in Resources */,
 				9AE074469F254450822F6AB3 /* Montserrat-ExtraLightItalic.ttf in Resources */,
 				18FBA8D77B70478CB983D458 /* Montserrat-Italic.ttf in Resources */,
-				734EBD342A9A021F00007C4E /* translation.json in Resources */,
 				6F1DE3819FB049C6938C3964 /* Montserrat-Light.ttf in Resources */,
 				3AA73773AAA44D38BBB20663 /* Montserrat-LightItalic.ttf in Resources */,
-				734EBD392A9A021F00007C4E /* translation.json in Resources */,
-				734EBD2C2A9A021F00007C4E /* check_json.sh in Resources */,
-				734EBD362A9A021F00007C4E /* translation.json in Resources */,
 				737E45982A820AB300822B1C /* MaterialIcons.ttf in Resources */,
 				001667DA30544BD390AF2466 /* Montserrat-Medium.ttf in Resources */,
 				737E45942A820AB300822B1C /* EvilIcons.ttf in Resources */,
-				734EBD302A9A021F00007C4E /* translation.json in Resources */,
 				D2642EEF4D3941349A9D99DF /* Montserrat-MediumItalic.ttf in Resources */,
 				E59C4B0024934E50AF289891 /* Montserrat-Regular.ttf in Resources */,
-				734EBD382A9A021F00007C4E /* translation.json in Resources */,
 				737E45872A820AB300822B1C /* Octicons.ttf in Resources */,
-				734EBD2B2A9A021F00007C4E /* translation.json in Resources */,
 				737E45862A820AB300822B1C /* Fontisto.ttf in Resources */,
 				B0FC989D7A7D4D91BD78DEC4 /* Montserrat-SemiBold.ttf in Resources */,
-				734EBD352A9A021F00007C4E /* translation.json in Resources */,
 				737E45902A820AB300822B1C /* FontAwesome5_Solid.ttf in Resources */,
 				B2A59FDF3C754B938AA5847E /* Montserrat-SemiBoldItalic.ttf in Resources */,
 				DE1266BDB2E94D4EA2D73330 /* Montserrat-Thin.ttf in Resources */,
 				737E458D2A820AB300822B1C /* AntDesign.ttf in Resources */,
-				734EBD322A9A021F00007C4E /* translation.json in Resources */,
-				734EBD3A2A9A021F00007C4E /* translation.json in Resources */,
 				737E45972A820AB300822B1C /* FontAwesome6_Brands.ttf in Resources */,
-				734EBD2D2A9A021F00007C4E /* translation.json in Resources */,
-				734EBD3E2A9A021F00007C4E /* translation.json in Resources */,
 				E15CC040864C46749FBA4176 /* Montserrat-ThinItalic.ttf in Resources */,
 				0CA3C2B3EFAB4F3E9265CD16 /* TheDolbak-Brush.ttf in Resources */,
 				8DE9AE2A1D4243E8A945B8F8 /* mont_extralightdemo.ttf in Resources */,

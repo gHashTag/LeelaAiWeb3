@@ -1,12 +1,30 @@
 import { useEffect, useReducer } from 'react'
 
+import {
+  ALCHEMY_API_KEY,
+  ALCHEMY_API_HTTPS,
+  PUBLIC_KEY,
+  PRIVATE_KEY,
+} from '@env'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+// import { RlyMumbaiNetwork, getAccountPhrase } from '@rly-network/mobile-sdk'
+// import { GsnTransactionDetails } from '@rly-network/mobile-sdk/lib/typescript/gsnClient/utils'
+import { Network, Alchemy } from 'alchemy-sdk'
 import { captureException } from 'cons'
+import { ethers } from 'ethers'
 import i18next from 'i18next'
 import { Player } from 'types'
 
+const settings = {
+  apiKey: ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
+  network: Network.MATIC_MAINNET, // Replace with your network.
+}
+import LeelaGameABI from '/smart-contract/LeelaGameABI.json'
+
 import { handlePlayerMovement } from './handlePlayerMovement'
 import { GEM_ICONS } from './images'
+
+// import { RlyNetwork } from '../../'
 
 const MAX_ROLL = 6
 
@@ -17,8 +35,13 @@ interface State {
   planHistory: number[]
 }
 
+type RollDiceAction = {
+  type: 'ROLL_DICE'
+  rollResult: number
+}
+
 type Action =
-  | { type: 'ROLL_DICE' }
+  | RollDiceAction
   | { type: 'UPDATE_PLAYER'; player: Player }
   | { type: 'SET_ROLL_HISTORY'; rollHistory: number[] }
   | { type: 'SET_PLAN_HISTORY'; planHistory: number[] }
@@ -36,6 +59,9 @@ const initialState: State = {
     message: i18next.t('sixToBegin'),
     positionBeforeThreeSixes: 0,
     avatar: GEM_ICONS[1],
+    rallyAccount: '',
+    email: '',
+    intention: '',
   },
   lastRoll: 1,
   rollHistory: [],
@@ -45,7 +71,7 @@ const initialState: State = {
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'ROLL_DICE':
-      const rollResult = Math.floor(Math.random() * MAX_ROLL) + 1
+      const rollResult = action.rollResult
       return {
         ...state,
         lastRoll: rollResult,
@@ -74,8 +100,53 @@ const reducer = (state: State, action: Action): State => {
   }
 }
 
+const alchemy = new Alchemy(settings)
+const contractAbi = LeelaGameABI
+
 const useLeelaGame = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const getContract = async (rollResult: number) => {
+    const contractAddress = '0xABfceEE4796674408126243912ad66d7E4ffA477'
+    // sent test matic to contract 0x61715aE5947Bdc45f4853639d1a48962051622d5
+    // https://mumbaifaucet.com
+    try {
+      alchemy.core.getTokenBalances(PUBLIC_KEY).then(console.log)
+
+      const provider = new ethers.providers.JsonRpcProvider(ALCHEMY_API_HTTPS)
+
+      const wallet = new ethers.Wallet(PRIVATE_KEY, provider)
+
+      // @ts-ignore
+      const contract = new ethers.Contract(contractAddress, contractAbi, wallet)
+
+      const contractWithSigner = contract.connect(wallet)
+
+      if (contractWithSigner) {
+        try {
+          // 0.0002 matic one step
+          const estimatedGas =
+            await contractWithSigner.estimateGas.rollDice(rollResult)
+          console.log('estimatedGas', estimatedGas)
+          const txResponse = await contractWithSigner.rollDice(rollResult, {
+            gasLimit: estimatedGas,
+          })
+          console.log('Транзакция:', txResponse)
+        } catch (error) {
+          console.error('Ошибка при вызове rollDice:', error)
+        }
+      }
+
+      // Подписка на событие DiceRolled
+      contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
+        console.log('Событие DiceRolled:', roller, rolled, currentPlan)
+        console.log('event', event)
+        // Обработка события здесь
+      })
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
 
   const getSavedState = async () => {
     try {
@@ -107,7 +178,10 @@ const useLeelaGame = () => {
   }, [state])
 
   const rollDice = () => {
-    dispatch({ type: 'ROLL_DICE' })
+    const rollResult = Math.floor(Math.random() * MAX_ROLL) + 1
+    console.log('rollResult', rollResult)
+    dispatch({ type: 'ROLL_DICE', rollResult }) // Передаем результат броска в действие
+    // getContract(rollResult) // Вызываем getContract с результатом броска
   }
 
   const updatePlayer = (player: Player) => {
