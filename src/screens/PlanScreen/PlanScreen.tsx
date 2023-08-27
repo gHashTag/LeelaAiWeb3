@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 import { Platform, View, StyleSheet } from 'react-native'
 
-import { useMutation } from '@apollo/client'
 import { RouteProp } from '@react-navigation/native'
 import {
   MarkdownView,
@@ -14,8 +13,17 @@ import {
   KeyboardContainer,
   Layout,
 } from 'components'
-import { captureException, getSystemLanguage, navigate, red } from 'cons'
-import { CREATE_REPORT_MUTATION } from 'graph'
+import {
+  captureException,
+  catchRevert,
+  contract,
+  contractWithSigner,
+  gasLimit,
+  getSystemLanguage,
+  navigate,
+  red,
+} from 'cons'
+// import { CREATE_REPORT_MUTATION } from 'graph'
 import { useForm, Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { readFileAssets } from 'react-native-fs'
@@ -35,10 +43,7 @@ type PlanScreenProps = {
 const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   const { key } = route.params
 
-  const [createReportMutation, { loading, error }] = useMutation(
-    CREATE_REPORT_MUTATION,
-  )
-
+  const [isError, setError] = useState({ message: '' })
   const { t } = useTranslation()
   const {
     control,
@@ -47,13 +52,22 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   } = useForm<FormData>({ mode: 'onBlur' })
 
   const onSubmit = async (data: FormData) => {
-    const options = {
-      title: data.title,
-      rallyAccount: '0x61715aE5947Bdc45f4853639d1a48962051622d5',
-      plan: 9,
+    console.log('(data.title', data.title)
+    const txResponse = await contractWithSigner.createReport(data.title, {
+      gasLimit,
+    })
+    console.log('txResponse', txResponse)
+    const revert: string = await catchRevert(txResponse.hash)
+    console.log('revert', revert)
+    if (revert) {
+      setError({ message: revert })
+    } else {
+      contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
+        console.log('Событие DiceRolled:', roller, rolled, currentPlan)
+        console.log('event', event)
+        navigate('REPORTS_SCREEN')
+      })
     }
-    await createReportMutation({ variables: { input: options } })
-    navigate('REPORTS_SCREEN')
   }
 
   const [markdown, setMarkdown] = useState('')
@@ -86,7 +100,7 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
 
   return (
     <Background>
-      <Layout loading={loading} error={error}>
+      <Layout error={isError}>
         <MarkdownView markdown={markdown}>
           <KeyboardContainer>
             <Controller

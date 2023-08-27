@@ -4,19 +4,24 @@ import {
   PRIVATE_KEY,
   CONTRACT_ADDRESS,
 } from '@env'
-import { ethers } from 'ethers'
 import { Network, Alchemy } from 'alchemy-sdk'
+import { ethers } from 'ethers'
 
-const settings = {
-  apiKey: ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
-  network: Network.MATIC_MAINNET, // Replace with your network.
-}
 import LeelaGameABI from '/smart-contract/LeelaGameABI.json'
+
+import { navigate } from './navigation'
 
 export const provider = new ethers.providers.JsonRpcProvider(ALCHEMY_API_HTTPS)
 
+const settings = {
+  apiKey: ALCHEMY_API_KEY,
+  network: Network.MATIC_MAINNET,
+}
+
 export const alchemy = new Alchemy(settings)
 export const contractAbi = LeelaGameABI
+
+export const gasLimit = 200000
 
 export const catchRevert = async (txHash: any) => {
   //https://mirror.xyz/n00b21337.eth/of4mFYGfvwAdrSNb_kZb3JoSY7UWjOUXkuZLGcVX1WU
@@ -36,7 +41,7 @@ export const catchRevert = async (txHash: any) => {
     },
     tx.blockNumber,
   )
-  let reason = ethers.utils.toUtf8String('0x' + response.substring(138))
+  const reason = ethers.utils.toUtf8String('0x' + response.substring(138))
 
   return reason
 }

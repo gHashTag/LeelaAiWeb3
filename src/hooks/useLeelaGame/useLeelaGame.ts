@@ -1,18 +1,25 @@
 import { useEffect, useReducer, useState } from 'react'
 
+import { useQuery } from '@apollo/client'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {
   captureException,
   catchRevert,
   contract,
   contractWithSigner,
+  gasLimit,
   navigate,
 } from 'cons'
+import { DiceRolled, Query } from 'gql/graphql'
+import { GET_DICE_ROLLEDS } from 'graph'
 import i18next from 'i18next'
 import { Player } from 'types'
 
 import { handlePlayerMovement } from './handlePlayerMovement'
 import { GEM_ICONS } from './images'
+
+import plansData from '../../plansList.json'
+
 // import { RlyMumbaiNetwork, getAccountPhrase } from '@rly-network/mobile-sdk'
 // import { GsnTransactionDetails } from '@rly-network/mobile-sdk/lib/typescript/gsnClient/utils'
 
@@ -93,6 +100,12 @@ const reducer = (state: State, action: Action): State => {
 }
 
 const useLeelaGame = () => {
+  const playerId = '0x1E2f5274bB5Bb29297260D9abAE41474D8331373'
+  const { data } = useQuery<Query>(GET_DICE_ROLLEDS, {
+    variables: { roller: playerId },
+  })
+
+  const diceRolleds: Array<DiceRolled> = data?.diceRolleds || []
   const [state, dispatch] = useReducer(reducer, initialState)
   const [isLoading, setLoading] = useState(false)
   const [isError, setError] = useState({ message: '' })
@@ -101,15 +114,18 @@ const useLeelaGame = () => {
     setError({ message: '' })
     try {
       const txResponse = await contractWithSigner.rollDice(rollResult, {
-        gasLimit: 200000,
+        gasLimit,
       })
-      const revert: any = await catchRevert(txResponse.hash)
-
+      console.log('txResponse', txResponse)
+      const revert: string = await catchRevert(txResponse.hash)
+      console.log('revert', revert)
       if (revert) {
         setError({ message: revert })
-        if (revert === 'You must create a report before rolling the dice.') {
-          navigate('REPORT_SCREEN')
-        }
+
+        const currentPlan = diceRolleds[0].currentPlan
+
+        const key = plansData[currentPlan - 1].key
+        navigate('PLAN_SCREEN', { key, currentPlan })
       } else {
         contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
           console.log('Событие DiceRolled:', roller, rolled, currentPlan)

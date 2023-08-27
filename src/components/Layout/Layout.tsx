@@ -9,10 +9,13 @@ import { Display } from 'components/Display'
 import { Loader } from 'components/Loader'
 import { black, lightGray, red } from 'cons'
 
+interface Error {
+  message: string
+}
 interface LayoutProps {
   children?: ReactNode
   loading?: boolean
-  error?: ApolloError
+  error?: ApolloError | Error
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, loading, error }) => {
@@ -21,6 +24,8 @@ const Layout: React.FC<LayoutProps> = ({ children, loading, error }) => {
 
   const backgroundStyle = [styles.background, { backgroundColor }]
 
+  const checkError = error?.message !== '' && error
+
   return (
     <View style={backgroundStyle}>
       {loading && (
@@ -28,12 +33,12 @@ const Layout: React.FC<LayoutProps> = ({ children, loading, error }) => {
           <Loader size="large" />
         </CenterView>
       )}
-      {error && (
+      {checkError && (
         <CenterView>
           <Display title={error.message} onColor={red} />
         </CenterView>
       )}
-      {!loading && !error && children}
+      {!loading && !checkError && children}
     </View>
   )
 }

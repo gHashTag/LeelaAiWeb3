@@ -15,8 +15,8 @@ const PlansScreen: React.FC = () => {
   const [plans, setPlans] = useState<PlanItem[]>([])
 
   useEffect(() => {
-    const plansData = require('./plansList.json')
-    setPlans(Object.values(plansData))
+    const plansData = require('../../plansList.json')
+    setPlans(plansData)
   }, [])
 
   const onPress = (key: string) => {
@@ -31,7 +31,7 @@ const PlansScreen: React.FC = () => {
       </View>
     )
   }
-
+  console.log('plans', plans)
   return (
     <Background>
       <Space height={20} />

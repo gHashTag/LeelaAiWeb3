@@ -37,7 +37,7 @@ const ReportCard: React.FC<Report> = ({
                 <Text
                   numberOfLines={1}
                   h={'h2'}
-                  title={player.fullName}
+                  title={player?.fullName}
                   ellipsizeMode="tail"
                   testID="report-card-fullName"
                 />
@@ -52,7 +52,7 @@ const ReportCard: React.FC<Report> = ({
 
               <View style={styles.avatarStyle}>
                 <Avatar
-                  avatar={player.avatar}
+                  avatar={player?.avatar}
                   onPress={handleProfile}
                   size={'medium'}
                   plan={plan}
