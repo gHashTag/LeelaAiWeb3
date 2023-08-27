@@ -1,28 +1,20 @@
-import { useEffect, useReducer } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 
-import {
-  ALCHEMY_API_KEY,
-  ALCHEMY_API_HTTPS,
-  PUBLIC_KEY,
-  PRIVATE_KEY,
-} from '@env'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-// import { RlyMumbaiNetwork, getAccountPhrase } from '@rly-network/mobile-sdk'
-// import { GsnTransactionDetails } from '@rly-network/mobile-sdk/lib/typescript/gsnClient/utils'
-import { Network, Alchemy } from 'alchemy-sdk'
-import { captureException } from 'cons'
-import { ethers } from 'ethers'
+import {
+  captureException,
+  catchRevert,
+  contract,
+  contractWithSigner,
+  navigate,
+} from 'cons'
 import i18next from 'i18next'
 import { Player } from 'types'
 
-const settings = {
-  apiKey: ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
-  network: Network.MATIC_MAINNET, // Replace with your network.
-}
-import LeelaGameABI from '/smart-contract/LeelaGameABI.json'
-
 import { handlePlayerMovement } from './handlePlayerMovement'
 import { GEM_ICONS } from './images'
+// import { RlyMumbaiNetwork, getAccountPhrase } from '@rly-network/mobile-sdk'
+// import { GsnTransactionDetails } from '@rly-network/mobile-sdk/lib/typescript/gsnClient/utils'
 
 // import { RlyNetwork } from '../../'
 
@@ -100,52 +92,35 @@ const reducer = (state: State, action: Action): State => {
   }
 }
 
-const alchemy = new Alchemy(settings)
-const contractAbi = LeelaGameABI
-
 const useLeelaGame = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const [isLoading, setLoading] = useState(false)
+  const [isError, setError] = useState({ message: '' })
 
   const getContract = async (rollResult: number) => {
-    const contractAddress = '0xABfceEE4796674408126243912ad66d7E4ffA477'
-    // sent test matic to contract 0x61715aE5947Bdc45f4853639d1a48962051622d5
-    // https://mumbaifaucet.com
+    setError({ message: '' })
     try {
-      alchemy.core.getTokenBalances(PUBLIC_KEY).then(console.log)
-
-      const provider = new ethers.providers.JsonRpcProvider(ALCHEMY_API_HTTPS)
-
-      const wallet = new ethers.Wallet(PRIVATE_KEY, provider)
-
-      // @ts-ignore
-      const contract = new ethers.Contract(contractAddress, contractAbi, wallet)
-
-      const contractWithSigner = contract.connect(wallet)
-
-      if (contractWithSigner) {
-        try {
-          // 0.0002 matic one step
-          // const estimatedGas =
-          //   await contractWithSigner.estimateGas.rollDice(rollResult)
-          // console.log('estimatedGas', estimatedGas)
-          const txResponse = await contractWithSigner.rollDice(rollResult, {
-            gasLimit: 150000,
-          })
-          console.log('Транзакция:', txResponse)
-        } catch (error) {
-          console.error('Ошибка при вызове rollDice:', error)
-        }
-      }
-
-      // Подписка на событие DiceRolled
-      contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
-        console.log('Событие DiceRolled:', roller, rolled, currentPlan)
-        dispatch({ type: 'ROLL_DICE', rollResult: rolled })
-        console.log('event', event)
-        // Обработка события здесь
+      const txResponse = await contractWithSigner.rollDice(rollResult, {
+        gasLimit: 200000,
       })
-    } catch (error) {
-      console.log('error', error)
+      const revert: any = await catchRevert(txResponse.hash)
+
+      if (revert) {
+        setError({ message: revert })
+        if (revert === 'You must create a report before rolling the dice.') {
+          navigate('REPORT_SCREEN')
+        }
+      } else {
+        contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
+          console.log('Событие DiceRolled:', roller, rolled, currentPlan)
+          dispatch({ type: 'ROLL_DICE', rollResult: rolled })
+          console.log('event', event)
+        })
+      }
+    } catch (err: string | any) {
+      setError({ message: err })
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -153,8 +128,8 @@ const useLeelaGame = () => {
     try {
       const savedState = await AsyncStorage.getItem('leelaGameState')
       return savedState ? JSON.parse(savedState) : initialState
-    } catch (error) {
-      captureException(error, 'getSavedState')
+    } catch (err) {
+      captureException(err, 'getSavedState')
       return initialState
     }
   }
@@ -170,8 +145,8 @@ const useLeelaGame = () => {
     const saveState = async () => {
       try {
         await AsyncStorage.setItem('leelaGameState', JSON.stringify(state))
-      } catch (error) {
-        captureException(error, 'saveState')
+      } catch (err) {
+        captureException(err, 'saveState')
       }
     }
 
@@ -179,10 +154,9 @@ const useLeelaGame = () => {
   }, [state])
 
   const rollDice = () => {
+    setLoading(true)
     const rollResult = Math.floor(Math.random() * MAX_ROLL) + 1
-    console.log('rollResult', rollResult)
-    // Передаем результат броска в действие
-    getContract(rollResult) // Вызываем getContract с результатом броска
+    getContract(rollResult)
   }
 
   const updatePlayer = (player: Player) => {
@@ -206,6 +180,8 @@ const useLeelaGame = () => {
     updatePlayer,
     setRollHistory,
     setPlanHistory,
+    isLoading,
+    isError,
   }
 }
 

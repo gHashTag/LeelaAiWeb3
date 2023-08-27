@@ -15,7 +15,7 @@ const config: CodegenConfig = {
       preset: 'near-operation-file',
       presetConfig: {
         extension: '.generated.tsx',
-        baseTypesPath: 'types.ts',
+        baseTypesPath: 'src/types/types.ts',
       },
       plugins: ['typescript-operations', 'typescript-react-apollo'],
     },

@@ -11,4 +11,5 @@ declare module '@env' {
   export const ALCHEMY_API_WS: string
   export const PUBLIC_KEY: string
   export const PRIVATE_KEY: string
+  export const CONTRACT_ADDRESS: string
 }

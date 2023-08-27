@@ -3,20 +3,21 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 
 import { NeomorphFlexView, Text } from 'components'
+import { W } from 'cons'
 import { s } from 'react-native-size-matters'
 
 interface DisplayProps {
-  title: string
+  title: string | undefined
   onColor?: string
   height?: number
   width?: number
 }
 
 const Display: React.FC<DisplayProps> = ({
-  title,
+  title = ' ',
   onColor,
   height = s(120),
-  width,
+  width = W - 40,
 }) => {
   return (
     <NeomorphFlexView viewStyle={{ ...styles.container, height, width }}>
@@ -37,7 +38,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: s(20),
     paddingVertical: s(6),
-    width: '90%',
   },
   dateStyle: {
     lineHeight: s(20),
