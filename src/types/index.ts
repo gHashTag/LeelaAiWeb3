@@ -87,8 +87,8 @@ export interface Like {
   createdAt: string
 }
 
-export interface PlayerInput {
-  rallyAccount: string
+export interface PlayerFullInput {
+  account: string
   fullName: string
   avatar: string
   intention: string
@@ -99,4 +99,10 @@ export interface PlayerInput {
   isFinished: boolean
   consecutiveSixes: number
   positionBeforeThreeSixes: number
+}
+
+export interface PlayerInput {
+  fullName: string
+  avatar: string
+  intention: string
 }

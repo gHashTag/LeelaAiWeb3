@@ -14,12 +14,12 @@ const GameScreen: React.FC = () => {
   // const [account] = useAccount()
   const playerId = '0x1E2f5274bB5Bb29297260D9abAE41474D8331373'
   const { currentPlayer, lastRoll, rollDice } = useLeelaGame()
-  // const { loading, error, data } = useQuery<Query>(GET_DICE_ROLLEDS, {
-  //   variables: { roller: playerId },
-  // })
+  const { loading, error, data } = useQuery<Query>(GET_DICE_ROLLEDS, {
+    variables: { roller: playerId },
+  })
 
-  // const diceRolleds: Array<DiceRolled> = data?.diceRolleds || []
-  // console.log('diceRolleds', diceRolleds)
+  const diceRolleds: Array<DiceRolled> = data?.diceRolleds || []
+  console.log('diceRolleds', diceRolleds)
 
   return (
     <Background>

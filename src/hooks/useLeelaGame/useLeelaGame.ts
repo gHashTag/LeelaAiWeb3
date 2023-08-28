@@ -119,21 +119,20 @@ const useLeelaGame = () => {
       console.log('txResponse', txResponse)
       const revert: string = await catchRevert(txResponse.hash)
       console.log('revert', revert)
-      if (revert) {
-        setError({ message: revert })
 
-        const currentPlan = diceRolleds[0].currentPlan
-
+      contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
+        console.log('Событие DiceRolled:', roller, rolled, currentPlan)
+        dispatch({ type: 'ROLL_DICE', rollResult: rolled })
+        console.log('event', event)
         const key = plansData[currentPlan - 1].key
         navigate('PLAN_SCREEN', { key, currentPlan })
-      } else {
-        contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
-          console.log('Событие DiceRolled:', roller, rolled, currentPlan)
-          dispatch({ type: 'ROLL_DICE', rollResult: rolled })
-          console.log('event', event)
-        })
-      }
+      })
     } catch (err: string | any) {
+      const currentPlan = diceRolleds[0].currentPlan
+      console.log('currentPlan', currentPlan)
+      const key = plansData[currentPlan - 1].key
+      console.log('key', key)
+      navigate('PLAN_SCREEN', { key, currentPlan })
       setError({ message: err })
     } finally {
       setLoading(false)

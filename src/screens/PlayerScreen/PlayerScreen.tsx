@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Linking, View, StyleSheet } from 'react-native'
 
@@ -16,7 +16,13 @@ import {
   Layout,
   KeyboardContainer,
 } from 'components'
-import { navigate } from 'cons'
+import {
+  catchRevert,
+  contract,
+  contractWithSigner,
+  gasLimit,
+  navigate,
+} from 'cons'
 import { CREATE_PLAYER_MUTATION, GET_PLAYER_BY_ID_QUERY } from 'graph'
 import { useChooseAvatarImage, useProfile } from 'hooks'
 import _ from 'lodash'
@@ -45,12 +51,10 @@ interface PlayerScreenProps {
 }
 
 const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
-  const { oldPlan = 68, isStartGame = false } = route?.params
+  const { oldPlan = 68, isStartGame = false } = route?.params || {}
   const { t } = useTranslation()
-
+  const [isError, setError] = useState({ message: '' })
   const [account, setAccount] = useAccount()
-
-  const [createPlayerMutation] = useMutation(CREATE_PLAYER_MUTATION)
 
   const { loading, error, data } = useQuery(GET_PLAYER_BY_ID_QUERY, {
     variables: {
@@ -102,28 +106,29 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
 
   const onSubmit = _.debounce(async (item) => {
     const playerInput: PlayerInput = {
-      rallyAccount: '',
       fullName: item.fullName,
       avatar: avatar || profileData.createPlayer.avatar,
       intention: item.intention,
-      email: item.email,
-      plan: 0,
-      previousPlan: 0,
-      isStart: false,
-      isFinished: false,
-      consecutiveSixes: 0,
-      positionBeforeThreeSixes: 0,
     }
-
-    await createOrUpdatePlayer(
-      playerInput,
-      account,
-      (options) => createPlayerMutation({ variables: { input: options } }),
-      setAccount,
-      setProfileData,
+    console.log('playerInput', playerInput)
+    const txResponse = await contractWithSigner.createPlayer(
+      ...Object.values(playerInput),
+      {
+        gasLimit: 300000,
+      },
     )
-
-    navigate('GAME_SCREEN')
+    console.log('txResponse', txResponse)
+    const revert: string = await catchRevert(txResponse.hash)
+    console.log('revert', revert)
+    if (revert) {
+      setError({ message: revert })
+    } else {
+      contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
+        console.log('Событие DiceRolled:', roller, rolled, currentPlan)
+        console.log('event', event)
+        navigate('GAME_SCREEN')
+      })
+    }
   }, 1000)
 
   const plan =

@@ -54,7 +54,7 @@ export const contract = new ethers.Contract(
   contractAbi,
   wallet,
 )
-
+console.log('CONTRACT_ADDRESS', CONTRACT_ADDRESS)
 export const contractWithSigner = contract.connect(wallet)
 
 // sent test matic to contract 0x61715aE5947Bdc45f4853639d1a48962051622d5
