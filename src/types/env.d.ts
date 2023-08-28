@@ -12,4 +12,5 @@ declare module '@env' {
   export const PUBLIC_KEY: string
   export const PRIVATE_KEY: string
   export const CONTRACT_ADDRESS: string
+  export const THE_GRAPH_API: string
 }

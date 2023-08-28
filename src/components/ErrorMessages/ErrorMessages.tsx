@@ -8,11 +8,21 @@ import { FieldErrors } from 'react-hook-form'
 
 interface ErrorMessagesProps {
   errors: FieldErrors<FormData>
+  customError?: string
 }
 
-const ErrorMessages: React.FC<ErrorMessagesProps> = ({ errors }) => {
+const ErrorMessages: React.FC<ErrorMessagesProps> = ({
+  errors,
+  customError,
+}) => {
   return (
     <View>
+      {customError && (
+        <React.Fragment>
+          <Text h={'h4'} title={customError} oneColor={red} />
+          <Space height={5} />
+        </React.Fragment>
+      )}
       {Object.entries(errors).map(([fieldName, error]) => {
         if (error && error.message) {
           return (

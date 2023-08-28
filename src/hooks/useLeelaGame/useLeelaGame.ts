@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useState } from 'react'
 
 import { useQuery } from '@apollo/client'
+import { PUBLIC_KEY } from '@env'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {
   captureException,
@@ -100,7 +101,7 @@ const reducer = (state: State, action: Action): State => {
 }
 
 const useLeelaGame = () => {
-  const playerId = '0x1E2f5274bB5Bb29297260D9abAE41474D8331373'
+  const playerId = PUBLIC_KEY
   const { data } = useQuery<Query>(GET_DICE_ROLLEDS, {
     variables: { roller: playerId },
   })

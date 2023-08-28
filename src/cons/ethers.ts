@@ -9,8 +9,6 @@ import { ethers } from 'ethers'
 
 import LeelaGameABI from '/smart-contract/LeelaGameABI.json'
 
-import { navigate } from './navigation'
-
 export const provider = new ethers.providers.JsonRpcProvider(ALCHEMY_API_HTTPS)
 
 const settings = {

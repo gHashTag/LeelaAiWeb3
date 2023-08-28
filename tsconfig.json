@@ -7,6 +7,7 @@
     // "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
     "paths": {
+      "@env": ["node_modules/react-native-dotenv"],
       "*": ["./src/*"],
       "components/*": ["./src/components/*"],
       "cons/*": ["./src/cons/*"],

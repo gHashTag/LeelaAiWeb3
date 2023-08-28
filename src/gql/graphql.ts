@@ -261,6 +261,152 @@ export enum OrderDirection {
   Desc = 'desc'
 }
 
+export type PlayerAction = {
+  __typename?: 'PlayerAction';
+  action: Scalars['Int']['output'];
+  avatar: Scalars['String']['output'];
+  blockNumber: Scalars['BigInt']['output'];
+  blockTimestamp: Scalars['BigInt']['output'];
+  fullName: Scalars['String']['output'];
+  id: Scalars['Bytes']['output'];
+  intention: Scalars['String']['output'];
+  player: Scalars['Bytes']['output'];
+  transactionHash: Scalars['Bytes']['output'];
+};
+
+export type PlayerAction_Filter = {
+  /** Filter for the block changed event. */
+  _change_block?: InputMaybe<BlockChangedFilter>;
+  action?: InputMaybe<Scalars['Int']['input']>;
+  action_gt?: InputMaybe<Scalars['Int']['input']>;
+  action_gte?: InputMaybe<Scalars['Int']['input']>;
+  action_in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  action_lt?: InputMaybe<Scalars['Int']['input']>;
+  action_lte?: InputMaybe<Scalars['Int']['input']>;
+  action_not?: InputMaybe<Scalars['Int']['input']>;
+  action_not_in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  and?: InputMaybe<Array<InputMaybe<PlayerAction_Filter>>>;
+  avatar?: InputMaybe<Scalars['String']['input']>;
+  avatar_contains?: InputMaybe<Scalars['String']['input']>;
+  avatar_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_ends_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_gt?: InputMaybe<Scalars['String']['input']>;
+  avatar_gte?: InputMaybe<Scalars['String']['input']>;
+  avatar_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  avatar_lt?: InputMaybe<Scalars['String']['input']>;
+  avatar_lte?: InputMaybe<Scalars['String']['input']>;
+  avatar_not?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_contains?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  avatar_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_starts_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  blockNumber?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockNumber_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  fullName_contains?: InputMaybe<Scalars['String']['input']>;
+  fullName_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_ends_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_gt?: InputMaybe<Scalars['String']['input']>;
+  fullName_gte?: InputMaybe<Scalars['String']['input']>;
+  fullName_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  fullName_lt?: InputMaybe<Scalars['String']['input']>;
+  fullName_lte?: InputMaybe<Scalars['String']['input']>;
+  fullName_not?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  fullName_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Bytes']['input']>;
+  id_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  id_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  intention?: InputMaybe<Scalars['String']['input']>;
+  intention_contains?: InputMaybe<Scalars['String']['input']>;
+  intention_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_ends_with?: InputMaybe<Scalars['String']['input']>;
+  intention_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_gt?: InputMaybe<Scalars['String']['input']>;
+  intention_gte?: InputMaybe<Scalars['String']['input']>;
+  intention_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  intention_lt?: InputMaybe<Scalars['String']['input']>;
+  intention_lte?: InputMaybe<Scalars['String']['input']>;
+  intention_not?: InputMaybe<Scalars['String']['input']>;
+  intention_not_contains?: InputMaybe<Scalars['String']['input']>;
+  intention_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  intention_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  intention_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  intention_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_starts_with?: InputMaybe<Scalars['String']['input']>;
+  intention_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  or?: InputMaybe<Array<InputMaybe<PlayerAction_Filter>>>;
+  player?: InputMaybe<Scalars['Bytes']['input']>;
+  player_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  player_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  player_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  player_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  player_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  player_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  player_not?: InputMaybe<Scalars['Bytes']['input']>;
+  player_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  player_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  transactionHash?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  transactionHash_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+};
+
+export enum PlayerAction_OrderBy {
+  Action = 'action',
+  Avatar = 'avatar',
+  BlockNumber = 'blockNumber',
+  BlockTimestamp = 'blockTimestamp',
+  FullName = 'fullName',
+  Id = 'id',
+  Intention = 'intention',
+  Player = 'player',
+  TransactionHash = 'transactionHash'
+}
+
 export type Query = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
@@ -269,8 +415,12 @@ export type Query = {
   commentActions: Array<CommentAction>;
   diceRolled?: Maybe<DiceRolled>;
   diceRolleds: Array<DiceRolled>;
+  playerAction?: Maybe<PlayerAction>;
+  playerActions: Array<PlayerAction>;
   reportAction?: Maybe<ReportAction>;
   reportActions: Array<ReportAction>;
+  rollDiceError?: Maybe<RollDiceError>;
+  rollDiceErrors: Array<RollDiceError>;
 };
 
 
@@ -315,6 +465,24 @@ export type QueryDiceRolledsArgs = {
 };
 
 
+export type QueryPlayerActionArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QueryPlayerActionsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PlayerAction_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<PlayerAction_Filter>;
+};
+
+
 export type QueryReportActionArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID']['input'];
@@ -330,6 +498,24 @@ export type QueryReportActionsArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<ReportAction_Filter>;
+};
+
+
+export type QueryRollDiceErrorArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QueryRollDiceErrorsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<RollDiceError_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<RollDiceError_Filter>;
 };
 
 export type ReportAction = {
@@ -464,6 +650,86 @@ export enum ReportAction_OrderBy {
   TransactionHash = 'transactionHash'
 }
 
+export type RollDiceError = {
+  __typename?: 'RollDiceError';
+  blockNumber: Scalars['BigInt']['output'];
+  blockTimestamp: Scalars['BigInt']['output'];
+  id: Scalars['Bytes']['output'];
+  message: Scalars['String']['output'];
+  transactionHash: Scalars['Bytes']['output'];
+};
+
+export type RollDiceError_Filter = {
+  /** Filter for the block changed event. */
+  _change_block?: InputMaybe<BlockChangedFilter>;
+  and?: InputMaybe<Array<InputMaybe<RollDiceError_Filter>>>;
+  blockNumber?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockNumber_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  id?: InputMaybe<Scalars['Bytes']['input']>;
+  id_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  id_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  message?: InputMaybe<Scalars['String']['input']>;
+  message_contains?: InputMaybe<Scalars['String']['input']>;
+  message_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_ends_with?: InputMaybe<Scalars['String']['input']>;
+  message_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_gt?: InputMaybe<Scalars['String']['input']>;
+  message_gte?: InputMaybe<Scalars['String']['input']>;
+  message_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  message_lt?: InputMaybe<Scalars['String']['input']>;
+  message_lte?: InputMaybe<Scalars['String']['input']>;
+  message_not?: InputMaybe<Scalars['String']['input']>;
+  message_not_contains?: InputMaybe<Scalars['String']['input']>;
+  message_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  message_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  message_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  message_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_starts_with?: InputMaybe<Scalars['String']['input']>;
+  message_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  or?: InputMaybe<Array<InputMaybe<RollDiceError_Filter>>>;
+  transactionHash?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  transactionHash_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+};
+
+export enum RollDiceError_OrderBy {
+  BlockNumber = 'blockNumber',
+  BlockTimestamp = 'blockTimestamp',
+  Id = 'id',
+  Message = 'message',
+  TransactionHash = 'transactionHash'
+}
+
 export type Subscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
@@ -472,8 +738,12 @@ export type Subscription = {
   commentActions: Array<CommentAction>;
   diceRolled?: Maybe<DiceRolled>;
   diceRolleds: Array<DiceRolled>;
+  playerAction?: Maybe<PlayerAction>;
+  playerActions: Array<PlayerAction>;
   reportAction?: Maybe<ReportAction>;
   reportActions: Array<ReportAction>;
+  rollDiceError?: Maybe<RollDiceError>;
+  rollDiceErrors: Array<RollDiceError>;
 };
 
 
@@ -518,6 +788,24 @@ export type SubscriptionDiceRolledsArgs = {
 };
 
 
+export type SubscriptionPlayerActionArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptionPlayerActionsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PlayerAction_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<PlayerAction_Filter>;
+};
+
+
 export type SubscriptionReportActionArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID']['input'];
@@ -533,6 +821,24 @@ export type SubscriptionReportActionsArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<ReportAction_Filter>;
+};
+
+
+export type SubscriptionRollDiceErrorArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptionRollDiceErrorsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<RollDiceError_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<RollDiceError_Filter>;
 };
 
 export type _Block_ = {
@@ -824,6 +1130,152 @@ export enum OrderDirection {
   Desc = 'desc'
 }
 
+export type PlayerAction = {
+  __typename?: 'PlayerAction';
+  action: Scalars['Int']['output'];
+  avatar: Scalars['String']['output'];
+  blockNumber: Scalars['BigInt']['output'];
+  blockTimestamp: Scalars['BigInt']['output'];
+  fullName: Scalars['String']['output'];
+  id: Scalars['Bytes']['output'];
+  intention: Scalars['String']['output'];
+  player: Scalars['Bytes']['output'];
+  transactionHash: Scalars['Bytes']['output'];
+};
+
+export type PlayerAction_Filter = {
+  /** Filter for the block changed event. */
+  _change_block?: InputMaybe<BlockChangedFilter>;
+  action?: InputMaybe<Scalars['Int']['input']>;
+  action_gt?: InputMaybe<Scalars['Int']['input']>;
+  action_gte?: InputMaybe<Scalars['Int']['input']>;
+  action_in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  action_lt?: InputMaybe<Scalars['Int']['input']>;
+  action_lte?: InputMaybe<Scalars['Int']['input']>;
+  action_not?: InputMaybe<Scalars['Int']['input']>;
+  action_not_in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  and?: InputMaybe<Array<InputMaybe<PlayerAction_Filter>>>;
+  avatar?: InputMaybe<Scalars['String']['input']>;
+  avatar_contains?: InputMaybe<Scalars['String']['input']>;
+  avatar_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_ends_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_gt?: InputMaybe<Scalars['String']['input']>;
+  avatar_gte?: InputMaybe<Scalars['String']['input']>;
+  avatar_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  avatar_lt?: InputMaybe<Scalars['String']['input']>;
+  avatar_lte?: InputMaybe<Scalars['String']['input']>;
+  avatar_not?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_contains?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  avatar_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  avatar_starts_with?: InputMaybe<Scalars['String']['input']>;
+  avatar_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  blockNumber?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockNumber_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  fullName_contains?: InputMaybe<Scalars['String']['input']>;
+  fullName_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_ends_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_gt?: InputMaybe<Scalars['String']['input']>;
+  fullName_gte?: InputMaybe<Scalars['String']['input']>;
+  fullName_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  fullName_lt?: InputMaybe<Scalars['String']['input']>;
+  fullName_lte?: InputMaybe<Scalars['String']['input']>;
+  fullName_not?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  fullName_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  fullName_starts_with?: InputMaybe<Scalars['String']['input']>;
+  fullName_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['Bytes']['input']>;
+  id_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  id_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  intention?: InputMaybe<Scalars['String']['input']>;
+  intention_contains?: InputMaybe<Scalars['String']['input']>;
+  intention_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_ends_with?: InputMaybe<Scalars['String']['input']>;
+  intention_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_gt?: InputMaybe<Scalars['String']['input']>;
+  intention_gte?: InputMaybe<Scalars['String']['input']>;
+  intention_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  intention_lt?: InputMaybe<Scalars['String']['input']>;
+  intention_lte?: InputMaybe<Scalars['String']['input']>;
+  intention_not?: InputMaybe<Scalars['String']['input']>;
+  intention_not_contains?: InputMaybe<Scalars['String']['input']>;
+  intention_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  intention_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  intention_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  intention_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  intention_starts_with?: InputMaybe<Scalars['String']['input']>;
+  intention_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  or?: InputMaybe<Array<InputMaybe<PlayerAction_Filter>>>;
+  player?: InputMaybe<Scalars['Bytes']['input']>;
+  player_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  player_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  player_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  player_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  player_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  player_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  player_not?: InputMaybe<Scalars['Bytes']['input']>;
+  player_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  player_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  transactionHash?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  transactionHash_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+};
+
+export enum PlayerAction_OrderBy {
+  Action = 'action',
+  Avatar = 'avatar',
+  BlockNumber = 'blockNumber',
+  BlockTimestamp = 'blockTimestamp',
+  FullName = 'fullName',
+  Id = 'id',
+  Intention = 'intention',
+  Player = 'player',
+  TransactionHash = 'transactionHash'
+}
+
 export type Query = {
   __typename?: 'Query';
   /** Access to subgraph metadata */
@@ -832,8 +1284,12 @@ export type Query = {
   commentActions: Array<CommentAction>;
   diceRolled?: Maybe<DiceRolled>;
   diceRolleds: Array<DiceRolled>;
+  playerAction?: Maybe<PlayerAction>;
+  playerActions: Array<PlayerAction>;
   reportAction?: Maybe<ReportAction>;
   reportActions: Array<ReportAction>;
+  rollDiceError?: Maybe<RollDiceError>;
+  rollDiceErrors: Array<RollDiceError>;
 };
 
 
@@ -878,6 +1334,24 @@ export type QueryDiceRolledsArgs = {
 };
 
 
+export type QueryPlayerActionArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QueryPlayerActionsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PlayerAction_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<PlayerAction_Filter>;
+};
+
+
 export type QueryReportActionArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID']['input'];
@@ -893,6 +1367,24 @@ export type QueryReportActionsArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<ReportAction_Filter>;
+};
+
+
+export type QueryRollDiceErrorArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type QueryRollDiceErrorsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<RollDiceError_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<RollDiceError_Filter>;
 };
 
 export type ReportAction = {
@@ -1027,6 +1519,86 @@ export enum ReportAction_OrderBy {
   TransactionHash = 'transactionHash'
 }
 
+export type RollDiceError = {
+  __typename?: 'RollDiceError';
+  blockNumber: Scalars['BigInt']['output'];
+  blockTimestamp: Scalars['BigInt']['output'];
+  id: Scalars['Bytes']['output'];
+  message: Scalars['String']['output'];
+  transactionHash: Scalars['Bytes']['output'];
+};
+
+export type RollDiceError_Filter = {
+  /** Filter for the block changed event. */
+  _change_block?: InputMaybe<BlockChangedFilter>;
+  and?: InputMaybe<Array<InputMaybe<RollDiceError_Filter>>>;
+  blockNumber?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockNumber_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockNumber_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_gte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  blockTimestamp_lt?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_lte?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not?: InputMaybe<Scalars['BigInt']['input']>;
+  blockTimestamp_not_in?: InputMaybe<Array<Scalars['BigInt']['input']>>;
+  id?: InputMaybe<Scalars['Bytes']['input']>;
+  id_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  id_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  id_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  id_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  message?: InputMaybe<Scalars['String']['input']>;
+  message_contains?: InputMaybe<Scalars['String']['input']>;
+  message_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_ends_with?: InputMaybe<Scalars['String']['input']>;
+  message_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_gt?: InputMaybe<Scalars['String']['input']>;
+  message_gte?: InputMaybe<Scalars['String']['input']>;
+  message_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  message_lt?: InputMaybe<Scalars['String']['input']>;
+  message_lte?: InputMaybe<Scalars['String']['input']>;
+  message_not?: InputMaybe<Scalars['String']['input']>;
+  message_not_contains?: InputMaybe<Scalars['String']['input']>;
+  message_not_contains_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_not_ends_with?: InputMaybe<Scalars['String']['input']>;
+  message_not_ends_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_not_in?: InputMaybe<Array<Scalars['String']['input']>>;
+  message_not_starts_with?: InputMaybe<Scalars['String']['input']>;
+  message_not_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  message_starts_with?: InputMaybe<Scalars['String']['input']>;
+  message_starts_with_nocase?: InputMaybe<Scalars['String']['input']>;
+  or?: InputMaybe<Array<InputMaybe<RollDiceError_Filter>>>;
+  transactionHash?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_gte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+  transactionHash_lt?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_lte?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_contains?: InputMaybe<Scalars['Bytes']['input']>;
+  transactionHash_not_in?: InputMaybe<Array<Scalars['Bytes']['input']>>;
+};
+
+export enum RollDiceError_OrderBy {
+  BlockNumber = 'blockNumber',
+  BlockTimestamp = 'blockTimestamp',
+  Id = 'id',
+  Message = 'message',
+  TransactionHash = 'transactionHash'
+}
+
 export type Subscription = {
   __typename?: 'Subscription';
   /** Access to subgraph metadata */
@@ -1035,8 +1607,12 @@ export type Subscription = {
   commentActions: Array<CommentAction>;
   diceRolled?: Maybe<DiceRolled>;
   diceRolleds: Array<DiceRolled>;
+  playerAction?: Maybe<PlayerAction>;
+  playerActions: Array<PlayerAction>;
   reportAction?: Maybe<ReportAction>;
   reportActions: Array<ReportAction>;
+  rollDiceError?: Maybe<RollDiceError>;
+  rollDiceErrors: Array<RollDiceError>;
 };
 
 
@@ -1081,6 +1657,24 @@ export type SubscriptionDiceRolledsArgs = {
 };
 
 
+export type SubscriptionPlayerActionArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptionPlayerActionsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PlayerAction_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<PlayerAction_Filter>;
+};
+
+
 export type SubscriptionReportActionArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID']['input'];
@@ -1096,6 +1690,24 @@ export type SubscriptionReportActionsArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<ReportAction_Filter>;
+};
+
+
+export type SubscriptionRollDiceErrorArgs = {
+  block?: InputMaybe<Block_Height>;
+  id: Scalars['ID']['input'];
+  subgraphError?: _SubgraphErrorPolicy_;
+};
+
+
+export type SubscriptionRollDiceErrorsArgs = {
+  block?: InputMaybe<Block_Height>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<RollDiceError_OrderBy>;
+  orderDirection?: InputMaybe<OrderDirection>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  subgraphError?: _SubgraphErrorPolicy_;
+  where?: InputMaybe<RollDiceError_Filter>;
 };
 
 export type _Block_ = {

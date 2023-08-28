@@ -22,6 +22,7 @@ export interface HeaderT {
   isCenterButton?: boolean
   plan?: number
   isStartGame?: boolean
+  isRightButton?: boolean
 }
 
 const Header = memo<HeaderT>(
@@ -40,6 +41,7 @@ const Header = memo<HeaderT>(
     isCenterButton = true,
     plan = 58,
     isStartGame = false,
+    isRightButton = true,
   }) => {
     const { backgroundColor } = useGlobalBackground()[0]
     const debouncedOnPress = _.debounce((handler) => handler(), 500)
@@ -68,12 +70,14 @@ const Header = memo<HeaderT>(
               onPress={() => debouncedOnPress(onPress)}
             />
             <View style={styles.flexOne}>{centerButton}</View>
-            <ButtonCircle
-              name="book"
-              isIonicons
-              size={30}
-              onPress={() => debouncedOnPress(onPressRight)}
-            />
+            {isRightButton && (
+              <ButtonCircle
+                name="book"
+                isIonicons
+                size={30}
+                onPress={() => debouncedOnPress(onPressRight)}
+              />
+            )}
           </>
         )}
       </View>

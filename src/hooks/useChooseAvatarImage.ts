@@ -32,7 +32,7 @@ const getImagePicker = async () => {
 }
 
 export const useChooseAvatarImage = () => {
-  const avatar = useReactiveVar(avatarVar)
+  const ava = useReactiveVar(avatarVar)
   const isLoading = useReactiveVar(isLoadingAvatarVar)
 
   const chooseAvatarImage = async () => {
@@ -86,5 +86,5 @@ export const useChooseAvatarImage = () => {
     avatarVar(newAvatar)
   }
 
-  return { avatar, setAvatar, isLoading, chooseAvatarImage }
+  return { ava, setAvatar, isLoading, chooseAvatarImage }
 }

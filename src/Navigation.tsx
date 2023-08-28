@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 
 import { useQuery } from '@apollo/client'
+import { PUBLIC_KEY } from '@env'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { getAccount } from '@rly-network/mobile-sdk'
@@ -21,10 +22,11 @@ import {
   LightTheme,
   DarkTheme,
 } from 'cons/navigation'
-import { GET_PLAYER_BY_ID_QUERY } from 'graph/query/GET_PLAYER_BY_ID_QUERY'
+import { GET_PLAYER_CREATEDS_QUERY } from 'graph'
 import { useProfile } from 'hooks'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import { useAccount } from 'store'
+import { RootStackParamList } from 'types'
 import UiKit from 'UiKit'
 
 import { black, lightGray, secondary, white } from './cons'
@@ -39,8 +41,8 @@ import {
   PlayerScreen,
   SeedPhraseScreen,
   InfoScreen,
+  PlayerEditScreen,
 } from './screens'
-import { RootStackParamList } from './types'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -53,9 +55,9 @@ const App = () => {
   const [account, setAccount] = useAccount()
   const [profileData, setProfileData] = useProfile()
 
-  const { loading, error, data } = useQuery(GET_PLAYER_BY_ID_QUERY, {
+  const { loading, error, data } = useQuery(GET_PLAYER_CREATEDS_QUERY, {
     variables: {
-      playerId: account,
+      playerId: PUBLIC_KEY,
     },
   })
 
@@ -110,6 +112,7 @@ const App = () => {
     onPress,
     isStartGame,
     isCenterButton,
+    isRightButton,
   }: HeaderT) => {
     const { avatar, plan } = profileData?.createPlayer ?? {}
     return (
@@ -120,6 +123,7 @@ const App = () => {
         onPress={onPress}
         isStartGame={isStartGame}
         isCenterButton={isCenterButton}
+        isRightButton={isRightButton}
       />
     )
   }
@@ -135,7 +139,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="GAME_SCREEN"
+        initialRouteName="WELCOME_SCREEN"
         screenOptions={{
           headerShown: false,
         }}
@@ -165,7 +169,10 @@ const App = () => {
             name="CONTINUE_SCREEN"
             component={ContinueScreen}
             options={{
-              headerShown: false,
+              header: () =>
+                header({
+                  isRightButton: false,
+                }),
             }}
           />
           <Stack.Screen
@@ -225,6 +232,15 @@ const App = () => {
                     isStartGame: isStartGame,
                     isCenterButton: false,
                   }),
+              }
+            }}
+          />
+          <Stack.Screen
+            name="PLAYER_EDIT_SCREEN"
+            component={PlayerEditScreen}
+            options={() => {
+              return {
+                header: () => header({ isRightButton: false }),
               }
             }}
           />

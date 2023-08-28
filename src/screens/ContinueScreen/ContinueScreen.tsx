@@ -44,12 +44,12 @@ const ContinueScreen: React.FC = () => {
 
   const onSubmit = (data: FormData) => {
     const oldPlan = parseInt(data.planNumber, 10)
-    navigate('PLAYER_SCREEN', { oldPlan })
+    navigate('PLAYER_EDIT_SCREEN', { oldPlan })
   }
 
   return (
     <Background>
-      <Space height={50} />
+      <Space height={18} />
       <Dice rollDice={rollDice} lastRoll={lastRoll} size="medium" />
       <Space height={30} />
       <Display title={t('insertPlan')} />

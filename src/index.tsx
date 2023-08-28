@@ -3,7 +3,8 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
-import { RALLY_API_KEY, SENTRY_DSN } from '@env'
+import { loadErrorMessages, loadDevMessages } from '@apollo/client/dev'
+import { RALLY_API_KEY, SENTRY_DSN, THE_GRAPH_API } from '@env'
 import { RlyMumbaiNetwork, Network } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -12,11 +13,17 @@ import VersionInfo from 'react-native-version-info'
 import { RecoilRoot } from 'recoil'
 
 import Navigation from './Navigation'
+console.log('THE_GRAPH_API', THE_GRAPH_API)
 
+if (__DEV__) {
+  // Adds messages only in a dev environment
+  loadDevMessages()
+  loadErrorMessages()
+}
 // Create an Apollo Client instance
 const client = new ApolloClient({
   // uri: 'http://localhost:4000/',
-  uri: 'https://api.studio.thegraph.com/query/49806/leela-ai/v0.0.2/',
+  uri: THE_GRAPH_API,
   cache: new InMemoryCache(),
 })
 

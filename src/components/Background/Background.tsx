@@ -43,6 +43,7 @@ const Background: React.FC<BackgroundProps> = ({
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'flex-start',
   },
   flatlistStyle: {

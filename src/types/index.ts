@@ -3,6 +3,14 @@ export type RootStackParamList = {
   INFO_SCREEN: undefined
   CONTINUE_SCREEN: undefined
   PLAYER_SCREEN: { oldPlan: number; isStartGame: boolean }
+  PLAYER_EDIT_SCREEN: {
+    fullName: string
+    avatar: string
+    email: string
+    intention: string
+    oldPlan: number
+    isStartGame: boolean
+  }
   GAME_SCREEN: undefined
   PLANS_SCREEN: undefined
   PLAN_SCREEN: { key: string; currentPlan: number }
@@ -101,8 +109,14 @@ export interface PlayerFullInput {
   positionBeforeThreeSixes: number
 }
 
+enum Action {
+  Created,
+  Updated,
+  Deleted,
+}
 export interface PlayerInput {
   fullName: string
-  avatar: string
+  avatar: string | null
   intention: string
+  action: Action
 }

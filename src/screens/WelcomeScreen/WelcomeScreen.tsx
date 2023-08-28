@@ -11,7 +11,7 @@ const WelcomeScreen: React.FC = () => {
 
   return (
     <Background>
-      <Space height={50} />
+      <Space height={130} />
       <Dice rollDice={rollDice} lastRoll={lastRoll} size="medium" />
       <Space height={50} />
       <Display title={t('welcome')} />
@@ -20,7 +20,7 @@ const WelcomeScreen: React.FC = () => {
         h={'h2'}
         title={t('withStart')}
         onPress={() =>
-          navigate('PLAYER_SCREEN', { oldPlan: 68, isStartGame: true })
+          navigate('PLAYER_EDIT_SCREEN', { oldPlan: 68, isStartGame: true })
         }
       />
       <Space height={30} />
