@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import {
   ActivityIndicator,
@@ -61,6 +61,17 @@ const App = () => {
     },
   })
 
+  const player = useMemo(() => {
+    return (
+      data?.playerActions[0] || {
+        fullName: '',
+        email: '',
+        intention: '',
+      }
+    )
+  }, [data])
+
+  console.log('data', data)
   useEffect(() => {
     SystemNavigationBar.setNavigationColor(
       isDark ? black : white,
@@ -84,11 +95,11 @@ const App = () => {
       }
       setAccount(rlyAccount)
       if (loading) {
-        setProfileData(data?.getPlayerById)
+        setProfileData(player)
       }
     }
     loadAccount()
-  }, [data?.getPlayerById, error, loading, setAccount, setProfileData])
+  }, [player, error, loading, setAccount, setProfileData])
 
   if (!hasLoadedAccount) {
     return (
@@ -114,7 +125,9 @@ const App = () => {
     isCenterButton,
     isRightButton,
   }: HeaderT) => {
-    const { avatar, plan } = profileData?.createPlayer ?? {}
+    const plan = 68
+    const { avatar } = player
+    console.log('avatar', avatar)
     return (
       <Header
         avatar={avatar}
@@ -139,7 +152,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="WELCOME_SCREEN"
+        initialRouteName="GAME_SCREEN"
         screenOptions={{
           headerShown: false,
         }}

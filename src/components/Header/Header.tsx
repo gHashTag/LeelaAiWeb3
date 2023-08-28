@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     zIndex: 20,
   },
   flexOne: {
-    bottom: 8,
+    // bottom: 0,
   },
   pressStyle: {
     bottom: 3,
