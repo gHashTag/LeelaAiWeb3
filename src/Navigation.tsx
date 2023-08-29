@@ -240,8 +240,6 @@ const App = () => {
               return {
                 header: () =>
                   header({
-                    leftName: 'information',
-                    onPress: () => navigate('INFO_SCREEN'),
                     isStartGame: isStartGame,
                     isCenterButton: false,
                   }),
@@ -253,7 +251,8 @@ const App = () => {
             component={PlayerEditScreen}
             options={() => {
               return {
-                header: () => header({ isRightButton: false }),
+                header: () =>
+                  header({ isRightButton: false, isCenterButton: false }),
               }
             }}
           />

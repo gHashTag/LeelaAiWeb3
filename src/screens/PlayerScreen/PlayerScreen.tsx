@@ -36,7 +36,7 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
     },
   })
 
-  const player = data?.playerCreateds[0] || {
+  const player = data?.playerActions[0] || {
     fullName: '',
     email: '',
     intention: '',
@@ -69,8 +69,6 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
             <Space height={25} />
 
             <TextField value={player?.fullName} onPress={onPress} />
-            <Space height={13} />
-            <TextField value={'example@icloud.com'} onPress={onPress} />
 
             <Space height={13} />
             <TextField value={player?.intention} onPress={onPress} />

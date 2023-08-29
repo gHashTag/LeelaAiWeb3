@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Linking, View, StyleSheet } from 'react-native'
 
-import { useQuery } from '@apollo/client'
-import { PUBLIC_KEY } from '@env'
+import { fa } from '@faker-js/faker'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { RouteProp } from '@react-navigation/native'
 import {
@@ -17,13 +16,18 @@ import {
   Layout,
   KeyboardContainer,
 } from 'components'
-import { catchRevert, contractWithSigner, navigate } from 'cons'
+import {
+  catchRevert,
+  contractWithSigner,
+  navigate,
+  postEmailToSendPulse,
+} from 'cons'
 import { useChooseAvatarImage } from 'hooks'
 import _ from 'lodash'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useAccount } from 'store'
-import { PlayerInput, RootStackParamList } from 'types'
+import { RootStackParamList } from 'types'
 import * as Yup from 'yup'
 
 interface FormData {
@@ -56,7 +60,6 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
     route?.params || {}
   const [account] = useAccount()
 
-  // console.log('data', data)
   const { ava, chooseAvatarImage, isLoading, setAvatar } =
     useChooseAvatarImage()
 
@@ -64,9 +67,11 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
     fullName: Yup.string().required(
       t('required', { field: t(validationFieldNames.fullName) }),
     ),
-    // email: Yup.string()
-    //   .required(t('required', { field: t(validationFieldNames.email) }))
-    //   .email(t('email')),
+    email: isStartGame
+      ? Yup.string()
+          .required(t('required', { field: t(validationFieldNames.email) }))
+          .email(t('email'))
+      : Yup.string(),
     intention: Yup.string().required(
       t('required', { field: t(validationFieldNames.intention) }),
     ),
@@ -105,6 +110,8 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
       setLoading(true)
       const action = isStartGame ? Action.Created : Action.Updated
 
+      isStartGame && postEmailToSendPulse(item.email)
+
       const txResponse = await contractWithSigner.createOrUpdateOrDeletePlayer(
         item.fullName,
         ava,
@@ -126,11 +133,14 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
     } catch (err: string | any) {
       console.log('error', err)
       setError({ message: err.message })
+    } finally {
+      setLoading(false)
     }
   }, 1000)
 
   const plan = oldPlan !== undefined ? oldPlan : 68
 
+  console.log('isStartGame', isStartGame)
   return (
     <Background isScrollView>
       <Layout loading={!isError.message ? loading : false}>
@@ -164,24 +174,29 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
                 />
               )}
             />
-            <Space height={10} />
 
-            <Controller
-              control={control}
-              name="email"
-              rules={{ required: true }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <TextInputField
-                  placeholder={t('auth.email')}
-                  multiline
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={'example@icloud.com'}
-                  inputMode="email"
-                  keyboardType="email-address"
+            {isStartGame && (
+              <>
+                <Space height={10} />
+                <Controller
+                  control={control}
+                  name="email"
+                  rules={{ required: true }}
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <TextInputField
+                      placeholder={t('auth.email')}
+                      multiline
+                      onBlur={onBlur}
+                      onChangeText={onChange}
+                      value={value}
+                      inputMode="email"
+                      keyboardType="email-address"
+                    />
+                  )}
                 />
-              )}
-            />
+              </>
+            )}
+
             <Space height={20} />
             <Controller
               control={control}

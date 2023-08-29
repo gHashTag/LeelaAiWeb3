@@ -13,4 +13,8 @@ declare module '@env' {
   export const PRIVATE_KEY: string
   export const CONTRACT_ADDRESS: string
   export const THE_GRAPH_API: string
+  export const ID_SENDPULSE: string
+  export const SECRET_SENDPULSE: string
+  export const Leela_AI_RU: string
+  export const Leela_AI_EN: string
 }
