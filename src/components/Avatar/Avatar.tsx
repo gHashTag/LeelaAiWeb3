@@ -65,7 +65,7 @@ const Avatar = memo<AvatarI>(
         <NeomorphView viewStyle={{ ...styles.card, ...newSize[0] }}>
           <View style={styles.container}>
             {isLoading ? (
-              <Loader />
+              <Loader size={size} />
             ) : avatar ? (
               <ImageBackground
                 source={{ uri: avatar }}

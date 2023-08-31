@@ -14,7 +14,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { getAccount } from '@rly-network/mobile-sdk'
 import * as Sentry from '@sentry/react'
-import { Header, HeaderT } from 'components'
+import { Header, HeaderT, Loader } from 'components'
 import {
   navigationRef,
   isReadyRef,
@@ -112,7 +112,7 @@ const App = () => {
         theme={theme}
       >
         <View style={styles.loadingScreenContainer}>
-          <ActivityIndicator size="large" color={secondary} />
+          <Loader size="large" />
         </View>
       </NavigationContainer>
     )

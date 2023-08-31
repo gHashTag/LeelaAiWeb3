@@ -392,6 +392,8 @@ PODS:
     - React-Core
   - react-native-slider (4.4.3):
     - React-Core
+  - react-native-spinkit (1.4.1):
+    - React
   - react-native-version-info (1.1.1):
     - React-Core
   - React-NativeModulesApple (0.72.3):
@@ -632,6 +634,7 @@ DEPENDENCIES:
   - react-native-quick-crypto (from `../node_modules/react-native-quick-crypto`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
+  - react-native-spinkit (from `../node_modules/react-native-spinkit`)
   - react-native-version-info (from `../node_modules/react-native-version-info`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -745,6 +748,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-slider:
     :path: "../node_modules/@react-native-community/slider"
+  react-native-spinkit:
+    :path: "../node_modules/react-native-spinkit"
   react-native-version-info:
     :path: "../node_modules/react-native-version-info"
   React-NativeModulesApple:
@@ -855,6 +860,7 @@ SPEC CHECKSUMS:
   react-native-quick-crypto: 455c1b411db006dba1026a30681ececb19180187
   react-native-safe-area-context: 9697629f7b2cda43cf52169bb7e0767d330648c2
   react-native-slider: 1cdd6ba29675df21f30544253bf7351d3c2d68c4
+  react-native-spinkit: da294fd828216ad211fe36a5c14c1e09f09e62db
   react-native-version-info: a106f23009ac0db4ee00de39574eb546682579b9
   React-NativeModulesApple: c57f3efe0df288a6532b726ad2d0322a9bf38472
   React-perflogger: 6bd153e776e6beed54c56b0847e1220a3ff92ba5

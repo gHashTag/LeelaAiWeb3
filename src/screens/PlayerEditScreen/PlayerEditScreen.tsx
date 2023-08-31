@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { Linking, View, StyleSheet } from 'react-native'
 
-import { fa } from '@faker-js/faker'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { RouteProp } from '@react-navigation/native'
 import {
