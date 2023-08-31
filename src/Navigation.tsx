@@ -72,6 +72,7 @@ const App = () => {
   }, [data])
 
   console.log('data', data)
+  console.log('player', player)
   useEffect(() => {
     SystemNavigationBar.setNavigationColor(
       isDark ? black : white,

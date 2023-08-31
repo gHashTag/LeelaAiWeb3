@@ -31,7 +31,7 @@ import * as Yup from 'yup'
 
 interface FormData {
   fullName: string
-  email: string
+  email: string | undefined
   intention: string
 }
 
@@ -139,7 +139,6 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
 
   const plan = oldPlan !== undefined ? oldPlan : 68
 
-  console.log('isStartGame', isStartGame)
   return (
     <Background isScrollView>
       <Layout loading={!isError.message ? loading : false}>

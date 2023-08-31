@@ -35,7 +35,7 @@ const PlayerScreen: React.FC<PlayerScreenProps> = ({ route }) => {
       playerId: PUBLIC_KEY,
     },
   })
-
+  console.log('error', error)
   const player = data?.playerActions[0] || {
     fullName: '',
     email: '',
