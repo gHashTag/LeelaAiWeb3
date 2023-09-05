@@ -14,7 +14,7 @@ interface Error {
 }
 interface LayoutProps {
   children?: ReactNode
-  loading?: boolean
+  loading: boolean
   error?: ApolloError | Error
 }
 

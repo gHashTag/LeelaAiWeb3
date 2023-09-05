@@ -45,9 +45,12 @@ export interface GameBoardProps {
 
 export interface Comment {
   id: string
-  title: string
-  author: Player
-  createdAt: string
+  reportId: string
+  content: string
+  avatar: string
+  fullName: string
+  plan: string
+  timestamp: string
 }
 
 export interface UserActions {
@@ -60,19 +63,22 @@ export interface UserActions {
 
 export interface Report extends UserActions {
   id: string
-  player: Player
+  actor: string
+  fullName: string
+  avatar: string
   text: string
-  title: string
+  content: string
+  reportId: string
   comments: Comment[]
   onPress: () => void
   plan: number
   accept: boolean
   isAdmin: boolean
   isLikedByCurrentUser: boolean
-  likes: Like[]
+  likes: string
   commentCount: number
   likeCount: number
-  createdAt: string
+  timestamp: string
 }
 
 export interface MessageAIT {

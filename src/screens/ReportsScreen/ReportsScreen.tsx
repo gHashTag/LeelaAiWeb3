@@ -1,28 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { FlatList, StyleSheet } from 'react-native'
 
 import { useQuery } from '@apollo/client'
+import { cliError } from '@graphql-codegen/cli'
 import { Space, ReportCard, Layout, Display } from 'components'
-import { W } from 'cons'
+import { W, catchRevert, contractWithSigner, provider } from 'cons'
 import { navigate } from 'cons/navigation'
 import { GET_ALL_REPORTS_QUERY } from 'graph'
 import { useTranslation } from 'react-i18next'
-import { useAccount } from 'store'
-import { Report, Like } from 'types'
+import { Report } from 'types'
 
 const ReportsScreen: React.FC = () => {
-  const [account] = useAccount()
-  const isCurrentUserLike = (like: Like) => like.player.id === account
   const { t } = useTranslation()
+  const [isError, setError] = useState({ message: '' })
   const { loading, error, data } = useQuery(GET_ALL_REPORTS_QUERY)
+  console.log('isError', isError)
+  console.log('data', data)
 
-  const onPress = (item: Report) => {
+  const onPress = (item: Report) => () => {
     navigate('REPORT_SCREEN', { item })
+  }
+  const handleLike = (item: Report) => async () => {
+    try {
+      const reportId = item.reportId
+      const isLikedByCurrentUser = item.isLikedByCurrentUser
+      const gasPrice = await provider.getGasPrice()
+
+      const gasLimit = await contractWithSigner.estimateGas.toggleLikeReport(
+        reportId,
+        !isLikedByCurrentUser,
+      )
+
+      const overrides = {
+        gasPrice,
+        gasLimit,
+      }
+
+      const txResponse = await contractWithSigner.toggleLikeReport(
+        reportId,
+        !isLikedByCurrentUser,
+        overrides,
+      )
+      console.log('txResponse', txResponse)
+      const revert: string = await catchRevert(txResponse.hash)
+      console.log('revert', revert)
+      if (revert) {
+        setError({ message: revert })
+      } else {
+        navigate('REPORTS_SCREEN')
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        setError({ message: err.message })
+      }
+    }
   }
   const renderItem = ({ item }: { item: Report }) => (
     <>
-      <ReportCard {...item} onPress={() => onPress(item)} />
+      <ReportCard
+        {...item}
+        onPress={onPress(item)}
+        handleLike={handleLike(item)}
+      />
       <Space height={20} />
     </>
   )
@@ -39,20 +79,13 @@ const ReportsScreen: React.FC = () => {
       <Space height={20} />
     </>
   )
-
-  const reportsWithCommentCount: Report[] =
-    data?.getAllReports.map((report: Report) => ({
-      ...report,
-      commentCount: report?.comments?.length || 0,
-      isLikedByCurrentUser: report?.likes?.some(isCurrentUserLike) || false,
-      likeCount: report?.likes?.length || 0,
-    })) || []
+  console.log('data?.reportActions', data?.reportActions)
 
   return (
     <Layout loading={loading} error={error}>
       <FlatList
         ListHeaderComponent={header}
-        data={reportsWithCommentCount}
+        data={data?.reportActions}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.contentContainer}

@@ -1,12 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 
-import {
-  ActivityIndicator,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-  View,
-} from 'react-native'
+import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native'
 
 import { useQuery } from '@apollo/client'
 import { PUBLIC_KEY } from '@env'
@@ -29,7 +23,7 @@ import { useAccount } from 'store'
 import { RootStackParamList } from 'types'
 import UiKit from 'UiKit'
 
-import { black, lightGray, secondary, white } from './cons'
+import { black, lightGray, white } from './cons'
 import {
   ContinueScreen,
   WelcomeScreen,
@@ -91,7 +85,7 @@ const App = () => {
       setHasLoadedAccount(true)
 
       if (!rlyAccount) {
-        navigate('GAME_SCREEN')
+        navigate('WELCOME_SCREEN')
         return
       }
       setAccount(rlyAccount)
@@ -153,7 +147,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="GAME_SCREEN"
+        initialRouteName="REPORTS_SCREEN"
         screenOptions={{
           headerShown: false,
         }}

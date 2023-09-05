@@ -2,32 +2,17 @@ import { gql } from '@apollo/client'
 
 export const GET_ALL_REPORTS_QUERY = gql`
   query GetAllReportsQuery {
-    getAllReports {
+    reportActions(orderDirection: desc, subgraphError: allow) {
       id
+      reportId
+      actor
+      avatar
+      fullName
+      content
       plan
-      player {
-        avatar
-        fullName
-      }
-      title
-      createdAt
-      likes {
-        id
-        player {
-          id
-          fullName
-        }
-      }
-      comments {
-        createdAt
-        id
-        title
-        author {
-          avatar
-          fullName
-          plan
-        }
-      }
+      likes
+      isLikedByCurrentUser
+      timestamp
     }
   }
 `

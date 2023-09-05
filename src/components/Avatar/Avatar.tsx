@@ -11,11 +11,12 @@ import {
 
 import { useTheme } from '@react-navigation/native'
 import { NeomorphView, Text, Loader } from 'components'
-import { useTranslation } from 'react-i18next'
+import { gray } from 'cons'
 import { ms, s } from 'react-native-size-matters'
+import Foundation from 'react-native-vector-icons/Foundation'
 
 interface AvatarI {
-  plan: number
+  plan: string
   size: 'xLarge' | 'large' | 'medium' | 'small'
   avatar: string
   isAccept?: boolean
@@ -39,9 +40,8 @@ const Avatar = memo<AvatarI>(
     const {
       colors: { background },
     } = useTheme()
-    const { t } = useTranslation()
 
-    const textPlan = plan < 10 ? `0${plan}` : `${plan}`
+    const textPlan = Number(plan) < 10 ? `0${plan}` : `${plan}`
 
     let fontSize
     if (size === 'small') {
@@ -60,6 +60,17 @@ const Avatar = memo<AvatarI>(
     }
 
     const newSize = [styles[size]]
+
+    let iconSize
+    if (size === 'small') {
+      iconSize = s(10)
+    } else if (size === 'medium') {
+      iconSize = s(25)
+    } else if (size === 'xLarge') {
+      iconSize = s(50)
+    } else {
+      iconSize = s(50)
+    }
     return (
       <Pressable onPress={onPress} testID={testID}>
         <NeomorphView viewStyle={{ ...styles.card, ...newSize[0] }}>
@@ -88,12 +99,7 @@ const Avatar = memo<AvatarI>(
                 </View>
               </ImageBackground>
             ) : (
-              <Text
-                h={'h3'}
-                testID="add-image-text"
-                title={t('auth.addImage')}
-                textStyle={styles.textStyle}
-              />
+              <Foundation name="plus" size={iconSize} color={gray} />
             )}
           </View>
         </NeomorphView>
@@ -125,6 +131,7 @@ const styles = StyleSheet.create({
     width: s(65),
   },
   container: {
+    alignContent: 'center',
     alignItems: 'center',
     borderRadius: ms(130),
     justifyContent: 'center',

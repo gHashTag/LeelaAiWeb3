@@ -18,7 +18,7 @@ interface ButtonVectorIconI {
   color?: string
   onPress?: () => void | Promise<void>
   viewStyle?: StyleProp<ViewStyle>
-  count?: number
+  count?: string
   isIonicons?: boolean
   testID: string
   onPressIn?: () => void

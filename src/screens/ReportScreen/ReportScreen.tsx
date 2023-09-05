@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { FlatList, StyleSheet, View } from 'react-native'
 
-import { useMutation } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import { RouteProp } from '@react-navigation/native'
 import {
   Space,
@@ -15,8 +15,9 @@ import {
   Button,
   Layout,
 } from 'components'
-import { red } from 'cons'
-import { CREATE_COMMENT_MUTATION } from 'graph'
+import { catchRevert, contractWithSigner, navigate, provider, red } from 'cons'
+import { ethers } from 'ethers'
+import { GET_COMMENT_QUERY } from 'graph'
 import { useGlobalBackground } from 'hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -32,26 +33,57 @@ interface FormData {
 }
 
 const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
-  const backgroundStyle = useGlobalBackground()
-  const { t } = useTranslation()
   const { item } = route.params
-  console.log('item.id', item.id)
+  const { loading, error, data } = useQuery(GET_COMMENT_QUERY, {
+    variables: {
+      reportId: item.reportId,
+    },
+  })
+  console.log('item.reportId', item.reportId)
+  console.log('error', error)
+  const backgroundStyle = useGlobalBackground()
+  const [isError, setError] = useState({ message: '' })
+  const { t } = useTranslation()
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({ mode: 'onBlur' })
 
-  const [createCommentMutation, { loading, error }] = useMutation(
-    CREATE_COMMENT_MUTATION,
-  )
-
-  const onSubmit = async (data: FormData) => {
-    const options = {
-      title: data.title,
-      reportId: item.id,
+  const onSubmit = async (input: FormData) => {
+    try {
+      const gasPrice = await provider.getGasPrice()
+      console.log('gasPrice', gasPrice)
+      const reportId = ethers.BigNumber.from(item.reportId)
+      console.log('reportId', reportId)
+      const gasLimit = await contractWithSigner.estimateGas.addComment(
+        reportId,
+        input.title,
+      )
+      console.log('gasLimit', gasLimit)
+      const overrides = {
+        gasPrice,
+        gasLimit,
+      }
+      console.log('overrides', overrides)
+      const txResponse = await contractWithSigner.addComment(
+        reportId,
+        input.title,
+        overrides,
+      )
+      console.log('txResponse', txResponse)
+      const revert: string = await catchRevert(txResponse.hash)
+      console.log('revert', revert)
+      if (revert) {
+        setError({ message: revert })
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        setError({ message: err.message })
+      }
     }
-    await createCommentMutation({ variables: { input: options } })
+    // await createCommentMutation({ variables: { input: options } })
   }
 
   const header = () => {
@@ -59,14 +91,14 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
       <Background isFlatList>
         <Space height={20} />
         <ReportCard {...item} />
-        <Space height={20} />
       </Background>
     )
   }
-
+  console.log('isError', isError)
+  console.log('reprt data', data)
   const footer = () => {
     return (
-      <>
+      <Layout loading={false}>
         <Space height={s(20)} />
         <KeyboardContainer>
           <Controller
@@ -109,7 +141,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
           />
         </View>
         <Space height={s(200)} />
-      </>
+      </Layout>
     )
   }
   const renderItem = ({ item: commentItem }: { item: Comment }) => {
@@ -125,17 +157,15 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
   }
 
   return (
-    <Layout loading={loading} error={error}>
-      <FlatList
-        ListHeaderComponent={header}
-        ListFooterComponent={footer}
-        ListHeaderComponentStyle={styles.headerStyle}
-        data={item.comments || []}
-        renderItem={renderItem}
-        keyExtractor={(it) => it.id.toString()}
-        contentContainerStyle={[backgroundStyle, styles.contentContainer]}
-      />
-    </Layout>
+    <FlatList
+      ListHeaderComponent={header}
+      ListFooterComponent={footer}
+      ListHeaderComponentStyle={styles.headerStyle}
+      data={data.commentActions || []}
+      renderItem={renderItem}
+      keyExtractor={(it) => it.id.toString()}
+      contentContainerStyle={[backgroundStyle, styles.contentContainer]}
+    />
   )
 }
 

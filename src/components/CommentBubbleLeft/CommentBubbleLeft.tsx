@@ -16,8 +16,8 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
   commentItem,
   handleProfile,
 }) => {
-  const { author, title, createdAt } = commentItem
-  const { avatar, fullName, plan } = author
+  const { content, timestamp, avatar, fullName, plan } = commentItem
+
   return (
     <NeomorphFlexView marginHorizontal={20}>
       <View style={styles.container}>
@@ -35,10 +35,10 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
               <Text
                 h={'h4'}
                 textStyle={styles.lightText}
-                title={title || ' '}
+                title={content || ' '}
                 testID="comment-bubble-left-comment"
               />
-              <Space height={vs(5)} />
+              <Space height={vs(13)} />
               <Text
                 title={fullName}
                 h={'h4'}
@@ -48,7 +48,7 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
               />
               <View style={styles.headerName}>
                 <Text
-                  title={`${formatDate(createdAt)}`}
+                  title={`${formatDate(timestamp)}`}
                   h={'h5'}
                   textStyle={styles.dateStyle}
                   testID="comment-bubble-left-date"
@@ -65,11 +65,11 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
 
 const styles = StyleSheet.create({
   bubbleStyle: {
-    alignSelf: 'flex-start',
+    alignContent: 'center',
     flexDirection: 'row',
   },
   container: {
-    paddingBottom: s(10),
+    paddingBottom: s(20),
     paddingHorizontal: s(10),
     paddingTop: s(20),
   },

@@ -19,7 +19,7 @@ const settings = {
 export const alchemy = new Alchemy(settings)
 export const contractAbi = LeelaGameABI
 
-export const gasLimit = 200000
+export const gasLimit = 400000
 
 export const catchRevert = async (txHash: any) => {
   //https://mirror.xyz/n00b21337.eth/of4mFYGfvwAdrSNb_kZb3JoSY7UWjOUXkuZLGcVX1WU
@@ -52,7 +52,7 @@ export const contract = new ethers.Contract(
   contractAbi,
   wallet,
 )
-console.log('CONTRACT_ADDRESS', CONTRACT_ADDRESS)
+
 export const contractWithSigner = contract.connect(wallet)
 
 // sent test matic to contract 0x61715aE5947Bdc45f4853639d1a48962051622d5

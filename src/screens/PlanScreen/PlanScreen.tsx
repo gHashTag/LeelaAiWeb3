@@ -12,15 +12,16 @@ import {
   Background,
   KeyboardContainer,
   Layout,
+  ErrorMessages,
 } from 'components'
 import {
   captureException,
   catchRevert,
   contract,
   contractWithSigner,
-  gasLimit,
   getSystemLanguage,
   navigate,
+  provider,
   red,
 } from 'cons'
 // import { CREATE_REPORT_MUTATION } from 'graph'
@@ -52,21 +53,35 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   } = useForm<FormData>({ mode: 'onBlur' })
 
   const onSubmit = async (data: FormData) => {
-    console.log('(data.title', data.title)
-    const txResponse = await contractWithSigner.createReport(data.title, {
-      gasLimit,
-    })
-    console.log('txResponse', txResponse)
-    const revert: string = await catchRevert(txResponse.hash)
-    console.log('revert', revert)
-    if (revert) {
-      setError({ message: revert })
-    } else {
-      contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
-        console.log('Событие DiceRolled:', roller, rolled, currentPlan)
-        console.log('event', event)
+    try {
+      const gasPrice = await provider.getGasPrice()
+      console.log('gasPrice', gasPrice)
+      const gasLimit = await contractWithSigner.estimateGas.createReport(
+        data.title,
+      )
+      console.log('gasLimit', gasLimit)
+      const overrides = {
+        gasPrice: gasPrice.mul(2), // Увеличьте комиссию в два раза или в соответствии с требованиями сети
+        gasLimit: gasLimit.mul(2), // Увеличьте газовый лимит в два раза или в соответствии с требованиями сети
+      }
+      console.log('overrides', overrides)
+
+      const txResponse = await contractWithSigner.createReport(
+        data.title,
+        overrides,
+      )
+      console.log('txResponse', txResponse)
+      const revert: string = await catchRevert(txResponse.hash)
+      console.log('revert', revert)
+      if (revert) {
+        setError({ message: revert })
+      } else {
         navigate('REPORTS_SCREEN')
-      })
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        setError({ message: err.message })
+      }
     }
   }
 
@@ -121,18 +136,18 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
                   value: true,
                   message: t('requireField'),
                 },
+                minLength: {
+                  value: 100,
+                  message: t('fewChars'),
+                },
               }}
             />
           </KeyboardContainer>
-          <Space height={20} />
+
           <View style={styles.btnStyle}>
             {errors.title && (
               <>
-                <Text
-                  h={'h3'}
-                  title={String(errors.title.message)}
-                  oneColor={red}
-                />
+                <ErrorMessages errors={errors} />
                 <Space height={15} />
               </>
             )}

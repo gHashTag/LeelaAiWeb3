@@ -8,10 +8,11 @@ import { s, vs } from 'react-native-size-matters'
 import { Report } from 'types'
 
 const ReportCard: React.FC<Report> = ({
-  player,
+  fullName,
+  avatar,
   plan,
-  createdAt,
-  title,
+  timestamp,
+  content,
   onPress,
   handleProfile,
   handleAdminMenu,
@@ -20,7 +21,7 @@ const ReportCard: React.FC<Report> = ({
   handleComment,
   isAdmin,
   isLikedByCurrentUser,
-  likeCount,
+  likes,
   commentCount,
 }) => {
   return (
@@ -37,7 +38,7 @@ const ReportCard: React.FC<Report> = ({
                 <Text
                   numberOfLines={1}
                   h={'h2'}
-                  title={player?.fullName}
+                  title={fullName}
                   ellipsizeMode="tail"
                   testID="report-card-fullName"
                 />
@@ -45,14 +46,14 @@ const ReportCard: React.FC<Report> = ({
                 <Text
                   h={'h3'}
                   textStyle={styles.lightText}
-                  title={`${formatDate(createdAt)}`}
+                  title={`${formatDate(timestamp)}`}
                   testID="report-card-date"
                 />
               </View>
 
               <View style={styles.avatarStyle}>
                 <Avatar
-                  avatar={player?.avatar}
+                  avatar={avatar}
                   onPress={handleProfile}
                   size={'medium'}
                   plan={plan}
@@ -67,7 +68,7 @@ const ReportCard: React.FC<Report> = ({
             <Text
               h={'h3'}
               textStyle={styles.lightText}
-              title={title}
+              title={content}
               numberOfLines={4}
               testID="report-card-postText"
             />
@@ -75,7 +76,7 @@ const ReportCard: React.FC<Report> = ({
           <ActionButtons
             isAdmin={isAdmin}
             commentCount={commentCount}
-            likeCount={likeCount}
+            likes={likes}
             handleAdminMenu={handleAdminMenu}
             handleComment={handleComment}
             handleLike={handleLike}
@@ -94,6 +95,7 @@ const styles = StyleSheet.create({
   },
   card: {
     height: vs(180),
+    minHeight: vs(130),
     width: W - 50,
   },
   container: {

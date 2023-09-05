@@ -109,7 +109,7 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
       setLoading(true)
       const action = isStartGame ? Action.Created : Action.Updated
 
-      isStartGame && postEmailToSendPulse(item.email)
+      // isStartGame && postEmailToSendPulse(item.email)
 
       const txResponse = await contractWithSigner.createOrUpdateOrDeletePlayer(
         item.fullName,
@@ -120,6 +120,7 @@ const PlayerEditScreen: React.FC<PlayerScreenProps> = ({ route }) => {
           gasLimit: 300000,
         },
       )
+      console.log('txResponse', txResponse)
       const revert: string = await catchRevert(txResponse.hash)
 
       console.log('revert', revert)

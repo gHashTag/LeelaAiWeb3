@@ -114,7 +114,7 @@ const useLeelaGame = () => {
   const getContract = async (rollResult: number) => {
     setError({ message: '' })
     try {
-      const txResponse = await contractWithSigner.rollDice(rollResult, {
+      const txResponse = await contractWithSigner.rollDice(6, {
         gasLimit,
       })
       console.log('txResponse', txResponse)
@@ -126,14 +126,14 @@ const useLeelaGame = () => {
         dispatch({ type: 'ROLL_DICE', rollResult: rolled })
         console.log('event', event)
         const key = plansData[currentPlan - 1].key
-        navigate('PLAN_SCREEN', { key, currentPlan })
+        navigate('PLAN_SCREEN', { key })
       })
     } catch (err: string | any) {
       const currentPlan = diceRolleds[0].currentPlan
       console.log('currentPlan', currentPlan)
       const key = plansData[currentPlan - 1].key
       console.log('key', key)
-      navigate('PLAN_SCREEN', { key, currentPlan })
+      navigate('PLAN_SCREEN', { key })
       setError({ message: err })
     } finally {
       setLoading(false)

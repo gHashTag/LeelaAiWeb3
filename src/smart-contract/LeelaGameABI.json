@@ -36,6 +36,33 @@
         "arrayChildren": null
       },
       {
+        "name": "avatar",
+        "type": "string",
+        "baseType": "string",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "fullName",
+        "type": "string",
+        "baseType": "string",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "plan",
+        "type": "uint256",
+        "baseType": "uint256",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
         "name": "content",
         "type": "string",
         "baseType": "string",
@@ -174,6 +201,24 @@
         "arrayChildren": null
       },
       {
+        "name": "avatar",
+        "type": "string",
+        "baseType": "string",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "fullName",
+        "type": "string",
+        "baseType": "string",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
         "name": "content",
         "type": "string",
         "baseType": "string",
@@ -186,6 +231,24 @@
         "name": "plan",
         "type": "uint256",
         "baseType": "uint256",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "likes",
+        "type": "uint256",
+        "baseType": "uint256",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "isLikedByCurrentUser",
+        "type": "bool",
+        "baseType": "bool",
         "indexed": false,
         "components": null,
         "arrayLength": null,
@@ -211,22 +274,6 @@
       }
     ],
     "name": "ReportAction",
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "inputs": [
-      {
-        "name": "message",
-        "type": "string",
-        "baseType": "string",
-        "indexed": false,
-        "components": null,
-        "arrayLength": null,
-        "arrayChildren": null
-      }
-    ],
-    "name": "RollDiceError",
     "anonymous": false
   },
   {
@@ -317,6 +364,30 @@
       },
       {
         "name": "reportId",
+        "type": "uint256",
+        "baseType": "uint256",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "avatar",
+        "type": "string",
+        "baseType": "string",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "fullName",
+        "type": "string",
+        "baseType": "string",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "plan",
         "type": "uint256",
         "baseType": "uint256",
         "components": null,
@@ -495,6 +566,30 @@
               "arrayChildren": null
             },
             {
+              "name": "avatar",
+              "type": "string",
+              "baseType": "string",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
+            },
+            {
+              "name": "fullName",
+              "type": "string",
+              "baseType": "string",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
+            },
+            {
+              "name": "plan",
+              "type": "uint256",
+              "baseType": "uint256",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
+            },
+            {
               "name": "commenter",
               "type": "address",
               "baseType": "address",
@@ -562,6 +657,22 @@
               "arrayChildren": null
             },
             {
+              "name": "avatar",
+              "type": "string",
+              "baseType": "string",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
+            },
+            {
+              "name": "fullName",
+              "type": "string",
+              "baseType": "string",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
+            },
+            {
               "name": "content",
               "type": "string",
               "baseType": "string",
@@ -573,6 +684,22 @@
               "name": "plan",
               "type": "uint256",
               "baseType": "uint256",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
+            },
+            {
+              "name": "likes",
+              "type": "uint256",
+              "baseType": "uint256",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
+            },
+            {
+              "name": "isLikedByCurrentUser",
+              "type": "bool",
+              "baseType": "bool",
               "components": null,
               "arrayLength": null,
               "arrayChildren": null
@@ -783,6 +910,22 @@
             "arrayChildren": null
           },
           {
+            "name": "avatar",
+            "type": "string",
+            "baseType": "string",
+            "components": null,
+            "arrayLength": null,
+            "arrayChildren": null
+          },
+          {
+            "name": "fullName",
+            "type": "string",
+            "baseType": "string",
+            "components": null,
+            "arrayLength": null,
+            "arrayChildren": null
+          },
+          {
             "name": "content",
             "type": "string",
             "baseType": "string",
@@ -794,6 +937,22 @@
             "name": "plan",
             "type": "uint256",
             "baseType": "uint256",
+            "components": null,
+            "arrayLength": null,
+            "arrayChildren": null
+          },
+          {
+            "name": "likes",
+            "type": "uint256",
+            "baseType": "uint256",
+            "components": null,
+            "arrayLength": null,
+            "arrayChildren": null
+          },
+          {
+            "name": "isLikedByCurrentUser",
+            "type": "bool",
+            "baseType": "bool",
             "components": null,
             "arrayLength": null,
             "arrayChildren": null
@@ -1117,6 +1276,22 @@
         "arrayChildren": null
       },
       {
+        "name": "avatar",
+        "type": "string",
+        "baseType": "string",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "fullName",
+        "type": "string",
+        "baseType": "string",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
         "name": "content",
         "type": "string",
         "baseType": "string",
@@ -1128,6 +1303,22 @@
         "name": "plan",
         "type": "uint256",
         "baseType": "uint256",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "likes",
+        "type": "uint256",
+        "baseType": "uint256",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "isLikedByCurrentUser",
+        "type": "bool",
+        "baseType": "bool",
         "components": null,
         "arrayLength": null,
         "arrayChildren": null
@@ -1160,6 +1351,42 @@
     "name": "rollDice",
     "constant": false,
     "outputs": [],
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "gas": null
+  },
+  {
+    "type": "function",
+    "inputs": [
+      {
+        "name": "reportId",
+        "type": "uint256",
+        "baseType": "uint256",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "like",
+        "type": "bool",
+        "baseType": "bool",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      }
+    ],
+    "name": "toggleLikeReport",
+    "constant": false,
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "baseType": "uint256",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      }
+    ],
     "stateMutability": "nonpayable",
     "payable": false,
     "gas": null

@@ -9,7 +9,7 @@ import { ms, s } from 'react-native-size-matters'
 interface ActionButtonsProps {
   isAdmin: boolean
   commentCount: number
-  likeCount: number
+  likes: string
   isLiked: boolean
   handleAdminMenu: () => void
   handleComment: () => void
@@ -20,7 +20,7 @@ interface ActionButtonsProps {
 const ActionButtons: React.FC<ActionButtonsProps> = ({
   isAdmin,
   commentCount,
-  likeCount,
+  likes,
   handleAdminMenu,
   handleComment,
   handleLike,
@@ -55,7 +55,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         testID="comment-button"
       />
       <ButtonVectorIcon
-        count={likeCount}
+        count={likes}
         onPress={handleLike}
         color={heartColor}
         isIonicons
