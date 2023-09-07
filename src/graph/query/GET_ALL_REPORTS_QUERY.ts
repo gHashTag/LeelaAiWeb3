@@ -2,7 +2,11 @@ import { gql } from '@apollo/client'
 
 export const GET_ALL_REPORTS_QUERY = gql`
   query GetAllReportsQuery {
-    reportActions(orderDirection: desc, subgraphError: allow) {
+    reportActions(
+      orderBy: blockTimestamp
+      orderDirection: desc
+      subgraphError: allow
+    ) {
       id
       reportId
       actor

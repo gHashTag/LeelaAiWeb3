@@ -43,7 +43,7 @@ type PlanScreenProps = {
 
 const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   const { key } = route.params
-
+  const [loading, setLoading] = useState<boolean>(false)
   const [isError, setError] = useState({ message: '' })
   const { t } = useTranslation()
   const {
@@ -54,6 +54,8 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
 
   const onSubmit = async (data: FormData) => {
     try {
+      setLoading(true)
+      console.log('onSubmit')
       const gasPrice = await provider.getGasPrice()
       console.log('gasPrice', gasPrice)
       const gasLimit = await contractWithSigner.estimateGas.createReport(
@@ -61,8 +63,8 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
       )
       console.log('gasLimit', gasLimit)
       const overrides = {
-        gasPrice: gasPrice.mul(2), // Увеличьте комиссию в два раза или в соответствии с требованиями сети
-        gasLimit: gasLimit.mul(2), // Увеличьте газовый лимит в два раза или в соответствии с требованиями сети
+        gasPrice,
+        gasLimit,
       }
       console.log('overrides', overrides)
 
@@ -72,8 +74,9 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
       )
       console.log('txResponse', txResponse)
       const revert: string = await catchRevert(txResponse.hash)
-      console.log('revert', revert)
+
       if (revert) {
+        console.log('revert', revert)
         setError({ message: revert })
       } else {
         navigate('REPORTS_SCREEN')
@@ -82,6 +85,9 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
       if (err instanceof Error) {
         setError({ message: err.message })
       }
+    } finally {
+      navigate('REPORTS_SCREEN')
+      setLoading(false)
     }
   }
 
@@ -115,7 +121,7 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
 
   return (
     <Background>
-      <Layout error={isError}>
+      <Layout loading={loading} error={isError}>
         <MarkdownView markdown={markdown}>
           <KeyboardContainer>
             <Controller

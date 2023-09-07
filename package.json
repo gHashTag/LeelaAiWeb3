@@ -10,7 +10,7 @@
     "reset": "yarn start --reset-cache",
     "test": "jest --watch",
     "codegen": "graphql-codegen --config codegen.ts",
-    "postinstall": "patch-package && cd ios && arch -arm64 pod install && cd .."
+    "postinstall": "npx patch-package && cd ios && arch -arm64 pod install && cd .."
   },
   "dependencies": {
     "@apollo/client": "^3.8.1",

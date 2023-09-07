@@ -49,7 +49,7 @@ export interface Comment {
   content: string
   avatar: string
   fullName: string
-  plan: string
+  plan: number
   timestamp: string
 }
 

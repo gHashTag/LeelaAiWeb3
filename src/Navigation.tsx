@@ -65,8 +65,6 @@ const App = () => {
     )
   }, [data])
 
-  console.log('data', data)
-  console.log('player', player)
   useEffect(() => {
     SystemNavigationBar.setNavigationColor(
       isDark ? black : white,
@@ -122,7 +120,7 @@ const App = () => {
   }: HeaderT) => {
     const plan = 68
     const { avatar } = player
-    console.log('avatar', avatar)
+
     return (
       <Header
         avatar={avatar}
@@ -147,7 +145,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="REPORTS_SCREEN"
+        initialRouteName="REPORTS_SCREEN" // WELCOME_SCREEN || REPORTS_SCREEN
         screenOptions={{
           headerShown: false,
         }}

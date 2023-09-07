@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { FlatList, StyleSheet } from 'react-native'
 
 import { useQuery } from '@apollo/client'
-import { cliError } from '@graphql-codegen/cli'
 import { Space, ReportCard, Layout, Display } from 'components'
 import { W, catchRevert, contractWithSigner, provider } from 'cons'
 import { navigate } from 'cons/navigation'

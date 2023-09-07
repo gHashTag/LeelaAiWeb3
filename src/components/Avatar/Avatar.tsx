@@ -16,7 +16,7 @@ import { ms, s } from 'react-native-size-matters'
 import Foundation from 'react-native-vector-icons/Foundation'
 
 interface AvatarI {
-  plan: string
+  plan: number
   size: 'xLarge' | 'large' | 'medium' | 'small'
   avatar: string
   isAccept?: boolean

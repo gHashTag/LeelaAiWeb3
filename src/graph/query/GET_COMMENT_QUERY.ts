@@ -3,7 +3,7 @@ import { gql } from '@apollo/client'
 export const GET_COMMENT_QUERY = gql`
   query GetCommentQuery($reportId: BigInt!) {
     commentActions(
-      orderDirection: asc
+      orderBy: timestamp
       where: { reportId: $reportId }
       subgraphError: allow
     ) {

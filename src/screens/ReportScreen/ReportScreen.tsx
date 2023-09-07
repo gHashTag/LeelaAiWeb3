@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { FlatList, StyleSheet, View } from 'react-native'
 
-import { useMutation, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
+import { PUBLIC_KEY } from '@env'
 import { RouteProp } from '@react-navigation/native'
 import {
   Space,
-  ReportCard,
   CommentBubbleLeft,
   Background,
   KeyboardContainer,
@@ -14,10 +14,10 @@ import {
   Text,
   Button,
   Layout,
+  ReportCardDetail,
 } from 'components'
-import { catchRevert, contractWithSigner, navigate, provider, red } from 'cons'
-import { ethers } from 'ethers'
-import { GET_COMMENT_QUERY } from 'graph'
+import { catchRevert, contractWithSigner, provider, red } from 'cons'
+import { GET_COMMENT_QUERY, GET_PLAYER_CREATEDS_QUERY } from 'graph'
 import { useGlobalBackground } from 'hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -34,50 +34,97 @@ interface FormData {
 
 const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
   const { item } = route.params
-  const { loading, error, data } = useQuery(GET_COMMENT_QUERY, {
+  const [comments, setComments] = useState<Comment[]>([])
+  const [errorComment, setError] = useState({ message: '' })
+  const { t } = useTranslation()
+
+  const { data: dataPlayer } = useQuery(GET_PLAYER_CREATEDS_QUERY, {
+    variables: {
+      playerId: PUBLIC_KEY,
+    },
+  })
+
+  const player = useMemo(() => {
+    return (
+      dataPlayer?.playerActions[0] || {
+        fullName: '',
+        email: '',
+        intention: '',
+        plan: 69,
+        player: '',
+      }
+    )
+  }, [dataPlayer])
+
+  const { data } = useQuery(GET_COMMENT_QUERY, {
     variables: {
       reportId: item.reportId,
     },
   })
-  console.log('item.reportId', item.reportId)
-  console.log('error', error)
+
+  useEffect(() => {
+    setComments(data?.commentActions || [])
+  }, [data])
+
   const backgroundStyle = useGlobalBackground()
-  const [isError, setError] = useState({ message: '' })
-  const { t } = useTranslation()
 
   const {
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormData>({ mode: 'onBlur' })
 
-  const onSubmit = async (input: FormData) => {
+  const addComment = async (content: string) => {
     try {
       const gasPrice = await provider.getGasPrice()
-      console.log('gasPrice', gasPrice)
-      const reportId = ethers.BigNumber.from(item.reportId)
-      console.log('reportId', reportId)
+
+      const reportId = item.reportId
+
       const gasLimit = await contractWithSigner.estimateGas.addComment(
         reportId,
-        input.title,
+        content,
       )
-      console.log('gasLimit', gasLimit)
+
       const overrides = {
         gasPrice,
         gasLimit,
       }
-      console.log('overrides', overrides)
+
       const txResponse = await contractWithSigner.addComment(
         reportId,
-        input.title,
+        content,
         overrides,
       )
-      console.log('txResponse', txResponse)
       const revert: string = await catchRevert(txResponse.hash)
-      console.log('revert', revert)
       if (revert) {
         setError({ message: revert })
+      } else {
+        reset()
       }
+    } catch (err) {
+      if (err instanceof Error) {
+        setError({ message: err.message })
+      }
+    }
+  }
+
+  const onSubmit = async (input: FormData) => {
+    try {
+      // Optimistic UI update
+      const optimisticComment: Comment = {
+        id: Math.random().toString(),
+        reportId: item.reportId,
+        avatar: player?.avatar,
+        fullName: player?.fullName,
+        content: input.title,
+        plan: player?.plan,
+        timestamp: new Date().toISOString(),
+      }
+      const updatedComments = [...comments, optimisticComment]
+      setComments(updatedComments)
+
+      await addComment(input.title)
     } catch (err) {
       if (err instanceof Error) {
         setError({ message: err.message })
@@ -90,12 +137,11 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
     return (
       <Background isFlatList>
         <Space height={20} />
-        <ReportCard {...item} />
+        <ReportCardDetail {...item} />
       </Background>
     )
   }
-  console.log('isError', isError)
-  console.log('reprt data', data)
+
   const footer = () => {
     return (
       <Layout loading={false}>
@@ -122,12 +168,23 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
             }}
           />
         </KeyboardContainer>
+
         <View style={styles.btnStyle}>
           {errors.title && (
             <>
               <Text
                 h={'h3'}
                 title={String(errors.title.message)}
+                oneColor={red}
+              />
+              <Space height={15} />
+            </>
+          )}
+          {errorComment?.message && (
+            <>
+              <Text
+                h={'h3'}
+                title={String(errorComment?.message)}
                 oneColor={red}
               />
               <Space height={15} />
@@ -161,7 +218,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
       ListHeaderComponent={header}
       ListFooterComponent={footer}
       ListHeaderComponentStyle={styles.headerStyle}
-      data={data.commentActions || []}
+      data={comments}
       renderItem={renderItem}
       keyExtractor={(it) => it.id.toString()}
       contentContainerStyle={[backgroundStyle, styles.contentContainer]}

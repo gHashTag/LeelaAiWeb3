@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Pressable, StyleSheet } from 'react-native'
 
 import { Avatar, NeomorphFlexView, Space, Text } from 'components'
-import { W, formatDate, transparent } from 'cons'
+import { W } from 'cons'
 import { s, vs } from 'react-native-size-matters'
 import { Comment } from 'types'
 
@@ -16,7 +16,7 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
   commentItem,
   handleProfile,
 }) => {
-  const { content, timestamp, avatar, fullName, plan } = commentItem
+  const { content, avatar, plan } = commentItem
 
   return (
     <NeomorphFlexView marginHorizontal={20}>
@@ -38,8 +38,10 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
                 title={content || ' '}
                 testID="comment-bubble-left-comment"
               />
-              <Space height={vs(13)} />
-              <Text
+
+              {/* 
+               <Space height={vs(13)} />
+               <Text
                 title={fullName}
                 h={'h4'}
                 numberOfLines={1}
@@ -53,7 +55,7 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
                   textStyle={styles.dateStyle}
                   testID="comment-bubble-left-date"
                 />
-              </View>
+              </View> */}
             </View>
           </View>
           <Space height={vs(2)} />
@@ -73,22 +75,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: s(10),
     paddingTop: s(20),
   },
-  dateStyle: {
-    paddingLeft: 10,
-  },
   headerName: {
-    alignItems: 'flex-start',
-    backgroundColor: transparent,
+    flex: 1,
+    justifyContent: 'center',
   },
   lightText: {
     maxWidth: W - 120,
     paddingLeft: 10,
     textAlign: 'left',
   },
-  nameStyle: {
-    fontWeight: 'bold',
-    paddingLeft: 10,
-  },
+  // dateStyle: {
+  //   paddingLeft: 10,
+  // },
+  // nameStyle: {
+  //   fontWeight: 'bold',
+  //   paddingLeft: 10,
+  // },
 })
 
 export { CommentBubbleLeft }

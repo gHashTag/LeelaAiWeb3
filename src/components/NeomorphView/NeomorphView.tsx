@@ -12,9 +12,14 @@ import {
 interface NeomorphViewProps {
   children: React.ReactNode
   viewStyle?: ViewStyleWithNeomorphShadow
+  borderRadius?: number
 }
 
-const NeomorphView: React.FC<NeomorphViewProps> = ({ children, viewStyle }) => {
+const NeomorphView: React.FC<NeomorphViewProps> = ({
+  children,
+  viewStyle,
+  borderRadius = 30,
+}) => {
   const { dark } = useTheme()
   const backgroundColor = dark ? black : lightGray
 
@@ -24,9 +29,10 @@ const NeomorphView: React.FC<NeomorphViewProps> = ({ children, viewStyle }) => {
         ...styles.container,
         ...viewStyle,
         backgroundColor,
+        borderRadius,
       }}
     >
-      <View style={viewStyle}>{children}</View>
+      <View style={{ ...viewStyle, borderRadius }}>{children}</View>
     </Neomorph>
   )
 }

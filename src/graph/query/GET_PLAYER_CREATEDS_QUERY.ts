@@ -13,6 +13,7 @@ export const GET_PLAYER_CREATEDS_QUERY = gql`
       intention
       fullName
       player
+      plan
     }
   }
 `
