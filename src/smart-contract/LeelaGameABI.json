@@ -255,6 +255,15 @@
         "arrayChildren": null
       },
       {
+        "name": "commentCount",
+        "type": "uint256",
+        "baseType": "uint256",
+        "indexed": false,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
         "name": "isLikedByCurrentUser",
         "type": "bool",
         "baseType": "bool",
@@ -714,7 +723,7 @@
               "arrayChildren": null
             },
             {
-              "name": "timestamp",
+              "name": "commentCount",
               "type": "uint256",
               "baseType": "uint256",
               "components": null,
@@ -735,6 +744,14 @@
                 "arrayLength": null,
                 "arrayChildren": null
               }
+            },
+            {
+              "name": "timestamp",
+              "type": "uint256",
+              "baseType": "uint256",
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null
             }
           ],
           "arrayLength": null,
@@ -967,7 +984,7 @@
             "arrayChildren": null
           },
           {
-            "name": "timestamp",
+            "name": "commentCount",
             "type": "uint256",
             "baseType": "uint256",
             "components": null,
@@ -988,6 +1005,14 @@
               "arrayLength": null,
               "arrayChildren": null
             }
+          },
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "baseType": "uint256",
+            "components": null,
+            "arrayLength": null,
+            "arrayChildren": null
           }
         ],
         "arrayLength": null,
@@ -1328,6 +1353,14 @@
         "name": "isLikedByCurrentUser",
         "type": "bool",
         "baseType": "bool",
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null
+      },
+      {
+        "name": "commentCount",
+        "type": "uint256",
+        "baseType": "uint256",
         "components": null,
         "arrayLength": null,
         "arrayChildren": null

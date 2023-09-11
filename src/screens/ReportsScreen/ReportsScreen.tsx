@@ -14,8 +14,6 @@ const ReportsScreen: React.FC = () => {
   const { t } = useTranslation()
   const [isError, setError] = useState({ message: '' })
   const { loading, error, data } = useQuery(GET_ALL_REPORTS_QUERY)
-  console.log('isError', isError)
-  console.log('data', data)
 
   const onPress = (item: Report) => () => {
     navigate('REPORT_SCREEN', { item })
@@ -44,11 +42,7 @@ const ReportsScreen: React.FC = () => {
       console.log('txResponse', txResponse)
       const revert: string = await catchRevert(txResponse.hash)
       console.log('revert', revert)
-      if (revert) {
-        setError({ message: revert })
-      } else {
-        navigate('REPORTS_SCREEN')
-      }
+      navigate('REPORTS_SCREEN')
     } catch (err) {
       if (err instanceof Error) {
         setError({ message: err.message })
@@ -78,7 +72,6 @@ const ReportsScreen: React.FC = () => {
       <Space height={20} />
     </>
   )
-  console.log('data?.reportActions', data?.reportActions)
 
   return (
     <Layout loading={loading} error={error}>

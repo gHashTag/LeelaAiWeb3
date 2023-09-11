@@ -2,8 +2,7 @@ import type { CodegenConfig } from '@graphql-codegen/cli'
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema:
-    'https://api.studio.thegraph.com/query/49806/leela-ai-3/version/latest',
+  schema: 'http://localhost:8000/subgraphs/name/leela-ai-6',
   generates: {
     'src/gql/': {
       preset: 'client',

@@ -73,7 +73,10 @@ const Avatar = memo<AvatarI>(
     }
     return (
       <Pressable onPress={onPress} testID={testID}>
-        <NeomorphView viewStyle={{ ...styles.card, ...newSize[0] }}>
+        <NeomorphView
+          viewStyle={{ ...styles.card, ...newSize[0] }}
+          borderRadius={80}
+        >
           <View style={styles.container}>
             {isLoading ? (
               <Loader size={size} />

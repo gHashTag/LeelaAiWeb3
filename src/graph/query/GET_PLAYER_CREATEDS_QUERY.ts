@@ -7,6 +7,7 @@ export const GET_PLAYER_CREATEDS_QUERY = gql`
       orderBy: blockTimestamp
       orderDirection: desc
       where: { player: $playerId }
+      subgraphError: allow
     ) {
       id
       avatar

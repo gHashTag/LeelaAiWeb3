@@ -97,11 +97,8 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
         overrides,
       )
       const revert: string = await catchRevert(txResponse.hash)
-      if (revert) {
-        setError({ message: revert })
-      } else {
-        reset()
-      }
+      console.log('revert', revert)
+      reset()
     } catch (err) {
       if (err instanceof Error) {
         setError({ message: err.message })

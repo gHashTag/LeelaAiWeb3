@@ -1,3 +1,5 @@
+import { PlayerAction } from 'gql/graphql'
+
 export type RootStackParamList = {
   WELCOME_SCREEN: undefined
   INFO_SCREEN: undefined
@@ -20,6 +22,11 @@ export type RootStackParamList = {
   SEED_SCREEN: undefined
 }
 
+export interface GemT {
+  id: string
+  plan: string
+  avatar: string
+}
 export interface Player {
   id: string
   rallyAccount: string
@@ -40,7 +47,7 @@ export interface ProfileData {
 }
 
 export interface GameBoardProps {
-  players: Player[]
+  players: PlayerAction[]
 }
 
 export interface Comment {

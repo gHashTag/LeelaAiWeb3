@@ -54,7 +54,7 @@ const App = () => {
       playerId: PUBLIC_KEY,
     },
   })
-
+  console.log('data', data)
   const player = useMemo(() => {
     return (
       data?.playerActions[0] || {
@@ -145,7 +145,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="REPORTS_SCREEN" // WELCOME_SCREEN || REPORTS_SCREEN
+        initialRouteName="GAME_SCREEN" // WELCOME_SCREEN || REPORTS_SCREEN
         screenOptions={{
           headerShown: false,
         }}

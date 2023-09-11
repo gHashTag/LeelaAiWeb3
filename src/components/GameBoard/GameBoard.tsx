@@ -5,7 +5,7 @@ import { Image, View, useColorScheme, StyleSheet } from 'react-native'
 import { NeomorphFlexView } from 'components'
 import { H, W } from 'cons'
 import { ms, mvs, s } from 'react-native-size-matters'
-import { GameBoardProps } from 'types'
+import { GameBoardProps, GemT } from 'types'
 
 import { GameBoardImage } from './images'
 
@@ -29,8 +29,8 @@ function GameBoard({ players }: GameBoardProps) {
     }
   }, [scheme])
 
-  const getPlayer = (b: number) => {
-    const player = players.find((pl) => pl.plan === b)
+  const getPlayer = (b: number): GemT | undefined => {
+    const player = players.find((pl) => pl.plan === String(b))
     return player
       ? {
           id: player.id,

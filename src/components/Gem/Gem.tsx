@@ -4,12 +4,12 @@ import { View, Image, Pressable, StyleSheet } from 'react-native'
 
 import { gray, transparent } from 'cons'
 import { ms } from 'react-native-size-matters'
-import { Player } from 'types'
+import { GemT } from 'types'
 
 import { Text } from '../Text/Text'
 
 interface GemProps {
-  player?: Player
+  player?: GemT
   planNumber: number
   onPress?: () => void
 }
@@ -40,7 +40,7 @@ const Gem: React.FC<GemProps> = ({ player, planNumber, onPress }) => {
             />
           </View>
         ) : (
-          <View style={[styles.imgStyle, { zIndex: player?.id }]}>
+          <View style={styles.imgStyle}>
             {source && (
               <Image
                 style={styles.gems}
