@@ -73,7 +73,7 @@ const ReportCard: React.FC<Report> = ({
               testID="report-card-postText"
             />
           </View>
-          <ActionButtons
+          {/* <ActionButtons
             isAdmin={isAdmin}
             commentCount={commentCount}
             likes={likes}
@@ -82,7 +82,7 @@ const ReportCard: React.FC<Report> = ({
             handleLike={handleLike}
             handleShareLink={handleShareLink}
             isLiked={isLikedByCurrentUser}
-          />
+          /> */}
         </View>
       </Pressable>
     </NeomorphView>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     top: 10,
   },
   card: {
-    height: vs(180),
+    height: vs(160),
     minHeight: vs(130),
     width: W - 50,
   },

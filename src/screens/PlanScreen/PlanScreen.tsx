@@ -8,7 +8,6 @@ import {
   Button,
   TextInputField,
   Space,
-  Text,
   Background,
   KeyboardContainer,
   Layout,
@@ -22,7 +21,6 @@ import {
   getSystemLanguage,
   navigate,
   provider,
-  red,
 } from 'cons'
 // import { CREATE_REPORT_MUTATION } from 'graph'
 import { useForm, Controller } from 'react-hook-form'
@@ -55,18 +53,17 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true)
-      console.log('onSubmit')
+
       const gasPrice = await provider.getGasPrice()
-      console.log('gasPrice', gasPrice)
+
       const gasLimit = await contractWithSigner.estimateGas.createReport(
         data.title,
       )
-      console.log('gasLimit', gasLimit)
+
       const overrides = {
         gasPrice,
         gasLimit,
       }
-      console.log('overrides', overrides)
 
       const txResponse = await contractWithSigner.createReport(
         data.title,
@@ -74,20 +71,47 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
       )
       console.log('txResponse', txResponse)
       const revert: string = await catchRevert(txResponse.hash)
+      console.log('revert', revert)
+      contract.on(
+        'ReportAction',
+        (
+          reportId,
+          actor,
+          avatar,
+          fullName,
+          content,
+          plan,
+          likes,
+          commentCount,
+          isLikedByCurrentUser,
+          timestamp,
+        ) => {
+          setLoading(false)
+          console.log('reportId', reportId)
+          const report = {
+            id: '000',
+            reportId,
+            actor,
+            avatar,
+            fullName,
+            content,
+            plan,
+            likes,
+            commentCount,
+            isLikedByCurrentUser,
+            timestamp,
+          }
 
-      if (revert) {
-        console.log('revert', revert)
-        setError({ message: revert })
-      } else {
-        navigate('REPORTS_SCREEN')
-      }
+          console.log('Событие ReportAction:', report)
+
+          navigate('REPORT_SCREEN', { report })
+        },
+      )
     } catch (err) {
       if (err instanceof Error) {
+        console.log('err', err)
         setError({ message: err.message })
       }
-    } finally {
-      navigate('REPORTS_SCREEN')
-      setLoading(false)
     }
   }
 

@@ -16,8 +16,8 @@ export type RootStackParamList = {
   GAME_SCREEN: undefined
   PLANS_SCREEN: undefined
   PLAN_SCREEN: { key: string; currentPlan: number }
-  REPORTS_SCREEN: undefined
-  REPORT_SCREEN: { item: Report }
+  REPORTS_SCREEN: { report: Report }
+  REPORT_SCREEN: { report: Report }
   UI_KIT_SCREEN: undefined
   SEED_SCREEN: undefined
 }
@@ -68,7 +68,7 @@ export interface UserActions {
   handleComment: () => void
 }
 
-export interface Report extends UserActions {
+export interface Report {
   id: string
   actor: string
   fullName: string

@@ -15,6 +15,7 @@ export const GET_ALL_REPORTS_QUERY = gql`
       content
       plan
       likes
+      commentCount
       isLikedByCurrentUser
       timestamp
     }

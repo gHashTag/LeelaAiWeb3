@@ -1,5 +1,4 @@
 export * from './query/GET_ALL_REPORTS_QUERY'
-export * from './query/GET_PLAYER_BY_ID_QUERY'
 export * from './query/GET_PLAYER_CREATEDS_QUERY'
 export * from './query/GET_DICE_ROLLEDS'
 export * from './query/GET_COMMENT_QUERY'

@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Pressable, StyleSheet } from 'react-native'
 
 import { Avatar, NeomorphFlexView, Space, Text } from 'components'
-import { W } from 'cons'
+import { W, formatDate } from 'cons'
 import { s, vs } from 'react-native-size-matters'
 import { Comment } from 'types'
 
@@ -16,7 +16,7 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
   commentItem,
   handleProfile,
 }) => {
-  const { content, avatar, plan } = commentItem
+  const { content, avatar, fullName, plan, timestamp } = commentItem
 
   return (
     <NeomorphFlexView marginHorizontal={20}>
@@ -39,15 +39,15 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
                 testID="comment-bubble-left-comment"
               />
 
-              {/* 
-               <Space height={vs(13)} />
-               <Text
+              <Space height={vs(13)} />
+              <Text
                 title={fullName}
                 h={'h4'}
                 numberOfLines={1}
                 textStyle={styles.nameStyle}
                 testID="comment-bubble-left-fullName"
               />
+
               <View style={styles.headerName}>
                 <Text
                   title={`${formatDate(timestamp)}`}
@@ -55,7 +55,7 @@ const CommentBubbleLeft: React.FC<CommentBubbleLeftProps> = ({
                   textStyle={styles.dateStyle}
                   testID="comment-bubble-left-date"
                 />
-              </View> */}
+              </View>
             </View>
           </View>
           <Space height={vs(2)} />
@@ -75,6 +75,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: s(10),
     paddingTop: s(20),
   },
+  dateStyle: {
+    paddingLeft: 10,
+  },
   headerName: {
     flex: 1,
     justifyContent: 'center',
@@ -84,13 +87,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     textAlign: 'left',
   },
-  // dateStyle: {
-  //   paddingLeft: 10,
-  // },
-  // nameStyle: {
-  //   fontWeight: 'bold',
-  //   paddingLeft: 10,
-  // },
+  nameStyle: {
+    fontWeight: 'bold',
+    paddingLeft: 10,
+  },
 })
 
 export { CommentBubbleLeft }

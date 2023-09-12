@@ -145,7 +145,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="GAME_SCREEN" // WELCOME_SCREEN || REPORTS_SCREEN
+        initialRouteName="GAME_SCREEN" // WELCOME_SCREEN || REPORTS_SCREEN || GAME_SCREEN
         screenOptions={{
           headerShown: false,
         }}

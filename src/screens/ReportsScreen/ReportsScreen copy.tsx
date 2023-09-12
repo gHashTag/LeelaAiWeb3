@@ -7,6 +7,7 @@ import { RouteProp } from '@react-navigation/native'
 import { Space, ReportCard, Layout, Display } from 'components'
 import { W } from 'cons'
 import { navigate } from 'cons/navigation'
+import { Query } from 'gql/graphql'
 import { GET_ALL_REPORTS_QUERY } from 'graph'
 import { useTranslation } from 'react-i18next'
 import { Report, RootStackParamList } from 'types'
@@ -17,10 +18,33 @@ type ReportsScreenProps = {
   route: ReportsScreenRouteProp
 }
 
-const ReportsScreen: React.FC<ReportsScreenProps> = () => {
+const ReportsScreen: React.FC<ReportsScreenProps> = ({ route }) => {
   const { t } = useTranslation()
-  const { loading, error, data } = useQuery(GET_ALL_REPORTS_QUERY)
+  const [reports, setReports] = useState<Report[]>([])
+  console.log('reports', reports)
+  const { report } = route?.params || {}
+  console.log('report', report)
+  const { loading, error, data } = useQuery<Query>(GET_ALL_REPORTS_QUERY)
   console.log('data', data)
+
+  const addReport = useCallback(
+    (rep: Report) => {
+      setReports((prevReports) => [
+        rep,
+        ...prevReports,
+        ...((data?.reportActions as unknown as Report[]) || []),
+      ])
+    },
+    [data?.reportActions],
+  )
+
+  useEffect(() => {
+    if (report) {
+      addReport(report)
+    } else {
+      setReports((data?.reportActions as unknown as Report[]) || [])
+    }
+  }, [report, addReport, data?.reportActions])
 
   // const [isError, setError] = useState({ message: '' })
 
@@ -56,7 +80,7 @@ const ReportsScreen: React.FC<ReportsScreenProps> = () => {
     <Layout loading={loading} error={error}>
       <FlatList
         ListHeaderComponent={header}
-        data={data?.reportActions}
+        data={reports}
         renderItem={renderItem}
         keyExtractor={(item) => item?.id?.toString()}
         contentContainerStyle={styles.contentContainer}

@@ -22,7 +22,7 @@ import { useGlobalBackground } from 'hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { s, vs } from 'react-native-size-matters'
-import { Comment, RootStackParamList } from 'types' // Импортируйте необходимые типы
+import { Comment, RootStackParamList } from 'types'
 
 interface ReportScreenProps {
   route: RouteProp<RootStackParamList, 'REPORT_SCREEN'>
@@ -33,7 +33,7 @@ interface FormData {
 }
 
 const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
-  const { item } = route.params
+  const { report } = route.params
   const [comments, setComments] = useState<Comment[]>([])
   const [errorComment, setError] = useState({ message: '' })
   const { t } = useTranslation()
@@ -50,21 +50,23 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
         fullName: '',
         email: '',
         intention: '',
-        plan: 69,
+        plan: 68,
         player: '',
       }
     )
   }, [dataPlayer])
 
+  const reportIdHex = report?.reportId?.toString()
+
   const { data } = useQuery(GET_COMMENT_QUERY, {
     variables: {
-      reportId: item.reportId,
+      reportId: reportIdHex,
     },
   })
 
   useEffect(() => {
     setComments(data?.commentActions || [])
-  }, [data])
+  }, [data, errorComment])
 
   const backgroundStyle = useGlobalBackground()
 
@@ -79,7 +81,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
     try {
       const gasPrice = await provider.getGasPrice()
 
-      const reportId = item.reportId
+      const reportId = report.reportId
 
       const gasLimit = await contractWithSigner.estimateGas.addComment(
         reportId,
@@ -107,17 +109,19 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
   }
 
   const onSubmit = async (input: FormData) => {
+    setError({ message: '' })
     try {
       // Optimistic UI update
       const optimisticComment: Comment = {
         id: Math.random().toString(),
-        reportId: item.reportId,
+        reportId: report.reportId,
         avatar: player?.avatar,
         fullName: player?.fullName,
         content: input.title,
         plan: player?.plan,
-        timestamp: new Date().toISOString(),
+        timestamp: Math.floor(Date.now() / 1000).toString(),
       }
+
       const updatedComments = [...comments, optimisticComment]
       setComments(updatedComments)
 
@@ -134,7 +138,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
     return (
       <Background isFlatList>
         <Space height={20} />
-        <ReportCardDetail {...item} />
+        <ReportCardDetail {...report} />
       </Background>
     )
   }
@@ -142,7 +146,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
   const footer = () => {
     return (
       <Layout loading={false}>
-        <Space height={s(20)} />
+        <Space height={20} />
         <KeyboardContainer>
           <Controller
             control={control}
@@ -226,6 +230,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
 const styles = StyleSheet.create({
   btnStyle: {
     alignItems: 'center',
+    marginHorizontal: 40,
   },
   contentContainer: {
     maxWidth: '100%',

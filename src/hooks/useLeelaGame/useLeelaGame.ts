@@ -101,12 +101,12 @@ const reducer = (state: State, action: Action): State => {
 }
 
 const useLeelaGame = () => {
-  const playerId = PUBLIC_KEY
-  const { data } = useQuery<Query>(GET_DICE_ROLLEDS, {
-    variables: { roller: playerId },
-  })
+  //const playerId = PUBLIC_KEY
+  // const { data } = useQuery<Query>(GET_DICE_ROLLEDS, {
+  //   variables: { roller: playerId },
+  // })
 
-  const diceRolleds: Array<DiceRolled> = data?.diceRolleds || []
+  //const diceRolleds: Array<DiceRolled> = data?.diceRolleds || []
   const [state, dispatch] = useReducer(reducer, initialState)
   const [isLoading, setLoading] = useState(false)
   const [isError, setError] = useState({ message: '' })
@@ -114,7 +114,7 @@ const useLeelaGame = () => {
   const getContract = async (rollResult: number) => {
     setError({ message: '' })
     try {
-      const txResponse = await contractWithSigner.rollDice(6, {
+      const txResponse = await contractWithSigner.rollDice(rollResult, {
         gasLimit,
       })
       console.log('txResponse', txResponse)
@@ -126,16 +126,17 @@ const useLeelaGame = () => {
         dispatch({ type: 'ROLL_DICE', rollResult: rolled })
         console.log('event', event)
         const key = plansData[currentPlan - 1].key
+        setLoading(false)
         navigate('PLAN_SCREEN', { key })
+        return { roller, rolled, currentPlan }
       })
     } catch (err: string | any) {
-      const currentPlan = diceRolleds[0].currentPlan
-      console.log('currentPlan', currentPlan)
-      const key = plansData[currentPlan - 1].key
-      console.log('key', key)
-      navigate('PLAN_SCREEN', { key })
+      // const currentPlan = diceRolleds[0].currentPlan
+      // console.log('currentPlan', currentPlan)
+      // const key = plansData[currentPlan - 1].key
+      // console.log('key', key)
+      // navigate('PLAN_SCREEN', { key })
       setError({ message: err })
-    } finally {
       setLoading(false)
     }
   }
