@@ -24,16 +24,14 @@ export type RootStackParamList = {
 
 export interface GemT {
   id: string
-  plan: string
+  plan: number
   avatar: string
 }
 export interface Player {
   id: string
-  rallyAccount: string
   fullName: string
   plan: number
   avatar: string
-  email: string
   intention: string
   previousPlan?: number
   isStart?: boolean
@@ -47,7 +45,7 @@ export interface ProfileData {
 }
 
 export interface GameBoardProps {
-  players: PlayerAction[]
+  players: Player[]
 }
 
 export interface Comment {
@@ -86,6 +84,7 @@ export interface Report {
   commentCount: number
   likeCount: number
   timestamp: string
+  handleProfile?: () => void
 }
 
 export interface MessageAIT {

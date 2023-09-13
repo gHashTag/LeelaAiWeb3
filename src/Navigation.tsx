@@ -16,8 +16,7 @@ import {
   LightTheme,
   DarkTheme,
 } from 'cons/navigation'
-import { GET_PLAYER_CREATEDS_QUERY } from 'graph'
-import { useProfile } from 'hooks'
+import { useLeelaGame } from 'hooks'
 import SystemNavigationBar from 'react-native-system-navigation-bar'
 import { useAccount } from 'store'
 import { RootStackParamList } from 'types'
@@ -42,28 +41,11 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const App = () => {
   const isDark = useColorScheme() === 'dark'
-
+  const { currentPlayer } = useLeelaGame()
   const theme = isDark ? DarkTheme : LightTheme
   const color = isDark ? 'light-content' : 'dark-content'
   const [hasLoadedAccount, setHasLoadedAccount] = useState(false)
   const [account, setAccount] = useAccount()
-  const [profileData, setProfileData] = useProfile()
-
-  const { loading, error, data } = useQuery(GET_PLAYER_CREATEDS_QUERY, {
-    variables: {
-      playerId: PUBLIC_KEY,
-    },
-  })
-  console.log('data', data)
-  const player = useMemo(() => {
-    return (
-      data?.playerActions[0] || {
-        fullName: '',
-        email: '',
-        intention: '',
-      }
-    )
-  }, [data])
 
   useEffect(() => {
     SystemNavigationBar.setNavigationColor(
@@ -87,12 +69,9 @@ const App = () => {
         return
       }
       setAccount(rlyAccount)
-      if (loading) {
-        setProfileData(player)
-      }
     }
     loadAccount()
-  }, [player, error, loading, setAccount, setProfileData])
+  }, [setAccount])
 
   if (!hasLoadedAccount) {
     return (
@@ -118,8 +97,7 @@ const App = () => {
     isCenterButton,
     isRightButton,
   }: HeaderT) => {
-    const plan = 68
-    const { avatar } = player
+    const { avatar, plan } = currentPlayer
 
     return (
       <Header
@@ -145,7 +123,7 @@ const App = () => {
     >
       <StatusBar backgroundColor={isDark ? black : white} barStyle={color} />
       <Stack.Navigator
-        initialRouteName="GAME_SCREEN" // WELCOME_SCREEN || REPORTS_SCREEN || GAME_SCREEN
+        initialRouteName="GAME_SCREEN" // WELCOME_SCREEN || REPORTS_SCREEN || GAME_SCREEN || REPORT_SCREEN
         screenOptions={{
           headerShown: false,
         }}
@@ -210,7 +188,11 @@ const App = () => {
             name="REPORT_SCREEN"
             component={ReportScreen}
             options={{
-              header: () => header({}),
+              header: () =>
+                header({
+                  leftName: 'information',
+                  onPress: () => navigate('INFO_SCREEN'),
+                }),
             }}
           />
           <Stack.Screen

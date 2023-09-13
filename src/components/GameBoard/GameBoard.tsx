@@ -30,7 +30,7 @@ function GameBoard({ players }: GameBoardProps) {
   }, [scheme])
 
   const getPlayer = (b: number): GemT | undefined => {
-    const player = players.find((pl) => pl.plan === String(b))
+    const player = players.find((pl) => pl.plan.toString() === b.toString())
     return player
       ? {
           id: player.id,

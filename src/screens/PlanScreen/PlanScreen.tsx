@@ -87,7 +87,7 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
           timestamp,
         ) => {
           setLoading(false)
-          console.log('reportId', reportId)
+          console.log('reportId', reportId.toString())
           const report = {
             id: '000',
             reportId,
@@ -99,7 +99,7 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
             likes,
             commentCount,
             isLikedByCurrentUser,
-            timestamp,
+            timestamp: timestamp.toString(),
           }
 
           console.log('Событие ReportAction:', report)

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { FlatList, StyleSheet, View } from 'react-native'
 
@@ -15,10 +15,19 @@ import {
   Button,
   Layout,
   ReportCardDetail,
+  Display,
 } from 'components'
-import { catchRevert, contractWithSigner, provider, red } from 'cons'
+import {
+  W,
+  catchRevert,
+  contract,
+  contractWithSigner,
+  formatDate,
+  provider,
+  red,
+} from 'cons'
 import { GET_COMMENT_QUERY, GET_PLAYER_CREATEDS_QUERY } from 'graph'
-import { useGlobalBackground } from 'hooks'
+import { useGlobalBackground, useLeelaGame } from 'hooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { s, vs } from 'react-native-size-matters'
@@ -34,27 +43,12 @@ interface FormData {
 
 const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
   const { report } = route.params
+  console.log('report', report)
   const [comments, setComments] = useState<Comment[]>([])
   const [errorComment, setError] = useState({ message: '' })
   const { t } = useTranslation()
 
-  const { data: dataPlayer } = useQuery(GET_PLAYER_CREATEDS_QUERY, {
-    variables: {
-      playerId: PUBLIC_KEY,
-    },
-  })
-
-  const player = useMemo(() => {
-    return (
-      dataPlayer?.playerActions[0] || {
-        fullName: '',
-        email: '',
-        intention: '',
-        plan: 68,
-        player: '',
-      }
-    )
-  }, [dataPlayer])
+  const { currentPlayer } = useLeelaGame()
 
   const reportIdHex = report?.reportId?.toString()
 
@@ -66,8 +60,8 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
 
   useEffect(() => {
     setComments(data?.commentActions || [])
-  }, [data, errorComment])
-
+  }, [data])
+  console.log('data?.commentActions', data?.commentActions)
   const backgroundStyle = useGlobalBackground()
 
   const {
@@ -77,7 +71,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
     reset,
   } = useForm<FormData>({ mode: 'onBlur' })
 
-  const addComment = async (content: string) => {
+  const addComment = async (comment: string) => {
     try {
       const gasPrice = await provider.getGasPrice()
 
@@ -85,7 +79,7 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
 
       const gasLimit = await contractWithSigner.estimateGas.addComment(
         reportId,
-        content,
+        comment,
       )
 
       const overrides = {
@@ -95,12 +89,45 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
 
       const txResponse = await contractWithSigner.addComment(
         reportId,
-        content,
+        comment,
         overrides,
       )
       const revert: string = await catchRevert(txResponse.hash)
       console.log('revert', revert)
-      reset()
+      contract.on(
+        'CommentAction',
+        (
+          commentId,
+          reportId,
+          actor,
+          avatar,
+          fullName,
+          plan,
+          content,
+          timestamp,
+        ) => {
+          console.log('reportId', reportId)
+          console.log('actor', actor.toString())
+          console.log('PUBLIC_KEY', PUBLIC_KEY)
+          if (actor.toString() === PUBLIC_KEY) {
+            console.log('actor === PUBLIC_KEY')
+            const optimisticComment = {
+              id: commentId.toString(),
+              reportId: reportId.toString(),
+              avatar,
+              fullName,
+              plan: plan.toString(),
+              content: content.toString(),
+              timestamp: timestamp.toString(),
+            }
+            console.log('Событие CommentAction:', optimisticComment)
+
+            const updatedComments = [...comments, optimisticComment]
+            console.log('updatedComments', updatedComments)
+            setComments(updatedComments)
+          }
+        },
+      )
     } catch (err) {
       if (err instanceof Error) {
         setError({ message: err.message })
@@ -109,16 +136,17 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
   }
 
   const onSubmit = async (input: FormData) => {
+    reset()
     setError({ message: '' })
     try {
       // Optimistic UI update
       const optimisticComment: Comment = {
         id: Math.random().toString(),
         reportId: report.reportId,
-        avatar: player?.avatar,
-        fullName: player?.fullName,
+        avatar: currentPlayer?.avatar,
+        fullName: currentPlayer?.fullName,
+        plan: currentPlayer?.plan,
         content: input.title,
-        plan: player?.plan,
         timestamp: Math.floor(Date.now() / 1000).toString(),
       }
 
@@ -138,6 +166,14 @@ const ReportScreen: React.FC<ReportScreenProps> = ({ route }) => {
     return (
       <Background isFlatList>
         <Space height={20} />
+        <Display
+          title={t('nextStep', {
+            date: 24,
+          })}
+          height={60}
+          width={W - 45}
+        />
+
         <ReportCardDetail {...report} />
       </Background>
     )

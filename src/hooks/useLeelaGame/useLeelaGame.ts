@@ -1,6 +1,5 @@
 import { useEffect, useReducer, useState } from 'react'
 
-import { useQuery } from '@apollo/client'
 import { PUBLIC_KEY } from '@env'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {
@@ -11,8 +10,6 @@ import {
   gasLimit,
   navigate,
 } from 'cons'
-import { DiceRolled, Query } from 'gql/graphql'
-import { GET_DICE_ROLLEDS } from 'graph'
 import i18next from 'i18next'
 import { Player } from 'types'
 
@@ -31,6 +28,8 @@ const MAX_ROLL = 6
 interface State {
   currentPlayer: Player
   lastRoll: number
+  message?: string
+  consecutiveSixes: number
   rollHistory: number[]
   planHistory: number[]
 }
@@ -46,7 +45,11 @@ type Action =
   | { type: 'SET_ROLL_HISTORY'; rollHistory: number[] }
   | { type: 'SET_PLAN_HISTORY'; planHistory: number[] }
   | { type: 'SET_INITIAL_STATE'; initialState: State }
-
+  | { type: 'MESSAGE'; message: string }
+  | {
+      type: 'INCREMENT_CONSECUTIVE_SIXES'
+      count: number
+    }
 const initialState: State = {
   currentPlayer: {
     id: '1',
@@ -56,13 +59,12 @@ const initialState: State = {
     isFinished: false,
     consecutiveSixes: 0,
     fullName: 'Leela',
-    message: i18next.t('sixToBegin'),
     positionBeforeThreeSixes: 0,
     avatar: GEM_ICONS[1],
-    rallyAccount: '',
-    email: '',
     intention: '',
   },
+  message: i18next.t('sixToBegin'),
+  consecutiveSixes: 0,
   lastRoll: 1,
   rollHistory: [],
   planHistory: [68],
@@ -76,7 +78,6 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         lastRoll: rollResult,
         rollHistory: [...state.rollHistory, rollResult],
-        currentPlayer: handlePlayerMovement(state.currentPlayer, rollResult),
       }
     case 'UPDATE_PLAYER':
       return {
@@ -95,21 +96,51 @@ const reducer = (state: State, action: Action): State => {
       }
     case 'SET_INITIAL_STATE':
       return action.initialState
+    case 'MESSAGE':
+      return {
+        ...state,
+        message: action.message,
+      }
+    case 'INCREMENT_CONSECUTIVE_SIXES':
+      return {
+        ...state,
+        consecutiveSixes: action.count,
+      }
     default:
       return state
   }
 }
 
 const useLeelaGame = () => {
-  //const playerId = PUBLIC_KEY
-  // const { data } = useQuery<Query>(GET_DICE_ROLLEDS, {
-  //   variables: { roller: playerId },
-  // })
-
-  //const diceRolleds: Array<DiceRolled> = data?.diceRolleds || []
   const [state, dispatch] = useReducer(reducer, initialState)
   const [isLoading, setLoading] = useState(false)
   const [isError, setError] = useState({ message: '' })
+
+  useEffect(() => {
+    const fetchPlayer = async () => {
+      try {
+        const playerData = await contract.getPlayer(PUBLIC_KEY)
+
+        const currentPlayer: Player = {
+          fullName: playerData[0],
+          avatar: playerData[1],
+          intention: playerData[2],
+          plan: playerData[3].toString(),
+          previousPlan: playerData[4].toString(),
+          isStart: playerData[5],
+          isFinished: playerData[6],
+          consecutiveSixes: playerData[7].toString(),
+          id: PUBLIC_KEY,
+        }
+
+        updatePlayer(currentPlayer)
+      } catch (error) {
+        console.error('Error fetching player:', error)
+      }
+    }
+
+    fetchPlayer()
+  }, [])
 
   const getContract = async (rollResult: number) => {
     setError({ message: '' })
@@ -121,21 +152,40 @@ const useLeelaGame = () => {
       const revert: string = await catchRevert(txResponse.hash)
       console.log('revert', revert)
 
-      contract.on('DiceRolled', (roller, rolled, currentPlan, event) => {
-        console.log('Событие DiceRolled:', roller, rolled, currentPlan)
+      contract.on('DiceRolled', (roller, rolled, currentPlan) => {
         dispatch({ type: 'ROLL_DICE', rollResult: rolled })
-        console.log('event', event)
         const key = plansData[currentPlan - 1].key
         setLoading(false)
-        navigate('PLAN_SCREEN', { key })
+        if (rolled === 6) {
+          dispatch({
+            type: 'MESSAGE',
+            message: i18next.t('firstSix', {
+              currentPlayer: state.currentPlayer.fullName,
+            }),
+          })
+          dispatch({
+            type: 'INCREMENT_CONSECUTIVE_SIXES',
+            count: state.consecutiveSixes + 1,
+          })
+          if (state.consecutiveSixes === 3) {
+            dispatch({
+              type: 'MESSAGE',
+              message: i18next.t('treeSix', {
+                currentPlayer: state.currentPlayer.fullName,
+              }),
+            })
+            dispatch({
+              type: 'INCREMENT_CONSECUTIVE_SIXES',
+              count: 0,
+            })
+          }
+        } else {
+          navigate('PLAN_SCREEN', { key })
+        }
+
         return { roller, rolled, currentPlan }
       })
     } catch (err: string | any) {
-      // const currentPlan = diceRolleds[0].currentPlan
-      // console.log('currentPlan', currentPlan)
-      // const key = plansData[currentPlan - 1].key
-      // console.log('key', key)
-      // navigate('PLAN_SCREEN', { key })
       setError({ message: err })
       setLoading(false)
     }
@@ -192,6 +242,7 @@ const useLeelaGame = () => {
     currentPlayer: state.currentPlayer,
     rollHistory: state.rollHistory,
     planHistory: state.planHistory,
+    message: state.message,
     rollDice,
     lastRoll: state.lastRoll,
     updatePlayer,

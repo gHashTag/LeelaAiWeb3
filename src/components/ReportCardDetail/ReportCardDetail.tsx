@@ -39,7 +39,7 @@ const ReportCardDetail: React.FC<Report> = ({
             <Text
               h={'h3'}
               textStyle={styles.lightText}
-              title={`${formatDate(timestamp)}`}
+              title={formatDate(timestamp)}
               testID="report-card-date"
             />
           </View>
