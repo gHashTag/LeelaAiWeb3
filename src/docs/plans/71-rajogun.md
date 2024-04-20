@@ -2,7 +2,7 @@
 description: Rajoguna is activity in consciousness, or active consciousness. The player who has reached the eighth row, but has failed in his attempt to realize the Cosmic Consciousness, is carried forward by the forces of karma, activity.
 ---
 
-# Plan 71. Rajogun
+# Plan 71. Rajoguna
 
 ---
 
