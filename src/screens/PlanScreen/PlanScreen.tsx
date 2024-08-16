@@ -16,7 +16,6 @@ import {
 import {
   captureException,
   catchRevert,
-  contract,
   contractWithSigner,
   getSystemLanguage,
   navigate,
@@ -72,41 +71,8 @@ const PlanScreen: React.FC<PlanScreenProps> = ({ route }) => {
       console.log('txResponse', txResponse)
       const revert: string = await catchRevert(txResponse.hash)
       console.log('revert', revert)
-      contract.on(
-        'ReportAction',
-        (
-          reportId,
-          actor,
-          avatar,
-          fullName,
-          content,
-          plan,
-          likes,
-          commentCount,
-          isLikedByCurrentUser,
-          timestamp,
-        ) => {
-          setLoading(false)
-          console.log('reportId', reportId.toString())
-          const report = {
-            id: '000',
-            reportId,
-            actor,
-            avatar,
-            fullName,
-            content,
-            plan,
-            likes,
-            commentCount,
-            isLikedByCurrentUser,
-            timestamp: timestamp.toString(),
-          }
 
-          console.log('Событие ReportAction:', report)
-
-          navigate('REPORT_SCREEN', { report })
-        },
-      )
+      navigate('REPORT_SCREEN', { report: data.title })
     } catch (err) {
       if (err instanceof Error) {
         console.log('err', err)
@@ -201,3 +167,38 @@ const styles = StyleSheet.create({
 })
 
 export { PlanScreen }
+
+// contract.on(
+//   'ReportAction',
+//   (
+//     reportId,
+//     actor,
+//     avatar,
+//     fullName,
+//     content,
+//     plan,
+//     likes,
+//     commentCount,
+//     isLikedByCurrentUser,
+//     timestamp,
+//   ) => {
+//     setLoading(false)
+//     console.log('reportId', reportId.toString())
+//     const report = {
+//       id: '000',
+//       reportId,
+//       actor,
+//       avatar,
+//       fullName,
+//       content,
+//       plan,
+//       likes,
+//       commentCount,
+//       isLikedByCurrentUser,
+//       timestamp: timestamp.toString(),
+//     }
+
+//     console.log('Событие ReportAction:', report)
+
+//   },
+// )
